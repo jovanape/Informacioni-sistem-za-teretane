@@ -4,6 +4,8 @@ Informacioni sistem kreiran u okviru kursa Informacioni sistemi na master studij
 ## O projektu:
 Informacioni sistem za teretatnu je kreiran sa ciljem da olakša vođenje evidencije o treninzima, klijentima i plaćanjima u okviru jednog lanca teretana. Posmatra se kroz apsekte potreba 4 vrste registrovanih korisnika (administrator, recepcionar, trener i klijent) i neregistrovanog kosirnika (gost).
 
+https://www.overleaf.com/project/5facfb727bd15b8fa1daf003
+
 ## Autori:
 
 Jana Jovičić 1097/2019
