@@ -17,6 +17,9 @@
 \usepackage{listings}
 \usepackage{subfiles}
 
+\usepackage{tabularx}
+\usepackage{longtable}
+
 %\newtheorem{primer}{Пример}[section] %ćirilični primer
 \newtheorem{primer}{Primer}[section]
 
@@ -75,22 +78,64 @@
 \section{Dijagrami}
 \subfile{sections/dijagrami}
 
+% \begin{center}
+% \begin{tabularx}{\textwidth}{|1|X|}
+% \hline
+%     Kratak opis &  \\ 
+% \hline    
+%     Učesnici & \\
+% \hline
+%   Preduslovi & \\
+% \hline  
+%     Postuslovi & \\
+% \hline
+%     Osnovni tok & \\
+% \hline
+%     Alternativni tokovi & \\
+% \hline
+%     Podtokovi & \\
+% \hline
+%     Specijalni zahtevi & \\
+% \hline
+%     Dodatne informacije & \begin{itemize}
+% \item Prvo korisnik otvara stranicu za registraciju.
+% 	\item Korisnik unosi trazene podatke i kliknuo je na dugme za registraciju.
+% 	\item Sistem vrši validaciju podataka.
+% 	\item Sistem čuva podatke i nalog obeležava kao privremen.
+% 	\item Sistem šalje korisniku mejl sa privremenim linkom za potvrdu i čeka na potvrdu.
+% 	\item Korisnik proverava poštu i potvrđuje registraciju prateći link.
+% 	\item Sistem obeležava nalog kao aktivan.
+% 	\item Sistem obaveštava korisnika da je nalog uspešno sačuvan (napravljen).
+% 	\end{itemize}\\ \hline\\
+% \hline
+    
+% \end{tabularx}
+    
+    
+%\end{center}
+
 \section{Slučajevi upotrebe}
 
-\subsection{Aktivnosti gosta}
-\subfile{sections/gost}
+\subsection{Aktivnosti neregistrovanog korisnika}
+\subsubsection{Registracija korisnika uživo}
+\subfile{sections/uzivo_registracija}
 
 \subsection{Aktivnosti klijenta}
-\subfile{sections/klijent}
+\subsubsection{Plaćanje članarine uživo}
+\subfile{sections/placanje_uzivo}
 
-\subsection{Aktivnosti trenera}
-\subfile{sections/trener}
+\subsubsection{Evidencija dolaska na trening}
+\subfile{sections/evidencija_prisustva}
 
-\subsection{Aktivnosti na recepciji}
-\subfile{sections/recepcija}
+\newpage
+\subsection{Aktivnosti vezane za personalne treninge}
+\subfile{sections/personalni_treninzi}
+
+\subsection{Aktivnosti vezane za grupne treninge}
+
 
 \subsection{Aktivnosti administratora}
-\subfile{sections/admin}
+
 
 
 \end{document}
