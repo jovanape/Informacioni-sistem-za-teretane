@@ -1,0 +1,48 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\begin{center}
+\begin{tabularx}{\textwidth}{|1|X|}
+\hline
+    Kratak opis &  Klijent dolazi na zakazan trening u teretanu. Predaje svoju člansku kartu recepcionaru i odlazi na trening. Recepcionar očitava dolazak i sistem se ažurira.\\ 
+\hline    
+    Učesnici & \begin{enumerate}
+        \item Klijent –Želi da brzo uđe na trening, bez čekanja.
+        \item Recepcionar – Želi da brzo i efikasno zabeleži sve klijente koji su došli, kao i da u sistemu uvek bude ispravan broj dolazaka.   
+     \end{enumerate}\\
+\hline
+   Preduslovi & \begin{enumerate}
+       \item Sistem je u funkciji.
+       \item Klijent ima uplaćenu odgovarajuću članarinu.
+       \item Klijent ima zakazan trening.
+   \end{enumerate}\\
+\hline  
+    Postuslovi & \begin{enumerate}
+        \item Ažurirani su podaci o dolascima korisnika na njegovom profilu.
+        \item Ažurirana je posećenost odgovarajućeg treninga.
+    \end{enumerate}\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Klijent dolazi na recepciju i predaje svoju člansku kartu.
+        \item Recepcionar unosi broj članske karte u deo sistema za evidenciju dolazaka.
+        \item Sistem izlistava zakazane i uplaćene treninge klijenta.
+        \item Recepcionar obeležava trening na koji je klijent došao. Pritiska dugme „Potvrdi dolazak“.
+        \item Sistem čuva izmenu. Obaveštava da je sačuvana izmena.
+        \item Recepcionar obaveštava klijenta da je evidentiran dolazak.
+        \item Klijent odlazi na trening.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & \begin{itemize}
+        \item[A1] Klijent nije poneo člansku kartu: Recepcionar pita klijenta za korisničko ime ili e-mail. Klijent saopštava korisničko ime ili userneme. Slučaj se nastavlja na koraku 3.
+        \item[A3] Klijent nema zakazanih i uplaćenih treninga: Recepcionar saopštava klijentu da nema zakazan trening. Klijent odlazi. Slučaj prestaje ovde.
+        \item[A5]Sistem je zakazao: Recepcionar zapisuje dolazak na papir da bi ga naknadno uneo. Slučaj se nastavlja na koraku 7.
+    \end{itemize}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+\end{tabularx}
+\end{center}    
+\end{document}
