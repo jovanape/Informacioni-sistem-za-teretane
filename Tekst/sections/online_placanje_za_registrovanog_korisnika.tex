@@ -1,13 +1,15 @@
 \documentclass[../main.tex]{subfiles}
 
+\usepackage{longtable}
+\usepackage{lipsum} % just for dummy text- not needed for a longtable
 
 \begin{document}
-\begin{center}
-\caption{Online plaćanje za registrovanog korisnika}
-\begin{tabularx}{\textwidth}{|1|X|}
-%\begin{longtable}[c]{|c|c|}
+%\lipsum[1]
 
-
+%\begin{table}[h] 
+%\centering
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+%\caption{Online plaćanje za registrovanog korisnika}
 \hline
     Kratak opis & Korisnik vrši online plaćanje usluga teretane tako što popunjava formular odgovarajućim podacima. Vrši se validacija podataka i korisnik dobija informaciju o uspešnosti akcije.\\ 
 \hline    
@@ -54,7 +56,11 @@
 \hline
     Dodatne informacije & Potrebni podaci za online uplatu su: broj kartice korisnika, datum isteka kartice i CVV kod kartice. \\
 \hline
-\end{tabularx}
-%\end{longtable}
-\end{center}    
+\caption{Online plaćanje za registrovanog korisnika} % needs to go inside longtable environment
+\label{tab:myfirstlongtable}
+\end{longtable}
+%\end{table} 
+
+%Table \ref{tab:myfirstlongtable} shows my first longtable.
+
 \end{document}
