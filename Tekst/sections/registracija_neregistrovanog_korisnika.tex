@@ -1,0 +1,39 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\begin{center}
+\caption{Registracija neregistrovanog korisnika}
+\begin{tabularx}{\textwidth}{|1|X|}
+\hline
+    Kratak opis & Korisnik vrši registraciju tako što popunjava formular. Nakon toga sistem vrši validaciju podataka, registruje korisnika i vraća potvrdu korisniku.\\ \hline
+    Učesnici & Neregistrovani korisnik koji želi da se registruje kako bi mogao da koristi usluge sistema. \\
+\hline
+   Preduslovi & Korisnik ima pristup internetu. Sistem je u funkciji (dostupan). \\
+\hline  
+    Postuslovi & Korisnik je uspešno registrovan i ima pristup sistemu. Baza je ažurirana (u samom sistemu). \\
+\hline
+    Osnovni tok & \begin{itemize} \item Prvo korisnik otvara stranicu za registraciju.
+	\item Korisnik unosi tražene podatke i kliknuo je na dugme za registraciju.
+	\item Sistem vrši validaciju podataka.
+	\item Sistem čuva podatke i nalog obeležava kao privremen.
+	\item Sistem šalje korisniku mejl sa privremenim linkom za potvrdu i čeka na potvrdu.
+	\item Korisnik proverava poštu i potvrđuje registraciju prateći link.
+	\item Sistem obeležava nalog kao aktivan.
+	\item Sistem obaveštava korisnika da je nalog uspešno sačuvan (napravljen).\end{itemize}\\
+\hline
+    Alternativni tokovi & A3 - Neuspesna validacija podataka: Sistem obavestava korisnika da su podaci neispravni. Proces se nastavlja u koraku 2.\newline
+    A5 - Link za registraciju je istekao: Korisnik nije potvrdio registraciju. Sistem brise nalog. Proces se zavrsava (nema smisla vracati se na neki korak kad korisnik nije uradio sve kako je trebalo; on moze ponovo da otpocne ovaj slucaj upotrebe i da kaze ok ja cu sad ponovo da otvorim stranicu za registraciju i da otpocnem proces iz pocetka).\newline
+    A6 - Email nije stigao korisniku: Korisnik obavestava sistem da mu ponovo posalje mejl. Slucaj se nastavlja u koraku 5.\\
+\hline
+    Podtokovi & / \\
+\hline
+    Specijalni zahtevi & / \\
+\hline
+    Dodatne informacije & Potrebni podaci za registraciju su korisnicko ime, lozinka, ponavljanje lozinke, ime, prezime, email. \\
+\hline
+    
+\end{tabularx}
+\end{center}
+
+\end{document}
