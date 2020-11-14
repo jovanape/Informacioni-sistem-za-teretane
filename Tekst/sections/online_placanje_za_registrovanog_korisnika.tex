@@ -1,0 +1,60 @@
+\documentclass[../main.tex]{subfiles}
+
+
+\begin{document}
+\begin{center}
+\caption{Online plaćanje za registrovanog korisnika}
+\begin{tabularx}{\textwidth}{|1|X|}
+%\begin{longtable}[c]{|c|c|}
+
+
+\hline
+    Kratak opis & Korisnik vrši online plaćanje usluga teretane tako što popunjava formular odgovarajućim podacima. Vrši se validacija podataka i korisnik dobija informaciju o uspešnosti akcije.\\ 
+\hline    
+    Učesnici & Korisnik koji Želi da plati za usluge teretane (članarinu) online.\\
+\hline
+   Preduslovi & \begin{enumerate}
+       \item Korisnik ima pristup internetu.
+       \item Sistem je u funkciji (dostupan).
+       \item Korisnik je član teretane i registrovan je.
+       \item Korisnik poseduje platnu karticu koja ima mogućnost online plaćanja (plaćanja preko interneta).
+   \end{enumerate}\\
+\hline  
+    Postuslovi & \begin{enumerate}
+        \item Novac sa računa korisnika je uspesno prebačen na račun sportskog kluba.
+		\item Korisnik je dobio potvrdu o uspešno izvršenoj uplati. %TODO Da li treba obuhvatiti i negativan slucaj?
+        \item Baza podataka je ažurirana.
+    \end{enumerate}\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Korisnik se prijavljuje na sistem.
+ 		\item Korisnik odlazi na stranicu za online plaćanje.
+ 		\item Korisnik bira vrstu usluge koju želi da plati.
+		\begin{itemize}
+			\item Korisnik je izabrao uslugu "samostalni trening".
+			\item Korisnik je izabrao uslugu "personalni trening".
+		\end{itemize}
+		\item Korisnik bira broj termina usluge koju želi da plati. %TODO Kakve sve vrste termina postoje?
+ 		\item Cena se izračunava i prikazuje korisniku. %TODO sistem racuna cenu
+		\item Korisnik unosi potrebne podatke i izvršava plaćanje klikom na dugme za potvrdu plaćanja.
+		\item Proveravaju se uneti podaci i raspoloživa sredstva korisnika. Uspešna realizacija plaćanja o čemu se korisnik obaveštava.
+		\item Ažurira se baza podataka. %TODO Ili azuriraju se info u sistemu. %TODO Da li ce korisnik imati svoj profil pa da tu budu sve info sta je platio i to?
+%TODO Mozda da postoji opcija za stampanje uplatnice kao neki dokaz o uplati?     
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi &
+       		A6 - Korisnik bira opciju za otkazivanje plaćanja: Slučaj upotrebe se završava.
+        	A7 - Podaci koje je korisnik uneo nisu validni:  Sistem nije uspeo da nastavi proces plaćanja. Slučaj se nastavlja od koraka 3.
+        	A7 - Korisnik nema dovoljno sredstava na računu: Korisniku se pruža prilika da unese broj (i ostale parametre) druge platne kartice (ukoliko takvu poseduje) i da sa njom pokuša plaćanje ili da smanji broj termina, odnosno odabere neku jeftiniju opciju treniranja. Slučaj se nastavlja na koraku 3.
+        	A7 - Problem pri povezivanju sistema i banke: Korisnik se obavestava o situaciji i poziva da pokuša ponovo plaćanje. Slučaj se nastavlja u koraku 3.\\
+\hline
+    Podtokovi & / \\
+\hline
+    Specijalni zahtevi & / \\
+\hline
+    Dodatne informacije & Potrebni podaci za online uplatu su: broj kartice korisnika, datum isteka kartice i CVV kod kartice. \\
+\hline
+\end{tabularx}
+%\end{longtable}
+\end{center}    
+\end{document}
