@@ -1,0 +1,64 @@
+\documentclass[../main.tex]{subfiles}
+
+\usepackage{longtable}
+\usepackage{lipsum} % just for dummy text- not needed for a longtable
+
+\begin{document}
+
+
+%\begin{center}
+%\begin{tabularx}{\textwidth}{|1|X|}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+
+\hline
+    Kratak opis &  Administrator upisuje novog zaposlenog u sistem. Popunjava formular i unosi lične podatke o tom zaposlenom. Podaci se validiraju i dobija se povratna informacija o uspehu registracije.\\ 
+\hline    
+    Učesnici & 
+    	\begin{enumerate}
+        \item Administrator - želi da doda novog zaposlenog na sistem.
+     \end{enumerate}\\
+\hline
+   Preduslovi & \begin{enumerate}
+       \item Sistem je u funkciji.
+       \item Administrator ima sve potrebne informacije o novom zaposlenom.
+   \end{enumerate}\\
+\hline  
+    Postuslovi & \begin{enumerate}
+        \item Novi zaposleni je uspešno registrovan i ima pristup sistemu.
+        \item Baza podataka je ažurirana.
+    \end{enumerate}\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Administrator određuje ulogu novog zaposlenog: 
+            \begin{itemize}
+                \item[a)] trener
+                \item[a)] recepcioner
+            \end{itemize}
+        \item Administrator popunjava formu za unos podataka o novom zaposlenom.	
+        \item Nakon što su popunjena sva polja, bira opciju „Registruj zaposlenog“.
+        \item Sistem vrši validaciju podataka.
+        \item Sistem čuva unete podatke.
+        \item Sistem šalje email novom zaposlenom sa linkom za potvrdu i čeka tu potvrdu.
+        \item Novi radnik potvrđuje registraciju prateći link.
+        \item Sistem obaveštava administratora da je zaposleni uspešno dodat.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & \begin{itemize}
+        \item[A4] Neuspešna validacija podataka: Administrator obaveštava o ovome zaposlenog da bi dobio ispravne podatke. Slučaj upotrebe se nastavlja na koraku 2.
+        \item[A6] Link za registraciju je istekao: Sistem briše nalog. Proces se završava.
+        \item[A7] Mejl nije stigao zaposlenom: Administrator zahteva od sistema da ponovo pošalje email. Slučaj upotrebe se nastavlja na koraku 6.
+
+    \end{itemize}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & Potrebni podaci za registraciju su korisnicko ime, ime, prezime, datum rodjenja, jmbg, adresa, telefon, email.\\
+\hline
+%\end{tabularx}
+\caption{Registracija novog zaposlenog} % needs to go inside longtable environment
+%\label{tab:myfirstlongtable}
+\end{longtable}
+%\end{center}  
+\end{document}
