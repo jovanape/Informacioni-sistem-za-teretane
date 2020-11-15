@@ -1,11 +1,14 @@
 \documentclass[../main.tex]{subfiles}
 
+\usepackage{longtable}
+\usepackage{lipsum} % just for dummy text- not needed for a longtable
 
 \begin{document}
-\begin{center}
-\begin{tabularx}{\textwidth}{|1|X|}
-%\begin{longtable}[c]{|c|c|}
 
+
+%\begin{center}
+%\begin{tabularx}{\textwidth}{|1|X|}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
 
 \hline
     Kratak opis &  Korisnik vrši plaćanje treninga u teretani uz pomoć recepcionara tako što daje osnovne informacije, bira vrstu usluga i izjašnjava se za način plaćanja. Vrši se provera podataka, unose se izmene u sistem i korisnik dobija povratnu informaciju o uspešnosti plaćanja.\\ 
@@ -83,7 +86,9 @@
 \hline
     Dodatne informacije & /\\
 \hline
-\end{tabularx}
-%\end{longtable}
-\end{center}    
+%\end{tabularx}
+\caption{Plaćanje uživo za registrovanog korisnika} % needs to go inside longtable environment
+%\label{tab:myfirstlongtable}
+\end{longtable}
+%\end{center}  
 \end{document}

@@ -1,7 +1,12 @@
 \documentclass[../main.tex]{subfiles}
+
+\usepackage{longtable}
+\usepackage{lipsum} % just for dummy text- not needed for a longtable
+
 \begin{document}
-\begin{center}
-\begin{tabularx}{\textwidth}{|1|X|}
+%\begin{center}
+%\begin{tabularx}{\textwidth}{|1|X|}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
 \hline
     Kratak opis &  Korisnik postaje član teretane tako što uz pomoć recepcionara popunjava formular sa ličnim podacima. Podaci se validiraju i korisnik dobija povratnu informaciju o uspehu registracije.\\ 
 \hline    
@@ -42,8 +47,12 @@
 \hline
     Dodatne informacije & Formular za registraciju od podataka zahteva: korisničko ime, ime, prezime, e-mail, broj telefona, lozinku, polje za proveru lozinke.\\
 \hline
-\end{tabularx}
-\end{center}    
+%\end{tabularx}
+%\end{center}    
+\caption{Registracija uživo za registrovanog korisnika} % needs to go inside longtable environment
+%\label{tab:myfirstlongtable}
+\end{longtable}
+
 
 \begin{figure}[!ht]
 \begin{center}

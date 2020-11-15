@@ -1,7 +1,11 @@
 \documentclass[../main.tex]{subfiles}
+\usepackage{longtable}
+\usepackage{lipsum} % just for dummy text- not needed for a longtable
+
 \begin{document}
-\begin{center}
-\begin{tabularx}{\textwidth}{|1|X|}
+%\begin{center}
+%\begin{tabularx}{\textwidth}{|1|X|}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
 \hline
     Kratak opis &  Klijent dolazi na zakazan trening u teretanu. Predaje svoju člansku kartu recepcionaru i odlazi na trening. Recepcionar očitava dolazak i sistem se ažurira.\\ 
 \hline    
@@ -43,8 +47,12 @@
 \hline
     Dodatne informacije & /\\
 \hline
-\end{tabularx}
-\end{center}    
+%\end{tabularx}
+%\end{center}    
+\caption{Evidencija prisustva} % needs to go inside longtable environment
+%\label{tab:myfirstlongtable}
+\end{longtable}
+ 
 
 \begin{figure}[!ht]
 \begin{center}
