@@ -1,0 +1,50 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+%\begin{center}
+%\begin{tabularx}{\textwidth}{|1|X|}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+
+\hline
+    Kratak opis &  Administrator unosi novu vrstu treninga na sistem.\\ 
+\hline    
+    Učesnici & 
+    	\begin{enumerate}
+        \item Administrator - želi da doda novu vrstu treninga na sistem.
+     \end{enumerate}\\
+\hline
+   Preduslovi & \begin{enumerate}
+       \item Sistem je u funkciji.
+       \item Administrator ima sve potrebne informacije o novoj vrsti treninga.
+   \end{enumerate}\\
+\hline  
+    Postuslovi & \begin{enumerate}
+        \item Nova vrsta treninga je uspešno dodata u sistem.
+        \item Treneri su u mogućnosti da zakazuju treninge ove vrste.
+    \end{enumerate}\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Administrator bira opciju za dodavanje nove vrste treninga.
+        \item Administrator popunjava formu za unos podataka o vsti novog treninga.
+        \item Nakon što su popunjena sva polja, bira opciju „Dodaj vrstu treninga“.
+        \item Sistem unosi unete podatke o novoj vrsti treninga u bazu.
+        \item Sistem obaveštava administratora da li je nova vrsta treninga uspešno dodata.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & \begin{itemize}
+        \item[A4]  Sistem nije u mogućnosti da doda novu vrstu treninga. Tada on obaveštava administratora o neuspehu. Slučaj upotrebe se završava.
+
+    \end{itemize}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & Potrebni podaci za novu vrstu treninga su tip(fitness, body building, joga,..), indikacija da li je grupni ili personalizovani, cena, .\\
+\hline
+%\end{tabularx}
+\caption{Dodavanje nove vrste treninga} % needs to go inside longtable environment
+%\label{tab:myfirstlongtable}
+\end{longtable}
+%\end{center}  
+\end{document} 
