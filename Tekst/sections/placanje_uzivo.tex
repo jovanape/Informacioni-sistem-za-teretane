@@ -11,44 +11,43 @@
 \begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
 
 \hline
-    Kratak opis &  Korisnik vrši plaćanje treninga u teretani uz pomoć recepcionara tako što daje osnovne informacije, bira vrstu usluga i izjašnjava se za način plaćanja. Vrši se provera podataka, unose se izmene u sistem i korisnik dobija povratnu informaciju o uspešnosti plaćanja.\\ 
+    Kratak opis &  Klijent vrši plaćanje treninga u teretani uz pomoć recepcionara tako što daje osnovne informacije, bira vrstu usluga i izjašnjava se za način plaćanja. Vrši se provera podataka, unose se izmene u sistem i klijent dobija povratnu informaciju o uspešnosti plaćanja.\\ 
 \hline    
     Učesnici & 
     	\begin{enumerate}
-        \item Korisnik - Želi da plati članarinu. 
+        \item Klijent - Želi da plati članarinu. 
         \item Recepcionar
      \end{enumerate}\\
 \hline
    Preduslovi & \begin{enumerate}
        \item Sistem je u funkciji.
-       \item Korisnik je član teretane.
        \item Recepcionar ima pristup sistemu.
-       \item Ukoliko korisnik plaća karticom POS sistem je u fukciji.
+       \item Ukoliko klijent plaća karticom POS sistem je u fukciji.
        \item Veza sa bankom je u funkciji (ukoliko se plaća karticom).	
    \end{enumerate}\\
 \hline  
     Postuslovi & \begin{enumerate}
-        \item Korisniku je dobio potvrdu o uplati.
+        \item Klijent je dobio potvrdu o uplati.
         \item Baza podataka je ažurirana.
     \end{enumerate}\\
 \hline
     Osnovni tok & \begin{enumerate}
-        \item Korisnik dolazi na recepciju i izjašnjava se da želi da plati članarinu.
-        \item Recepcionar traži od korisnika člansku kartu, korisničko ime ili e-mail adresu.	
-        \item Korisnik daje recepcionaru člansku kartu, korisničko ime ili e-mail adresu.
-        \item Recepcionar u sistemu vrši pretragu korisnika na osnovu broja članske karte, korisničkog imena ili e-mail adrese.
-        \item Sistem otvara podatke za pronađenog korisnika.
-        \item Recepcionar bira opciju „Unesi uplatu“. Pita korisnika koje usluge hoće da plati.
-        \item Korisnik se izjašnjava za usluge koje želi.
+        \item Klijent dolazi na recepciju i izjašnjava se da želi da plati članarinu.
+        \item Recepcionar traži od klijenta člansku kartu, korisničko ime ili e-mail adresu.	
+        \item Klijent daje recepcionaru člansku kartu, korisničko ime ili e-mail adresu.
+        \item Recepcionar u sistemu vrši pretragu klijenta na osnovu broja članske karte, korisničkog imena ili e-mail adrese.
+        \item Sistem otvara podatke za pronađenog klijenta.
+        \item Recepcionar bira opciju „Unesi uplatu“. Pita klijenta koje usluge hoće da plati.
+        \item Klijent se izjašnjava za usluge koje želi.
         \item Recepcionar obeležava izabrane usluge.
         \item Sistem ispisuje ukupnu cenu usluga.
-        \item Recepcionar saopštava korisniku cenu.
-        \item Korisnik vrši plaćanje.
+        \item Recepcionar saopštava klijentu cenu.
+        \item Klijent vrši plaćanje.
         \item Recepcionar zaključuje plaćanje.
         \item Sistem čuva promene i obaveštava da je nalog ažuriran.
         \item Sistem štampa račun.
-        \item Recepcionar obaveštava korisnika da je uspešno uplaćena članarina i daje mu račun.
-        \item Kupac odlazi sa računom.
+        \item Recepcionar obaveštava klijenta da je uspešno uplaćena članarina i daje mu račun.
+        \item Klijent odlazi sa računom.
     \end{enumerate}\\
 \hline
     Alternativni tokovi & \begin{itemize}
@@ -57,17 +56,18 @@
             \item Sistem rekonstruiše stanje koje je bilo.
             \item Recepcionar započinje proces plaćanja iz početka.
         \end{enumerate}
-        \item[A5] Sistem registruje pogrešan br. članske karte, korisničko ime ili e-mail:  Sistem nije uspeo da pronađe korisnika. Slučaj se nastavlja od koraka 2.
-        \item[A10.1] Korisnik se predomislio oko usluga: Korisnik obaveštava recepcionara da želi da promeni izbor. Slučaj se nastavlja na koraku 7.
-        \item[A10.2] Korisnik odustaje od uplate: Korisnik obaveštava recepcionara da odustaje od uplate. Recepcionar bira opciju „Odustani od izmena“. Korisnik odlazi. Slučaj se ovde završava.
-        \item[A11.1] Korisnik nema dovoljno sredstava za plaćanje: Ukoliko je u koraku 11 izabran način plaćanja za koji korisnik nema sredstava bira se alternativni način plaćanja. Slučaj se nastavlja na koraku 11.
-        \item[A11.2] Veza sa bankom nije uspostavljena: Ukoliko je u koraku 11 izabrano plaćanje karticom i veza sa bankom ne može da se uspostavi recepcionar obaveštava korisnika da mora da plati u gotovini. Slučaj se nastavlja u koraku 11.
+        \item[A5] Sistem registruje pogrešan br. članske karte, korisničko ime ili e-mail:  Sistem nije uspeo da pronađe klijenta. Slučaj se nastavlja na koraku 2.
+        \item[A10.1] Klijent se predomislio oko usluga: Klijent obaveštava recepcionara da želi da promeni izbor. Slučaj se nastavlja na koraku 7.
+        \item[A10.2] Klijent odustaje od uplate: Klijent obaveštava recepcionara da odustaje od uplate. Recepcionar bira opciju „Odustani od izmena“. Klijent odlazi. Slučaj se ovde završava.
+        \item[A11.1] Klijent nema dovoljno sredstava za plaćanje: Ukoliko je u koraku 11 izabran način plaćanja za koji klijent nema sredstava bira se alternativni način plaćanja. Slučaj se nastavlja na koraku 11.
+        \item[A11.2] Veza sa bankom nije uspostavljena: Ukoliko je u koraku 11 izabrano plaćanje karticom i veza sa bankom ne može da se uspostavi recepcionar obaveštava klijenta da mora da plati u gotovini. Slučaj se nastavlja u koraku 11.
     \end{itemize}\\
 \hline
     Podtokovi & \begin{itemize}
         \item[11.1] Plaćanje gotovinom \begin{enumerate}
-            \item Korisnik predaje recepcionaru novac.
-            \item Recepcionar prebrojava novac.
+            \item Klijent predaje recepcionaru novac.
+            \item Recepcionar prebrojava novac i unosi sumu u sistem.
+            \item Sistem ispisuje koliki je kusur.
             \item Recepcionar vraća kusur, ukoliko ga ima.
         \end{enumerate} 
         \item[11.2] Plaćanje karticom \begin{enumerate}
@@ -78,7 +78,7 @@
             \item Kupac unosi pin kod.
             \item Sistem proverava informacije.
             \item Sistem beleži informacije o uplati.
-            \item Blagajnik vraća karticu Klijentu.	
+            \item Recepcionar vraća karticu klijentu.	
         \end{enumerate}
     \end{itemize}\\
 \hline
@@ -87,7 +87,7 @@
     Dodatne informacije & /\\
 \hline
 %\end{tabularx}
-\caption{Plaćanje uživo za registrovanog korisnika} % needs to go inside longtable environment
+\caption{Plaćanje uživo za registrovanog klijenta} % needs to go inside longtable environment
 %\label{tab:myfirstlongtable}
 \end{longtable}
 %\end{center}  
