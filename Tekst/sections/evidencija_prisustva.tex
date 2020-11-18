@@ -7,10 +7,10 @@
 %\begin{tabularx}{\textwidth}{|1|X|}
 \begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
 \hline
-    Kratak opis &  Klijent dolazi na zakazan trening u teretanu. Predaje svoju člansku kartu recepcionaru i odlazi na trening. Recepcionar očitava dolazak i sistem se ažurira.\\ 
+    Kratak opis &  Klijent dolazi na zakazan trening u teretanu. Predaje svoju člansku kartu recepcionaru i odlazi na trening. Recepcionar unosi dolazak i sistem se ažurira.\\ 
 \hline    
     Učesnici & \begin{enumerate}
-        \item Klijent –Želi da brzo uđe na trening, bez čekanja.
+        \item Klijent – Želi da brzo uđe na trening, bez čekanja.
         \item Recepcionar – Želi da brzo i efikasno zabeleži sve klijente koji su došli, kao i da u sistemu uvek bude ispravan broj dolazaka.   
      \end{enumerate}\\
 \hline
@@ -36,9 +36,10 @@
     \end{enumerate}\\
 \hline
     Alternativni tokovi & \begin{itemize}
-        \item[A1] Klijent nije poneo člansku kartu: Recepcionar pita klijenta za korisničko ime ili e-mail. Klijent saopštava korisničko ime ili userneme. Slučaj se nastavlja na koraku 3.
-        \item[A3] Klijent nema zakazanih i uplaćenih treninga: Recepcionar saopštava klijentu da nema zakazan trening. Klijent odlazi. Slučaj prestaje ovde.
-        \item[A5]Sistem je zakazao: Recepcionar zapisuje dolazak na papir da bi ga naknadno uneo. Slučaj se nastavlja na koraku 7.
+        \item[A1] Klijent nije poneo člansku kartu: Recepcionar pita klijenta za korisničko ime ili e-mail. Klijent saopštava korisničko ime ili e-mail. Slučaj se nastavlja na koraku 3.
+        \item[A3.1] Klijent nema uplaćen trening: Recepcionar saopštava klijentu da nema uplaćen trening. Prelazi se na slučaj upotrebe \textit{Plaćanje članarine uživo}.
+        \item[A3.2] Klijent nema zakazan trening: Recepcionar saopštava klijentu da nema zakazan trening i vraća mu člansku kartu. Klijent odlazi. Slučaj upotrebe prestaje ovde. 
+        \item[A5] Pad sistema: Recepcionar zapisuje dolazak na papir da bi ga naknadno uneo. Slučaj se nastavlja na koraku 7.
     \end{itemize}\\
 \hline
     Podtokovi & /\\
@@ -53,7 +54,7 @@
 %\label{tab:myfirstlongtable}
 \end{longtable}
  
-
+%TODO: Izmeniti dijagram na osnovu alternativnog toka A3.
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[scale=0.55]{sections/images/dijagram_aktivnosti_evidencije_prisustva.jpg}
