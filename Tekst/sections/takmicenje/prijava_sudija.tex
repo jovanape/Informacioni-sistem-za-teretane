@@ -1,0 +1,43 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+\hline
+    Kratak opis & Nakon kreiranog takmičenja treneri imaju opciju da budu sudije na takmičenju. Online trener vrši prijavu da sudi. \\ 
+\hline    
+    Učesnici & Trener - želi da se prijavi da bude sudija na takmičenju.\\
+\hline
+   Preduslovi & \begin{enumerate}
+       \item Trener se nije već prijavio da sudi.
+       \item Sistem se u funkciji.
+   \end{enumerate}\\
+\hline  
+    Postuslovi & \begin{enumerate}
+        \item Baza podataka je ažurirana.
+        \item Trener je sudija na takmičenju.
+    \end{enumerate}\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Trener u sistemu bira opciju "Takmičenja" i pored takmičenja na kom želi da sudi pritiska dugme "Prijavi se".
+        \item Sistem prikazuje treneru spisak disciplina na kojima može da sudi.
+        \item Trener bira discipline koje želi i pritiska dugme "Prijavi se".
+        \item Sistem obrađuje podatke i obaveštava trenera da je prijava uspešna.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & \begin{itemize}
+        \item[A1] Pad sistema: Ukoliko u bilo kom koraku dođe do pada sistema trener se ponovo uloguje i nastavlja se slučaj od koraka 1.
+        \item[A3] U međuvremenu je popunjeno neko mesto: Sistem obaveštava trenera da je došlo do popunjenosti za određeno mesto. Slučaj se nastavlja na koraku 2.
+    \end{itemize}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+\caption{Prijava za sudiju na takmičenju} % needs to go inside longtable environment    
+\end{longtable}
+
+
+\end{document}
