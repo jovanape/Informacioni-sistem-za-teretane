@@ -1,0 +1,58 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+\hline
+    Kratak opis & Klijent želi da se prijavi za program obuke kako bi dobio licencu za trenera.  \\ 
+\hline    
+    Učesnici &
+    \begin{enumerate}
+        \item Klijent
+    \end{enumerate}\\
+\hline
+   Preduslovi &
+   \begin{enumerate}
+        \item Sistem je u funkciji
+        \item Klijent je registrovan (tj. član je teretane)
+        \item Klijent je prijavljen na sistem
+    \end{enumerate}\\
+\hline  
+    Postuslovi & 
+    \begin{enumerate}
+        \item Klijent je prijavljen za program obuke
+    \end{enumerate} \\
+\hline
+    Osnovni tok & 
+    \begin{enumerate}
+        \item Klijent odlazi na stranicu posvećenu programima obuka.
+        \item Bira program koji želi da pohađa.
+        \item Čita informacije o tom programu kao i o tome koju je dokumentaciju potrebno priložiti prilikom prijave.
+        \item Bira opciju 'Prijavi se'.
+        \item Sistem prikazuje formular koji klijent treba da popuni.
+        \item Klijent popunjava formular - unosi svoje informacije i prilaže skenirana dokumenta.
+        \item Klijent bira opciju za slanje formulara.
+        \item Sistem proverava unete podatke.
+        \item Sistem šalje potvrdu da je njegova prijava uspešno sačuvana.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & 
+    \begin{itemize}
+        \item[A8] Klijent nije uneo sve potrebne podatke. Sistem ga obaveštava o tome i klijent dopunjava formular. Slučaj upotrebe se vraća na korak 7.
+    \end{itemize} \\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije &
+    \begin{enumerate}
+        \item Informacije koje klijent unosi u formular su ime, prezime, broj članske karte, gde je i koliko dugo trenirao pre nego što je došao u ovu teretanu i slično.
+        \item Dokumenta koje klijent prilaže mogu npr. biti: potvrde da je osvojio nagrade na nekim takmičenjima; potvrda o tome koliko dugo je član ove teretane; ukoliko je pre trenirao na nekom drugom mestu, potvrda o tome koliko dugo je trenirao tamo i slično
+    \end{enumerate}\\
+\hline
+\caption{Online prijava za program obuke}
+\end{longtable}
+
+\end{document}
