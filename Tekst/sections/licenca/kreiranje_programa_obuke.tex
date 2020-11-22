@@ -1,0 +1,59 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+\hline
+    Kratak opis & Administrator kreira program obuke za dobijanje licence trenera: uslove upisa na program, potrebnu dokumentaciju, sam sadržaj obuke kao i ispite koje je potrebno položiti.  \\ 
+\hline    
+    Učesnici &
+    \begin{enumerate}
+        \item Administrator
+    \end{enumerate}\\
+\hline
+   Preduslovi &
+   \begin{enumerate}
+        \item Sistem je u funkciji
+        \item Administrator je prijavljen na sistem
+    \end{enumerate}\\
+\hline  
+    Postuslovi & 
+    \begin{enumerate}
+        \item Kreiran je program obuke i sve potrebne informacije su vidljive na sajtu teretane
+    \end{enumerate} \\
+\hline
+    Osnovni tok & 
+    \begin{enumerate}
+        \item Administrator odlazi na stranicu posvećenu obukama za licence.
+        \item Administrator bira opciju za dodavanje novog programa obuke.
+        \item Otvara se formular za unos potrebnih informacija 
+        \item Administrator unosi uslove za prijavu na program obuke.
+        \item Administrator unosi koju je sve dokumentaciju potrebno priložiti prilikom prijave na obuku.
+        \item Administrator unosi detalje programa obuke.
+        \item Administrator unosi informacije o ispitima koje je potrebno položiti za dobijanje licence.
+        \item Administrator bira opciju za potvrdu unetih informacija.
+        \item Sistem proverava da li su popunjena sva polja.
+        \item Sistem ažurira stranicu posvećenu obukama za licencu.
+        \item Sistem obaveštava administratora o uspešnosti akcije.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & 
+    \begin{itemize}
+        \item[A8] Administrator nije uneo sve potrebne informacije tj. popunio sva polja. Sistem ga obaveštava koja polja nije popunio. Formular ostaje otvoren i administrator može da popuni preostala polja. Slučaj upotrebe se nastavlja u koraku 8.
+    \end{itemize} \\
+\hline
+    Podtokovi & \\
+\hline
+    Specijalni zahtevi & \\
+\hline
+    Dodatne informacije &
+    \begin{enumerate}
+        \item Uslovi za prijavu na program mogu biti npr. koliko dugo je klijent trenirao, da li ima neke uspehe na takmičenjima i slično. 
+        \item Detalji programa obuke mogu npr. da obuhvataju dužinu trajanja obuke, broj časova teorijske i praktične nastave, informacije o tome šta se radi na tim časovima i slično.
+    \end{enumerate}\\
+\hline
+\caption{Kreiranje programa obuke}
+\end{longtable}
+
+\end{document}
