@@ -1,0 +1,47 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+\hline
+    Kratak opis & Administrator unosi rezultate ispita i spisak dobijenih licenci. Sistem ažurira stranice svih kandidata tako što u delu koji je posvećen obukama unosi rezultate ispita kao i to da li su dobili licencu ili ne. \\ 
+\hline    
+    Učesnici &
+    \begin{enumerate}
+        \item Administrator
+    \end{enumerate}\\
+\hline
+   Preduslovi &
+   \begin{enumerate}
+        \item Sistem je u funkciji.
+        \item Administrator je prijavljen na sistem.
+        \item Program obuke je završen.
+        \item Ispiti su održani i komisija ih je ocenila.
+    \end{enumerate}\\
+\hline  
+    Postuslovi & 
+    \begin{enumerate}
+        \item Svaki klijent je dobio informaciju o svojim rezultatima ispita i informaciju o tome da li je dobio licencu.
+    \end{enumerate} \\
+\hline
+    Osnovni tok & 
+    \begin{enumerate}
+        \item Administrator u sistem unosi sledeće informacije: ime i prezime svakog člana koji je pohađao obuku, broj njihove članske karte, rezultate ispita i informaciju o tome da li su dobili licencu.
+        \item Sistem ažurira stranice tih članova tako što u delu koji je posvećen obukama unosi rezultate ispita i informaciju o tome da li su dobili licencu.
+        \item Ako je klijent dobio licencu, sistem ga obaveštava da je može podići u teretani u kojoj je održana obuka.
+        \item Sistem obaveštava administratora da su svi klijenti koji su učestvovali u obuci informisani o rezultatima.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & / \\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+\caption{Objava rezultata ispita i izdatih licenci}
+\end{longtable}
+
+\end{document}
