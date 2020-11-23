@@ -1,0 +1,45 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+\hline
+    Kratak opis & Klijent u sistemu bira takmičenje na koje želi da se prijavi. Bira discipline i vrši uplatu. Dobija povratnu informaciju kada sistem prihvati prijavu. \\ 
+\hline    
+    Učesnici & Klijent - želi da se brzo prijavi da učestvuje u takmičenju.\\
+\hline
+   Preduslovi & \begin{enumerate}
+       \item Klijent se nije već prijavio na takmičenje.
+       \item Sistem se u funkciji.
+   \end{enumerate}\\
+\hline  
+    Postuslovi & \begin{enumerate}
+        \item Baza podataka je ažurirana.
+        \item Klijent je prijavljen na takmičenje.
+    \end{enumerate}\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Klijent u sistemu bira opciju "Takmičenja" i pored takmičenja na kom želi da učestvuje pritiska dugme "Prijavi se".
+        \item Sistem prikazuje klijentu spisak disciplina na kojima može da se takmiči.
+        \item Klijent bira discipline koje želi i pritiska dugme "Nastavi".
+        \item Sistem prikazuje cenu participacije i formular za plaćanje.
+        \item Klijent unosi podatke za plaćanje. Prisitka dugme "Plati participaciju".
+        \item Sistem obrađuje uplatu. Sistem obaveštava klijenta da se uspešno prijavio i prikazuje mu registracioni broj.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & \begin{itemize}
+        \item[A1] Pad sistema: Ukoliko u bilo kom koraku dođe do pada sistema klijent se ponovo uloguje i nastavlja se slučaj od koraka 1.
+        \item[A5] Problem sa uplatom: Sistem obaveštava klijenta da je neuspešna transakcija. Slučaj se završava ovde. 
+    \end{itemize}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & Klijent ima karticu.\\
+\hline
+    Dodatne informacije & U koraku 5, formular zahteva podatke: broj kartice, ime i prezime na kartici, datum važenja kartice i CVV kod sa kartice.\\
+\hline
+\caption{Prijava na takmičenje online} % needs to go inside longtable environment    
+\end{longtable}
+
+
+\end{document}
