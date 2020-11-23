@@ -1,0 +1,51 @@
+\documentclass[../../main.tex]{subfiles}
+
+% Da se ne bi komplikovalo previse za sada oni koji nisu klijenti se samo uživo prijavljuju i odjavljuju, a klijenti samo online.
+\begin{document}
+
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+\hline
+    Kratak opis &  Neregistrovani korisnik koji je prijavljen na takmičenje dolazi na recepciju. daje informacije o prijavi. Recepcionar ga u sistemu odjavljuje i vrši povraćaj novca. Baza podataka se ažurira.\\ 
+\hline    
+    Učesnici & \begin{enumerate}
+        \item Neregistrovani korisnik - želi da odustane od učešća na takmičenju. 
+        \item Recepcionar
+    \end{enumerate}\\
+\hline
+   Preduslovi & \begin{enumerate}
+       \item Korisnik je prijavljen na takmičenje.
+       \item Sistem je u funkciji.
+       \item Takmičenje nije počelo.
+   \end{enumerate}\\
+\hline  
+    Postuslovi & Korisnik je odjavljen sa takmičenja. Baza podataka je ažurirana.\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Korisnik dolazi na recepciju i saopštava da želi da odustane od učešća na takmičenju.
+        \item Recepcionar ulazi u deo sistema za takmičenja i pita korisnika za broj prijave.
+        \item Korisnik saopšava broj prijave.
+        \item Recepcionar unosi broj prijave u sistem. 
+        \item Sistem ispisuje informacije o prijavi.
+        \item Recepcionar pritiska dugme "Odjavi".
+        \item Sistem ispisuje koliki je povraćaj novca. 
+        \item Recepcionar prebrojava novac, pritiska dugme "Potvrdi".
+        \item Sistem obrađuje odjavu i štampa potvrdu o odustajanju.
+        \item Recepcionar predaje novac i potvrdu korisniku.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & \begin{itemize}
+        \item[A1] Pad sistema: Ukoliko u bilo kom trenutku dođe do pada sistema potrebno je obezbediti oporavak i čuvanje informacija. Recepcionar restartuje sistem i ponovo se uloguje. Slučaj se nastavlja na koraku 1.
+        \item[A4] Neispravan broj prijave: Sistem obaveštava da je neispravan broj prijave. Slučaj se nastavlja na koraku 2.
+    \end{itemize}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+\caption{Uživo otkazivanje učešća na takmičenju} % needs to go inside longtable environment    
+\end{longtable}
+
+
+\end{document}
