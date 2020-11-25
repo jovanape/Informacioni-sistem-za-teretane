@@ -15,3 +15,5 @@ Tamara Ivanović 1108/2020
 Selena Vukadinović 1070/2020
 
 Jovana Pejkić 1089/2020
+
+Katarina Đurić
