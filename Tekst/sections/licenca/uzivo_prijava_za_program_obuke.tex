@@ -34,6 +34,7 @@
         \item Recepcioner predaje formular klijentu.
         \item Klijent popunjava formular.
         \item Klijent vraća recepcioneru popunjen formular.
+        \item Recepcioner proverava da li su popunjena sva obavezna polja u formularu.
         \item Recepcioner govori klijentu koja dokumenta je još potrebno da mu da.
         \item Klijent daje potrebna dokumenta.
         \item Recepcioner uzima dokumenta.
@@ -46,7 +47,8 @@
 \hline
     Alternativni tokovi & 
     \begin{itemize}
-        \item[A9] Klijent nema sva potrebna dokumenta. Recepcioner privremeno čuva popunjen formular i govori klijentu da donese dokumenta sledeći put kad bude dolazio. Slučaj upotrebe se završava. 
+        \item[A8] Nisu popunjena sva obavezna polja. Recepcioner vraća klijentu formular da ih popuni. Slučaj upotrebe se nastavlja u koraku 7.
+        \item[A10] Klijent nema sva potrebna dokumenta. Recepcioner privremeno čuva popunjen formular i govori klijentu da donese dokumenta sledeći put kad bude dolazio. Slučaj upotrebe se završava. 
     \end{itemize} \\
 \hline
     Podtokovi & /\\
