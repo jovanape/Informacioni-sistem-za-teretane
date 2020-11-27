@@ -16,14 +16,18 @@
    Preduslovi &
     \begin{enumerate}
         \item Sistem je u funkciji
-        \item Klijent je registrovan u sistemu
-        \item Klijent je prijavljen na sistem
-        \item Recepcioner je prijavljen na sistem
+        \item Korisnik je registrovan u sistemu (Klijent)
+        %\item Klijent je prijavljen na sistem?
+        \item Recepcioner je prijavljen na sistem (ima pristup sistemu?)
+        \item Ukoliko klijent plaća karticom POS sistem je u fukciji.
+        %Veza sa bankom je u funkciji (ukoliko se plaća karticom).
     \end{enumerate}\\
 \hline  
     Postuslovi & 
     \begin{enumerate}
          \item Klijent je kupio termine za određenu vrstu igraonice u nekoj od teretana i može da krene sa korišćenjem ove usluge.
+         \item Baza podataka je ažurirana.
+         \item Klijent dobija potvrdu o izvršenoj uplati.
     \end{enumerate} \\
 \hline
     Osnovni tok & 
@@ -41,9 +45,9 @@
         \item Sistem proverava (do sada) unete podatke.
         \item Sistem šalje potvrdu da je plaćanje uspešno izvršeno.
         \item Ažurira se baza podataka.
-        \item Sistem štampa račun.
-        \item Recepcioner obaveštava klijenta da su termini za igraonicu uspešno uplaćeni i daje mu račun.
-        \item Klijent odlazi sa računom.
+        \item Sistem štampa dokaz o uplati.
+        \item Recepcioner obaveštava klijenta da su termini za igraonicu uspešno uplaćeni i daje mu dokaz o uplati.
+        \item Klijent odlazi sa dokazom o uplati.
     \end{enumerate}\\
 \hline
     Alternativni tokovi & 
@@ -53,17 +57,45 @@
         \item[A8] Podaci koje je recepcioner uneo nisu ispravni ili nisu potpuni: Sistem nije uspeo da nastavi računanje ukupne cene. Slučaj se nastavlja u koraku 7.
         \item[A11] Podaci koje je recepcioner uneo nisu ispravni ili nisu potpuni: Sistem nije uspeo da nastavi proces plaćanja. Ako je recepcioner naplatio više ili manje nego što treba, reguliše se razlika u plaćanju između klijenta i recepcionera. Slučaj se nastavlja u koraku 10.
         % Da li je ok ovako ili treba da se vrati na korak 9?
-        \item[A9] Klijent nema dovoljno sredstava na računu pri plaćanju karticom: Recepcioner obaveštava klijenta da nema dovoljno sredstava na računu. Klijentu se pruža prilika da plati drugom platnom karticom (ukoliko takvu poseduje) i da sa njom pokuša plaćanje ili da plati u gotovini ili da smanji broj termina, odnosno odabere neku jeftiniju opciju. Slučaj se nastavlja u koraku 9.
+        \item[A9.2] Klijent nema dovoljno sredstava na računu pri plaćanju karticom: Recepcioner obaveštava klijenta da nema dovoljno sredstava na računu. Klijentu se pruža prilika da plati drugom platnom karticom (ukoliko takvu poseduje) i da sa njom pokuša plaćanje ili da plati u gotovini ili da smanji broj termina, odnosno odabere neku jeftiniju opciju. Slučaj se nastavlja u koraku 9.
         % u ovom koraku (9) klijent može i da odustane - već navedeno
-        \item[A9] Klijent nema dovoljno sredstava  pri plaćanju gotovinom: Recepcioner pruža priliku klijentu da plati platnom karticom (ukoliko takvu poseduje) ili da smanji broj termina, odnosno odabere neku jeftiniju opciju. Slučaj se nastavlja u koraku 9.
+        \item[A9.1] Klijent nema dovoljno sredstava  pri plaćanju gotovinom: Recepcioner pruža priliku klijentu da plati platnom karticom (ukoliko takvu poseduje) ili da smanji broj termina, odnosno odabere neku jeftiniju opciju. Slučaj se nastavlja u koraku 9.
         % u ovom koraku (9) klijent može i da odustane - već navedeno
         \item[A12] Problem pri povezivanju sistema i banke kod plaćanja karticom: Recepcioner obaveštava klijenta o situaciji i poziva da pokuša ponovo plaćanje ili da plati u gotovini. Slučaj se nastavlja u koraku 9.
         % Da li ovde treba da bude korak A12?
+        \item [A] Pad sistema u bilo kom trenutku tokom procesa kupovine termina za igraonicu/e: Potrebno je obezbediti da se sve transakcije mogu oporaviti.
+        \begin{itemize}
+            \item Recepcionar resetuje sistem i bira oporavak sistema. Loguje se.
+            \item Sistem rekonstruiše stanje koje je bilo.
+            \item Recepcionar započinje proces (odabira i kupovine termina) iz početka.
+        \end{itemize}
+        \item [A1 - A9] Klijent se predomislio oko usluga (promenio izbor): Klijent obaveštava recepcionera da želi da promeni izbor. Slučaj se nastavlja u koraku 2.
     \end{itemize} \\
 \hline
-    Podtokovi & /\\
+    Podtokovi & \begin{itemize}
+ \item [9.1] Plaćanje gotovinom
+ \begin{enumerate}
+ \item Klijent predaje recepcionaru novac.
+ \item Recepcionar prebrojava novac i unosi sumu u sistem.
+ \item Sistem ispisuje koliki je kusur.
+ \item Recepcionar vraća kusur, ukoliko ga ima.
+\end{enumerate}
+ 
+\item [9.2] Plaćanje platnom karticom
+\begin{enumerate}
+\item Recepcioner bira opciju za plaćanje karticom.
+\item Klijent daje karticu recepcioneru.
+\item Recepcioner prislanja ili ubacuje karticu u aparat.
+\item Sistem upravlja plaćanjem i traži unos pin koda.
+\item Klijent unosi pin kod.
+\item Sistem proverava informacije.
+\item Sistem beleži informacije o uplati.
+\item Recepcioner vraća karticu klijentu.
+\end{enumerate}
+ \end{itemize}
+\\
 \hline
-    Specijalni zahtevi & /\\
+    Specijalni zahtevi & Teretana poseduje POS aparat. \\
 \hline
     Dodatne informacije &
     \begin{enumerate}
