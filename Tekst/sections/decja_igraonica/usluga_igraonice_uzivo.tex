@@ -1,0 +1,76 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+\hline
+    Kratak opis & Klijent želi da koristi usluge igraonice - online. Klijent bira vrstu igraonice, broj termina, kao i druge opcije, ukoliko ima dete/dece i želi da ono/ona boravi/borave u igraonici za vreme njegovog treninga.  \\ 
+\hline
+    Učesnici &
+    \begin{enumerate}
+        \item Klijent
+        \item Recepcioner
+    \end{enumerate}\\
+\hline
+   Preduslovi &
+    \begin{enumerate}
+        \item Sistem je u funkciji
+        \item Klijent je registrovan u sistemu
+        \item Klijent je prijavljen na sistem
+        \item Recepcioner je prijavljen na sistem
+    \end{enumerate}\\
+\hline  
+    Postuslovi & 
+    \begin{enumerate}
+         \item Klijent je kupio termine za određenu vrstu igraonice u nekoj od teretana i može da krene sa korišćenjem ove usluge.
+    \end{enumerate} \\
+\hline
+    Osnovni tok & 
+    \begin{enumerate}
+        \item Klijent odlazi na recepciju.
+        \item Klijent govori recepcioneru usluge koje vrste igraonice (u skladu sa lokacijom igraonice odnosno teretane) želi da koristi.
+        \item Recepcioner obaveštava klijenta o opštim informacijama vezanim za izabranu igraonicu kao i o tome koji uslovi moraju biti ispoštovani da bi se usluga odabrane igraonice koristila.
+        \item Klijent je saglasan sa tim da kupi termine za odabranu igraonicu
+        \item Recepcioner bira opciju 'Kupi termine' za odabranu igraonice
+        \item Sistem prikazuje formular koji recepcioner treba da popuni.
+        \item Recepcioner klijentu postavlja pitanja iz formulara i beleži odgovore (broj dece, broj termina itd.)
+        \item Sistem proverava da li su uneti podaci ispravni, računa ukupnu cenu na osnovu unetih podataka i ispisuje je (recepcioneru). Recepcioner saopštava cenu klijentu.
+        \item Klijent izvršava plaćanje (gotovinom ili platnom karticom). %9.
+        \item Recepcioner unosi podatak (u sistem) da su termini uspešno uplaćeni. %10.
+        \item Sistem proverava (do sada) unete podatke.
+        \item Sistem šalje potvrdu da je plaćanje uspešno izvršeno.
+        \item Ažurira se baza podataka.
+        \item Sistem štampa račun.
+        \item Recepcioner obaveštava klijenta da su termini za igraonicu uspešno uplaćeni i daje mu račun.
+        \item Klijent odlazi sa računom.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & 
+    \begin{itemize}
+        \item[A4, A9] Klijent u potpunosti odustaje od započetog procesa kupovine termina za igraonicu: Recepcioner ostavlja sistem u stanju u kome je bio pre nego što je započet proces kupovine termina za igraonicu. Slučaj upotrebe se završava.
+        % Da li da podelim na 2 alernativna toka jer samo ako je A9 recepcioner treba da ostavi sistem u stanju u kakvom je bio?
+        \item[A8] Podaci koje je recepcioner uneo nisu ispravni ili nisu potpuni: Sistem nije uspeo da nastavi računanje ukupne cene. Slučaj se nastavlja u koraku 7.
+        \item[A11] Podaci koje je recepcioner uneo nisu ispravni ili nisu potpuni: Sistem nije uspeo da nastavi proces plaćanja. Ako je recepcioner naplatio više ili manje nego što treba, reguliše se razlika u plaćanju između klijenta i recepcionera. Slučaj se nastavlja u koraku 10.
+        % Da li je ok ovako ili treba da se vrati na korak 9?
+        \item[A9] Klijent nema dovoljno sredstava na računu pri plaćanju karticom: Sistem obaveštava klijenta da nema dovoljno sredstava na računu. Klijentu se pruža prilika da plati drugom platnom karticom (ukoliko takvu poseduje) i da sa njom pokuša plaćanje ili da plati u gotovini ili da smanji broj termina, odnosno odabere neku jeftiniju opciju. Slučaj se nastavlja u koraku 9.
+        % u ovom koraku (9) klijent može i da odustane
+        \item[A9] Klijent nema dovoljno sredstava  pri plaćanju gotovinom: Recepcioner pruža priliku klijentu da plati platnom karticom (ukoliko takvu poseduje) ili da smanji broj termina, odnosno odabere neku jeftiniju opciju. Slučaj se nastavlja u koraku 9.
+        % u ovom koraku (9) klijent može i da odustane
+        \item[A12] Problem pri povezivanju sistema i banke kod plaćanja karticom: Recepcioner obaveštava klijenta o situaciji i poziva da pokuša ponovo plaćanje ili da plati u gotovini. Slučaj se nastavlja u koraku 9.
+        % Da li ovde treba da bude korak A12?
+    \end{itemize} \\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije &
+    \begin{enumerate}
+     \item Informacije koje klijent daje recepcioneru su ime, prezime, broj članske karte, tip igraonice, broj termina, broj dece.
+    \end{enumerate}\\
+\hline
+\caption{Usluga igraonice uživo}
+\end{longtable}
+
+\end{document}
