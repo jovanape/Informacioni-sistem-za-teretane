@@ -27,24 +27,26 @@
 \hline
     Osnovni tok & 
     \begin{enumerate}
-        \item Klijent odlazi na recepciju.
+        \item Klijent dolazi na recepciju.
+        \item Recepcioner ukratko informiše klijenta o svakom programu obuke koji se održava.
         \item Klijent govori recepcioneru koji program želi da pohađa.
-        \item Recepcioner bira opciju 'Prijavi se' kod tog programa.
-        \item Sistem prikazuje formular koji recepcioner treba da popuni.
-        \item Recepcioner govori klijentu koja dokumenta je potrebno da mu da.
+        \item Recepcioner štampa formular za prijavu na taj program.
+        \item Recepcioner predaje formular klijentu.
+        \item Klijent popunjava formular.
+        \item Klijent vraća recepcioneru popunjen formular.
+        \item Recepcioner govori klijentu koja dokumenta je još potrebno da mu da.
         \item Klijent daje potrebna dokumenta.
-        \item Recepcioner uzima dokumenta i odlaže ih na mesto odakle će ih uzeti neko iz uprave teretane ko je zadužen za program obuke.
-        \item Recepcioner govori klijentu koje su mu još informacije potrebne za formular.
-        \item Klijent daje te informacije recepcioneru
-        \item Recepcioner ih unosi u formular
-        \item Sistem proverava unete podatke.
+        \item Recepcioner uzima dokumenta.
+        \item Recepcioner odlaže dokumenta i popunjen formular na mesto odakle će ih uzeti neko iz uprave teretane ko je zadužen za program obuke.
+        \item Recepcioner u deo sistem koji je posvećen prijavi uživo unosi osnovne informacije o klijentu - ime, prezime i broj članske karte.
         \item Sistem šalje potvrdu da je prijava uspešno sačuvana.
+        \item Recepcioner obaveštava klijenta da je prijava uspešna.
+        \item Klijent odlazi.
     \end{enumerate}\\
 \hline
     Alternativni tokovi & 
     \begin{itemize}
-        \item[A5] Klijent nema sva potrebna dokumenta. Slučaj upotrebe se završava. 
-        \item[A11] Formular nije ceo popunjen. Sistem obaveštava recepcionera o tome. Slučaj upotrebe se vraća na korak 8.
+        \item[A9] Klijent nema sva potrebna dokumenta. Recepcioner privremeno čuva popunjen formular i govori klijentu da donese dokumenta sledeći put kad bude dolazio. Slučaj upotrebe se završava. 
     \end{itemize} \\
 \hline
     Podtokovi & /\\
