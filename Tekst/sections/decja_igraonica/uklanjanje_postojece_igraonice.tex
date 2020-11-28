@@ -1,0 +1,57 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+%\begin{center}
+%\begin{tabularx}{\textwidth}{|1|X|}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+
+\hline
+    Kratak opis &  Administrator (trajno) uklanja postojeću igraonicu iz sistema. \\ 
+\hline    
+    Učesnici & 
+    	\begin{enumerate}
+        \item Administrator koji želi da ukloni postojeću igraonicu iz sistema.
+     \end{enumerate}\\
+\hline
+   Preduslovi & \begin{enumerate}
+       \item Sistem je u funkciji.
+       \item Administrator je uspešno pristupio sistemu.
+       \item Postoje jasni razlozi (npr. mala posećenost igraonice ili zatvaranje teretane u sklopu koje je data igraonica) za uklanjanje igraonice iz sistema.
+       \item Svim klijentima, koji koriste konkretnu igraonicu, su istekli svi termini za korišćenje njenih usluga (odnosno, klijent je iskoristio sve uplaćene termine igraonice).
+   \end{enumerate}\\
+\hline  
+    Postuslovi & \begin{enumerate}
+        \item Igraonica je uspešno uklonjena iz sistema.
+        \item Klijent više nema mogućnost za kupi termine za konkretnu (obrisanu, nepostojeću) igraonicu.
+        \item Baza podataka je ažurirana.
+    \end{enumerate}\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Administrator bira opciju za uklanjanje postojeće igraonice.
+        \item Sistem prikazuje pitanje o razlogu uklanjanja igraonice sa nekim ponudjenim odgovorima i pitanje da li administrator zaista želi da izvrši započetu akciju brisanja.
+        \item Administrator bira jedan od ponudjenih odgovora (ili više) ili daje drugi odgovor (koji nije ni jedan od ponudjenih) i potvrđuje započetu akciju brisanja date igraonice. % bice neko dugme
+        \item Sistem proverava unete podatke. % npr. moze da postoji skup nekih razloga za koje vazi da ako ih je admin odabrao, onda se igraonica sigurno nece obrisati, ali onda mozda da se ukloni opcija da admin moze da unese drugi razlog koji nije ponudjen
+        \item Sistem obaveštava administratora da je data igraonica uspešno uklonjena.
+        \item Ažurira se baza podataka. % data igraonica se brise iz baze podataka
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & \begin{itemize}
+        \item[A3] Administrator odustaje od započete akcije brisanja date igraonice i to čini klikom na dugme za odustajanje.
+        \item[A5]  Sistem nije u mogućnosti da obriše datu igraonicu: Sistem obaveštava administratora o neuspehu. Slučaj upotrebe se završava.
+        \item[A5]  Podaci koje je administrator uneo u formular (odnosno formu) nisu validni (odnosno ne zadovoljavaju određene uslove): Slučaj upotrebe se nastavlja u koraku 3. % Da li ovde treba A4?
+    \end{itemize}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & Potreban je jasan razlog/razlozi za uklanjanje potojeće igraonice.
+    % mozda jos neki prateci podaci
+    \\
+\hline
+%\end{tabularx}
+\caption{Uklanjanje postojeće igraonice} % needs to go inside longtable environment
+%\label{tab:myfirstlongtable}
+\end{longtable}
+%\end{center}  
+\end{document} 

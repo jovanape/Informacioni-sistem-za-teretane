@@ -1,0 +1,57 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+%\begin{center}
+%\begin{tabularx}{\textwidth}{|1|X|}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+
+\hline
+    Kratak opis &  Administrator unosi novu igraonicu u sistem. \\ 
+\hline    
+    Učesnici & 
+    	\begin{enumerate}
+        \item Administrator koji želi da doda novu igraonicu u sistem.
+     \end{enumerate}\\
+\hline
+   Preduslovi & \begin{enumerate}
+       \item Sistem je u funkciji.
+        \item Administrator je uspešno pristupio sistemu.
+       \item Administrator ima sve neophodne informacije o novoj igraonici.
+   \end{enumerate}\\
+\hline  
+    Postuslovi & \begin{enumerate}
+        \item Nova igraonica je uspešno dodata u sistem.
+        \item Klijenti mogu da počnu sa korišćenjem usluga nove igraonice.
+        \item Baza podataka je ažurirana.
+    \end{enumerate}\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Administrator bira opciju za dodavanje nove igraonice.
+        \item Sistem prikazuje formu sa pitanjima kao što su lokacija igraonice, tip igraonice i drugo.
+        \item Administrator popunjava formu neophodnim podacima.
+        \item Administrator potvrđuje unos podataka i dodaje novu igraonicu. % bice neko dugme
+        \item Sistem proverava unete podatke - na primer da li na unetoj lokaciji već postoji jedna igraonica, da li na toj lokaciji postoji teretana, itd. % igraonica moze da se doda samo tamo gde vec postoji teretana i ne postoji vec jedna takva (vrsta) igraonica; moze pri popunjavanju forme da se napravi padajuca lista odakle se bira adresa od vec postojecih, tj. lokacija, kako bi se sprecio unos nepostojece lokacije ili pogresne
+        \item Sistem obaveštava administratora da je nova igraonica uspešno dodata. % 6.
+        \item Ažurira se baza podataka.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & \begin{itemize}
+        \item[A6]  Sistem nije u mogućnosti da doda novu igraonicu: Sistem obaveštava administratora o neuspehu. Slučaj upotrebe se završava.
+        \item[A6]  Podaci koje je administrator uneo u formular (odnosno formu) nisu validni (odnosno ne zadovoljavaju određene uslove): Slučaj upotrebe se nastavlja u koraku 3.
+        % Da li je ovo slucaj A6 ili treba A5 - slicna situacija je bila i u drugim tabelama slucajeva upotrebe?
+    \end{itemize}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & Potrebni podaci za novu igraonicu su tip igraonice, adresa na kojoj već postoji teretana ali ne i taj konkretan tip igraonice.
+    % mozda jos neki prateci podaci
+    \\
+\hline
+%\end{tabularx}
+\caption{Dodavanje nove igraonice} % needs to go inside longtable environment
+%\label{tab:myfirstlongtable}
+\end{longtable}
+%\end{center}  
+\end{document} 
