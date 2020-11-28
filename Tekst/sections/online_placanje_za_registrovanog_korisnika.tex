@@ -13,42 +13,38 @@
 \hline
     Kratak opis & Klijent vrši online plaćanje usluga teretane tako što popunjava formular odgovarajućim podacima. Vrši se validacija podataka i klijent dobija informaciju o uspešnosti akcije.\\ 
 \hline    
-    Učesnici & Klijent koji Želi da plati za usluge teretane (članarinu) online.\\
+    Učesnici & Klijent koji želi da plati za usluge teretane (članarinu/paket) online.\\
 \hline
    Preduslovi & \begin{enumerate}
        \item Klijent ima pristup internetu.
        \item Sistem je u funkciji (dostupan).
        \item Korisnik je član teretane i registrovan je (klijent).
        \item Klijent poseduje platnu karticu koja ima mogućnost online plaćanja (plaćanja preko interneta).
+       \item Klijent je odabrao paket usluga i nalazi na stranici za on-line plaćanje
    \end{enumerate}\\
 \hline  
     Postuslovi & \begin{enumerate}
-        \item Novac sa računa klijenta je uspesno prebačen na račun sportskog kluba.
+        \item Novac sa računa klijenta je uspešno prebačen na račun teretane.
 		\item Klijent je dobio potvrdu o uspešno izvršenoj uplati. %TODO Da li treba obuhvatiti i negativan slucaj?
         \item Baza podataka je ažurirana.
     \end{enumerate}\\
 \hline
     Osnovni tok & \begin{enumerate}
-        \item Klijent se prijavljuje na sistem.
- 		\item Klijent odlazi na stranicu za online plaćanje.
- 		\item Klijent bira vrstu usluge koju želi da plati.
-		\begin{itemize}
-			\item Klijent je izabrao uslugu "samostalni trening".
-			\item Klijent je izabrao uslugu "personalni trening".
-		\end{itemize}
-		\item Klijent bira broj termina usluge koju želi da plati. %TODO Kakve sve vrste termina postoje?
- 		\item Cena se izračunava i prikazuje klijentu. %TODO sistem racuna cenu
+ 		\item Na osnovu odabranog paketa, sistem izračunava cenu i prikazuje je klijentu.
 		\item Klijent unosi potrebne podatke i izvršava plaćanje klikom na dugme za potvrdu plaćanja.
-		\item Proveravaju se uneti podaci i raspoloživa sredstva klijenta. Uspešna realizacija plaćanja o čemu se klijent obaveštava.
-		\item Ažurira se baza podataka. %TODO Ili azuriraju se info u sistemu. %TODO Da li ce klijent imati svoj profil pa da tu budu sve info sta je platio i to?
-%TODO Mozda da postoji opcija za stampanje uplatnice kao neki dokaz o uplati?     
+		\item Proveravaju se uneti podaci i raspoloživa sredstva klijenta.
+		\item Sistem obaveštava klijenta o uspešnoj realizaciji plaćanja.
+        \item Sistem šalje klijentu potvrdu o izvršenoj uplati (na e-mail adresu klijenta ili beleži to na profilu klijenta).
+        \item Ažurira se baza podataka.
     \end{enumerate}\\
 \hline
-    Alternativni tokovi &
-       		A6 - Klijent bira opciju za otkazivanje plaćanja: Slučaj upotrebe se završava.
-        	A7 - Podaci koje je klijent uneo nisu validni:  Sistem nije uspeo da nastavi proces plaćanja. Slučaj se nastavlja od koraka 3.
-        	A7 - Klijent nema dovoljno sredstava na računu: Klijentu se pruža prilika da unese broj (i ostale parametre) druge platne kartice (ukoliko takvu poseduje) i da sa njom pokuša plaćanje ili da smanji broj termina, odnosno odabere neku jeftiniju opciju treniranja. Slučaj se nastavlja na koraku 3.
-        	A7 - Problem pri povezivanju sistema i banke: Klijent se obavestava o situaciji i poziva da pokuša ponovo plaćanje. Slučaj se nastavlja u koraku 3.\\
+    Alternativni tokovi & \begin{enumerate}
+       		\item [A2] Klijent bira opciju za otkazivanje plaćanja: Slučaj upotrebe se završava.
+        	\item [A2] Podaci koje je klijent uneo nisu validni: Sistem nije uspeo da nastavi proces plaćanja. Slučaj se nastavlja u koraku 2.
+        	\item [A4] Klijent nema dovoljno sredstava na računu: Klijentu se pruža prilika da unese broj (i ostale parametre) druge platne kartice (ukoliko takvu poseduje) i da sa njom pokuša plaćanje. Slučaj se nastavlja u koraku 2. % Klijent moze i da odustane kada se vrati na korak 2, zato to nije naglaseno ovde ponovo.
+        	\item [A4] Problem pri povezivanju sistema i banke: Klijent se obavestava o situaciji i poziva da pokuša ponovo plaćanje. Slučaj se nastavlja u koraku 2.
+        	\item [A5] Potvrda o izvršenoj uplati nije poslata klijentu: Klijent kontaktira teretanu putem e-maila, nakon čega lice zaduženo za ovaj problem reaguje. Slučaj upotrebe se završava.
+        	\end{enumerate}\\
 \hline
     Podtokovi & / \\
 \hline
