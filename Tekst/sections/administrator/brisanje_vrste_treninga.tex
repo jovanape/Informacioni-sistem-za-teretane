@@ -1,0 +1,50 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+%\begin{center}
+%\begin{tabularx}{\textwidth}{|1|X|}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+
+\hline
+    Kratak opis &  Administrator uklanja postojeću vrstu treninga.\\ 
+\hline    
+    Učesnici & 
+    	\begin{enumerate}
+        \item Administrator - želi da ukloni konkretnu vrstu treninga.
+     \end{enumerate}\\
+\hline
+   Preduslovi & \begin{enumerate}
+       \item Sistem je u funkciji.
+       \item Administrator ima sve potrebne informacije o treningu, tj. tip i indikator da li je trening grupni ili individualni.
+   \end{enumerate}\\
+\hline  
+    Postuslovi & \begin{enumerate}
+        \item Baza je ažuirana, tj. konkretna vrsta treninga je uklonjena iz sistema.
+    \end{enumerate}\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Administrator pristupa stranici za pretragu treninga teretana.
+        \item Administrator popunjava formular pretrage unoseći tip vrste treninga i indikator da li je trening grupni.
+        \item Nakon što su polja popunjena, administrator bira opciju „Pretraži vrste treninga“.
+        \item Administrator pronalazi željenu vrstu treninga i bira opciju „Ukloni vrstu treninga“.
+        \item Sistem briše vrstu treninga, kao i sve informacije koje su vezane za nju.
+        \item Sistem obaveštava administratora da je vrsta treninga uspešno uklonjena.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & \begin{itemize}
+        \item[A6]  Sistem ne uspeva da obriše vrstu treninga. Tada on obaveštava administratora o neuspehu i javlja mu da pokuša ponovo istu operaciju. Slučaj upotrebe se nastavlja na koraku 4..
+
+    \end{itemize}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+%\end{tabularx}
+\caption{Uklanjanje postojeće vrste treninga} % needs to go inside longtable environment
+%\label{tab:myfirstlongtable}
+\end{longtable}
+%\end{center}  
+\end{document} 
