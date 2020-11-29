@@ -6,11 +6,11 @@
 \begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
 
 \hline
-    Kratak opis &  Administrator briše postojeću lokaciju teretane iz sistema.\\ 
+    Kratak opis &  Administrator menja parametre postojeće lokacije teretane u sistemu.\\ 
 \hline    
     Učesnici & 
     	\begin{enumerate}
-        \item Administrator - želi da ukloni postojeću lokaciju iz sistema.
+        \item Administrator - želi da ažurira lokaciju.
      \end{enumerate}\\
 \hline
    Preduslovi & \begin{enumerate}
@@ -19,20 +19,20 @@
    \end{enumerate}\\
 \hline  
     Postuslovi & \begin{enumerate}
-        \item Baza je ažuirana, tj. lokacija je izbrisana iz sistema.
+        \item Baza je ažuirana i sadrži nove vrednosti parametara lokacije teretane.
     \end{enumerate}\\
 \hline
     Osnovni tok & \begin{enumerate}
         \item Administrator pristupa stranici za pretragu lokacija teretane.
         \item Administrator popunjava formular pretrage unoseći adresu i grad u kojem se teretana nalazi.
         \item Nakon što su polja popunjena, administrator bira opciju „Pretraži lokacije“.
-        \item Administrator pronalazi željenu lokaciju i bira opciju „Ukloni lokaciju“.
-        \item Sistem briše lokaciju, kao i sve informacije koje su vezane za nju.
-        \item Sistem obaveštava administratora da je lokacija uspešno uklonjena.
+        \item Administrator pronalazi željenu lokaciju i bira opciju „Izmeni lokaciju“.
+        \item Sistem ažurira vrednosti promenjenih parametara zadate lokacije u bazi.
+        \item Sistem obaveštava administratora da je lokacija uspešno izmenjena.
     \end{enumerate}\\
 \hline
     Alternativni tokovi & \begin{itemize}
-        \item[A6]  Sistem ne uspeva da obriše lokaciju. Tada on obaveštava administratora o neuspehu i javlja mu da pokuša ponovo istu operaciju. Slučaj upotrebe se nastavlja na koraku 4..
+        \item[A6]  Sistem ne uspeva da ažurira lokaciju. Tada on obaveštava administratora o neuspehu i javlja mu da pokuša ponovo istu operaciju. Slučaj upotrebe se nastavlja na koraku 4..
 
     \end{itemize}\\
 \hline
@@ -43,7 +43,7 @@
     Dodatne informacije & /\\
 \hline
 %\end{tabularx}
-\caption{Uklanjanje postojeće lokacije teretane} % needs to go inside longtable environment
+\caption{Ažuriranje postojeće lokacije teretane} % needs to go inside longtable environment
 %\label{tab:myfirstlongtable}
 \end{longtable}
 %\end{center}  
