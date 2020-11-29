@@ -1,0 +1,51 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+%\begin{center}
+%\begin{tabularx}{\textwidth}{|1|X|}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+
+\hline
+    Kratak opis &  Administrator briše nalog zaposlenog iz sistema pristupajući nalogu i brišući sve informacije koje nalog sadrži.\\ 
+\hline    
+    Učesnici & 
+    	\begin{enumerate}
+        \item Administrator - želi da ukloni nalog zaposlenog.
+     \end{enumerate}\\
+\hline
+   Preduslovi & \begin{enumerate}
+       \item Sistem je u funkciji.
+       \item Administrator ima sve potrebne informacije o zaposlenom, tj. korisničko ime i JMBG zaposlenog.
+   \end{enumerate}\\
+\hline  
+    Postuslovi & \begin{enumerate}
+        \item Baza je ažuirana, tj. nalog zaposlenog je uklonjen iz sistema.
+    \end{enumerate}\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Administrator pristupa stranici za pretragu naloga zaposlenih.
+        \item Administrator popunjava formular pretrage unoseći korisničko ime zaposlenog.
+        \item Nakon što su polja popunjena, administrator bira opciju „Pretraži zaposlene“.
+        \item Administrator pronalazi željeni nalog i bira opciju „Ukloni zaposlenog“.
+        \item Sistem briše nalog, kao i sve informacije nalog sadrži.
+        \item Sistem obaveštava administratora da je nalog uspešno uklonjen.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & \begin{itemize}
+        \item[A4]  Pretragom se ne pronalazi ni jedan ili se pronalazi više od jednog željenog naloga, nakon čega administrator unosi JMBG zaposlenog i pretragu vrši po drugom parametru, JMBG-u, umesto po korisničkom imenu. Slučaj upotrebe se nastavlja na koraku 3.
+        \item[A6]  Sistem ne uspeva da obriše nalog zaposlenog. Tada on obaveštava administratora o neuspehu i javlja mu da pokuša ponovo istu operaciju. Slučaj upotrebe se nastavlja na koraku 4..
+
+    \end{itemize}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+%\end{tabularx}
+\caption{Uklanjanje naloga zaposlenog u teretani} % needs to go inside longtable environment
+%\label{tab:myfirstlongtable}
+\end{longtable}
+%\end{center}  
+\end{document} 
