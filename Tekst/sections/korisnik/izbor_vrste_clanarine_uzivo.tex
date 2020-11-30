@@ -1,0 +1,65 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+%\begin{center}
+%\begin{tabularx}{\textwidth}{|1|X|}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+
+\hline
+    Kratak opis & Klijent bira vrstu članarine odnosno tip paketa koji će moći da koristi u ograničenom periodu. \\ 
+\hline    
+    Učesnici & 
+    	\begin{enumerate}
+        \item Klijent koji želi da odabere i uplati paket koji mu najviše odgovara.
+        \item Recepcioner koji želi da učini uslugu klijentu.
+     \end{enumerate}\\
+\hline
+   Preduslovi & \begin{enumerate}
+       \item Sistem je u funkciji.
+       \item Recepcioner ima pristup sistemu.
+       %\item POS sistem je u funkciji.
+   \end{enumerate}\\
+\hline  
+    Postuslovi & \begin{enumerate}
+        \item Klijent je odabrao željeni paket.
+        \item Započeto je plaćanje (uživo).
+    \end{enumerate}\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Klijent zahteva odabir programa (paketa).
+        \item Recepcioner pristupa odgovarajućem delu sistema za proveru trenutno aktuelnih programa (programa u ponudi).
+        \item Recepcioner bira opciju za štampanje formulara (sa listom programa koji su u ponudi).
+        \item Sistem štampa formular.
+        \item Recepcioner predaje formular klijentu da popuni.
+        \item Klijent popunjava formular (bira program i opciju da li želi samostalni trening ili vođeni trening) i vraća recepcioneru.
+        \item Recepcioner unosi podatke iz formulara u sistem i potvrđuje unos.
+        \item Sistem proverava unete podatke i izračunava cenu.
+        \item Administrator saopštava cenu klijentu.
+        \item Klijent izvršava plaćanje (uživo).
+        \item Recepcioner evidentira uplatu i bira opciju za štampanje dokaza o uplati.
+        \item Sistem štampa dokaz o uplati.
+        \item Recepcioner predaje dokaz o uplati klijentu.
+        \item Recepcioner prihvata dokaz o uplati.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & \begin{itemize}
+        \item [A1-14] Pad sistema: Potrebno je obezbediti da se sve transakcije mogu oporaviti.
+        1. Recepcioner resetuje sistem i bira oporavak sistema. Loguje se.
+        2. Sistem rekonstruiše stanje koje je bilo.
+        3. Recepcioner započinje proces iz početka.
+        \item [A6, A7, A8, A9] Klijent želi da zameni paket koji je odabrao: Recepcioner odustaje od započetog procesa. Slučaj upotrebe se nastavlja u koraku 2.
+        \item [A8] Podaci koje je recepcioner uneo nisu ispravni: Recepcioner se konsultuje sa klijentom u vezi podataka. Slučaj upotrebe se nastavlja u koraku 7.
+    \end{itemize}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+%\end{tabularx}
+\caption{Odabir paketa za registrovanog korisnika (klijenta) uživo} % needs to go inside longtable environment
+%\label{tab:myfirstlongtable}
+\end{longtable}
+%\end{center}  
+\end{document} 

@@ -69,40 +69,73 @@
 \tableofcontents
 \newpage
 
+
+% Uvod
 \section{Uvod}
 \label{sec:uvod}
 \subfile{sections/uvod}
 
-%\newpage
+
+% DTP
 \section{Dijagrami toka podataka}
 \subfile{sections/dijagrami_toka_podataka}
 
+
+% Slucajevi upotrebe
 \section{Slučajevi upotrebe}
 
-\subsection{Slučajevi upotrebe korisnika}
-\subsubsection{Slučajevi upotrebe neregistrovanog korisnika}
-\paragraph{Slučaj upotrebe: Registracija online}
-\subfile{sections/korisnik/registracija_neregistrovanog_korisnika}
 
-\subsubsection{Slučajevi upotrebe registrovanog korisnika}
-\paragraph{Slučaj upotrebe: Online plaćanje za registrovanog korisnika}
-\subfile{sections/korisnik/online_placanje_za_registrovanog_korisnika}
-\paragraph{Slučaj upotrebe: Online prijava za registrovanog korisnika}
-\subfile{sections/korisnik/online_prijava_registrovanog_korisnika}
-\paragraph{Slučaj upotrebe: Izbor vrste članarine registrovanog korisnika}
-\subfile{sections/korisnik/izbor_vrste_clanarine_registrovanog_korisnika}
-
-
+% Neregistrovani korisnik
 \subsection{Aktivnosti neregistrovanog korisnika}
+
 \subsubsection{Slučaj upotrebe: Registracija korisnika uživo}
 \subfile{sections/korisnik/uzivo_registracija}
 
+\subsubsection{Slučaj upotrebe: Registracija online}
+\subfile{sections/korisnik/registracija_neregistrovanog_korisnika}
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=0.55]{sections/images/dijagram_aktivnosti_za_online_registraciju_neregistrovanog_korisnika.jpg}
+\end{center}
+\caption{Dijagram aktivnosti za online registraciju neregistrovanog korisnika}
+\label{fig:kontekst}
+\end{figure}
+
+
+% Klijent
 \subsection{Aktivnosti klijenta}
+
 \subsubsection{Slučaj upotrebe: Plaćanje članarine uživo}
 \subfile{sections/korisnik/placanje_uzivo}
 
+\subsubsection{Slučaj upotrebe: Online plaćanje za klijenta}
+\subfile{sections/korisnik/online_placanje_za_registrovanog_korisnika}
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=0.55]{sections/images/dijagram_aktivnosti_za_online_placanje_klijenta.jpg}
+\end{center}
+\caption{Dijagram aktivnosti za online plaćanje klijenta}
+\label{fig:kontekst}
+\end{figure}
+
 \subsubsection{Slučaj upotrebe: Evidencija dolaska na trening}
 \subfile{sections/evidencija_prisustva}
+
+\subsubsection{Slučaj upotrebe: Online prijava za klijenta}
+\subfile{sections/korisnik/online_prijava_registrovanog_korisnika}
+
+\subsubsection{Slučaj upotrebe: Online izbor vrste članarine za klijenta}
+\subfile{sections/korisnik/izbor_vrste_clanarine_registrovanog_korisnika}
+
+\subsubsection{Slučaj upotrebe: Uživo izbor vrste članarine za klijenta}
+\subfile{sections/korisnik/izbor_vrste_clanarine_uzivo}
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=0.55]{sections/images/bpmn_dijagram_saradnje_izbor_vrste_clanarine_uzivo.jpg}
+\end{center}
+\caption{BPMN dijagram saradnje za izbor vrste članarine online}
+\label{fig:kontekst}
+\end{figure}
 
 
 %%%%%%% Personalni treninzi
@@ -152,8 +185,9 @@
 \subsubsection{Slučaj upotrebe: Brisanje vrste treninga}
 \subfile{sections/administrator/brisanje_vrste_treninga}
 
-\newpage
+
 %%%%%%%%%%%%%Takmičenje
+\newpage
 \subsection{Takmičenje}
 Takmičenje predstavlja poseban slučaj upotrebe koji nije uvek aktivan. Ukoliko administrator zakaže novo takmičenje u informacionom sistemu se omogućava pristup prijavi. 
 
@@ -187,8 +221,8 @@ Takmičenje predstavlja poseban slučaj upotrebe koji nije uvek aktivan. Ukoliko
 \subfile{sections/takmicenje/otkazivanje_takmicenja}
 
 
-\newpage
 %%%%%%%%%%%%% Licenca
+\newpage
 \subsection{Licenca za trenera}
 
 U okviru teretana se organizuju obuke za članove koji žele da postanu treneri, bilo personalni, bilo treneri grupnih programa. Ukoliko klijent ispunjava zahteve konkursa za obuku, može podneti potrebnu dokumentaciju i upisati se na odgovarajući program obuke. Nakon završetka obuke i položenih svih potrebnih testova, klijent dobija licencu za trenera i stiče mogućnost zaposlenja u teretani.
@@ -215,19 +249,47 @@ U okviru teretana se organizuju obuke za članove koji žele da postanu treneri,
 \subfile{sections/licenca/rezultati}
 
 
+% Igraonica
 \subsection{Igraonica}
-
-\subsubsection{Slučaj upotrebe: Usluge igraonice online}
-\subfile{sections/decja_igraonica/usluga_igraonice_online}
-
-\subsubsection{Slučaj upotrebe: Usluge igraonice uživo}
-\subfile{sections/decja_igraonica/usluga_igraonice_uzivo}
 
 \subsubsection{Slučaj upotrebe: Dodavanje nove igraonice u sistem}
 \subfile{sections/decja_igraonica/dodavanje_nove_igraonice}
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=0.55]{sections/images/dijagram_aktivnosti_dodavanja_nove_igraonice.jpg}
+\end{center}
+\caption{Dijagram aktivnosti za dodavanje nove igraonice}
+\label{fig:kontekst}
+\end{figure}
 
 \subsubsection{Slučaj upotrebe: Uklanjanje postojeće igraonice iz sistema}
 \subfile{sections/decja_igraonica/uklanjanje_postojece_igraonice}
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=0.55]{sections/images/dijagram_aktivnosti_uklanjanje_postojece_igraonice.jpg}
+\end{center}
+\caption{Dijagram aktivnosti za uklanjanje postojeće igraonice}
+\label{fig:kontekst}
+\end{figure}
 
+\subsubsection{Slučaj upotrebe: Usluge igraonice online}
+\subfile{sections/decja_igraonica/usluga_igraonice_online}
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=0.55]{sections/images/dijagram_aktivnosti_usluge_igraonice_online.jpg}
+\end{center}
+\caption{Dijagram aktivnosti za usluge igraonice online}
+\label{fig:kontekst}
+\end{figure}
+
+\subsubsection{Slučaj upotrebe: Usluge igraonice uživo}
+\subfile{sections/decja_igraonica/usluga_igraonice_uzivo}
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=0.55]{sections/images/dijagram_sekvenci_usluge_igraonice_uzivo.jpg}
+\end{center}
+\caption{Dijagram sekvenci za usluge igraonice uživo}
+\label{fig:kontekst}
+\end{figure}
 
 \end{document}
