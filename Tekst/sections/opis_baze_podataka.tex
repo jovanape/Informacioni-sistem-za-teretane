@@ -1,0 +1,105 @@
+\documentclass[../main.tex]{subfiles}
+
+% Opis baze podataka
+
+\begin{document}
+
+U ovom poglavlju biće detaljno opisana baza podataka koju ovaj informacioni sistem koristi. Baza podataka sadrži informacije o:
+\begin{itemize}
+    \item Zaposlenima u teretanama (trenerima, recepcionerima i sistemskim administratorima),
+    \item Korisnicima (registrovanim - klijentima i neregistrovanim)
+    \item Uplatama klijenata za usluge sportskih programa i igraonice
+    \item Takmičenjima koja se održavaju u teretanama kao i informacije o učesnicima u njima
+    \item Obukama i dodeljenim licencama
+    \item ...
+\end{itemize}
+
+\subsection{Entiteti}
+Baza sadrži sledeće entitete:
+\begin{enumerate}
+    \item Nezavisni
+        \begin{itemize}
+            \item zaposleni
+            \item korisnik
+            \item ...
+        \end{itemize}
+    \item Zavisni
+        \begin{itemize}
+            \item trener (zavisi od zaposlenog)
+            \item recepcionar (zavisi od zaposlenog)
+            \item sistemski administrator (zavisi od zaposlenog)
+            \item ...
+            % grupni rezervisan termin (zavisi od rezervisanog termina)
+            % individualni rezervisan termin (zavisi od rezervisanog termina)
+        \end{itemize}
+\end{enumerate}
+
+
+\subsubsection{Opis entiteta}
+
+\paragraph{Zaposleni}
+Sadrži opste informacije o svim zaposlenima u lancu teretana.
+Zaposlenog karakteriše: id, ime, prezime, ...
+\begin{itemize}
+    \item Sistemski administrator
+\begin{itemize}
+    \item Sistemski administrator je zaposlen u lancu teretana.
+    \item Sistemskog admina karakteriše: id
+    \item ...
+\end{itemize}
+
+\item Recepcioner
+\begin{itemize}
+    \item Recepcioner je zaposlen u lancu teretana.
+    \item Recepcionera karakteriše: id
+    \item ...
+\end{itemize}
+
+\item Trener
+\begin{itemize}
+    \item Trener je zaposlen u lancu teretana.
+    \item Trenera karakteriše: id
+    \item ...
+\end{itemize}
+\end{itemize}
+
+\paragraph{Korisnik}
+Sadrži informacije o registrovanim korisnicima lanca teretana.
+Korisnika karakteriše: id, ime, prezime, username, e-mail adresa, ...
+
+\paragraph{Uplata}
+...
+Uplatu karakteriše: id uplate, id klijenta, id programa, tip vođenja treninga, cena, ...
+
+\paragraph{Sportski program}
+Sportski program je predlog broja termina za određeni period treniranja. Jedan klijent može da odabere tačno jedan program, po kome će trenirati u predviđenom periodu.
+% Primeri programa:
+% -----------------------
+% 8 termina - mesec dana
+% 12 termina - mesec dana
+% 30 termina - mesec dana
+% -----------------------
+% 24 termina - tri meseca
+% 36 termina - tri meseca
+% 90 termina - tri meseca
+% -----------------------
+% x termina - šest meseci
+% y termina - šest meseci
+% z termina - šest meseci
+% -----------------------
+% a termina - godinu dana
+% b termina - godinu dana
+% c termina - godinu dana
+% -----------------------
+Sportski program karakteriše: id programa, tip vođenja treninga, naziv programa, cena, ...
+% Može da bude cena
+% programa za samostalno
+% treniranje, a onda da
+% se automatski izračunava
+% za vođeni kao
+% cena_samostalni * k,
+% na primer:
+% cena_samostalni * 1.5.
+
+
+\end{document}
