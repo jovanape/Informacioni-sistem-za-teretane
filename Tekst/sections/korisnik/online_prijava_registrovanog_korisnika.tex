@@ -3,13 +3,15 @@
 \begin{document}
 
 \begin{center}
-\caption{Online prijava registrovanog korisnika}
+\caption{Online prijava registrovanog korisnika (klijenta)}
 \begin{tabularx}{\textwidth}{|1|X|}
 \hline
-    Kratak opis & Korisnik se prijavljuje na nalog na koji se prethodno registrovao. Nakon toga sistem vrši validaciju podataka i prijavljuje korisnika.\\ \hline
+    Kratak opis & Klijent se prijavljuje na nalog na koji se prethodno registrovao. Nakon toga sistem vrši validaciju podataka i označava nalog kao 'aktivan'.\\
+\hline
     Učesnici & Klijent koji želi da se prijavi kako bi mogao da koristi usluge sistema. \\
 \hline
-   Preduslovi & Klijent ima pristup internetu. Sistem je u funkciji (dostupan). \\
+   Preduslovi & Koristnik je registrovan na sistem (korisnik je klijent). Klijent ima pristup internetu. Sistem je u funkciji.
+   % Da li je potreban preduslov korisnik je registrovan (klijent)? \\
 \hline  
     Postuslovi & Klijent je uspešno prijavljen i ima pristup sistemu. \\
 \hline
@@ -17,7 +19,7 @@
     \item Klijent otvara stranicu za prijavu.
 	\item Klijent unosi korisničko ime/e-mail adresu i lozinku i kliknuo je na dugme za prijavu.
 	\item Sistem vrši validaciju podataka.
-	\item Sistem označava (obeležava) nalog klijenta kao 'aktivan' i dozvoljava pristup informacijama.
+	\item Sistem označava (obeležava) nalog klijenta kao 'aktivan' i dozvoljava pristup informacijama sistema.
 	\end{enumerate}\\
 \hline
     Alternativni tokovi & \begin{itemize}
@@ -32,7 +34,7 @@
     \item Klijent je dužan da se registruje ispočetka.
     \item Slučaj upotrebe se završava.
     \end{enumerate} % ili korisnik posto nije klijent?
-    \item [AA2] E-mail za promenu lozinke nije stigao klijentu iako je e-mail adresa klijenta validna: Klijent obaveštava sistem da mu ponovo pošalje e-mail. Slučaj se nastavlja u koraku A2.1.
+    \item [AA2] E-mail za promenu lozinke nije stigao klijentu iako je e-mail adresa klijenta validna: Klijent obaveštava sistem da mu ponovo pošalje e-mail. Slučaj se nastavlja u koraku prvom po redu koraku A2.1.
     \end{itemize}\\ % gde smestiti ovaj slucaj AA2 - alternativni slucaj alternativnog slucaja A2?
 \hline
     Podtokovi & / \\

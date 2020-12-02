@@ -11,16 +11,16 @@
 \begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
 %\caption{Online plaćanje za registrovanog klijenta}
 \hline
-    Kratak opis & Klijent vrši online plaćanje usluga teretane tako što popunjava formular odgovarajućim podacima. Vrši se validacija podataka i klijent dobija informaciju o uspešnosti akcije.\\ 
+    Kratak opis & Klijent vrši online plaćanje određene usluge teretane tako što popunjava formular odgovarajućim podacima. Vrši se validacija podataka i klijent dobija informaciju o uspešnosti akcije.\\ 
 \hline    
-    Učesnici & Klijent koji želi da plati za usluge teretane (članarinu/paket) online.\\
+    Učesnici & Klijent koji želi da plati određenu uslugu teretane (paket i program/igraonicu) online.\\
 \hline
    Preduslovi & \begin{enumerate}
+       \item Korisnik je registrovan (korisnik je klijent).
        \item Klijent ima pristup internetu.
-       \item Sistem je u funkciji (dostupan).
-       \item Korisnik je član teretane i registrovan je (klijent).
+       \item Sistem je u funkciji.
        \item Klijent poseduje platnu karticu koja ima mogućnost online plaćanja (plaćanja preko interneta).
-       \item Klijent je odabrao paket usluga i nalazi na stranici za on-line plaćanje
+       \item Klijent je odabrao paket i program ili igraonicu čije usluge želi da koristi.
    \end{enumerate}\\
 \hline  
     Postuslovi & \begin{enumerate}
@@ -30,7 +30,7 @@
     \end{enumerate}\\
 \hline
     Osnovni tok & \begin{enumerate}
- 		\item Na osnovu odabranog paketa, sistem izračunava cenu i prikazuje je klijentu.
+ 		\item Sistem otvara stranicu sa formularom za online plaćanje.
 		\item Klijent unosi potrebne podatke i izvršava plaćanje klikom na dugme za potvrdu plaćanja.
 		\item Proveravaju se uneti podaci i raspoloživa sredstva klijenta.
 		\item Sistem obaveštava klijenta o uspešnoj realizaciji plaćanja.
@@ -39,11 +39,12 @@
     \end{enumerate}\\
 \hline
     Alternativni tokovi & \begin{enumerate}
-       		\item [A2] Klijent bira opciju za otkazivanje plaćanja: Slučaj upotrebe se završava.
+       	    \item [A2] Klijent bira opciju za otkazivanje plaćanja: Slučaj upotrebe se završava.
         	\item [A2] Podaci koje je klijent uneo nisu validni: Sistem nije uspeo da nastavi proces plaćanja. Slučaj se nastavlja u koraku 2.
         	\item [A4] Klijent nema dovoljno sredstava na računu: Klijentu se pruža prilika da unese broj (i ostale parametre) druge platne kartice (ukoliko takvu poseduje) i da sa njom pokuša plaćanje. Slučaj se nastavlja u koraku 2. % Klijent moze i da odustane kada se vrati na korak 2, zato to nije naglaseno ovde ponovo.
         	\item [A4] Problem pri povezivanju sistema i banke: Klijent se obavestava o situaciji i poziva da pokuša ponovo plaćanje. Slučaj se nastavlja u koraku 2.
         	\item [A5] Potvrda o izvršenoj uplati nije poslata klijentu: Klijent kontaktira teretanu putem e-maila, nakon čega lice zaduženo za ovaj problem reaguje. Slučaj upotrebe se završava.
+        	% Da li da izbacim A5?
         	\end{enumerate}\\
 \hline
     Podtokovi & / \\
@@ -51,8 +52,9 @@
     Specijalni zahtevi & / \\
 \hline
     Dodatne informacije & Potrebni podaci za online uplatu su: broj kartice klijenta, datum isteka kartice i CVV kod kartice. \\
+    % Možda ime, prezime?
 \hline
-\caption{Online plaćanje za klijenta} % needs to go inside longtable environment
+\caption{Online plaćanje} % needs to go inside longtable environment
 \label{tab:myfirstlongtable}
 \end{longtable}
 %\end{table} 

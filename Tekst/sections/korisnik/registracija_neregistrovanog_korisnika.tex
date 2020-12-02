@@ -6,32 +6,35 @@
 \caption{Registracija neregistrovanog korisnika}
 \begin{tabularx}{\textwidth}{|1|X|}
 \hline
-    Kratak opis & Korisnik vrši registraciju tako što popunjava formular. Nakon toga sistem vrši validaciju podataka, registruje korisnika i vraća potvrdu korisniku.\\ \hline
+    Kratak opis & Korisnik vrši registraciju tako što popunjava formular. Nakon toga sistem vrši validaciju podataka, registruje korisnika i šalje potvrdu korisniku.\\ \hline
     Učesnici & Neregistrovani korisnik koji želi da se registruje kako bi mogao da koristi usluge sistema. \\
 \hline
-   Preduslovi & Korisnik ima pristup internetu. Sistem je u funkciji (dostupan). \\
+   Preduslovi & Korisnik ima pristup internetu. Sistem je u funkciji. \\
+   % Više nigde se ne pominje internet kao preduslov!
 \hline  
-    Postuslovi & Korisnik je uspešno registrovan i ima pristup sistemu. Baza je ažurirana (u samom sistemu). \\
+    Postuslovi & Korisnik je uspešno registrovan i može da se prijavi na sistem i koristi njegove usluge. Baza podataka je ažurirana. \\
 \hline
     Osnovni tok & \begin{enumerate}
-    \item Prvo korisnik otvara stranicu za registraciju.
-	\item Korisnik unosi tražene podatke i kliknuo je na dugme za registraciju.
+    \item Korisnik otvara stranicu za registraciju.
+	\item Korisnik unosi tražene podatke i kliknuo je na dugme za potvrdu/nastavak registracije.
 	\item Sistem vrši validaciju podataka.
 	\item Sistem čuva podatke i nalog obeležava kao privremen.
-	\item Sistem šalje korisniku mejl sa privremenim linkom za potvrdu i čeka na potvrdu.
+	\item Sistem šalje korisniku mejl sa privremenim (vremenski ograničenim) linkom za potvrdu i čeka na potvrdu.
 	\item Korisnik proverava poštu i potvrđuje registraciju prateći link.
 	\item Sistem obeležava nalog kao aktivan.
-	\item Sistem obaveštava korisnika da je nalog uspešno sačuvan (napravljen).\end{enumerate}\\
+	\item Sistem obaveštava korisnika da je nalog uspešno sačuva (napravljen).\end{enumerate}\\
 \hline
-    Alternativni tokovi & A3 Neuspešna validacija podataka: Sistem obaveštava korisnika da su podaci neispravni. Proces se nastavlja u koraku 2.\newline
-    A5 Link za registraciju je istekao: Korisnik nije potvrdio registraciju. Sistem brise nalog. Proces se završava.\newline
-    A6 E-mail nije stigao korisniku: Korisnik obaveštava sistem da mu ponovo pošalje e-mail. Slučaj se nastavlja u koraku 5.\\
+    Alternativni tokovi & \begin{itemize}
+        \item [A3] Neuspešna validacija podataka: Sistem obaveštava korisnika da su podaci neispravni. Proces se nastavlja u koraku 2.
+        \item [A5] Link za registraciju je istekao: Korisnik nije potvrdio registraciju. Sistem brise nalog. Proces se završava.
+        \item [A6] E-mail nije stigao korisniku: Korisnik obaveštava sistem da mu ponovo pošalje e-mail. Slučaj se nastavlja u koraku 5.
+    \end{itemize} \\
 \hline
     Podtokovi & / \\
 \hline
     Specijalni zahtevi & / \\
 \hline
-    Dodatne informacije & Potrebni podaci za registraciju su korisničko ime, lozinka, ponavljanje lozinke, ime, prezime, e-mail. \\
+    Dodatne informacije & Potrebni podaci za registraciju su korisničko ime, lozinka, ime, prezime, e-mail adresa. \\
 \hline
     
 \end{tabularx}

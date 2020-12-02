@@ -1,0 +1,51 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+%\begin{center}
+%\begin{tabularx}{\textwidth}{|1|X|}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+
+\hline
+    Kratak opis & Klijent bira paket i program koji će moći da koristi u ograničenom (naznačenom) periodu. \\ 
+\hline    
+    Učesnici & 
+    	\begin{enumerate}
+        \item Klijent koji želi da odabere paket i program koji mu odgovaraju.
+     \end{enumerate}\\
+\hline
+   Preduslovi & \begin{enumerate}
+       \item Korisnik je registrovan u sistemu (korisnik je klijent).
+       \item Sistem je u funkciji.
+       \item Klijent je prijavljen na sistem.
+   \end{enumerate}\\
+\hline  
+    Postuslovi & \begin{enumerate}
+        \item Klijent je odabrao željeni paket i program.
+    \end{enumerate}\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Klijent pristupa delu sajta na kome se nalaze paketi koji su u ponudi (odnosno koji su trenutno aktuelni).
+        \item Klijent klikom na paket dobija detaljne informacije o tom paketu.
+        \item Klijent bira paket koji mu odgovara (po broju termina, ceni) klikom na dugme.
+        % otvara se sledeća stranica pa onda...
+        \item Klijent bira program: da li želi samostalni ili vođeni trening i to potvrđuje.
+        \item Sistem čuva izmene. Klijent je uspešno odabrao paket i program.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & \begin{itemize}
+        \item[A4]  Klijent želi da zameni paket koji je odabrao: Klijent klikom na dugme za povratak vraća se korak nazad. Slučaj upotrebe se nastavlja u koraku 3.
+        % Ako želi da odustane?
+    \end{itemize}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+%\end{tabularx}
+\caption{Odabir paketa i programa online} % needs to go inside longtable environment
+%\label{tab:myfirstlongtable}
+\end{longtable}
+%\end{center}  
+\end{document} 
