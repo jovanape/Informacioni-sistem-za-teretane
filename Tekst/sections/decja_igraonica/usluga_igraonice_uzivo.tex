@@ -5,7 +5,7 @@
 
 \begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
 \hline
-    Kratak opis & Klijent želi uživo da odabere igraonicu čije će usluge moći da koristi. Klijent bira vrstu igraonice, broj termina, kao i druge opcije, ukoliko ima dete/dece i želi da ono/ona boravi/borave u igraonici za vreme njegovog treninga.  \\ 
+    Kratak opis & Klijent uživo bira igraonicu čije će usluge moći da koristi. Klijent bira vrstu igraonice, broj termina, kao i druge opcije, ukoliko ima dece i želi da ona (ono) borave (boravi) u igraonici za vreme njegovog treninga. \\ 
 \hline
     Učesnici &
     \begin{enumerate}
@@ -35,13 +35,13 @@
         \item Klijent zahteva od recepcionera da mu omogući izbor igraonice.
         \item Recepcioner informiše klijenta o igraonicama koje su u ponudi.
         % o tipu igraonice i lokaciji
-        \item Klijent govori recepcioneru usluge koje igraonice želi da koristi.
+        \item Klijent govori recepcioneru usluge koje igraonice (konkretno) želi da koristi.
         \item Recepcioner obaveštava klijenta o detaljnim informacijama vezanim za izabranu igraonicu kao i o tome koji uslovi moraju biti ispoštovani da bi se usluga te igraonice koristila.
-        \item Klijent je saglasan sa uslovima.
+        \item Klijent je saglasan sa uslovima i sa početkom procesa kupovine termina.
         \item Recepcioner bira opciju za kupovinu termina za odabranu igraonicu.
         \item Sistem prikazuje formular koji recepcioner treba da popuni.
         \item Recepcioner postavlja pitanja iz formulara klijentu i beleži odgovore (broj dece, broj termina, itd.).
-        \item Recepcioner potvrđuje unos.
+        \item Recepcioner potvrđuje unos (tj. prosleđuje popunjeni formular sistemu).
         \item Sistem proverava da li su uneti podaci ispravni, računa ukupnu cenu na osnovu unetih podataka i ispisuje je (recepcioneru).
         \item Recepcioner saopštava cenu klijentu.
         \item Klijent je uspešno odabrao igraonicu i saglasan je sa cenom. % nastavlja proces plaćanja
@@ -58,9 +58,11 @@
 \hline
     Alternativni tokovi & 
     \begin{itemize}
-        \item[A1-A12] Klijent u potpunosti odustaje od započetog procesa odabira igraonice: Recepcioner ostavlja sistem u stanju u kome je bio pre nego što je započet proces odabira igraonice. Slučaj upotrebe se završava.
-        % Da li da podelim na 2 alernativna toka jer samo ako je A9 recepcioner treba da ostavi sistem u stanju u kakvom je bio?
-        \item[A10] Podaci koje je recepcioner uneo nisu ispravni ili nisu potpuni: Sistem nije uspeo da nastavi računanje ukupne cene. Slučaj se nastavlja u koraku 7.
+        \item[A1-A12] Klijent odustaje od započetog procesa odabira igraonice: Slučaj upotrebe se završava.
+        % TODO: Da li treba i ovo napisati: Recepcioner ostavlja sistem u stanju u kome je bio pre nego što je započet proces odabira igraonice?
+        \item [A1 - A12] Klijent se predomislio oko izbora igraonice: Klijent obaveštava recepcionera da želi da promeni izbor. Recepcioner ostavlja sistem u stanju u kome je bio pre nego što je započet proces odabira igraonice. Slučaj se nastavlja u koraku 3.
+        \item[A10] Podaci koje je recepcioner uneo nisu ispravni ili nisu potpuni: Sistem nije uspeo da nastavi računanje ukupne cene. Slučaj se nastavlja u koraku 8.
+        % TODO: ili 7.?
         % \item[A11] Podaci koje je recepcioner uneo nisu ispravni ili nisu potpuni: Sistem nije uspeo da nastavi proces plaćanja. Ako je recepcioner naplatio više ili manje nego što treba, reguliše se razlika u plaćanju između klijenta i recepcionera. Slučaj se nastavlja u koraku 10.
         % Da li je ok ovako ili treba da se vrati na korak 9?
         % \item[A9.2] Klijent nema dovoljno sredstava na računu pri plaćanju karticom: Recepcioner obaveštava klijenta da nema dovoljno sredstava na računu. Klijentu se pruža prilika da plati drugom platnom karticom (ukoliko takvu poseduje) i da sa njom pokuša plaćanje ili da plati u gotovini ili da smanji broj termina, odnosno odabere neku jeftiniju opciju. Slučaj se nastavlja u koraku 9.
@@ -75,7 +77,6 @@
          %   \item Sistem rekonstruiše stanje koje je bilo.
          %   \item Recepcionar započinje proces (odabira i kupovine termina) iz početka.
         % \end{itemize}
-        \item [A1 - A12] Klijent se predomislio oko izbora igraonice: Klijent obaveštava recepcionera da želi da promeni izbor. Recepcioner ostavlja sistem u stanju u kome je bio pre nego što je započet proces odabira igraonice. Slučaj se nastavlja u koraku 3.
     \end{itemize} \\
 \hline
     Podtokovi & %\begin{itemize}
@@ -101,14 +102,16 @@
 % \end{itemize}
 \\
 \hline
-    Specijalni zahtevi & Teretana poseduje POS aparat. \\
+    Specijalni zahtevi & \\
 \hline
     Dodatne informacije &
-    \begin{enumerate}
-     \item Informacije koje klijent daje recepcioneru su ime, prezime, username, tip igraonice, broj termina, broj dece.
+    %\begin{enumerate}
+     %\item
+     Informacije koje klijent daje recepcioneru su ime, prezime, username, tip igraonice, broj termina, broj dece.
      % Da li treba username? Mislim da da jer sada klijent nije logovan, jer je uživo.
      %broj članske karte, 
-    \end{enumerate}\\
+    %\end{enumerate}
+    \\
 \hline
 \caption{Odabir igraonice uživo}
 \end{longtable}

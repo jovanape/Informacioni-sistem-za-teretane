@@ -6,7 +6,7 @@
 \begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
 
 \hline
-    Kratak opis &  Administrator unosi novu igraonicu u sistem. \\ 
+    Kratak opis & Administrator unosi novu igraonicu u sistem. \\ 
 \hline    
     Učesnici & 
     	\begin{enumerate}
@@ -22,25 +22,26 @@
     Postuslovi & \begin{enumerate}
         \item Nova igraonica je uspešno dodata u sistem.
         \item Baza podataka je ažurirana.
-        \item Klijenti mogu da kupe termine za datu igraonicu, a potom i da koriste njene usluge.
+        \item Klijenti mogu da kupe termine za novu igraonicu, a potom i da koriste njene usluge.
     \end{enumerate}\\
 \hline
     Osnovni tok & \begin{enumerate}
         \item Administrator bira opciju za dodavanje nove igraonice.
         \item Sistem prikazuje formular sa pitanjima kao što su lokacija igraonice, tip igraonice i drugo.
         \item Administrator popunjava formular neophodnim podacima.
-        \item Administrator potvrđuje unos podataka (i dodaje novu igraonicu). % bice neko dugme
+        \item Administrator potvrđuje unos podataka i dodavanje nove igraonice. % bice neko dugme
         \item Sistem proverava unete podatke - na primer da li na unetoj lokaciji već postoji igraonica, da li na toj lokaciji postoji teretana, itd. % igraonica moze da se doda samo tamo gde vec postoji teretana i ne postoji vec jedna takva (vrsta) igraonica; moze pri popunjavanju forme da se napravi padajuca lista odakle se bira adresa od vec postojecih, tj. lokacija, kako bi se sprecio unos nepostojece lokacije ili pogresne
-        \item Sistem obaveštava administratora da je nova igraonica uspešno dodata. % 6.
+        \item Sistem obaveštava administratora da je nova igraonica uspešno dodata.
         \item Ažurira se baza podataka.
+        % TODO: Da li treba da piše Sistem ažurira bazu podataka ili je ok ovako?
     \end{enumerate}\\
 \hline
     Alternativni tokovi & \begin{itemize}
-        \item[A6]  Sistem nije u mogućnosti da doda novu igraonicu: Sistem obaveštava administratora o neuspehu. Slučaj upotrebe se završava.
-        \item[A6]  Podaci koje je administrator uneo u formular nisu validni (ne zadovoljavaju određene uslove): Slučaj upotrebe se nastavlja u koraku 3.
-        % Da li je ovo slucaj A6 ili treba A5 - slicna situacija je bila i u drugim tabelama slucajeva upotrebe?
-        % Ako je admin odustao od dodavanja nove igraonice?
-        % Ako se admin predomislio oko adrese nove igraonice ili slično?
+        \item[A3-A4] Administrator je odustao od dodavanja nove igraonice: Slučaj upotrebe se završava.
+        % Izmene nisu sačuvane, ali pošto nisu mislim da nema potrebe naglašavati to.
+        \item[A6] Podaci koje je administrator uneo u formular nisu validni (ne zadovoljavaju određene uslove): Slučaj upotrebe se nastavlja u koraku 3.
+        % TODO: Da li je ovo slucaj A6 ili treba A5 - slicna situacija je bila i u drugim tabelama slucajeva upotrebe?
+        \item[A6] Sistem nije u mogućnosti da doda novu igraonicu: Sistem obaveštava administratora o neuspehu. Slučaj upotrebe se završava.
     \end{itemize}\\
 \hline
     Podtokovi & /\\

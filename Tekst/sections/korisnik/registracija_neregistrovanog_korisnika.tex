@@ -2,32 +2,42 @@
 
 \begin{document}
 
-\begin{center}
-\caption{Registracija neregistrovanog korisnika}
-\begin{tabularx}{\textwidth}{|1|X|}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |}
 \hline
-    Kratak opis & Korisnik vrši registraciju tako što popunjava formular. Nakon toga sistem vrši validaciju podataka, registruje korisnika i šalje potvrdu korisniku.\\ \hline
-    Učesnici & Neregistrovani korisnik koji želi da se registruje kako bi mogao da koristi usluge sistema. \\
+    Kratak opis & Korisnik vrši registraciju tako što popunjava formular. Nakon toga sistem vrši validaciju podataka, registruje korisnika i šalje potvrdu korisniku.\\
 \hline
-   Preduslovi & Korisnik ima pristup internetu. Sistem je u funkciji. \\
-   % Više nigde se ne pominje internet kao preduslov!
+    Učesnici & \begin{itemize}
+        \item Neregistrovani korisnik koji želi da se registruje kako bi postao klijent i mogao da koristi usluge sistema.
+        \end{itemize} \\
+\hline
+
+   Preduslovi & \begin{itemize}
+    \item Sistem je u funkciji.
+    %\item Korisnik ima pristup internetu.
+    % TODO: Više nigde se ne pominje internet kao preduslov, pa ne znam da li ovde da stavim?
+    \end{itemize} \\
 \hline  
-    Postuslovi & Korisnik je uspešno registrovan i može da se prijavi na sistem i koristi njegove usluge. Baza podataka je ažurirana. \\
+    Postuslovi & \begin{itemize}  \item Korisnik je uspešno registrovan (korisnik je postao klijent) i može da se prijavi na sistem i koristi njegove usluge.
+    \item Baza podataka je ažurirana.
+    \end{itemize} \\
 \hline
     Osnovni tok & \begin{enumerate}
     \item Korisnik otvara stranicu za registraciju.
-	\item Korisnik unosi tražene podatke i kliknuo je na dugme za potvrdu/nastavak registracije.
+	\item Korisnik unosi tražene podatke.
+	\item Korisnik potvrđuje unos klikom na dugme za potvrdu (nastavak) registracije.
 	\item Sistem vrši validaciju podataka.
 	\item Sistem čuva podatke i nalog obeležava kao privremen.
 	\item Sistem šalje korisniku mejl sa privremenim (vremenski ograničenim) linkom za potvrdu i čeka na potvrdu.
 	\item Korisnik proverava poštu i potvrđuje registraciju prateći link.
 	\item Sistem obeležava nalog kao aktivan.
-	\item Sistem obaveštava korisnika da je nalog uspešno sačuva (napravljen).\end{enumerate}\\
+	\item Sistem obaveštava korisnika da je nalog uspešno sačuva (napravljen).
+	\item Baza podataka se ažurira.
+	\end{enumerate}\\
 \hline
     Alternativni tokovi & \begin{itemize}
-        \item [A3] Neuspešna validacija podataka: Sistem obaveštava korisnika da su podaci neispravni. Proces se nastavlja u koraku 2.
-        \item [A5] Link za registraciju je istekao: Korisnik nije potvrdio registraciju. Sistem brise nalog. Proces se završava.
-        \item [A6] E-mail nije stigao korisniku: Korisnik obaveštava sistem da mu ponovo pošalje e-mail. Slučaj se nastavlja u koraku 5.
+        \item [A4] Neuspešna validacija podataka: Sistem obaveštava korisnika da su podaci neispravni. Proces se nastavlja u koraku 2.
+        \item [A7] Link za registraciju je istekao: Korisnik nije potvrdio registraciju. Sistem brise nalog. Proces se završava.
+        \item [A7] E-mail nije stigao korisniku: Korisnik obaveštava sistem da mu ponovo pošalje e-mail. Slučaj se nastavlja u koraku 6.
     \end{itemize} \\
 \hline
     Podtokovi & / \\
@@ -36,8 +46,8 @@
 \hline
     Dodatne informacije & Potrebni podaci za registraciju su korisničko ime, lozinka, ime, prezime, e-mail adresa. \\
 \hline
-    
-\end{tabularx}
-\end{center}
+
+\caption{Registracija neregistrovanog korisnika}
+\end{longtable}
 
 \end{document}

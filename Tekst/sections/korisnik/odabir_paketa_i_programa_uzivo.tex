@@ -1,0 +1,62 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+%\begin{center}
+%\begin{tabularx}{\textwidth}{|1|X|}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+
+\hline
+    Kratak opis & Klijent bira paket i program koji će moći da koristi u ograničenom (naznačenom) periodu. \\ 
+\hline    
+    Učesnici & 
+    	\begin{itemize}
+        \item Klijent koji želi da odabere paket i program koji mu odgovaraju.
+        \item Recepcioner koji želi da učini uslugu klijentu.
+     \end{itemize}\\
+\hline
+   Preduslovi & \begin{itemize}
+       \item Sistem je u funkciji.
+       \item Recepcioner je prijavljen i autorizovan za korišćenje sistema.
+       \item Klijentu je tekući program istekao ili nije ni postojao.
+       %\item POS sistem je u funkciji.
+   \end{itemize}\\
+\hline  
+    Postuslovi & \begin{itemize}
+        \item Klijent je odabrao željeni paket i program.
+    \end{itemize}\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Klijent zahteva odabir paketa (i programa).
+        \item Recepcioner pristupa odgovarajućem delu sistema za proveru trenutno aktuelnih paketa (paketa u ponudi).
+        \item Recepcioner bira opciju za štampanje formulara (sa listom paketa koji su u ponudi).
+        \item Sistem štampa formular.
+        \item Recepcioner predaje formular klijentu da ga popuni.
+        \item Klijent popunjava formular (bira paket i program: da li želi samostalni trening ili vođeni trening) i vraća ga recepcioneru.
+        \item Recepcioner unosi podatke iz formulara u sistem i potvrđuje unos.
+        \item Sistem proverava unete podatke i izračunava cenu.
+        \item Recepcioner saopštava cenu klijentu.
+        \item Klijent je uspešno odabrao paket i program i saglasan je sa cenom.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & \begin{itemize}
+        %\item [A1-14] Pad sistema: Potrebno je obezbediti da se sve transakcije mogu oporaviti.
+        %1. Recepcioner resetuje sistem i bira oporavak sistema. Loguje se.
+        %2. Sistem rekonstruiše stanje koje je bilo.
+        %3. Recepcioner započinje proces iz početka.
+        \item [A1-A10] Klijent želi da odustane od odabira programa i paketa: Klijent saopštava recepcioneru da odustaje. Slučaj upotrebe se završava.
+        \item [A6-A10] Klijent želi da zameni paket ili program (ili oba) koji je odabrao: Recepcioner odustaje od započetog procesa i ostavlja sistem u stanju u kom je bio pre odabira paketa i programa. Slučaj upotrebe se nastavlja u koraku 3.
+        \item [A8] Podaci koje je recepcioner uneo nisu ispravni: Recepcioner se konsultuje sa klijentom u vezi podataka. Slučaj upotrebe se nastavlja u koraku 7.
+        \end{itemize}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+%\end{tabularx}
+\caption{Odabir paketa i programa uživo} % needs to go inside longtable environment
+%\label{tab:myfirstlongtable}
+\end{longtable}
+%\end{center}  
+\end{document} 

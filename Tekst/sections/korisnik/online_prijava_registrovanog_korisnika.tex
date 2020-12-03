@@ -2,29 +2,37 @@
 
 \begin{document}
 
-\begin{center}
-\caption{Online prijava registrovanog korisnika (klijenta)}
-\begin{tabularx}{\textwidth}{|1|X|}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
 \hline
     Kratak opis & Klijent se prijavljuje na nalog na koji se prethodno registrovao. Nakon toga sistem vrši validaciju podataka i označava nalog kao 'aktivan'.\\
 \hline
-    Učesnici & Klijent koji želi da se prijavi kako bi mogao da koristi usluge sistema. \\
+    Učesnici & \begin{itemize}
+        \item Klijent koji želi da se prijavi kako bi mogao da koristi usluge sistema.
+    \end{itemize} \\
 \hline
-   Preduslovi & Koristnik je registrovan na sistem (korisnik je klijent). Klijent ima pristup internetu. Sistem je u funkciji.
-   % Da li je potreban preduslov korisnik je registrovan (klijent)? \\
+   Preduslovi & \begin{itemize}
+    \item Koristnik je registrovan na sistem (korisnik je klijent).
+    \item Klijent ima pristup internetu. Sistem je u funkciji.
+   \end{itemize}
+   % TODO: Da li je potreban preduslov korisnik je registrovan (klijent)?
+   \\
 \hline  
-    Postuslovi & Klijent je uspešno prijavljen i ima pristup sistemu. \\
+    Postuslovi & \begin{itemize}
+        \item Klijent je uspešno prijavljen na sistem.
+        \item Klijent može da koristi usluge sistema.
+    \end{itemize} \\
 \hline
     Osnovni tok & \begin{enumerate}
     \item Klijent otvara stranicu za prijavu.
-	\item Klijent unosi korisničko ime/e-mail adresu i lozinku i kliknuo je na dugme za prijavu.
+	\item Klijent unosi podatke kao što su korisničko ime/e-mail adresa i lozinka.
+	\item Klijent potvrđuje unos podataka klikom na dugme za prijavu (i potvrdu).
 	\item Sistem vrši validaciju podataka.
-	\item Sistem označava (obeležava) nalog klijenta kao 'aktivan' i dozvoljava pristup informacijama sistema.
+	\item Sistem označava (obeležava) nalog klijenta kao 'aktivan' i dozvoljava mu pristup informacijama i korišćenje njegovih usluga.
 	\end{enumerate}\\
 \hline
     Alternativni tokovi & \begin{itemize}
-    \item [A3] Neuspešna validacija podataka: Sistem obaveštava korisnika da su uneti podaci neispravni. Proces se nastavlja u koraku 2.
-    \item [A2] Zaboravljena lozinka: \begin{enumerate}
+    \item [A4] Neuspešna validacija podataka: Sistem obaveštava korisnika da su uneti podaci neispravni. Proces se nastavlja u koraku 2.
+    \item [A2*] Zaboravljena lozinka: \begin{enumerate}
     \item Sistem šalje klijentu link ka web stranici za promenu lozinke, na e-mail adresu koja je validna.
     \item Klijent pristupa sandučetu (inbox, spam) svog e-maila i prati dati link.
     \item Na stranici, na koju link upućuje, klijent menja lozinku.
@@ -33,8 +41,8 @@
     \item [A2] Zaboravljena lozinka i username/e-mail adresa: \begin{enumerate}
     \item Klijent je dužan da se registruje ispočetka.
     \item Slučaj upotrebe se završava.
-    \end{enumerate} % ili korisnik posto nije klijent?
-    \item [AA2] E-mail za promenu lozinke nije stigao klijentu iako je e-mail adresa klijenta validna: Klijent obaveštava sistem da mu ponovo pošalje e-mail. Slučaj se nastavlja u koraku prvom po redu koraku A2.1.
+    \end{enumerate} % TODO: Ili korisnik posto nije klijent?
+    \item [AA2] E-mail za promenu lozinke nije stigao klijentu iako je e-mail adresa klijenta validna: Klijent obaveštava sistem da mu ponovo pošalje e-mail. Slučaj se nastavlja u koraku A2*.1.
     \end{itemize}\\ % gde smestiti ovaj slucaj AA2 - alternativni slucaj alternativnog slucaja A2?
 \hline
     Podtokovi & / \\
@@ -43,8 +51,9 @@
 \hline
     Dodatne informacije & Potrebni podaci za prijavljivanje su korisničko ime/e-mail adresa i lozinka. \\
 \hline
-    
-\end{tabularx}
-\end{center}
+
+\caption{Online prijava registrovanog korisnika (klijenta)}
+\end{longtable}
+
 
 \end{document}

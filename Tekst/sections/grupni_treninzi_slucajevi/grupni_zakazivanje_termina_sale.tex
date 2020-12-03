@@ -1,0 +1,55 @@
+\documentclass[../grupniTreninzi.tex]{subfiles}
+
+\begin{document}
+
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+\hline
+    Kratak opis &  Na osnovu evidencije slobodnih sala i svog ličnog rasporeda, trener zakazuje grupni trening u svoj lični raspored i rezerviše salu u određenom vremenskom slotu preko svoje lične stranice na sistemu.\\ 
+\hline    
+    Učesnici &
+    \begin{enumerate}
+        \item Grupni trener - želi da doda termin u svoj raspored treninga i rezerviše slobodnu salu
+    \end{enumerate}\\
+\hline
+   Preduslovi & 
+   \begin{enumerate}
+        \item Grupni trener ima pristup internetu
+        \item Grupni trener ima svoj nalog na sistemu
+    \end{enumerate}\\
+\hline  
+    Postuslovi &
+    \begin{enumerate}
+        \item Termin je dodat, sala je rezervisana za isti termin i izmenjen je lični raspored trenera
+    \end{enumerate}\\
+\hline
+    Osnovni tok & 
+    \begin{enumerate}
+        \item Grupni trener se prijavljuje na sistem
+        \item Grupni trener odlazi na svoju stranicu na sistemu.
+        \item Grupni trener pristupa delu stranice u kom se nalazi njegov grupnih raspored treninga i raspored slobodnih sala.
+        \item Grupni trener dodaje novu stavku u svoj raspored tako što unosi dan, sat početka, sat završetka treninga i id sale.
+        \item Grupni trener unosi naziv sale koju želi da rezerviše
+        \item Sistem čuva informaciju o izboru, ažurira lični raspored grupnog trenera i označava da je sala zauzeta u datom terminu .
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & 
+       \begin{enumerate}
+        \item Sala je nedostupna u vremenskom slotu koji je grupni trener želeo da rezerviše
+            \begin{enumerate}
+                \item Grupni trener dobija obavestenje da njegovo zakazivanje treninga nije uspešno
+                \item Grupni trener se redirektuje na korak 3 osnovnog toka
+            \end{enumerate}    
+    \end{enumerate}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+\caption{Zakazivanje grupnog treninga} % needs to go inside longtable environment    
+\end{longtable}
+
+
+
+\end{document}

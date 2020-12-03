@@ -1,7 +1,7 @@
 \documentclass[../main.tex]{subfiles}
 
-\usepackage{longtable}
-\usepackage{lipsum} % just for dummy text- not needed for a longtable
+%\usepackage{longtable}
+%\usepackage{lipsum} % just for dummy text- not needed for a longtable
 
 \begin{document}
 %\lipsum[1]
@@ -35,17 +35,17 @@
 		\item Proveravaju se uneti podaci i raspoloživa sredstva klijenta.
 		\item Sistem obaveštava klijenta o uspešnoj realizaciji plaćanja.
         \item Sistem šalje klijentu potvrdu o izvršenoj uplati (na e-mail adresu klijenta ili beleži to na profilu klijenta).
+        \item Klijentu stiže potvrda.
         \item Ažurira se baza podataka.
     \end{enumerate}\\
 \hline
     Alternativni tokovi & \begin{enumerate}
        	    \item [A2] Klijent bira opciju za otkazivanje plaćanja: Slučaj upotrebe se završava.
-        	\item [A2] Podaci koje je klijent uneo nisu validni: Sistem nije uspeo da nastavi proces plaćanja. Slučaj se nastavlja u koraku 2.
-        	\item [A4] Klijent nema dovoljno sredstava na računu: Klijentu se pruža prilika da unese broj (i ostale parametre) druge platne kartice (ukoliko takvu poseduje) i da sa njom pokuša plaćanje. Slučaj se nastavlja u koraku 2. % Klijent moze i da odustane kada se vrati na korak 2, zato to nije naglaseno ovde ponovo.
-        	\item [A4] Problem pri povezivanju sistema i banke: Klijent se obavestava o situaciji i poziva da pokuša ponovo plaćanje. Slučaj se nastavlja u koraku 2.
-        	\item [A5] Potvrda o izvršenoj uplati nije poslata klijentu: Klijent kontaktira teretanu putem e-maila, nakon čega lice zaduženo za ovaj problem reaguje. Slučaj upotrebe se završava.
-        	% Da li da izbacim A5?
-        	\end{enumerate}\\
+        	\item [A3] Podaci koje je klijent uneo nisu validni: Sistem nije uspeo da nastavi proces plaćanja. Slučaj se nastavlja u koraku 2.
+        	\item [A3] Klijent nema dovoljno sredstava na računu: Klijentu se pruža prilika da unese broj (i ostale parametre) druge platne kartice (ukoliko takvu poseduje) i da sa njom pokuša plaćanje. Slučaj se nastavlja u koraku 2. % Klijent moze i da odustane kada se vrati na korak 2, zato to nije naglaseno ovde ponovo.
+        	\item [A3] Problem pri povezivanju sistema i banke: Klijent se obavestava o situaciji i poziva da pokuša ponovo plaćanje. Slučaj se nastavlja u koraku 2.
+        	%\item [A6] Potvrda o izvršenoj uplati nije poslata klijentu: Klijent obaveštava sistem o tome, nakon čega sistem ponovo šalje potvrdu. Slučaj upotrebe se nastavlja u koraku 5.
+            \end{enumerate}\\
 \hline
     Podtokovi & / \\
 \hline
