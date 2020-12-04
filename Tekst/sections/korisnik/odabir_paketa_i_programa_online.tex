@@ -16,7 +16,6 @@
    Preduslovi & \begin{itemize}
        \item Sistem je u funkciji.
        \item Korisnik je registrovan u sistemu (korisnik je klijent).
-       \item Klijent je prijavljen na sistem.
        \item Klijentu je tekući program istekao ili nije ni postojao.
    \end{itemize}\\
 \hline  
@@ -25,6 +24,7 @@
     \end{itemize}\\
 \hline
     Osnovni tok & \begin{enumerate}
+        \item Klijent se prijavljuje na sistem.
         \item Klijent pristupa delu sajta na kome se nalaze paketi koji su u ponudi (odnosno koji su trenutno aktuelni).
         \item Klijent selektuje pakete kako bi dobio informacije o njima. Klikom na paket klijent dobija detaljne informacije o tom paketu.
         \item Klijent bira paket koji mu odgovara (po broju termina, ceni) klikom na dugme.
@@ -38,7 +38,6 @@
 \hline
     Alternativni tokovi & \begin{itemize}
         \item[A5, A7] Klijent želi da zameni paket koji je odabrao: Klijent saopštava sistemu da odustaje (od odabira paketa i programa koje je trenutno odabrao). Slučaj upotrebe se nastavlja u koraku 3.
-        % Ako želi da odustane?
         \item [A5, A7] Klijent želi da odustane od odabira paketa i programa: Klijent saopštava sistemu da odustaje. Slučaj upotrebe se završava.
         \item [A6] Podaci koje je klijent uneo nisu ispravni: Sistem obaveštava korisnika da uneti podaci nisu ispravni (ili nisu potpuni). SLučaj upotrebe se nastavlja u koraku 5.
     \end{itemize}\\
