@@ -1,0 +1,60 @@
+\documentclass[../grupniTreninzi.tex]{subfiles}
+
+\begin{document}
+
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+\hline
+    Kratak opis &  Klijent se otkazuje pristustvo za prethodni prijavljen grupni trening\\ 
+\hline    
+    Učesnici &
+    \begin{enumerate}
+        \item Klijent - želi da otkaže prisustvo grupnom treningu
+    \end{enumerate}\\
+\hline
+   Preduslovi & 
+   \begin{enumerate}
+        \item Klijent ima pristup internetu
+        \item Klijent ima svoj nalog na sistemu
+        \item Klijent ima prijavljeno prisustvo za bar jedan grupni trening
+    \end{enumerate}\\
+\hline  
+    Postuslovi &
+    \begin{enumerate}
+        \item Izmenjen je lični raspored klijent
+        \item Ažurirano je stanje prijavljenih kandidata za dati grupni trening
+    \end{enumerate}\\
+\hline
+    Osnovni tok & 
+    \begin{enumerate}
+        \item Krijent se prijavljuje na sistem
+        \item Klijent odlazi na deo stranice sa prijavljenim grupnim treninzima
+        \item Klijent bira grupni trenig koji želi da otkaže.
+        \item Klijent otkazuje prisustvo na izabranom grupnom treningu
+        \item Sistem paralelno izvršava:
+            \begin{enumerate}
+                \item Sistem ažurira podatke o prijavljanim treninzima datog klijenta
+                \item Ažurira se broj slobodnih mesta za grupni trening koji je klijent otkazao
+            \end{enumerate}
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & 
+       \begin{enumerate}
+        \item Neispravni podaci u prijavi. Ukoliko klijent prilikom prijave na sistem, u koraku 1, unese pogrešne podatke
+            \begin{enumerate}
+                \item Klijent dobija poruku da je prijavljivanje neuspešno.
+                \item Klijent se preusmerava na korak 1 osnovnog toka
+            \end{enumerate}    
+    \end{enumerate}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+\caption{Online otkazivanje prisustva na grupnom treningu} % needs to go inside longtable environment    
+\end{longtable}
+
+
+
+\end{document}
