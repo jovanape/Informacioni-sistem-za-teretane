@@ -1,0 +1,61 @@
+\documentclass[../grupniTreninzi.tex]{subfiles}
+
+\begin{document}
+
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+\hline
+    Kratak opis & Rezervisani termin za grupni trening je određen vremenskim periodom, rezervacijom sale za isti vremenski period i maksimalnim brojem korisnika. Trener grupnih treninga želi da promeni salu održavanja zakazanog grupnog treninga.\\ 
+\hline    
+    Učesnici &
+    \begin{enumerate}
+        \item Grupni trener - želi da promeni salu održavanja već zakazanog grupnog treninga.
+    \end{enumerate}\\
+\hline
+   Preduslovi & 
+   \begin{enumerate}
+        \item Grupni trener ima pristup internetu.
+        \item Grupni trener ima svoj nalog na sistemu.
+        \item Grupni trener ima zakazan grupni trening koji želi da ažurira.
+    \end{enumerate}\\
+\hline  
+    Postuslovi &
+    \begin{enumerate}
+        \item Sala u kojoj se grupni trening održava je ažuriran. Novi termin grupnog treninga je sačuvan u sistemu.
+    \end{enumerate}\\
+\hline
+    Osnovni tok & 
+    \begin{enumerate}
+        \item Grupni trener se prijavljuje na sistem
+        \item Grupni trener odlazi na svoju stranicu na sistemu.
+        \item Grupni trener pristupa delu stranice u kome se nalazi spisak njegov grupnih raspored treninga.
+        \item Grupni trener iz spiska bira trening koji želi da ažurira.
+        \item Grupni trener ažurira salu grupnog treninga.
+        \item Sistem čuva informaciju o izboru, ažurira lični raspored grupnog trenera i označava da je druga sala rezervisana, rezervacija prethodne sale se briše iz sistema.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & 
+       \begin{enumerate}
+        \item Nova sala je nedostupna u datom vremenskom slotu. 
+            \begin{enumerate}
+                \item Grupni trener dobija obavestenje da njegovo ažuriranje termina treninga nije uspešno
+                \item Grupni trener se preusmerava na korak 3 osnovnog toka
+            \end{enumerate}
+        \item Maksimalni kapacitet nove sale je manji od željenog za dati grupni trening
+            \begin{enumerate}
+                \item Grupni trener dobija obavestenje da njegovo ažuriranje termina treninga nije uspešno
+                \item Grupni trener se preusmerava na korak 3 osnovnog toka
+            \end{enumerate}
+    \end{enumerate}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+\caption{Ažuriranje rezervisane sale grupnog treninga} % needs to go inside longtable environment    
+\end{longtable}
+
+
+
+\end{document}

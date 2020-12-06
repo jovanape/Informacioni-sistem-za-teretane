@@ -27,9 +27,11 @@
         \item Grupni trener se prijavljuje na sistem
         \item Grupni trener odlazi na svoju stranicu na sistemu.
         \item Grupni trener pristupa delu stranice u kom se nalazi njegov grupnih raspored treninga i raspored slobodnih sala.
-        \item Grupni trener dodaje novu stavku u svoj raspored tako što unosi dan, sat početka, sat završetka treninga i id sale.
-        \item Grupni trener unosi naziv sale koju želi da rezerviše
-        \item Sistem čuva informaciju o izboru, ažurira lični raspored grupnog trenera i označava da je sala zauzeta u datom terminu .
+        \item Grupni trener dodaje novu stavku u svoj raspored tako što unosi dan, sat početka i sat završetka treninga.
+        \item Grupni trener unosi maksimalni broj učesnika za dati trening
+        \item Grupni trener bira salu koju želi da rezerviše u datom terminu.
+        \item Grupni trener bira tip grupnog treninga
+        \item Sistem čuva informaciju o izboru, ažurira lični raspored grupnog trenera i označava da je sala zauzeta u datom terminu.
     \end{enumerate}\\
 \hline
     Alternativni tokovi & 
@@ -37,8 +39,13 @@
         \item Sala je nedostupna u vremenskom slotu koji je grupni trener želeo da rezerviše
             \begin{enumerate}
                 \item Grupni trener dobija obavestenje da njegovo zakazivanje treninga nije uspešno
-                \item Grupni trener se redirektuje na korak 3 osnovnog toka
-            \end{enumerate}    
+                \item Grupni trener se preusmerava na korak 3 osnovnog toka
+            \end{enumerate}
+        \item Sala je dostupna u zadatom vremenskom slotu, ali je maksimalan kapacitet sale je manji do željenog
+            \begin{enumerate}
+                \item Grupni trener dobija obavestenje da njegovo zakazivanje treninga nije uspešno
+                \item Grupni trener se preusmerava na korak 3 osnovnog toka
+            \end{enumerate}
     \end{enumerate}\\
 \hline
     Podtokovi & /\\

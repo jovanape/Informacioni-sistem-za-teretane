@@ -1,0 +1,68 @@
+\documentclass[../grupniTreninzi.tex]{subfiles}
+
+\begin{document}
+
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+\hline
+    Kratak opis &  Klijent se prijavljuje za grupni trening na recepciji\\ 
+\hline    
+    Učesnici &
+    \begin{enumerate}
+        \item Klijent - želi da zakaže prisustvo grupnom treningu
+        \item Recepcioner - prijavljuje klijenta za željeni grupni trening 
+    \end{enumerate}\\
+\hline
+   Preduslovi & 
+   \begin{enumerate}
+        \item Sistem je u funkciji
+        \item Klijent je registrovan
+        \item Klijent razgovara uživo da recepcionarom
+    \end{enumerate}\\
+\hline  
+    Postuslovi &
+    \begin{enumerate}
+        \item Klijent je dobrio potvrdu da je njegov trening zakazan
+        \item Ažuriran je raspored treninga datog klijenta
+        \item Ažurirano je stanje prijavljenih kandidata za dati grupni trening
+    \end{enumerate}\\
+\hline
+    Osnovni tok & 
+    \begin{enumerate}
+        \item Krijent dolazi na recepciju sportskog centra
+        \item Recepcioner traži od korisnika da mu da svoju člansku kartu ili username
+        \item Klijent daje recepcionatu svoju člansku kartu ili username
+        \item Recepcioner se povezuje na deo sistema preko kojeg je u mogućnosti da ažurira korisnički nalog klijenta
+        \item Na osnovu ponuđenih termina grupnih treninga, klijent bira trening.
+        \item Recepcionar unosi informacije u sistem
+        \item Sistem paralelno izvršava:
+            \begin{enumerate}
+                \item Sistem ažurira podatke o prijavljanim treninzima datog klijenta
+                \item Smanjuje se broj slobodnih mesta za dati trening (od maksimalnog kapaciteta za zadati grupni trening). 
+            \end{enumerate}
+        \item Sistem obaveštava recepcionera da je zakazano prisustvo treningu
+        \item Recepcioner obaveštava klijenta da je zakazano prisustvo treningu
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & 
+       \begin{enumerate}
+        \item Kapacitet grupnog treninga je popunjen u trenutku prijave
+            \begin{enumerate}
+                \item Recepcioner obaveštava klijenta da je kapacitet grupnog treninga popunjen.
+                \item Klijent zajedno sa recepcionerom provera da li postoji grupni trening za koje postoji slobodno mesto, a da odgovara klijentu. Slučaj upotrebe se vraća na korak 5.
+            \end{enumerate}
+        \item Klijentu ne odgovara ni jedan termin grupnog treninga za koji nije popunjen kapacitet. Klijent se neće prijavljivati ni na jedan grupni trening, slučaj upotrebe se završava
+        
+    \end{enumerate}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+\caption{Uživo prijavljivanje za grupni trening} % needs to go inside longtable environment    
+\end{longtable}
+
+
+
+\end{document}

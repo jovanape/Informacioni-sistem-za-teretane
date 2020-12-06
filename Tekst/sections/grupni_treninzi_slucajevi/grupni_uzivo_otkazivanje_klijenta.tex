@@ -1,0 +1,60 @@
+\documentclass[../grupniTreninzi.tex]{subfiles}
+
+\begin{document}
+
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+\hline
+    Kratak opis &  Klijent želi da otkaže prethodno prijavljen grupni trening na recepciji\\ 
+\hline    
+    Učesnici &
+    \begin{enumerate}
+        \item Klijent - želi da otkaže prisustvo grupnom treningu
+        \item Recepcioner - odjavljuje klijenta za željeni grupni trening 
+    \end{enumerate}\\
+\hline
+   Preduslovi & 
+   \begin{enumerate}
+        \item Sistem je u funkciji
+        \item Klijent je registrovan
+        \item Klijent razgovara uživo da recepcionarom
+        \item Klijent ima prethodno prijavljen bar jedan grupni trening
+    \end{enumerate}\\
+\hline  
+    Postuslovi &
+    \begin{enumerate}
+        \item Klijent je dobro potvrdu da je odjavljen sa željenog grupnog treninga
+        \item Ažuriran je raspored treninga datog klijenta
+        \item Ažurirano je stanje prijavljenih kandidata za dati grupni trening
+    \end{enumerate}\\
+\hline
+    Osnovni tok & 
+    \begin{enumerate}
+        \item Krijent dolazi na recepciju sportskog centra.
+        \item Recepcioner traži od korisnika da mu da svoju člansku kartu ili username.
+        \item Klijent daje recepcionatu svoju člansku kartu ili username.
+        \item Recepcioner se povezuje na deo sistema preko kojeg je u mogućnosti da ažurira korisnički nalog klijenta.
+        \item Klijent govori za koji grupni trening želi da otkaže prisustvo.
+        \item Recepcionar pronalazi taj grupni trening i otkazuje rezervaciju datog klijenta.
+        \item Sistem paralelno izvršava:
+            \begin{enumerate}
+                \item Sistem ažurira podatke o prijavljanim treninzima datog klijenta.
+                \item Povećava broj slobodnih mesta za dati trening. 
+            \end{enumerate}
+        \item Sistem obaveštava recepcionera da je otkazano prisustvo klijenta grupnom treningu
+        \item Recepcioner obaveštava klijenta da je otkazano prisustvo treningu grupnom treningu
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & /\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+\caption{Uživo prijavljivanje za grupni trening} % needs to go inside longtable environment    
+\end{longtable}
+
+
+
+\end{document}
