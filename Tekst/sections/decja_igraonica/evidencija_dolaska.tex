@@ -1,0 +1,51 @@
+\documentclass[../main.tex]{subfiles}
+
+
+\begin{document}
+\begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
+\hline
+    Kratak opis &  Klijent dovodi svoje dete u teretanu i daje recepcionaru svoju člansku kartu da bi recepcioner evidentirao dolazak u igraonicu u sistem.\\ 
+\hline    
+    Učesnici & \begin{enumerate}
+        \item Klijent – Želi da ostavi svoje dete u igraonici, uglavnom dok on trenira.
+        \item Recepcioner – Želi da zabeleži dolazak dolazak deteta u igraonicu.   
+     \end{enumerate}\\
+\hline
+   Preduslovi & \begin{enumerate}
+       \item Sistem je u funkciji.
+       \item Klijent je korisnik teretane i sa sobom nosi člansku kartu.
+       \item Klijent je uplatio termin u igraonici ili paket i u okviru njega ima još barem jedan terming da iskoristi.
+       \item Klijent ima zakazan termin u igraonici.
+   \end{enumerate}\\
+\hline  
+    Postuslovi & \begin{enumerate}
+        \item Ažurirani su podaci o dolascima u igraonicu na korisnikovom profilu.
+    \end{enumerate}\\
+\hline
+    Osnovni tok & \begin{enumerate}
+        \item Korisnik dolazi u teretanu i recepcioneru predaje svoju člansku kartu.
+        \item Recepcioner unosi broj članske karte u deo sistema za evidenciju dolazaka u igraonicu.
+        \item Sistem izlistava uplaćene termine i pakete klijenta za korišćenje igraonice.
+        \item Recepcioner obeležava dolazak u igraonicu. Pritiska dugme „Potvrdi dolazak“.
+        \item Sistem čuva izmenu. Obaveštava da je sačuvana izmena.
+        \item Recepcioner obaveštava klijenta da je evidentiran dolazak u igraonicu.
+        \item Klijent ostavlja svoje dete u igraonici.
+    \end{enumerate}\\
+\hline
+    Alternativni tokovi & \begin{itemize}
+        \item[A1] Klijent nije poneo člansku kartu: Recepcioner pita klijenta za korisničko ime ili e-mail. Klijent saopštava korisničko ime ili e-mail. Slučaj se nastavlja na koraku 3.
+        \item[A3.1] Klijent nema uplaćen termin u igraonici: Recepcioner saopštava klijentu da nema uplaćen termin. Prelazi se na slučaj upotrebe \textit{Plaćanje članarine uživo}.
+        \item[A3.2] Klijent nema zakazan termin u igraonici: Recepcioner saopštava klijentu da nema zakazan termin. Ukoliko klijent želi da ga zakaže, prelazi se na slučaj upotrebe \textit{Usluge igraonice uživo.} 
+        \item[A5] Pad sistema: Recepcioner zapisuje dolazak na papir da bi ga naknadno uneo. Slučaj se nastavlja na koraku 7.
+    \end{itemize}\\
+\hline
+    Podtokovi & /\\
+\hline
+    Specijalni zahtevi & /\\
+\hline
+    Dodatne informacije & /\\
+\hline
+\caption{Evidencija dolaska u igraonicu}
+\end{longtable}
+
+\end{document}
