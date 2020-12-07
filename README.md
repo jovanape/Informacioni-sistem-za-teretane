@@ -16,4 +16,4 @@ Selena Vukadinović 1070/2020
 
 Jovana Pejkić 1089/2020
 
-Katarina Đurić
+Katarina Đurić 1069/2020
