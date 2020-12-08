@@ -3,103 +3,20 @@
 % Opis baze podataka
 
 \begin{document}
+U ovom poglavlju će biti prikazan opis modela baze podataka koji je predstaljen pomoću ER dijagrama. Svi entiteti koji se pojavljuju prate opise slučajeva upotrebe iz prethodnog poglavlja. Pojedini entiteti su specifični samo za pojedinačne slučajeve upotrebe, dok su entiteti kao što su \textit{Trening} i \textit{Klijent} zastupljeni u većini slučajeva. 
 
-U ovom poglavlju biće detaljno opisana baza podataka koju ovaj informacioni sistem koristi. Baza podataka sadrži informacije o:
-\begin{itemize}
-    \item Zaposlenima u teretanama (trenerima, recepcionerima i sistemskim administratorima),
-    \item Korisnicima (registrovanim - klijentima i neregistrovanim)
-    \item Uplatama klijenata za usluge sportskih programa i igraonice
-    \item Takmičenjima koja se održavaju u teretanama kao i informacije o učesnicima u njima
-    \item Obukama i dodeljenim licencama
-    \item ...
-\end{itemize}
+\subsection{Opisi entiteta}
 
-\subsection{Entiteti}
-Baza sadrži sledeće entitete:
-\begin{enumerate}
-    \item Nezavisni
-        \begin{itemize}
-            \item zaposleni
-            \item korisnik
-            \item ...
-        \end{itemize}
-    \item Zavisni
-        \begin{itemize}
-            \item trener (zavisi od zaposlenog)
-            \item recepcionar (zavisi od zaposlenog)
-            \item sistemski administrator (zavisi od zaposlenog)
-            \item ...
-            % grupni rezervisan termin (zavisi od rezervisanog termina)
-            % individualni rezervisan termin (zavisi od rezervisanog termina)
-        \end{itemize}
-\end{enumerate}
+Entitet \textit{Zaposleni} čuva osnovne podatke od zaposlenima i njegovu hijerahiju čine svi tipovi zaposlenog: \textit{Administrator}, \textit{Trener} i \textit{Recepcionar}. 
+
+\textit{Trening} predstavlja informacije o jednom terminu treninga i od bitnih informacija čuva datum, vreme početka, vreme kraja i pomoću spoljašnjih ključeva informacije o lokaciji, vrsti treninga i treneru koji drži trening. 
+
+\textit{Lokacija} predstavlja lokaciju i osnovne podatke o konkretnoj teretani iz lanca, kao što su naziv, adresa, grad, radno vreme i broj telefona. 
 
 
-\subsubsection{Opis entiteta}
 
-\paragraph{Zaposleni}
-Sadrži opste informacije o svim zaposlenima u lancu teretana.
-Zaposlenog karakteriše: id, ime, prezime, ...
-\begin{itemize}
-    \item Sistemski administrator
-\begin{itemize}
-    \item Sistemski administrator je zaposlen u lancu teretana.
-    \item Sistemskog admina karakteriše: id
-    \item ...
-\end{itemize}
+Za grupu slučajeva upotrebe za takmičenja centralni entitet je \textit{Takmičenje}. On kao atribute ima jedinstveni identifikator koji čini primarni ključ, informacije o datumu, vremenu početka, vremenu kraja, dodatnim informacijama i nagradama i lokaciji. Informacije o disciplinama se dobijaju pomoću veze sa entitetom \textit{Discipline} koji čuva sve moguće discipline. S obzirom da na jednom takmičenju može biti više sudija, a sudije čine treneri teretane, kreiran je poseban entitet \textit{Sudije} koji čuva za svako takmičenje ko je sudija, a detaljnije informacije o osobama se mogu dobiti na osnovu veze sa entitetom \textit{Trener}. \textit{Takmičar} je poseban entitet koji se kreira pri registraciji novog takmičara i sadrži osnovne informacije koje se uzimaju popunjavanjem formulara.Njega jedinstveno određuje kombinacija broja prijave i id takmičenja. Takođe, povezan je vezom više-više sa \textit{Takmičenje\_discipline} koji predstavlja skup disciplina na koje je moguće prijaviti se za neko takmičenje. U slučaju da se takmičenje otkaže kreira se entitet \textit{Participacija} koji za svakog takmičara sa datog takmičenja čuva informacije na koji način mu vratiti novac i informaciju da li je vraćen - koja je inicijalno ne. 
 
-\item Recepcioner
-\begin{itemize}
-    \item Recepcioner je zaposlen u lancu teretana.
-    \item Recepcionera karakteriše: id
-    \item ...
-\end{itemize}
-
-\item Trener
-\begin{itemize}
-    \item Trener je zaposlen u lancu teretana.
-    \item Trenera karakteriše: id
-    \item ...
-\end{itemize}
-\end{itemize}
-
-\paragraph{Korisnik}
-Sadrži informacije o registrovanim korisnicima lanca teretana.
-Korisnika karakteriše: id, ime, prezime, username, e-mail adresa, ...
-
-\paragraph{Uplata}
-...
-Uplatu karakteriše: id uplate, id klijenta, id programa, tip vođenja treninga, cena, ...
-
-\paragraph{Sportski program}
-Sportski program je predlog broja termina za određeni period treniranja. Jedan klijent može da odabere tačno jedan program, po kome će trenirati u predviđenom periodu.
-% Primeri programa:
-% -----------------------
-% 8 termina - mesec dana
-% 12 termina - mesec dana
-% 30 termina - mesec dana
-% -----------------------
-% 24 termina - tri meseca
-% 36 termina - tri meseca
-% 90 termina - tri meseca
-% -----------------------
-% x termina - šest meseci
-% y termina - šest meseci
-% z termina - šest meseci
-% -----------------------
-% a termina - godinu dana
-% b termina - godinu dana
-% c termina - godinu dana
-% -----------------------
-Sportski program karakteriše: id programa, tip vođenja treninga, naziv programa, cena, ...
-% Može da bude cena
-% programa za samostalno
-% treniranje, a onda da
-% se automatski izračunava
-% za vođeni kao
-% cena_samostalni * k,
-% na primer:
-% cena_samostalni * 1.5.
 
 
 \end{document}
