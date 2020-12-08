@@ -7,20 +7,29 @@ U ovom poglavlju će biti prikazan opis modela baze podataka koji je predstaljen
 
 \subsection{Opisi entiteta}
 
-Entitet \textit{Zaposleni} čuva osnovne podatke o zaposlenima i njegovu hijerahiju čine svi tipovi zaposlenog: \textit{Administrator}, \textit{Trener} i \textit{Recepcionar}. 
+Entitet \textit{Zaposleni} čuva osnovne podatke o zaposlenima i njegovu hijerahiju čine svi tipovi zaposlenog: \textit{Administrator}, \textit{Trener} i \textit{Recepcionar}. A \textit{Trener} predstavlja generalizaciju za entitete \textit{Personalni trener} i \textit{Grupni trener}
 
-\textit{Trening} predstavlja informacije o jednom terminu treninga i od bitnih informacija čuva datum, vreme početka, vreme kraja i pomoću spoljašnjih ključeva informacije o lokaciji, vrsti treninga i treneru koji drži trening. 
+\textit{Lokacija} predstavlja lokaciju i osnovne podatke o konkretnoj teretani iz lanca, kao što su naziv, adresa, grad, radno vreme i broj telefona.
 
-\textit{Lokacija} predstavlja lokaciju i osnovne podatke o konkretnoj teretani iz lanca, kao što su naziv, adresa, grad, radno vreme i broj telefona. 
+\textit{Trening} predstavlja informacije o jednom terminu treninga i od bitnih informacija čuva datum, vreme početka, vreme kraja i pomoću spoljašnjih ključeva informacije o lokaciji, vrsti treninga i treneru koji drži trening. \textit{Trening} se specijalizuje u entitete \textit{Personalni trening} i \textit{Grupni trening}
+
 \\
 \textit{Sala} predstavlja salu koja je odredjena lokacijom teretane i maksimalnim kapacitetom (maksimalan broj ljudi koji mogu trenirati u sali.
-\\
+
 \textit{Grupni trening} je vrsta entita \textit{Trening} koji održava \textit{Trener} grupi \textit{Klijenata}. Opisuje ga id treninga, id trenera i maksimalni kapacitet grupnog treninga. Dok entitet \textit{Zakazani grupni}, kao i kod \textit{Treninga} ima informacije o vremenu, lokaciji i id grupnog treninga.
 Entite \textit{Prijavljeni grupni} čuva informacije o kandidatima i njihovim prijavljenim grupni treninzima.
 Entitet \textit{Probni trening} opisuje korisnike grupnih treninga koji prvi put prisustvuju i nisu registrovani korisnici. Zbog daljih provere, čuva se: JMBG, ime i prezime korisnika.
+
+\textit{Personalni trening} čuva informaciju o tome koji klijent je prijavljen za taj trening. Ukoliko nijedan klijent nije prijavljen, polje koje odgovara klijentu ću biti null. A informacije o treneru i terminu održavanja se mogu dobiti iz entiteta \textit{Trening} sa kojim je povezan pomoću identifikatora treninga. Entitet \textit{Raspored personalnog trenera} za svakog personalnog trenera čuva informacije o zakazanim treninzima.
+
+Takođe, svaki klijent ima svoj raspored treninga. Informacije o tome se čuvaju u entitetu \textit{Raspored klijenta} koji sadrži id datog klijenta i identifikatore treninga (i personalnih i grupnih) na koje se on prijavio.
+
+Pomoću agregiranog entiteta \textit{Dolasci} vodi se evidencija o dolasku klijenata na treninge.
+
 \\
 Za grupu slučajeva upotrebe za takmičenja centralni entitet je \textit{Takmičenje}. On kao atribute ima jedinstveni identifikator koji čini primarni ključ, informacije o datumu, vremenu početka, vremenu kraja, dodatnim informacijama i nagradama i lokaciji. Informacije o disciplinama se dobijaju pomoću veze sa entitetom \textit{Discipline} koji čuva sve moguće discipline. S obzirom da na jednom takmičenju može biti više sudija, a sudije čine treneri teretane, kreiran je poseban entitet \textit{Sudije} koji čuva za svako takmičenje ko je sudija, a detaljnije informacije o osobama se mogu dobiti na osnovu veze sa entitetom \textit{Trener}. \textit{Takmičar} je poseban entitet koji se kreira pri registraciji novog takmičara i sadrži osnovne informacije koje se uzimaju popunjavanjem formulara.Njega jedinstveno određuje kombinacija broja prijave i id takmičenja. Takođe, povezan je vezom više-više sa \textit{Takmičenje\_discipline} koji predstavlja skup disciplina na koje je moguće prijaviti se za neko takmičenje. U slučaju da se takmičenje otkaže kreira se entitet \textit{Participacija} koji za svakog takmičara sa datog takmičenja čuva informacije na koji način mu vratiti novac i informaciju da li je vraćen - koja je inicijalno ne. 
 
+Što se tiče obuke za licencu, centralni entitet te grupe slučajeva je \textit{Program obuke za licencu}. On sadrži informacije o tipu licence koja se dobija, lokaciji na kojoj se program održava, časovima, trenerima koji drže obuku i završnom ispitu. Veza između \textit{Programa obuke za licencu} i \textit{Trenera} je više-više, pošto jednu obuku može da drži više trenera, a jedan trener može da drži više različitih obuka. \textit{Ispit} sadrži informacije o datumu, vremenu početka i kraja završnog ispita, klijentu koji polaže ispit, njegovoj oceni, kao i o komisiji koja je dala tu ocenu. Komisiju čini više trenera, a jedan trener može da bude član više komisija, pa je zbog toga između entiteta \textit{Komisija} i \textit{Trener} uspostavljena veza više-više. Evidencija o prijavama za obuku vodi se u agregiranom entitetu \textit{Prijava za program obuke za licencu} koji sadrži i dokumenta koja klijent mora da preda kako bi mogao da pohađa obuku.
 
 
 \end{document}
