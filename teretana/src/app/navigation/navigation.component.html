@@ -1,0 +1,39 @@
+<!-- ***** Header Area ***** -->
+<header class="header-area header-sticky pozicioniran">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">sistem<em> Teretana</em></a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start - da li napraviti da svaki korisnik ima svoju listu? ***** -->
+                    <ul class="nav">
+                        <!-- Deo koji svi vide (Ukljucujuci neregistrovanog korisnika) -->
+                        <li class="scroll-to-section"><a href="#top" class="active">Početna</a></li> <!-- pocetna -->
+                        <li class="scroll-to-section"><a href="#features">Programi</a></li>          <!-- programi -->
+                        <li class="scroll-to-section"><a href="#trainers">Cenovnik</a></li>          <!-- ceonovnik-->
+                        <li class="scroll-to-section"><a href="#contact-us">Info</a></li>            <!-- info -->
+
+                        
+                        <li class="scroll-to-section" *ngIf="jeUlogovanAdministrator()"><a href="#our-classes">Takmičenja</a></li> <!-- takmicenja -->
+
+                        <li class="scroll-to-section"  *ngIf="jeUlogovanKlijent()" >    <a href="#schedule">Raspored</a>     </li> <!-- raspored -->
+
+                        
+                        <div *ngIf="!jeUlogovan()">
+                            <li class="main-button"><a href="#">Prijavljivanje</a></li>
+                        </div>
+                        <div *ngIf="jeUlogovan()">
+                            <li class="main-button"><a href="#">Odjavi se</a></li>
+                        </div>
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

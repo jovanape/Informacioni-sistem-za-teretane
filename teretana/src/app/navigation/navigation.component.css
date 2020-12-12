@@ -1,0 +1,16 @@
+@import "../assets/css/font-awesome.css";
+@import "../assets/css/templatemo-training-studio.css";
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+
+.pozicioniran {
+    
+    position: fixed;
+    top: 0;
+    opacity: 0.7;
+    background-color: #707070;
+}
+
+div {
+  background-color: none;
+}
