@@ -19,3 +19,6 @@
 *.bak_019d
 *.vpp.lck
 *.lck
+
+# dependencies
+/node_modules
