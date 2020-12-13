@@ -13,6 +13,7 @@ import { ProgramiComponent } from './programi/programi.component';
 import { PromoDeoComponent } from './promo-deo/promo-deo.component';
 import { CeonovnikComponent } from './ceonovnik/ceonovnik.component';
 import { TakmicenjaComponent } from './takmicenja/takmicenja.component';
+import { Paket1Component } from './paket_1/paket_1.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TakmicenjaComponent } from './takmicenja/takmicenja.component';
     ProgramiComponent,
     PromoDeoComponent,
     CeonovnikComponent,
-    TakmicenjaComponent
+    TakmicenjaComponent,
+    Paket1Component
   ],
   imports: [
     BrowserModule,
