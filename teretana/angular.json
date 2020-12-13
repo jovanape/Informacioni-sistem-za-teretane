@@ -39,7 +39,8 @@
               "src/app/assets/images/third-trainer.jpg",
               "src/app/assets/images/line-dec.png",
               "src/app/assets/images/features-first-icon.png",
-              "src/app/assets/images/tabs-first-icon.png"
+              "src/app/assets/images/tabs-first-icon.png",
+              "src/app/assets/images/slika1.png"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
