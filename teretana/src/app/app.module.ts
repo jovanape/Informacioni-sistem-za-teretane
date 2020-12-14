@@ -22,6 +22,8 @@ import { AdministracijaComponent } from './administrator/administracija/administ
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { KreiranjeTakmicenjaComponent } from './takmicenja/kreiranje-takmicenja/kreiranje-takmicenja.component';
 import { PrijaviTakmicaraComponent } from './takmicenja/prijavi-takmicara/prijavi-takmicara.component';
+import { ParticipacijaTakmicenjeComponent } from './takmicenja/participacija-takmicenje/participacija-takmicenje.component';
+import { ObavestenjeTakmicenjeComponent } from './takmicenja/obavestenje-takmicenje/obavestenje-takmicenje.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { PrijaviTakmicaraComponent } from './takmicenja/prijavi-takmicara/prijav
     RegisterComponent,
     AdministracijaComponent,
     KreiranjeTakmicenjaComponent,
-    PrijaviTakmicaraComponent
+    PrijaviTakmicaraComponent,
+    ParticipacijaTakmicenjeComponent,
+    ObavestenjeTakmicenjeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,47 +1,60 @@
-
 <!-- ***** Our Classes Start ***** -->
 <section class="section" id="takmicenja">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 offset-lg-3">
-                <div class="section-heading">
-                    <h2>Zakazana takmičenja u našim teretanama</h2>
-                    <p>Na našim takmičenjima su svi dobrodošli. Ukoliko želite da odmerite snage ili se jednostavno dobro zabavite prijavite se. Za najbolje su obezbeđene i nagrade.</p>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="section-heading">
+          <h2>Zakazana takmičenja u našim teretanama</h2>
+          <p>Na našim takmičenjima su svi dobrodošli. Ukoliko želite da odmerite snage ili se jednostavno dobro zabavite
+            prijavite se. Za najbolje su obezbeđene i nagrade.</p>
         </div>
-        <div class="row" id="tabs">
-          <div class="col-lg-4">
-            <ul>
-              <li><a href='#tabs-1'><img src="tabs-first-icon.png" alt="">Kick box, 19.12.2020. u 10h, Teretana "Studentski trg"</a></li>
-              <li><a href='#tabs-2'><img src="tabs-first-icon.png" alt="">Trka sa preprekama, 26.12.2020. u 11h, Teretana "Jagićeva" </a></li>
-              <div class="main-rounded-button" *ngIf="jeUlogovanAdministrator()"><a [routerLink]="['/newCompetition']">Zakaži novo takmičenje</a></div>
-            </ul>
-          </div>
-          <div class="col-lg-8">
-            <section class='tabs-content'>
-              <article id='tabs-1'>
-                <h4>Kick box, 19.12.2020.</h4>
-                <a mat-raised-button href="https://www.google.com/" *ngIf="jeUlogovanRecepcioner()">Prijavi novog takmičara</a>
-                <a mat-raised-button href="https://www.google.com/" *ngIf="jeUlogovanKlijent()" >Prijavi se</a>
-                <div *ngIf="jeUlogovanAdministrator()"> 
-                  <a mat-raised-button href="https://www.google.com/" >Izmeni</a>
-                  <a mat-raised-button href="https://www.google.com/" >Otkaži</a>
-                </div>  
-              </article>
-              <article id='tabs-2'>
-                <h4>Trka sa preprekama, 26.12.2020.</h4>
-                <a mat-raised-button href="https://www.google.com/" *ngIf="jeUlogovanRecepcioner()">Prijavi novog takmičara</a>
-                <a mat-raised-button href="https://www.google.com/" *ngIf="jeUlogovanKlijent()" >Prijavi se</a>
-                <div *ngIf="jeUlogovanAdministrator()"> 
-                  <a mat-raised-button href="https://www.google.com/" >Izmeni</a>
-                  <a mat-raised-button href="https://www.google.com/" >Otkaži</a>
-                </div>  
-              </article>
-          
-            </section>
-          </div>
-        </div>
+      </div>
     </div>
+    <div class="row" id="tabs">
+      <div class="col-lg-4">
+        <ul>
+          <li><a href='#tabs-1'><img src="tabs-first-icon.png" alt="">Kick box, 19.12.2020. u 10h, Teretana "Studentski
+              trg"</a></li>
+          <li><a href='#tabs-2'><img src="tabs-first-icon.png" alt="">Trka sa preprekama, 26.12.2020. u 11h, Teretana
+              "Jagićeva" </a></li>
+          <div class="main-rounded-button" *ngIf="jeUlogovanAdministrator()"><a
+              [routerLink]="['/newCompetition']">Zakaži novo takmičenje</a></div>
+        </ul>
+      </div>
+      <div class="col-lg-8">
+        <section class='tabs-content'>
+          <article id='tabs-1'>
+            <h4>Kick box, 19.12.2020.</h4>
+            <div class="main-rounded-button">
+              <a mat-raised-button [routerLink]="['/newCompetitor']" *ngIf="jeUlogovanRecepcioner()">Prijavi novog
+                takmičara</a>
+            </div>
+            <div class="main-rounded-button">
+              <a mat-raised-button [routerLink]="['/newCompetitor']" *ngIf="jeUlogovanKlijent()">Prijavi se</a>
+            </div>
+            <div *ngIf="jeUlogovanAdministrator()">
+              <div class="main-rounded-button"><a href="https://www.google.com/">Izmeni</a> </div>
+              <div class="main-rounded-button" (click)="otkaziTakmicenje()"><a>Otkaži</a> </div>
+            </div>
+          </article>
+          <article id='tabs-2'>
+            <h4>Trka sa preprekama, 26.12.2020.</h4>
+            <div class="main-rounded-button">
+              <a mat-raised-button [routerLink]="['/newCompetitor']" *ngIf="jeUlogovanRecepcioner()">Prijavi novog
+                takmičara</a>
+            </div>
+            <div class="main-rounded-button">
+              <a mat-raised-button [routerLink]="['/newCompetitor']" *ngIf="jeUlogovanKlijent()">Prijavi se</a>
+            </div>
+            <div *ngIf="jeUlogovanAdministrator()">
+              <div class="main-rounded-button"><a href="https://www.google.com/">Izmeni</a> </div>
+              <div class="main-rounded-button" (click)="otkaziTakmicenje()"><a>Otkaži</a> </div>
+            </div>
+          </article>
+
+        </section>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- ***** Our Classes End ***** -->

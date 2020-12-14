@@ -1,16 +1,53 @@
-
 <!-- ***** Our Classes Start ***** -->
 <section class="section" id="takmicenje_prijava">
-    <div class="container" *ngIf="jeUlogovanKlijent()">
-         <form id="prijaviTakmicara" action="" method="post"> 
-            <label> Izaberite discipline u kojima želite da se takmičite </label>
 
-         </form>
-    </div>
-    <div class="container" *ngIf="jeUlogovanRecepcioner()">
-        <form id="prijaviTakmicara" action="" method="post"> 
-           
 
+    <div class="container cta-content login" *ngIf="jeUlogovanKlijent()">
+        <form class="my-2 col-lg-10 offset-lg-2" id="prijaviTakmicara" action="" method="post"
+            (onSubmit)="prijaviTakmicaraKlijent()">
+            <div class="row center">
+                <label> Izaberite discipline u kojima želite da se takmičite </label>
+            </div>
+            <div class="row center" *ngFor="let disciplina of discipline">
+                <input type="checkbox">
+                <label>{{disciplina}}</label>
+            </div>
+            <button class="btn btn-secondary" type="submit" [routerLink]="['/participacija']"> Nastavi </button>
         </form>
-   </div>
+    </div>
+
+
+    <div class="container cta-content login" *ngIf="jeUlogovanRecepcioner()">
+        <form class="my-2 col-lg-10 offset-lg-2" id="prijaviTakmicara" action="" method="post"
+            (onSubmit)="prijaviTakmicaraReceptionar()">
+            <div class="row center">
+                <label> Ime i prezime </label>
+                <input type="text" placeholder="ime">
+                <input type="text" placeholder="prezime">
+            </div>
+            <div class="row center">
+                <label> Datume rodjenja</label>
+                <input type="date">
+            </div>
+            <div class="row center">
+                <label> e-mail</label>
+                <input type="email">
+            </div>
+            <div class="row center">
+                <label> Broj telefona </label>
+                <input type="text" placeholder="011/123456">
+            </div>
+            <div class="row center" >
+                <p> Izbor disciplina </p>
+            </div>
+                <div class="row center" *ngFor="let disciplina of discipline" >
+                    <input type="checkbox">
+                    <label>{{disciplina}}</label>
+                </div>
+                
+           
+            <button class="btn btn-secondary" type="submit" [routerLink]="['/participacija']">Prijavi takmičara </button>
+        </form>
+    </div>
+
 </section>

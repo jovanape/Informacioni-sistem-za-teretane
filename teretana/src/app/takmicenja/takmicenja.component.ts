@@ -34,6 +34,10 @@ export class TakmicenjaComponent implements OnInit {
   jeUlogovanTrener() {
     return this.korisnikService.jeUlogovanTrener();
   }
+
+  otkaziTakmicenje(){
+    
+  }
   ngOnInit(): void {
   }
 
