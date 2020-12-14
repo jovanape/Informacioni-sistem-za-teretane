@@ -9,6 +9,10 @@ import { KorisnikService } from 'src/app/services/korisnik.service';
 export class PrijaviTakmicaraComponent implements OnInit {
 
   public tipUlogovanog: string;
+  public discipline: string[] = ['Izdržaj','Sklekovi','Zgibovi'];
+
+ 
+  public brojPrijave: number = 26;
 
   constructor(private korisnikService: KorisnikService) {
     this.tipUlogovanog = korisnikService.tipUlogovanog;
@@ -20,6 +24,14 @@ export class PrijaviTakmicaraComponent implements OnInit {
 
   jeUlogovanRecepcioner() {
     return this.korisnikService.jeUlogovanRecepcioner();
+  }
+
+  prijaviTakmicaraReceptionar(){
+   
+  }
+
+  prijaviTakmicaraKlijent(){
+   
   }
 
 

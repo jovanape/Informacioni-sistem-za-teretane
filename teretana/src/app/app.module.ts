@@ -28,6 +28,8 @@ import { IgraonicaComponent } from './igraonica/igraonica.component';
 import { LicencaComponent } from './licenca/licenca.component';
 import { TreninziComponent } from './treninzi/treninzi.component';
 import { EvidencijeComponent } from './tip_recepcioner/evidencije/evidencije.component';
+import { ParticipacijaTakmicenjeComponent } from './takmicenja/participacija-takmicenje/participacija-takmicenje.component';
+import { ObavestenjeTakmicenjeComponent } from './takmicenja/obavestenje-takmicenje/obavestenje-takmicenje.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { EvidencijeComponent } from './tip_recepcioner/evidencije/evidencije.com
     IgraonicaComponent,
     LicencaComponent,
     TreninziComponent,
-    EvidencijeComponent
+    EvidencijeComponent,
+    ParticipacijaTakmicenjeComponent,
+    ObavestenjeTakmicenjeComponent
   ],
   imports: [
     BrowserModule,

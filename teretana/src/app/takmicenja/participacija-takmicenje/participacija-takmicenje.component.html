@@ -1,0 +1,43 @@
+<section class="section" id="takmicenje_prijava">
+
+
+    <div class="container cta-content login" *ngIf="jeUlogovanKlijent()">
+        <form class="my-2 col-lg-10 offset-lg-2" id="prijaviTakmicara" action="" method="post">
+            <div class="row center">
+                <p> Cena participacije: 500 RSD</p>
+            </div>
+            <div class="row center">
+                <label style="padding-right: 10px;"> Ime i prezime na kartici </label>
+                <input type="text">
+                <hr>
+                <label style="padding-right: 10px;"> Broj kartice </label>
+                <input type="text">
+                <hr>
+                <label style="padding-right: 10px;"> CSV kod (3 cifre sa zadnje strane kartice) </label>
+                <input type="text" maxlength="3" minlength="3">
+                <hr>
+            </div>
+            <button class="btn btn-secondary" (click)="prijavaUneta()">Potvrdi</button>
+        </form>
+    </div>
+
+    <div class="container cta-content login" *ngIf="jeUlogovanRecepcioner()">
+        <form class="my-2 col-lg-10 offset-lg-2" id="prijaviTakmicara" action="" method="post">
+            <div class="row center">
+                <p> Cena participacije: 500 RSD</p>
+            </div>
+            <div class="row center">
+                <div> <p> Način plaćanja </p> </div>
+                <div  style="padding-right: 10px;" class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="nacin_placanja" id="gotovina" value="option1" checked>
+                    <label class="form-check-label" for="gotovina">Gotovina</label>
+                </div>
+                <div style="padding-right: 10px;" class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="nacin_placanja" id="kartica" value="option2">
+                    <label class="form-check-label" for="kartica">Kartica</label>
+                </div>
+            </div>
+            <button class="btn btn-secondary" (click)="prijavaUneta()">Potvrdi</button>
+        </form>
+    </div>
+</section>
