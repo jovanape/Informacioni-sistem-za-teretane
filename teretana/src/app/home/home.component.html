@@ -3,20 +3,34 @@
 <div *ngIf="!jeUlogovan()">
     <app-programi></app-programi>
     <app-promo-deo></app-promo-deo>
-    <app-ceonovnik></app-ceonovnik>
+    <app-info></app-info>
+
 </div>
 
 
 <div *ngIf="jeUlogovanAdministrator()">
-    <app-takmicenja></app-takmicenja>
-    <app-licence></app-licence>
-
+    <app-administracija></app-administracija>
+    <app-licenca></app-licenca>
 </div>
 
 <div *ngIf="jeUlogovanKlijent()">
-    <app-raspored></app-raspored>
-    <app-licence></app-licence>
+    <app-programi></app-programi>
+    <app-treninzi></app-treninzi>
+    <app-licenca></app-licenca>
 </div>
 
+<div *ngIf="jeUlogovanTrener()" >
+    <app-raspored></app-raspored>
+</div>
 
-<app-info></app-info>
+<div *ngIf="jeUlogovanRecepcioner()">
+    <app-treninzi></app-treninzi>
+    <app-licenca></app-licenca>
+    <app-evidencije></app-evidencije>
+
+</div>
+
+<!-- Svi vide neku verziju ovoga -->
+<app-takmicenja></app-takmicenja>
+<app-igraonica></app-igraonica>
+

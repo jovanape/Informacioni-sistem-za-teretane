@@ -20,10 +20,24 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { AdministracijaComponent } from './administrator/administracija/administracija.component';
+
 import { Paket3Component } from './paket_3/paket_3.component';
 import { Paket130Component } from './paket_1_30/paket_1_30.component';
 import { Paket230Component } from './paket_2_30/paket_2_30.component';
 import { Paket330Component } from './paket_3_30/paket_3_30.component';
+
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { KreiranjeTakmicenjaComponent } from './takmicenja/kreiranje-takmicenja/kreiranje-takmicenja.component';
+import { PrijaviTakmicaraComponent } from './takmicenja/prijavi-takmicara/prijavi-takmicara.component';
+import { EvidencijaDolazakaComponent } from './tip_recepcioner/evidencija-dolazaka/evidencija-dolazaka.component';
+import { PlacanjeClanarineComponent } from './tip_recepcioner/placanje-clanarine/placanje-clanarine.component';
+import { IgraonicaComponent } from './igraonica/igraonica.component';
+import { LicencaComponent } from './licenca/licenca.component';
+import { TreninziComponent } from './treninzi/treninzi.component';
+import { EvidencijeComponent } from './tip_recepcioner/evidencije/evidencije.component';
+import { ParticipacijaTakmicenjeComponent } from './takmicenja/participacija-takmicenje/participacija-takmicenje.component';
+import { ObavestenjeTakmicenjeComponent } from './takmicenja/obavestenje-takmicenje/obavestenje-takmicenje.component';
+
 
 @NgModule({
   declarations: [
@@ -47,13 +61,24 @@ import { Paket330Component } from './paket_3_30/paket_3_30.component';
     LicenceComponent,
     LoginComponent,
     RegisterComponent,
-    AdministracijaComponent
+    AdministracijaComponent,
+    KreiranjeTakmicenjaComponent,
+    PrijaviTakmicaraComponent,
+    EvidencijaDolazakaComponent,
+    PlacanjeClanarineComponent,
+    IgraonicaComponent,
+    LicencaComponent,
+    TreninziComponent,
+    EvidencijeComponent,
+    ParticipacijaTakmicenjeComponent,
+    ObavestenjeTakmicenjeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
