@@ -18,10 +18,19 @@ import { LicenceComponent } from './licence/licence.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
+<<<<<<< HEAD
 import { AdministracijaComponent } from './administrator/administracija/administracija.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { KreiranjeTakmicenjaComponent } from './takmicenja/kreiranje-takmicenja/kreiranje-takmicenja.component';
 import { PrijaviTakmicaraComponent } from './takmicenja/prijavi-takmicara/prijavi-takmicara.component';
+=======
+import { EvidencijaDolazakaComponent } from './tip_recepcioner/evidencija-dolazaka/evidencija-dolazaka.component';
+import { PlacanjeClanarineComponent } from './tip_recepcioner/placanje-clanarine/placanje-clanarine.component';
+import { IgraonicaComponent } from './igraonica/igraonica.component';
+import { LicencaComponent } from './licenca/licenca.component';
+import { TreninziComponent } from './treninzi/treninzi.component';
+import { EvidencijeComponent } from './tip_recepcioner/evidencije/evidencije.component';
+>>>>>>> Selena
 
 @NgModule({
   declarations: [
@@ -40,9 +49,18 @@ import { PrijaviTakmicaraComponent } from './takmicenja/prijavi-takmicara/prijav
     LicenceComponent,
     LoginComponent,
     RegisterComponent,
+<<<<<<< HEAD
     AdministracijaComponent,
     KreiranjeTakmicenjaComponent,
     PrijaviTakmicaraComponent
+=======
+    EvidencijaDolazakaComponent,
+    PlacanjeClanarineComponent,
+    IgraonicaComponent,
+    LicencaComponent,
+    TreninziComponent,
+    EvidencijeComponent
+>>>>>>> Selena
   ],
   imports: [
     BrowserModule,

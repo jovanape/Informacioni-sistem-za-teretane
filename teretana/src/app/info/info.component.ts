@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KorisnikService } from '../services/korisnik.service';
 
 @Component({
   selector: 'app-info',
@@ -6,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./info.component.css']
 })
 export class InfoComponent implements OnInit {
+  public tipUlogovanog:string;
+  
 
-  constructor() { }
+  constructor(private korisnikService: KorisnikService) { 
+    this.tipUlogovanog = korisnikService.tipUlogovanog;
+  }
+
+  jeUlogovanAdministrator() {
+    console.log("je administrator: " + this.korisnikService.jeUlogovanAdministrator());
+    return this.korisnikService.jeUlogovanAdministrator();
+  }
 
   ngOnInit(): void {
   }
