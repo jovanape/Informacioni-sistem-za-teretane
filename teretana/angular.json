@@ -43,7 +43,8 @@
               "src/app/assets/images/slika1.png",
               "src/app/assets/images/licence-lesmills.jpg",
               "src/app/assets/images/licence-group.jpg",
-              "src/app/assets/images/licence-personal.jpg"
+              "src/app/assets/images/licence-personal.jpg",
+              "src/app/assets/images/caret-right-fill.png"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

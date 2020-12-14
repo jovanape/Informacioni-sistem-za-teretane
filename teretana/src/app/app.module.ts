@@ -16,6 +16,9 @@ import { TakmicenjaComponent } from './takmicenja/takmicenja.component';
 import { Paket1Component } from './paket_1/paket_1.component';
 import { LicenceComponent } from './licence/licence.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
+import { AdministracijaComponent } from './administrator/administracija/administracija.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CeonovnikComponent,
     TakmicenjaComponent,
     Paket1Component,
-    LicenceComponent
+    LicenceComponent,
+    LoginComponent,
+    RegisterComponent,
+    AdministracijaComponent
   ],
   imports: [
     BrowserModule,
