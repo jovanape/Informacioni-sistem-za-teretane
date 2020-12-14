@@ -17,6 +17,12 @@ import { Paket1Component } from './paket_1/paket_1.component';
 import { AdministracijaComponent } from './administrator/administracija/administracija.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
+import { EvidencijaDolazakaComponent } from './tip_recepcioner/evidencija-dolazaka/evidencija-dolazaka.component';
+import { PlacanjeClanarineComponent } from './tip_recepcioner/placanje-clanarine/placanje-clanarine.component';
+import { IgraonicaComponent } from './igraonica/igraonica.component';
+import { LicencaComponent } from './licenca/licenca.component';
+import { TreninziComponent } from './treninzi/treninzi.component';
+import { EvidencijeComponent } from './tip_recepcioner/evidencije/evidencije.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,13 @@ import { RegisterComponent } from './user/register/register.component';
     Paket1Component,
     AdministracijaComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    EvidencijaDolazakaComponent,
+    PlacanjeClanarineComponent,
+    IgraonicaComponent,
+    LicencaComponent,
+    TreninziComponent,
+    EvidencijeComponent
   ],
   imports: [
     BrowserModule,
