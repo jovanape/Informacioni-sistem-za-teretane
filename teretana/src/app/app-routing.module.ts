@@ -3,10 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { Paket1Component } from './paket_1/paket_1.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'basicx12', component: Paket1Component },
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

@@ -14,6 +14,9 @@ import { PromoDeoComponent } from './promo-deo/promo-deo.component';
 import { CeonovnikComponent } from './ceonovnik/ceonovnik.component';
 import { TakmicenjaComponent } from './takmicenja/takmicenja.component';
 import { Paket1Component } from './paket_1/paket_1.component';
+import { AdministracijaComponent } from './administrator/administracija/administracija.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { Paket1Component } from './paket_1/paket_1.component';
     PromoDeoComponent,
     CeonovnikComponent,
     TakmicenjaComponent,
-    Paket1Component
+    Paket1Component,
+    AdministracijaComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

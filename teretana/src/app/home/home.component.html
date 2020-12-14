@@ -1,18 +1,21 @@
 <app-pocetna></app-pocetna>
 
-<app-programi></app-programi>
+<div *ngIf="!jeUlogovan()">
+    <app-programi></app-programi>
+    <app-promo-deo></app-promo-deo>
+    <app-ceonovnik></app-ceonovnik>
 
-<app-promo-deo></app-promo-deo>
+</div>
+
 
 <div *ngIf="jeUlogovanAdministrator()">
-    <app-takmicenja></app-takmicenja>
-
+    <app-administracija></app-administracija>
 </div>
 
 <div *ngIf="jeUlogovanKlijent()">
     <app-raspored></app-raspored>
+    <app-takmicenja></app-takmicenja>
 </div>
 
-<app-ceonovnik></app-ceonovnik>
 
 <app-info></app-info>
