@@ -19,6 +19,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { AdministracijaComponent } from './administrator/administracija/administracija.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { KreiranjeTakmicenjaComponent } from './takmicenja/kreiranje-takmicenja/kreiranje-takmicenja.component';
+import { PrijaviTakmicaraComponent } from './takmicenja/prijavi-takmicara/prijavi-takmicara.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +40,16 @@ import { AdministracijaComponent } from './administrator/administracija/administ
     LicenceComponent,
     LoginComponent,
     RegisterComponent,
-    AdministracijaComponent
+    AdministracijaComponent,
+    KreiranjeTakmicenjaComponent,
+    PrijaviTakmicaraComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
