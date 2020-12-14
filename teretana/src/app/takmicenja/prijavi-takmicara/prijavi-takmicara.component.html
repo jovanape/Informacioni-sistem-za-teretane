@@ -21,30 +21,30 @@
         <form class="my-2 col-lg-10 offset-lg-2" id="prijaviTakmicara" action="" method="post"
             (onSubmit)="prijaviTakmicaraReceptionar()">
             <div class="row center">
-                <label> Ime i prezime </label>
-                <input type="text" placeholder="ime">
+                <label style="padding-right: 22px;"> Ime i prezime </label>
+                <input type="text" placeholder="ime" style="padding-right: 5px;">
                 <input type="text" placeholder="prezime">
             </div>
             <div class="row center">
-                <label> Datume rodjenja</label>
+                <label style="padding-right: 10px;"> Datum rodjenja</label>
                 <input type="date">
             </div>
             <div class="row center">
-                <label> e-mail</label>
+                <label style="padding-right: 75px;" placeholder="primer@mail.com"> e-mail</label>
                 <input type="email">
             </div>
             <div class="row center">
-                <label> Broj telefona </label>
+                <label style="padding-right: 27px;"> Broj telefona </label>
                 <input type="text" placeholder="011/123456">
             </div>
             <div class="row center" >
                 <p> Izbor disciplina </p>
-            </div>
-                <div class="row center" *ngFor="let disciplina of discipline" >
+            
+                <div  *ngFor="let disciplina of discipline" style="padding: 10px;">
                     <input type="checkbox">
                     <label>{{disciplina}}</label>
                 </div>
-                
+            </div>  
            
             <button class="btn btn-secondary" type="submit" [routerLink]="['/participacija']">Prijavi takmičara </button>
         </form>
