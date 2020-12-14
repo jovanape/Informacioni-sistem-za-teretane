@@ -11,20 +11,26 @@
                     <ul class="nav">
                         <!-- Deo koji svi vide (Ukljucujuci neregistrovanog korisnika) -->
                         <li class="scroll-to-section"><a href="#top" class="active">Početna</a></li> <!-- pocetna -->
-                        <li class="scroll-to-section"><a href="#features">Programi</a></li>          <!-- programi -->
-                        <li class="scroll-to-section"><a href="#trainers">Cenovnik</a></li>          <!-- ceonovnik-->
-                        <li class="scroll-to-section"><a href="#contact-us">Info</a></li>            <!-- info -->
 
-                        
-                        <li class="scroll-to-section" *ngIf="jeUlogovanAdministrator()"><a href="#our-classes">Takmičenja</a></li> <!-- takmicenja -->
+                        <!-- Niko nije ulogovan -->
+                        <li class="scroll-to-section" *ngIf="!jeUlogovan()"><a href="#features">Programi</a></li>          <!-- programi -->
+                        <li class="scroll-to-section" *ngIf="!jeUlogovan()"><a href="#trainers">Cenovnik</a></li>          <!-- ceonovnik-->
 
-                        <li class="scroll-to-section" *ngIf="jeUlogovanAdministrator() || jeUlogovanKlijent()"><a href="#licence">Licence</a></li> <!-- licence -->
+                        <!-- Administrator-->
+                        <li class="scroll-to-section" *ngIf="jeUlogovanAdministrator()"><a href="#administracija">Administracija</a></li> <!-- administracija -->
 
+                        <!-- Klijent-->
                         <li class="scroll-to-section"  *ngIf="jeUlogovanKlijent()" >    <a href="#schedule">Raspored</a>     </li> <!-- raspored -->
 
+                        <!-- Recepcioner -->
+
+                        <!-- Trener -->
+
                         
+                        <li class="scroll-to-section"><a href="#contact-us">Info</a></li>            <!-- info -->
+
                         <div *ngIf="!jeUlogovan()">
-                            <li class="main-button"><a href="#">Prijavljivanje</a></li>
+                            <li class="main-button"><a [routerLink]="['/login']">Prijavljivanje</a></li>
                         </div>
                         <div *ngIf="jeUlogovan()">
                             <li class="main-button"><a href="#">Odjavi se</a></li>

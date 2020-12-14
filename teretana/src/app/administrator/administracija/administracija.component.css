@@ -1,0 +1,27 @@
+@import "../../assets/css/font-awesome.css";
+@import "../../assets/css/templatemo-training-studio.css";
+@import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+.podnaslov {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .podnaslov h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #232d39;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  
+  .podnaslov h3 em {
+    font-style: normal;
+    color: #ed563b;
+  }
+  
+  .podnaslov img {
+    margin: 20px auto;
+  }

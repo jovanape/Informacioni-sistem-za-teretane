@@ -1,0 +1,567 @@
+
+<!-- ***** Our Classes Start ***** -->
+<section class="section" id="administracija">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Obaveze <em>Administratora</em></h2>
+                    <img src="line-dec.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="row" id="tabs">
+          <div class="col-lg-4">
+            <ul>
+              <li><a href='#tabs-1' (click)="dodajZaposlenogClick()"><img src="caret-right-fill.png" alt="">Dodaj zaposlenog</a></li>
+              <li><a href='#tabs-2' (click)="dodajLokacijuClick()"><img src="caret-right-fill.png" alt="">Nova lokacija</a></li>
+              <li><a href='#tabs-3' (click)="dodajTreningClick()"><img src="caret-right-fill.png" alt="">Nova vrsta treninga</a></li>
+              <li><a href='#tabs-4' (click)="pretraziZaposlenogClick()"><img src="caret-right-fill.png" alt="">Zaposleni</a></li>
+              <li><a href='#tabs-5' (click)="pretraziLokacijuClick()"><img src="caret-right-fill.png" alt="">Lokacije</a></li>
+              <li><a href='#tabs-6' (click)="pretraziTreningClick()"><img src="caret-right-fill.png" alt="">Vrste treninga</a></li>
+              <div class="main-rounded-button"><a href="#">Vrati se na vrh strane</a></div>
+            </ul>
+          </div>
+          <div class="col-lg-8">
+            <section class='tabs-content'>
+              <article id='tabs-1' *ngIf="jeDodajZaposlenog()">
+
+                <div class="podnaslov">
+                    <h3>Registracija <em>Zaposlenog</em></h3>
+                    <img src="line-dec.png" alt="">
+                </div>
+
+                
+                <form id="dodajZaposlenog" action="" method="post">
+                    <div class="container">
+                        
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="uloga" id="recepcioner" value="option1">
+                            <label class="form-check-label" for="recepcioner">Recepcioner</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="uloga" id="trener" value="option2">
+                            <label class="form-check-label" for="trener">Trener</label>
+                        </div>
+
+                        <div class="row" >
+                            <div class="form-group col-lg-6">
+                                <label class="aboutInfo" for="iusername">Korisničko ime</label>
+                                <input
+                                type="text"
+                                name="iusername"
+                                id="iusername"
+                                class="form-control"
+                                formControlName="iusername"
+                                placeholder="Korisničko ime*" 
+                                required="true"
+                                />
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label class="aboutInfo" for="password">Lozinka</label>
+                                <input
+                                type="text"
+                                name="password"
+                                id="password"
+                                class="form-control"
+                                formControlName="password"
+                                placeholder="lozinka*" 
+                                required="true"
+                                />
+                            </div>
+
+                        </div>
+                        <div class="row" >
+                            <div class="form-group col-lg-6">
+                                <label class="aboutInfo" for="ime">Ime</label>
+                                <input
+                                type="text"
+                                name="ime"
+                                id="ime"
+                                class="form-control"
+                                formControlName="ime"
+                                placeholder="Ime" 
+                                required=""
+                                />
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label class="aboutInfo" for="prezime">Prezime</label>
+                                <input
+                                type="text"
+                                name="prezime"
+                                id="prezime"
+                                class="form-control"
+                                formControlName="prezime"
+                                placeholder="Prezime" 
+                                required=""
+                                />
+                            </div>
+
+                        </div>
+
+                        <div class="row" >
+                            <div class="form-group col-lg-6">
+                                <label class="aboutInfo" for="jmbg">JMBG</label>
+                                <input
+                                type="text"
+                                name="jmbg"
+                                id="jmbg"
+                                class="form-control"
+                                formControlName="jmbg"
+                                placeholder="0101971223344" 
+                                required=""
+                                />
+                            </div>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-block" type="submit">Registruj zaposlenog</button>
+                    </div>
+                </form>
+
+              </article>
+              <article id='tabs-2' *ngIf="jeDodajLokaciju()">
+                <div class="podnaslov">
+                    <h3>Nova <em>Lokacija</em></h3>
+                    <img src="line-dec.png" alt="">
+                </div>
+
+                <div class="contact-form">
+                    <form id="dodajLokaciju" action="" method="post">
+                        <div class="container">
+
+                            
+                            <div class="row" >
+                                <label class="aboutInfo" for="naziv">Naziv</label>
+                                <input
+                                type="text"
+                                name="naziv"
+                                id="naziv"
+                                class="form-control"
+                                formControlName="naziv"
+                                placeholder="Naziv" 
+                                required=""
+                                />
+
+                            </div>
+
+                            <div class="row" >
+                                <div class="form-group col-lg-6">
+                                    <label class="aboutInfo" for="adresa">Adresa</label>
+                                    <input
+                                    type="text"
+                                    name="adresa"
+                                    id="adresa"
+                                    class="form-control"
+                                    formControlName="adresa"
+                                    placeholder="Adresa*" 
+                                    required="true"
+                                    />
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label class="aboutInfo" for="grad">Grad</label>
+                                    <input
+                                    type="text"
+                                    name="grad"
+                                    id="grad"
+                                    class="form-control"
+                                    formControlName="grad"
+                                    placeholder="Grad*" 
+                                    required="true"
+                                    />
+                                </div>
+
+                            </div>
+                            <div class="row" >
+                                <div class="form-group col-lg-6">
+                                    <label class="aboutInfo" for="rdvr">Radno vreme</label>
+                                    <input
+                                    type="text"
+                                    name="rdvr"
+                                    id="rdvr"
+                                    class="form-control"
+                                    formControlName="rdvr"
+                                    placeholder="00-24" 
+                                    required=""
+                                    />
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label class="aboutInfo" for="brtel">Broj telefona</label>
+                                    <input
+                                    type="text"
+                                    name="brtel"
+                                    id="brtel"
+                                    class="form-control"
+                                    formControlName="brtel"
+                                    placeholder="+381 641234567" 
+                                    required=""
+                                    />
+                                </div>
+
+                            </div>
+
+
+                            <button class="btn btn-primary btn-block" type="submit">Dodaj lokaciju</button>
+                        </div>
+                    </form>
+
+                </div>
+                
+              </article>
+              <article id='tabs-3' *ngIf="jeDodajTrening()">
+                
+                <div class="podnaslov">
+                    <h3>Nova <em>Vrsta Treninga</em></h3>
+                    <img src="line-dec.png" alt="">
+                </div>
+
+
+                <form id="dodajTrening" action="" method="post">
+
+                    <div class="row" >
+                        <label class="aboutInfo" for="naziv">Naziv</label>
+                        <input
+                        type="text"
+                        name="naziv"
+                        id="naziv"
+                        class="form-control"
+                        formControlName="naziv"
+                        placeholder="Naziv" 
+                        required=""
+                        />
+
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="grupni" id="da" value="da">
+                        <label class="form-check-label" for="da">Grupni</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="grupni" id="ne" value="ne">
+                        <label class="form-check-label" for="ne">Individualni</label>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" type="submit">Dodaj vrstu treninga</button>
+                    
+                </form>
+
+
+
+              </article>
+              <article id='tabs-4' *ngIf="jePretraziZaposlenog()">
+                <div class="podnaslov">
+                    <h3>Obrada <em>Zaposlenih</em></h3>
+                    <img src="line-dec.png" alt="">
+                </div>
+
+                <div class="row" >
+                    <div class="form-group col-lg-6">
+                        <label class="aboutInfo" for="imePretraga">Korisničko ime</label>
+                        <input
+                        type="text"
+                        name="imePretraga"
+                        id="iimePretragame"
+                        class="form-control"
+                        formControlName="imePretraga"
+                        placeholder="Kor. ime / JMBG" 
+                        required=""
+                        />
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label class="aboutInfo" for="zaposleni"></label>
+                        <button class="btn btn-primary btn-block" name="zaposleni" type="submit">Pretraži zaposlene</button>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- Rezultat upita -->
+                <div *ngIf="poslatUpitPretrageZaposlenog()">
+                    <div class="row" >
+                        <div class="form-group col-lg-6">
+                            <label class="aboutInfo" for="imePretraga">Korisničko ime</label>
+                            <input
+                            type="text"
+                            name="imePretraga"
+                            id="iimePretragame"
+                            class="form-control"
+                            formControlName="imePretraga"
+                            placeholder="Kor. ime / JMBG" 
+                            required=""
+                            />
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label class="aboutInfo" for="zaposleni"></label>
+                            <button class="btn btn-success btn-block" name="zaposleni" type="submit">Izmeni Zaposlenog</button>
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label class="aboutInfo" for="zaposleni"></label>
+                            <button class="btn btn-danger btn-block" name="zaposleni" type="submit">Ukloni Zaposlenog</button>
+                        </div>
+                    </div>
+
+                    
+                    <div class="row" >
+                        <div class="form-group col-lg-6">
+                            <label class="aboutInfo" for="jmbg">JMBG</label>
+                            <input
+                            type="text"
+                            name="jmbg"
+                            id="jmbg"
+                            class="form-control"
+                            formControlName="jmbg"
+                            placeholder="0101971223344" 
+                            required=""
+                            />
+                            
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="aboutInfo" for="password">Lozinka</label>
+                            <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            class="form-control"
+                            formControlName="password"
+                            placeholder="***********" 
+                            required="true"
+                            />
+                        </div>
+
+                    </div>
+                    <div class="row" >
+                        <div class="form-group col-lg-6">
+                            <label class="aboutInfo" for="ime">Ime</label>
+                            <input
+                            type="text"
+                            name="ime"
+                            id="ime"
+                            class="form-control"
+                            formControlName="ime"
+                            placeholder="Stefan" 
+                            required=""
+                            />
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="aboutInfo" for="prezime">Prezime</label>
+                            <input
+                            type="text"
+                            name="prezime"
+                            id="prezime"
+                            class="form-control"
+                            formControlName="prezime"
+                            placeholder="Janković" 
+                            required=""
+                            />
+                        </div>
+
+                    </div>
+
+                    <button class="btn btn-success btn-block" type="submit">Sačuvaj izmene</button>
+
+                </div>
+              </article>
+              <article id='tabs-5' *ngIf="jePretraziLokaciju()">
+                <div class="podnaslov">
+                    <h3>Obrada <em>Lokacija</em></h3>
+                    <img src="line-dec.png" alt="">
+                </div>
+
+                <div class="row" >
+                    <div class="form-group col-lg-6">
+                        <label class="aboutInfo" for="adresa">Adresa</label>
+                        <input
+                        type="text"
+                        name="adresa"
+                        id="adresa"
+                        class="form-control"
+                        formControlName="adresa"
+                        placeholder="Adresa*" 
+                        required="true"
+                        />
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label class="aboutInfo" for="grad">Grad</label>
+                        <input
+                        type="text"
+                        name="grad"
+                        id="grad"
+                        class="form-control"
+                        formControlName="grad"
+                        placeholder="Grad*" 
+                        required="true"
+                        />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <button class="btn btn-primary btn-block" name="zaposleni" type="submit">Pretraži zaposlene</button>
+                </div>
+                <hr>
+                
+                <!-- Rezultat upita -->
+                <div *ngIf="poslatUpitPretrageLokacije()">
+                    <div class="row" >
+                        <div class="form-group col-lg-6">
+                            <label class="aboutInfo" for="naziv">Naziv</label>
+                            <input
+                            type="text"
+                            name="naziv"
+                            id="naziv"
+                            class="form-control"
+                            formControlName="naziv"
+                            placeholder="Naziv" 
+                            required=""
+                            />
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label class="aboutInfo" for="zaposleni"></label>
+                            <button class="btn btn-success btn-block" name="zaposleni" type="submit">Izmeni Lokaciju</button>
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label class="aboutInfo" for="zaposleni"></label>
+                            <button class="btn btn-danger btn-block" name="zaposleni" type="submit">Ukloni Lokaciju</button>
+                        </div>
+                    </div>
+
+                    <div class="row" >
+                        <div class="form-group col-lg-6">
+                            <label class="aboutInfo" for="adresa">Adresa</label>
+                            <input
+                            type="text"
+                            name="adresa"
+                            id="adresa"
+                            class="form-control"
+                            formControlName="adresa"
+                            placeholder="Adresa*" 
+                            required="true"
+                            />
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="aboutInfo" for="grad">Grad</label>
+                            <input
+                            type="text"
+                            name="grad"
+                            id="grad"
+                            class="form-control"
+                            formControlName="grad"
+                            placeholder="Grad*" 
+                            required="true"
+                            />
+                        </div>
+
+                    </div>
+                    <div class="row" >
+                        <div class="form-group col-lg-6">
+                            <label class="aboutInfo" for="rdvr">Radno vreme</label>
+                            <input
+                            type="text"
+                            name="rdvr"
+                            id="rdvr"
+                            class="form-control"
+                            formControlName="rdvr"
+                            placeholder="00-24" 
+                            required=""
+                            />
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label class="aboutInfo" for="brtel">Broj telefona</label>
+                            <input
+                            type="text"
+                            name="brtel"
+                            id="brtel"
+                            class="form-control"
+                            formControlName="brtel"
+                            placeholder="+381 641234567" 
+                            required=""
+                            />
+                        </div>
+
+                    </div>
+
+                    
+                    <button class="btn btn-success btn-block" type="submit">Sačuvaj izmene</button>
+
+
+                </div>
+
+
+              </article>
+              <article id='tabs-6' *ngIf="jePretraziTrening()">
+                <div class="podnaslov">
+                    <h3>Obrada <em>Vrsti treninga</em></h3>
+                    <img src="line-dec.png" alt="">
+                </div>
+
+                
+                <div class="row" >
+                    <label class="aboutInfo" for="naziv">Naziv</label>
+                    <input
+                    type="text"
+                    name="naziv"
+                    id="naziv"
+                    class="form-control"
+                    formControlName="naziv"
+                    placeholder="Naziv" 
+                    required=""
+                    />
+
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="grupni" id="da" value="da">
+                    <label class="form-check-label" for="da">Grupni</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="grupni" id="ne" value="ne">
+                    <label class="form-check-label" for="ne">Individualni</label>
+                </div>
+
+                <button class="btn btn-primary btn-block" type="submit">Pretraži vrste treninga</button>
+                <hr>
+
+                <!-- Rezultat upita -->
+                <div *ngIf="poslatUpitPretrageLokacije()">
+                    <div class="row" >
+                        <div class="form-group col-lg-6">
+                            <label class="aboutInfo" for="naziv">Naziv</label>
+                            <input
+                            type="text"
+                            name="naziv"
+                            id="naziv"
+                            class="form-control"
+                            formControlName="naziv"
+                            placeholder="Naziv" 
+                            required=""
+                            />
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label class="aboutInfo" for="zaposleni"></label>
+                            <button class="btn btn-success btn-block" name="zaposleni" type="submit">Izmeni Vrstu treninga</button>
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label class="aboutInfo" for="zaposleni"></label>
+                            <button class="btn btn-danger btn-block" name="zaposleni" type="submit">Ukloni Vrstu treninga</button>
+                        </div>
+                    </div>
+
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="grupni" id="da" value="da">
+                        <label class="form-check-label" for="da">Grupni</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="grupni" id="ne" value="ne">
+                        <label class="form-check-label" for="ne">Individualni</label>
+                    </div>
+                    
+                    <button class="btn btn-success btn-block" type="submit">Sačuvaj izmene</button>
+
+                </div>
+              </article>
+            </section>
+          </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Our Classes End ***** -->
