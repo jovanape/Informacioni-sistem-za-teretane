@@ -3,8 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { Paket1Component } from './paket_1/paket_1.component';
+import { IzmenaTakmicenjaComponent } from './takmicenja/izmena-takmicenja/izmena-takmicenja.component';
 import { KreiranjeTakmicenjaComponent } from './takmicenja/kreiranje-takmicenja/kreiranje-takmicenja.component';
 import { ObavestenjeTakmicenjeComponent } from './takmicenja/obavestenje-takmicenje/obavestenje-takmicenje.component';
+import { OtkazivanjeTakmicenjaComponent } from './takmicenja/otkazivanje-takmicenja/otkazivanje-takmicenja.component';
 import { ParticipacijaTakmicenjeComponent } from './takmicenja/participacija-takmicenje/participacija-takmicenje.component';
 import { PrijaviTakmicaraComponent } from './takmicenja/prijavi-takmicara/prijavi-takmicara.component';
 import { LoginComponent } from './user/login/login.component';
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'newCompetitor', component: PrijaviTakmicaraComponent},
   { path: 'participacija', component: ParticipacijaTakmicenjeComponent},
   { path: 'obavestenje', component: ObavestenjeTakmicenjeComponent},
+  { path: 'otkazivanjeTakmicenja', component: OtkazivanjeTakmicenjaComponent}, 
+  { path: 'izmenaTakmicenja/:takmicenjeId', component: IzmenaTakmicenjaComponent},
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

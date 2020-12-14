@@ -30,6 +30,8 @@ import { TreninziComponent } from './treninzi/treninzi.component';
 import { EvidencijeComponent } from './tip_recepcioner/evidencije/evidencije.component';
 import { ParticipacijaTakmicenjeComponent } from './takmicenja/participacija-takmicenje/participacija-takmicenje.component';
 import { ObavestenjeTakmicenjeComponent } from './takmicenja/obavestenje-takmicenje/obavestenje-takmicenje.component';
+import { OtkazivanjeTakmicenjaComponent } from './takmicenja/otkazivanje-takmicenja/otkazivanje-takmicenja.component';
+import { IzmenaTakmicenjaComponent } from './takmicenja/izmena-takmicenja/izmena-takmicenja.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { ObavestenjeTakmicenjeComponent } from './takmicenja/obavestenje-takmice
     TreninziComponent,
     EvidencijeComponent,
     ParticipacijaTakmicenjeComponent,
-    ObavestenjeTakmicenjeComponent
+    ObavestenjeTakmicenjeComponent,
+    OtkazivanjeTakmicenjaComponent,
+    IzmenaTakmicenjaComponent
   ],
   imports: [
     BrowserModule,

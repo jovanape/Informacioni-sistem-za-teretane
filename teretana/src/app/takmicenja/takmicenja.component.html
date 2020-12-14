@@ -17,38 +17,55 @@
               trg"</a></li>
           <li><a href='#tabs-2'><img src="tabs-first-icon.png" alt="">Trka sa preprekama, 26.12.2020. u 11h, Teretana
               "Jagićeva" </a></li>
+         
+         
           <div class="main-rounded-button" *ngIf="jeUlogovanAdministrator()"><a
               [routerLink]="['/newCompetition']">Zakaži novo takmičenje</a></div>
+           
+           <div class="input-group" *ngIf="jeUlogovanRecepcioner()">
+              <input type="text" class="form-control" placeholder="Pronađi takmičara po broju prijave.">
+              <div class="input-group-append">
+                <button class="btn btn-secondary" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+
         </ul>
       </div>
       <div class="col-lg-8">
         <section class='tabs-content'>
+         
           <article id='tabs-1'>
             <h4>Kick box, 19.12.2020.</h4>
-            <div class="main-rounded-button">
-              <a mat-raised-button [routerLink]="['/newCompetitor']" *ngIf="jeUlogovanRecepcioner()">Prijavi novog
+            <p> Cena participacije je 500 din. Glavna nagrada je 6 meseci besplatnog treniranja u teretani ili 3 meseca personalnih treninga. </p>
+            <div class="main-rounded-button" *ngIf="jeUlogovanRecepcioner()">
+              <a mat-raised-button [routerLink]="['/newCompetitor']" >Prijavi novog
                 takmičara</a>
             </div>
-            <div class="main-rounded-button">
-              <a mat-raised-button [routerLink]="['/newCompetitor']" *ngIf="jeUlogovanKlijent()">Prijavi se</a>
+            <div class="main-rounded-button" *ngIf="jeUlogovanKlijent()">
+              <a  [routerLink]="['/newCompetitor']" *ngIf="!prijavljen1">Prijavi se</a>
+              <a *ngIf="prijavljen1">Odustani</a>
             </div>
             <div *ngIf="jeUlogovanAdministrator()">
-              <div class="main-rounded-button"><a href="https://www.google.com/">Izmeni</a> </div>
-              <div class="main-rounded-button" (click)="otkaziTakmicenje()"><a>Otkaži</a> </div>
+              <div class="main-rounded-button"><a [routerLink]="['/izmenaTakmicenja/1']">Izmeni</a> </div>
+              <div class="main-rounded-button" [routerLink]="['/otkazivanjeTakmicenja']"><a>Otkaži</a> </div>
             </div>
           </article>
+          
           <article id='tabs-2'>
             <h4>Trka sa preprekama, 26.12.2020.</h4>
-            <div class="main-rounded-button">
-              <a mat-raised-button [routerLink]="['/newCompetitor']" *ngIf="jeUlogovanRecepcioner()">Prijavi novog
+            <p> Participacija je 500 din. Nagrade su za I mesto - 3 meseca treninga po izboru, II mesto - 2 meseca i III mesto - 1 mesec. Takmičenje je otvoreno za sve uzraste.</p>
+            <div class="main-rounded-button" *ngIf="jeUlogovanRecepcioner()">
+              <a mat-raised-button [routerLink]="['/newCompetitor']" >Prijavi novog
                 takmičara</a>
             </div>
-            <div class="main-rounded-button">
-              <a mat-raised-button [routerLink]="['/newCompetitor']" *ngIf="jeUlogovanKlijent()">Prijavi se</a>
+            <div class="main-rounded-button" *ngIf="jeUlogovanKlijent()">
+              <a mat-raised-button [routerLink]="['/newCompetitor']" >Prijavi se</a>
             </div>
             <div *ngIf="jeUlogovanAdministrator()">
-              <div class="main-rounded-button"><a href="https://www.google.com/">Izmeni</a> </div>
-              <div class="main-rounded-button" (click)="otkaziTakmicenje()"><a>Otkaži</a> </div>
+              <div class="main-rounded-button"><a [routerLink]="['/izmenaTakmicenja/2']">Izmeni</a> </div>
+              <div class="main-rounded-button" [routerLink]="['/otkazivanjeTakmicenja']"><a>Otkaži</a> </div>
             </div>
           </article>
 
