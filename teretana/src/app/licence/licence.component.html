@@ -1,0 +1,105 @@
+<!-- ***** Licence Start ***** -->
+<section class="section" id="licence">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Programi obuke za <em>licence</em></h2>
+                    <img src="line-dec.png" alt="">
+                    <p>U našim teretanama organizujemo programe obuke za dobijanje različitih licenci. Nakon završenog programa i položenog ispita možete postati trener! Prijavite se! </p>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="tabs">
+          <div class="col-lg-4">
+            <ul>
+              <li><a href='#licence-tabs-1'><img src="tabs-first-icon.png" alt="">Personalni trener</a></li>
+              <li><a href='#licence-tabs-2'><img src="tabs-first-icon.png" alt="">Trener grupnih programa</a></li>
+              <li><a href='#licence-tabs-3'><img src="tabs-first-icon.png" alt="">Les Mills instruktor</a></li>
+              <li><a href='#licence-tabs-4'><img src="tabs-first-icon.png" alt="">Pilates instruktor</a></li>
+              <div class="main-rounded-button" *ngIf="jeUlogovanAdministrator()" (click)="addNewLicenceClicked()"><a>Dodaj novi program obuke</a></div>
+            </ul>
+            <div *ngIf="addNewLicence"> 
+                <br>
+                <br>
+                <form [formGroup]="newLicenceForm" (ngSubmit)="sendNewLicenceInfo(newLicenceForm.value)">
+                    <p>Tip licence:</p><input type="text" formControlName="type" class="form-control" />
+                    <br>
+                    <p>Treneri koji drže program obuke:</p><input type="text" formControlName="trainers" placeholder="Ime1 Prezime1, Ime2 Prezime2, ..." class="form-control" />
+                    <br>
+                    <p>Lokacija na kojoj se održava obuka:</p><input type="text" formControlName="location" class="form-control" />
+                    <br>
+                    <p>Uslovi za prijavu:</p><input type="text" formControlName="conditions" class="form-control" />
+                    <br>
+                    <p>Dokumenta potrebna za prijavu:</p><input type="text" formControlName="requiredDocuments" class="form-control" />
+                    <br>
+                    <p>Datum početka obuke:</p><input type="date" formControlName="courseStart" class="form-control" />
+                    <br>
+                    <p>Datum kraja obuke:</p><input type="date" formControlName="courseEnd" class="form-control" />
+                    <br>
+                    <p>Članovi komisije:</p><input type="text" formControlName="commissionMembers" placeholder="Ime1 Prezime1, Ime2 Prezime2, ..." class="form-control" />
+                    <br>
+                    <p>Datum ispita:</p><input type="date" formControlName="examDate" class="form-control" />
+                    <br>
+                    <p>Vreme početka ispita:</p><input type="text" formControlName="examTimeStart" class="form-control" placeholder="00:00" />
+                    <br>
+                    <p>Vreme kraja ispita:</p><input type="text"  formControlName="examTimeFinish" class="form-control" placeholder="00:00" />
+                    <br>
+
+                    <button type="submit" class="main-rounded-button btn"><a>Dodaj</a></button>
+                    
+                </form>
+                <br>
+                <button class="main-rounded-button btn" (click)="clearForm()"><a>Odustani</a></button>
+
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <section class='tabs-content'>
+              <article id='licence-tabs-1'>
+                <img src="licence-personal.jpg" alt="Personalni trener">
+                <h4>Personalni trener</h4>
+                <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
+                <div class="main-button" *ngIf="jeUlogovanKlijent()">
+                    <a href="#">Prijavi se!</a>
+                </div>
+              </article>
+              <br>
+              <br>
+              <br>
+              <article id='licence-tabs-2'>
+                <img src="licence-group.jpg" alt="Trener grupnih programa">
+                <h4>Trener grupnih programa</h4>
+                <p>Integer dapibus, est vel dapibus mattis, sem mauris luctus leo, ac pulvinar quam tortor a velit. Praesent ultrices erat ante, in ultricies augue ultricies faucibus. Nam tellus nibh, ullamcorper at mattis non, rhoncus sed massa. Cras quis pulvinar eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <div class="main-button" *ngIf="jeUlogovanKlijent()">
+                    <a href="#">Prijavi se!</a>
+                </div>
+              </article>
+              <br>
+              <br>
+              <br>
+              <article id='licence-tabs-3'>
+                <img src="licence-lesmills.jpg" alt="Les Mills instruktor">
+                <h4>Les Mills instruktor</h4>
+                <p>Fusce laoreet malesuada rhoncus. Donec ultricies diam tortor, id auctor neque posuere sit amet. Aliquam pharetra, augue vel cursus porta, nisi tortor vulputate sapien, id scelerisque felis magna id felis. Proin neque metus, pellentesque pharetra semper vel, accumsan a neque.</p>
+                <div class="main-button" *ngIf="jeUlogovanKlijent()">
+                    <a href="#">Prijavi se!</a>
+                </div>
+              </article>
+              <br>
+              <br>
+              <br>
+              <article id='licence-tabs-4'>
+                <img src="training-image-04.jpg" alt="Pilates instruktor">
+                <h4>Pilates instruktor</h4>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ultrices elementum odio ac tempus. Etiam eleifend orci lectus, eget venenatis ipsum commodo et.</p>
+                <div class="main-button" *ngIf="jeUlogovanKlijent()">
+                    <a href="#">Prijavi se!</a>
+                </div>
+              </article>
+            </section>
+          </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Licence End ***** -->

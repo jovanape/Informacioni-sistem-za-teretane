@@ -18,6 +18,8 @@
                         
                         <li class="scroll-to-section" *ngIf="jeUlogovanAdministrator()"><a href="#our-classes">Takmičenja</a></li> <!-- takmicenja -->
 
+                        <li class="scroll-to-section" *ngIf="jeUlogovanAdministrator() || jeUlogovanKlijent()"><a href="#licence">Licence</a></li> <!-- licence -->
+
                         <li class="scroll-to-section"  *ngIf="jeUlogovanKlijent()" >    <a href="#schedule">Raspored</a>     </li> <!-- raspored -->
 
                         

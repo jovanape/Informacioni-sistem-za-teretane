@@ -6,11 +6,13 @@
 
 <div *ngIf="jeUlogovanAdministrator()">
     <app-takmicenja></app-takmicenja>
+    <app-licence></app-licence>
 
 </div>
 
 <div *ngIf="jeUlogovanKlijent()">
     <app-raspored></app-raspored>
+    <app-licence></app-licence>
 </div>
 
 <app-ceonovnik></app-ceonovnik>

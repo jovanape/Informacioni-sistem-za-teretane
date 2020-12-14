@@ -40,7 +40,10 @@
               "src/app/assets/images/line-dec.png",
               "src/app/assets/images/features-first-icon.png",
               "src/app/assets/images/tabs-first-icon.png",
-              "src/app/assets/images/slika1.png"
+              "src/app/assets/images/slika1.png",
+              "src/app/assets/images/licence-lesmills.jpg",
+              "src/app/assets/images/licence-group.jpg",
+              "src/app/assets/images/licence-personal.jpg"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

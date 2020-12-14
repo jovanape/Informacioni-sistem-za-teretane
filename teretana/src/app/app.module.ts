@@ -14,6 +14,8 @@ import { PromoDeoComponent } from './promo-deo/promo-deo.component';
 import { CeonovnikComponent } from './ceonovnik/ceonovnik.component';
 import { TakmicenjaComponent } from './takmicenja/takmicenja.component';
 import { Paket1Component } from './paket_1/paket_1.component';
+import { LicenceComponent } from './licence/licence.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,14 @@ import { Paket1Component } from './paket_1/paket_1.component';
     PromoDeoComponent,
     CeonovnikComponent,
     TakmicenjaComponent,
-    Paket1Component
+    Paket1Component,
+    LicenceComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
