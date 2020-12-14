@@ -13,23 +13,24 @@
         <div class="row" id="tabs">
           <div class="col-lg-4">
             <ul>
+              <!-- Ovo treba da se čita iz baze -->
               <li><a href='#licence-tabs-1'><img src="tabs-first-icon.png" alt="">Personalni trener</a></li>
               <li><a href='#licence-tabs-2'><img src="tabs-first-icon.png" alt="">Trener grupnih programa</a></li>
               <li><a href='#licence-tabs-3'><img src="tabs-first-icon.png" alt="">Les Mills instruktor</a></li>
               <li><a href='#licence-tabs-4'><img src="tabs-first-icon.png" alt="">Pilates instruktor</a></li>
               <div class="main-rounded-button" *ngIf="jeUlogovanAdministrator()" (click)="addNewLicenceClicked()"><a>Dodaj novi program obuke</a></div>
             </ul>
-            <div *ngIf="addNewLicence"> 
+            <div *ngIf="openNewLicenceForm"> 
                 <br>
                 <br>
                 <form [formGroup]="newLicenceForm" (ngSubmit)="sendNewLicenceInfo(newLicenceForm.value)">
                     <p>Tip licence:</p><input type="text" formControlName="type" class="form-control" />
                     <br>
+                    <p>Kratak opis programa:</p><input type="textarea" formControlName="description" class="form-control" />
+                    <br>
                     <p>Treneri koji drže program obuke:</p><input type="text" formControlName="trainers" placeholder="Ime1 Prezime1, Ime2 Prezime2, ..." class="form-control" />
                     <br>
                     <p>Lokacija na kojoj se održava obuka:</p><input type="text" formControlName="location" class="form-control" />
-                    <br>
-                    <p>Uslovi za prijavu:</p><input type="text" formControlName="conditions" class="form-control" />
                     <br>
                     <p>Dokumenta potrebna za prijavu:</p><input type="text" formControlName="requiredDocuments" class="form-control" />
                     <br>
@@ -59,9 +60,42 @@
               <article id='licence-tabs-1'>
                 <img src="licence-personal.jpg" alt="Personalni trener">
                 <h4>Personalni trener</h4>
-                <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
-                <div class="main-button" *ngIf="jeUlogovanKlijent()">
-                    <a href="#">Prijavi se!</a>
+                <!-- Svi podaci treba da se čitaju iz baze -->
+                <label>Opis programa:</label>
+                <p>Ne samo da zanimanje personalni trener spada među novija, već se smatra i izuzetno perspektivnim, jer postoji velika potreba za osobama koje su kvalifikovane za njegovo obavljanje, ali je isto tako i izuzetno velika tražnja na tržištu rada. A kako se od svakog kandidata koji želi da aplicira na ovo radno mesto zahteva i sertifikat relevantne institucije, to svako ko želi da se bavi ovim poslom treba da završi specijalizovanu obuku i kurs za personalnog trenera.</p>
+                <label>Treneri koji vode program:</label>
+                <p>Petar Petrović, Marko Marković</p>
+                <label>Lokacija održavanja programa:</label>
+                <p>Ulica 123</p>
+                <label>Datum početka programa:</label>
+                <p>15.01.2021</p>
+                <label>Datum kraja programa:</label>
+                <p>15.04.2021</p>
+                <label>Datum ispita:</label>
+                <p>25.04.2021</p>
+                <div class="main-button" *ngIf="jeUlogovanKlijent()" (click)="checkInClicked()">
+                    <a>Prijavi se!</a>
+                </div>
+                <div *ngIf="openClientCheckInForm"> 
+                  <br>
+                  <br>
+                  <form [formGroup]="clientCheckInForm" (ngSubmit)="sendClientInfo(newLicenceForm.value)">
+                    <p>Ime:</p><input type="text" formControlName="name" class="form-control" />
+                    <br>
+                    <p>Prezime:</p><input type="text" formControlName="surname" class="form-control" />
+                    <br>
+                    <p>Broj članske karte:</p><input type="number" formControlName="membershipCardNum" class="form-control" />
+                    <br>
+                    <p>Koliko godina trenirate?</p><input type="number" formControlName="yearsInSport" class="form-control" />
+                    <br>
+                    <p>Šta ste sve trenirali?</p><input type="text" formControlName="sportInfo" class="form-control" />
+                    <br>
+                    <p>Ukoliko ste osvojili nagrade na nekim takmičenjima, priložite skeniranu potvrdu:</p><input type="file" formControlName="competitionDoc" class="form-control" />
+                    <br>
+                    <button type="submit" class="main-rounded-button btn"><a>Pošalji</a></button>
+                  </form>
+                  <br>
+                  <button class="main-rounded-button btn" (click)="clearCheckInForm()"><a>Odustani</a></button>
                 </div>
               </article>
               <br>

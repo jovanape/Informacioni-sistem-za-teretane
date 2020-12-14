@@ -22,6 +22,8 @@
                         <!-- Klijent-->
                         <li class="scroll-to-section"  *ngIf="jeUlogovanKlijent()" >    <a href="#schedule">Raspored</a>     </li> <!-- raspored -->
 
+                        <li class="scroll-to-section" *ngIf="jeUlogovanAdministrator() || jeUlogovanKlijent()"><a href="#licence">Licence</a></li> <!-- licence -->
+
                         <!-- Recepcioner -->
 
                         <!-- Trener -->
