@@ -73,8 +73,7 @@ import { IzmenaTakmicenjaComponent } from './takmicenja/izmena-takmicenja/izmena
     EvidencijeComponent,
     ParticipacijaTakmicenjeComponent,
     ObavestenjeTakmicenjeComponent,
-
-    ProgramiComponent
+    ProgramiComponent,
     OtkazivanjeTakmicenjaComponent,
     IzmenaTakmicenjaComponent
   ],
