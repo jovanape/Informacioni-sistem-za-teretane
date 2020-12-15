@@ -4,10 +4,29 @@
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="cta-content">
-                    <h2>Evidencija <em>Dolazaka</em></h2>
-                    <p>Kupovinom Naše članarine, odmah postajete deo i Našeg Kluba, koji vam omogućava specijalne popuste kod naših partnera na veliki broj proizvoda i usluga za bolji, zdraviji i aktivniji način života</p>
-                    <div class="main-button scroll-to-section">
-                        <a [routerLink]="['/login']">Postani član</a>
+                    <h2> <em> Evidencija dolazaka</em></h2>
+                    <div class="main"> 
+                        <div class="input-group-append">
+                            <input type="text"  class="form-control" placeholder="Broj članske karte. ">
+                            <button class="btn btn-secondary" type="button" (click)="pretrazi()">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                   
+                    <div *ngIf="pretraga">
+                        <div *ngIf="nePostoji"> 
+                            <p style="color:black;"> Nije pronađen članski broj.  </p>
+                        </div>
+                        <div *ngIf="pronadjen; else nijePronadjen">
+                            <p style="color:black;"> Zakazani treninzi za dan: {{datum |  date:"dd.MM.yyyy"}} </p>
+                            <ul>
+                                <li> 18:00 Yoga <input type="checkbox" name="yoga"> </li>
+                            </ul>
+                        </div>
+                        <ng-template #nijePronadjen>
+                            <p style="color:black;"> Klijent nema zakazanih treninga za dan: {{datum |  date:"dd.MM.yyyy"}} </p>
+                        </ng-template>
                     </div>
                 </div>
             </div>
