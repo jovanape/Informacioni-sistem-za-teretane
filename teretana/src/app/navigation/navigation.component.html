@@ -18,24 +18,23 @@
 
                         <!-- Administrator-->
                         <li class="scroll-to-section" *ngIf="jeUlogovanAdministrator()"><a href="#administracija">Administracija</a></li> <!-- administracija -->
-                        <li class="scroll-to-section" *ngIf="jeUlogovanAdministrator()"><a href="#licenca">Licence</a></li> <!-- licenca -->
+                        <li class="scroll-to-section" *ngIf="jeUlogovanAdministrator()"><a href="#licence">Licence</a></li> <!-- licenca -->
 
                         <!-- Klijent-->
                         <li class="scroll-to-section" *ngIf="jeUlogovanKlijent()" > <a href="#features">Paketi</a>     </li> <!-- programi -->
                         <li class="scroll-to-section" *ngIf="jeUlogovanKlijent()" > <a href="#treninzi">Treninzi</a>     </li> <!-- treninzi -->
-                        <li class="scroll-to-section" *ngIf="jeUlogovanKlijent()"><a href="#licenca">Licence</a></li> <!-- licenca -->
+                        <li class="scroll-to-section" *ngIf="jeUlogovanKlijent()"><a href="#licence">Licence</a></li> <!-- licenca -->
 
                         <!-- Trener -->
                         <li class="scroll-to-section" *ngIf="jeUlogovanTrener()" >    <a href="#schedule">Raspored</a>     </li> <!-- raspored -->
 
                         <!-- Recepcioner -->
                         <li class="scroll-to-section" *ngIf="jeUlogovanRecepcioner()" > <a href="#treninzi">Treninzi</a> </li>      <!-- treninzi -->
-                        <li class="scroll-to-section" *ngIf="jeUlogovanRecepcioner()"><a href="#licenca">Licence</a></li>           <!-- licenca -->
                         <li class="scroll-to-section" *ngIf="jeUlogovanRecepcioner()"><a href="#evidencije">Evidentiranja</a></li>  <!-- evidencije -->
-
+                        <li class="scroll-to-section" *ngIf="jeUlogovanRecepcioner()"><a href="#licence">Licence</a></li> <!-- licenca -->
 
                         <!-- Svi vide -->
-                        <li class="scroll-to-section"><a href="#our-classes">Takmičenja</a></li>            <!-- info -->
+                        <li class="scroll-to-section"><a href="#takmicenja">Takmičenja</a></li>            <!-- info -->
                         <li class="scroll-to-section"><a href="#igraonica-klijent">Igraonica</a></li>            <!-- info -->
 
                         <div *ngIf="!jeUlogovan()">

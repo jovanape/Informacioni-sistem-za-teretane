@@ -14,15 +14,31 @@ import { PromoDeoComponent } from './promo-deo/promo-deo.component';
 import { CeonovnikComponent } from './ceonovnik/ceonovnik.component';
 import { TakmicenjaComponent } from './takmicenja/takmicenja.component';
 import { Paket1Component } from './paket_1/paket_1.component';
-import { AdministracijaComponent } from './administrator/administracija/administracija.component';
+import { Paket2Component } from './paket_2/paket_2.component'
+import { LicenceComponent } from './licence/licence.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
+import { AdministracijaComponent } from './administrator/administracija/administracija.component';
+
+import { Paket3Component } from './paket_3/paket_3.component';
+import { Paket130Component } from './paket_1_30/paket_1_30.component';
+import { Paket230Component } from './paket_2_30/paket_2_30.component';
+import { Paket330Component } from './paket_3_30/paket_3_30.component';
+
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { KreiranjeTakmicenjaComponent } from './takmicenja/kreiranje-takmicenja/kreiranje-takmicenja.component';
+import { PrijaviTakmicaraComponent } from './takmicenja/prijavi-takmicara/prijavi-takmicara.component';
 import { EvidencijaDolazakaComponent } from './tip_recepcioner/evidencija-dolazaka/evidencija-dolazaka.component';
 import { PlacanjeClanarineComponent } from './tip_recepcioner/placanje-clanarine/placanje-clanarine.component';
 import { IgraonicaComponent } from './igraonica/igraonica.component';
 import { LicencaComponent } from './licenca/licenca.component';
 import { TreninziComponent } from './treninzi/treninzi.component';
 import { EvidencijeComponent } from './tip_recepcioner/evidencije/evidencije.component';
+import { ParticipacijaTakmicenjeComponent } from './takmicenja/participacija-takmicenje/participacija-takmicenje.component';
+import { ObavestenjeTakmicenjeComponent } from './takmicenja/obavestenje-takmicenje/obavestenje-takmicenje.component';
+import { OtkazivanjeTakmicenjaComponent } from './takmicenja/otkazivanje-takmicenja/otkazivanje-takmicenja.component';
+import { IzmenaTakmicenjaComponent } from './takmicenja/izmena-takmicenja/izmena-takmicenja.component';
 
 @NgModule({
   declarations: [
@@ -38,19 +54,35 @@ import { EvidencijeComponent } from './tip_recepcioner/evidencije/evidencije.com
     CeonovnikComponent,
     TakmicenjaComponent,
     Paket1Component,
-    AdministracijaComponent,
+    Paket2Component,
+    Paket3Component,
+    Paket130Component,
+    Paket230Component,
+    Paket330Component,
+    LicenceComponent,
     LoginComponent,
     RegisterComponent,
+    AdministracijaComponent,
+    KreiranjeTakmicenjaComponent,
+    PrijaviTakmicaraComponent,
     EvidencijaDolazakaComponent,
     PlacanjeClanarineComponent,
     IgraonicaComponent,
     LicencaComponent,
     TreninziComponent,
-    EvidencijeComponent
+    EvidencijeComponent,
+    ParticipacijaTakmicenjeComponent,
+    ObavestenjeTakmicenjeComponent,
+    ProgramiComponent,
+    OtkazivanjeTakmicenjaComponent,
+    IzmenaTakmicenjaComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

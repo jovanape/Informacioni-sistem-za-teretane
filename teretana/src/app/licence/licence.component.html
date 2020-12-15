@@ -1,0 +1,111 @@
+<!-- ***** Licence Start ***** -->
+<section class="section" id="licence">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Programi obuke za <em>licence</em></h2>
+                    <img src="line-dec.png" alt="">
+                    <p>U našim teretanama organizujemo programe obuke za dobijanje različitih licenci. Nakon završenog programa i položenog ispita možete postati trener! Prijavite se! </p>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="tabs">
+          <div class="col-lg-4">
+            <ul>
+              <!-- Ovo treba da se čita iz baze -->
+              <li><a href='#licence-tabs-1'><img src="tabs-first-icon.png" alt="">Personalni trener</a></li>
+              <li><a href='#licence-tabs-2'><img src="tabs-first-icon.png" alt="">Trener grupnih programa</a></li>
+              <li><a href='#licence-tabs-3'><img src="tabs-first-icon.png" alt="">Les Mills instruktor</a></li>
+              <!-- <li><a href='#licence-tabs-4'><img src="tabs-first-icon.png" alt="">Pilates instruktor</a></li> -->
+              <div class="main-rounded-button" *ngIf="jeUlogovanAdministrator()" (click)="addNewLicenceClicked()"><a>Dodaj novi program obuke</a></div>
+            </ul>
+            <div *ngIf="openNewLicenceForm"> 
+                <br>
+                <br>
+                <form [formGroup]="newLicenceForm" (ngSubmit)="sendNewLicenceInfo(newLicenceForm.value)">
+                    <p>Tip licence:</p><input type="text" formControlName="type" class="form-control" />
+                    <br>
+                    <p>Kratak opis programa:</p><input type="textarea" formControlName="description" class="form-control" />
+                    <br>
+                    <p>Treneri koji drže program obuke:</p><input type="text" formControlName="trainers" placeholder="Ime1 Prezime1, Ime2 Prezime2, ..." class="form-control" />
+                    <br>
+                    <p>Lokacija na kojoj se održava obuka:</p><input type="text" formControlName="location" class="form-control" />
+                    <br>
+                    <p>Dokumenta potrebna za prijavu:</p><input type="text" formControlName="requiredDocuments" class="form-control" />
+                    <br>
+                    <p>Datum početka obuke:</p><input type="date" formControlName="courseStart" class="form-control" />
+                    <br>
+                    <p>Datum kraja obuke:</p><input type="date" formControlName="courseEnd" class="form-control" />
+                    <br>
+                    <p>Članovi komisije:</p><input type="text" formControlName="commissionMembers" placeholder="Ime1 Prezime1, Ime2 Prezime2, ..." class="form-control" />
+                    <br>
+                    <p>Datum ispita:</p><input type="date" formControlName="examDate" class="form-control" />
+                    <br>
+                    <p>Vreme početka ispita:</p><input type="text" formControlName="examTimeStart" class="form-control" placeholder="00:00" />
+                    <br>
+                    <p>Vreme kraja ispita:</p><input type="text"  formControlName="examTimeFinish" class="form-control" placeholder="00:00" />
+                    <br>
+
+                    <button type="submit" class="main-rounded-button btn"><a>Dodaj</a></button>
+                    
+                </form>
+                <br>
+                <button class="main-rounded-button btn" (click)="clearForm()"><a>Odustani</a></button>
+
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <section class='tabs-content' *ngFor="let program of programs">
+              <article id={{program.article_id}}>
+                <img src={{program.img}} alt="Personalni trener">
+                <h4>{{program.type}}</h4>
+                <label>Opis programa:</label>
+                <p>{{program.description}}</p>
+                <label>Treneri koji vode program:</label>
+                <p>{{program.trainers}}</p>
+                <label>Lokacija održavanja programa:</label>
+                <p>{{program.location}}</p>
+                <label>Dokumenta koja je potrebno predati prilikom prijave:</label>
+                <p>{{program.requiredDocuments}}</p>
+                <label>Datum početka programa:</label>
+                <p>{{program.courseStart}}</p>
+                <label>Datum kraja programa:</label>
+                <p>{{program.courseEnd}}</p>
+                <label>Datum ispita:</label>
+                <p>{{program.examDate}}</p>
+                <div class="main-button" *ngIf="jeUlogovanKlijent()" (click)="checkInClicked()">
+                    <a>Prijavi se!</a>
+                </div>
+                <div *ngIf="openClientCheckInForm"> 
+                  <br>
+                  <br>
+                  <form [formGroup]="clientCheckInForm" (ngSubmit)="sendClientInfo(newLicenceForm.value)">
+                    <p>Ime:</p><input type="text" formControlName="name" class="form-control" />
+                    <br>
+                    <p>Prezime:</p><input type="text" formControlName="surname" class="form-control" />
+                    <br>
+                    <p>Broj članske karte:</p><input type="number" formControlName="membershipCardNum" class="form-control" />
+                    <br>
+                    <p>Koliko godina trenirate?</p><input type="number" formControlName="yearsInSport" class="form-control" />
+                    <br>
+                    <p>Šta ste sve trenirali?</p><input type="text" formControlName="sportInfo" class="form-control" />
+                    <br>
+                    <p>Priložite skeniranu potvrdu o učešću na nekom takmičenju ili potvrdu o osvajanju neke nagrade na takmičenju:</p><input type="file" formControlName="competitionDoc" class="form-control" />
+                    <br>
+                    <button type="submit" class="main-rounded-button btn"><a>Pošalji</a></button>
+                  </form>
+                  <br>
+                  <button class="main-rounded-button btn" (click)="clearCheckInForm()"><a>Odustani</a></button>
+                </div>
+              </article>
+              <br>
+              <br>
+              <br>
+              
+            </section>
+          </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Licence End ***** -->

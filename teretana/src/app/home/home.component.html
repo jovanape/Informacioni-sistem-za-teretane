@@ -10,13 +10,13 @@
 
 <div *ngIf="jeUlogovanAdministrator()">
     <app-administracija></app-administracija>
-    <app-licenca></app-licenca>
+    <app-licence></app-licence>
 </div>
 
 <div *ngIf="jeUlogovanKlijent()">
     <app-programi></app-programi>
     <app-treninzi></app-treninzi>
-    <app-licenca></app-licenca>
+    <app-licence></app-licence>
 </div>
 
 <div *ngIf="jeUlogovanTrener()" >
@@ -25,7 +25,7 @@
 
 <div *ngIf="jeUlogovanRecepcioner()">
     <app-treninzi></app-treninzi>
-    <app-licenca></app-licenca>
+    <app-licence></app-licence>
     <app-evidencije></app-evidencije>
 
 </div>
@@ -33,4 +33,10 @@
 <!-- Svi vide neku verziju ovoga -->
 <app-takmicenja></app-takmicenja>
 <app-igraonica></app-igraonica>
+
+<!-- Jovana: sledeca linija koda je prebacena ovde
+    kako bih mogla da nastavim da radim na ovom delu.
+    Zakomentarisati po potrebi. -->
+<app-programi></app-programi>
+
 

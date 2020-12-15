@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KorisnikService } from '../services/korisnik.service';
 
 @Component({
   selector: 'app-takmicenja',
@@ -7,8 +8,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TakmicenjaComponent implements OnInit {
 
-  constructor() { }
+  public tipUlogovanog: string;
+  public prijavljen1: boolean = true;
+  constructor(private korisnikService: KorisnikService) {
+    this.tipUlogovanog = korisnikService.tipUlogovanog;
+    console.log(this.tipUlogovanog);
+    console.log(this.jeUlogovanAdministrator());
+  }
 
+
+  jeUlogovan() {
+    return this.korisnikService.jeUlogovan();
+  }
+
+  jeUlogovanAdministrator() {
+    return this.korisnikService.jeUlogovanAdministrator();
+  }
+
+  jeUlogovanKlijent() {
+    return this.korisnikService.jeUlogovanKlijent();
+  }
+
+  jeUlogovanRecepcioner() {
+    return this.korisnikService.jeUlogovanRecepcioner();
+  }
+
+  jeUlogovanTrener() {
+    return this.korisnikService.jeUlogovanTrener();
+  }
+
+  otkaziTakmicenje(){
+    
+  }
   ngOnInit(): void {
   }
 

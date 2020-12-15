@@ -3,45 +3,45 @@
 
     <!-- TERETANA -->
 
-    <div class="container">
+    <div class="container" id="teretana_container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
-                    <h2>Izaberite <em>Program</em></h2>
-                    <img src="line-dec.png" alt="waves">
-                    <p>Sistem teretana organizuje više od 10 različitih treninga u preko 20 termina nedeljno na svim lokacijama.</p>
+                    <h2 id = "glavni_naslov">Izaberite <em>Program</em></h2>
+                    <img src="dve_strelice_na_dole.png" style = "width: 10%; opacity: 50%;" alt="strelica_na_dole">
+                    <p id = "naslov">Sistem teretana organizuje <span>više od 10</span> različitih treninga u <span>preko 20</span> termina nedeljno na svim lokacijama.</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <ul class="features-items">
                     <li class="feature-item">
                         <div class="left-icon">
-                            <img src="features-first-icon.png" alt="First One">
+                            <img src= "dumbbell_bw.png" alt="First One">
                         </div>
                         <div class="right-content">
                             <h4>BASICx12</h4>
-                            <p> 6 termina teretane i 6 termina fitnesa - obezbedjen parking</p>
-                            <a href="#paket1" class="text-button">Pročitaj više...</a>
+                            <p> 6 termina teretane i 6 termina fitnesa</p>
+                            <a [routerLink]="['/paket_1']" class="text-button">Pročitaj više...</a>
                         </div>
                     </li>
                     <li class="feature-item">
                         <div class="left-icon">
-                            <img src="features-first-icon.png" alt="second one">
+                            <img src="kettlebell_bw.png" alt="second one">
                         </div>
                         <div class="right-content">
                             <h4>ADVANCEx12</h4>
-                            <p>9 termina teretane + do 30 minuta kardio programa i 3 termina fitnesa - obezbedjen parking</p>
-                            <a href="#proba" class="text-button">Pročitaj više...</a>
+                            <p>9 termina teretane + kardio i 3 termina fitnesa</p>
+                             <a [routerLink]="['/paket_2']" class="text-button">Pročitaj više...</a>
                         </div>
                     </li>
                     <li class="feature-item">
                         <div class="left-icon">
-                            <img src="features-first-icon.png" alt="third gym training">
+                            <img src="muscle_bw.png" alt="third gym training">
                         </div>
                         <div class="right-content">
                             <h4>PROx12</h4>
-                            <p>12 termina teretane + neograničen kardio program - obezbedjen parking </p>
-                            <a href="#" class="text-button">Pročitaj više...</a>
+                            <p>12 termina teretane + neograničen kardio program </p>
+                            <a [routerLink]="['/paket_3']" class="text-button">Pročitaj više...</a>
                         </div>
                     </li>
                 </ul>
@@ -50,32 +50,32 @@
                 <ul class="features-items">
                     <li class="feature-item">
                         <div class="left-icon">
-                            <img src="features-first-icon.png" alt="fourth muscle">
+                            <img src="dumbbell.png" alt="fourth muscle">
                         </div>
                         <div class="right-content">
                             <h4>BASICx30</h4>
-                            <p>15 termina teretane i 15 termina fitnesa - obezbedjen parking</p>
-                            <a href="#" class="text-button">Pročitaj više...</a>
+                            <p>15 termina teretane i 15 termina fitnesa</p>
+                            <a [routerLink]="['/paket_1_30']" class="text-button">Pročitaj više...</a>
                         </div>
                     </li>
                     <li class="feature-item">
                         <div class="left-icon">
-                            <img src="features-first-icon.png" alt="training fifth">
+                            <img src="kettlebell.png" alt="training fifth">
                         </div>
                         <div class="right-content">
                             <h4>ADVANCEDx30</h4>
-                            <p>20 termina teretane + do 30 minuta kardio programa i 10 termina fitnesa - obezbedjen parking</p>
-                            <a href="#" class="text-button">Pročitaj više...</a>
+                            <p>20 termina teretane + kardio i 10 termina fitnesa</p>
+                            <a [routerLink]="['/paket_2_30']" class="text-button">Pročitaj više...</a>
                         </div>
                     </li>
                     <li class="feature-item">
                         <div class="left-icon">
-                            <img src="features-first-icon.png" alt="gym training">
+                            <img src="muscle.png" alt="gym training">
                         </div>
                         <div class="right-content">
                             <h4>PROx30</h4>
-                            <p>30 termina teretane + neograničen kardio program - obezbedjen parking</p>
-                            <a href="#" class="text-button">Pročitaj više...</a>
+                            <p>30 termina teretane + neograničen kardio program</p>
+                            <a [routerLink]="['/paket_3_30']" class="text-button">Pročitaj više...</a>
                         </div>
                     </li>
                 </ul>
@@ -84,8 +84,8 @@
     </div>
 
 <!-- IGRAONICA -->
-
-    <div class="container">
+<!--
+    <div class="container" id="igraonica_container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
@@ -147,22 +147,8 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Igraonica ipak ide u posebnu sekciju.
+-->
 
 
 </section>

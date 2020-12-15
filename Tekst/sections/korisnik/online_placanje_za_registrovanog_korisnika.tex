@@ -13,26 +13,28 @@
 \hline
     Kratak opis & Klijent vrši online plaćanje određene usluge teretane tako što popunjava formular odgovarajućim podacima. Vrši se validacija podataka i klijent dobija informaciju o uspešnosti akcije.\\ 
 \hline    
-    Učesnici & Klijent koji želi da plati određenu uslugu teretane (paket i program/igraonicu) online.\\
+    Učesnici & \begin{itemize}
+        \item Klijent koji želi da plati određenu uslugu teretane (paket i program/igraonicu) online.
+    \end{itemize} \\
 \hline
-   Preduslovi & \begin{enumerate}
+   Preduslovi & \begin{itemize}
        \item Korisnik je registrovan (korisnik je klijent) i prijavljen na sistem.
        % TODO: \item Klijent ima pristup internetu.
        \item Sistem je u funkciji.
        \item Klijent poseduje platnu karticu koja ima mogućnost online plaćanja (plaćanja preko interneta).
        \item Klijent je odabrao paket i program ili igraonicu čije usluge želi da koristi.
-   \end{enumerate}\\
+   \end{itemize}\\
 \hline  
-    Postuslovi & \begin{enumerate}
+    Postuslovi & \begin{itemize}
         \item Novac sa računa klijenta je uspešno prebačen na račun teretane.
 		\item Klijent je dobio potvrdu o uspešno izvršenoj uplati. %TODO Da li treba obuhvatiti i negativan slucaj?
         \item Baza podataka je ažurirana.
-    \end{enumerate}\\
+    \end{itemize}\\
 \hline
     Osnovni tok & \begin{enumerate}
  		\item Sistem otvara stranicu sa formularom za online plaćanje.
 		\item Klijent unosi potrebne podatke i izvršava plaćanje klikom na dugme za potvrdu plaćanja.
-		\item Proveravaju se uneti podaci i raspoloživa sredstva klijenta.
+		\item Sistem proverava unete podatke i raspoloživa sredstva klijenta.
 		\item Sistem obaveštava klijenta o uspešnoj realizaciji plaćanja.
         \item Sistem šalje klijentu potvrdu o izvršenoj uplati (na e-mail adresu klijenta ili beleži to na profilu klijenta).
         \item Klijentu stiže potvrda.

@@ -1,3 +1,7 @@
 @import "../assets/css/font-awesome.css";
 @import "../assets/css/templatemo-training-studio.css";
 @import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+.form-control {
+    padding-left: 2.375rem;
+}

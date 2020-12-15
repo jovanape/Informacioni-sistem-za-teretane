@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
               "src/app/assets/images/training-image-01.jpg",
@@ -40,7 +41,21 @@
               "src/app/assets/images/line-dec.png",
               "src/app/assets/images/features-first-icon.png",
               "src/app/assets/images/tabs-first-icon.png",
-              "src/app/assets/images/caret-right-fill.png"
+              "src/app/assets/images/slika1.png",
+              "src/app/assets/images/licence-lesmills.jpg",
+              "src/app/assets/images/licence-group.jpg",
+              "src/app/assets/images/licence-personal.jpg",
+              "src/app/assets/images/caret-right-fill.png",
+              "src/app/assets/images/basic/02.png",
+              "src/app/assets/images/advanced/01.png",
+              "src/app/assets/images/pro/03.png",
+              "src/app/assets/images/kettlebell_bw.png",
+              "src/app/assets/images/kettlebell.png",
+              "src/app/assets/images/muscle_bw.png",
+              "src/app/assets/images/muscle.png",
+              "src/app/assets/images/dumbbell_bw.png",
+              "src/app/assets/images/dumbbell.png",
+              "src/app/assets/images/dve_strelice_na_dole.png"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -107,6 +122,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
