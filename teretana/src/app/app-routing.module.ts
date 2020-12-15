@@ -10,8 +10,10 @@ import { Paket130Component } from './paket_1_30/paket_1_30.component'
 import { Paket230Component } from './paket_2_30/paket_2_30.component'
 import { Paket330Component } from './paket_3_30/paket_3_30.component'
 
+import { IzmenaTakmicenjaComponent } from './takmicenja/izmena-takmicenja/izmena-takmicenja.component';
 import { KreiranjeTakmicenjaComponent } from './takmicenja/kreiranje-takmicenja/kreiranje-takmicenja.component';
 import { ObavestenjeTakmicenjeComponent } from './takmicenja/obavestenje-takmicenje/obavestenje-takmicenje.component';
+import { OtkazivanjeTakmicenjaComponent } from './takmicenja/otkazivanje-takmicenja/otkazivanje-takmicenja.component';
 import { ParticipacijaTakmicenjeComponent } from './takmicenja/participacija-takmicenje/participacija-takmicenje.component';
 import { PrijaviTakmicaraComponent } from './takmicenja/prijavi-takmicara/prijavi-takmicara.component';
 
@@ -35,6 +37,9 @@ const routes: Routes = [
   { path: 'participacija', component: ParticipacijaTakmicenjeComponent},
   { path: 'obavestenje', component: ObavestenjeTakmicenjeComponent},
   { path: 'programi', component: ProgramiComponent },
+  { path: 'otkazivanjeTakmicenja', component: OtkazivanjeTakmicenjaComponent}, 
+  { path: 'izmenaTakmicenja/:takmicenjeId', component: IzmenaTakmicenjaComponent},
+
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];

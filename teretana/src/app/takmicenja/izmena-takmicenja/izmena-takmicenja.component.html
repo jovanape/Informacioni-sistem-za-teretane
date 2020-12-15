@@ -1,0 +1,65 @@
+<section class="section" id="kreiranje_takmicenja">
+    <div class="container cta-content login">
+    <form class="my-2 col-lg-10 offset-lg-2" id="kreiranjeTakmicenja" action="" method="post">
+            <div class="row center">
+                <label style="padding-right: 30px;"> Naziv: {{naziv}} </label> <br>
+                <input type="text">
+            </div>
+            <div class="row center"> 
+                <label style="padding-right: 23px;"> Datum: {{datum}}</label> <br>
+                <input type="date">    
+            </div>
+    
+            <div class="row center"> 
+                <label style="padding-right: 10px;"> Vreme početka: {{vreme}} </label> <br>
+                <input type="time">
+            </div>
+    
+            <div class="row center">
+                <label style="padding-right: 17px;"> Lokacija: {{lokacija_t}} </label> <br>
+                <div style="padding-right: 10px;"
+                 class="form-check form-check-inline" *ngFor="let lokacija of lokacije">
+                    <input class="form-check-input" type="radio" value="{{lokacija}}">
+                    <label class="form-check-label">{{lokacija}}</label>
+                </div>
+            </div>
+    
+            <div class="row center">
+                <label style="padding-right: 10px;"> Discipline: {{discipline_t}} </label> <br>
+                
+                <div *ngFor="let disciplina of discipline"
+                        style="padding-right: 10px;">
+                    <input type="checkbox">
+                    <label>{{disciplina}}</label>
+                </div>
+            </div>
+            <!-- Ovde mi treba neki veliki text field -->
+            <div class="row center">
+                <label style="padding-right: 37px;"> Nagrade: {{nagrade}} </label> <br>
+                <textarea rows=6 cols=50></textarea>
+            </div>
+    
+            <div class="row center"> 
+                <label style="padding-right: 10px;"> Participacija: {{participacija}} </label> <br>
+                <input type="number" min="0">
+            </div>
+    
+            <div class="row center">
+                <label style="padding-right: 10px;"> Sudije {{sudije}} </label> <br>
+                <div style="padding-right: 10px;" *ngFor="let trener of treneri">
+                    <input type="checkbox">
+                    <label>{{trener}}</label>
+                </div>
+            </div>
+            
+            <div class="row center"> 
+            
+                <label style="padding-right: 10px;"> Dodatne informacije: {{dodatne_info}} </label> 
+                <br>
+                <textarea rows=6 cols=50></textarea>
+            </div>
+            <button class="btn btn-secondary"  [routerLink]="['/#takmicenja']" > Odustani </button>
+            <button class="btn btn-secondary" type="submit" (click)="sacuvajIzmene()" >Sačuvaj izmene </button>
+    </form>
+    </div>
+    </section>

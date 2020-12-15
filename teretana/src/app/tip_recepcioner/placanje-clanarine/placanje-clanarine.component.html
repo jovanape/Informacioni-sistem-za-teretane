@@ -4,10 +4,21 @@
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="cta-content">
-                    <h2>Placanje <em>Clanarine</em></h2>
-                    <p>Kupovinom Naše članarine, odmah postajete deo i Našeg Kluba, koji vam omogućava specijalne popuste kod naših partnera na veliki broj proizvoda i usluga za bolji, zdraviji i aktivniji način života</p>
+                    <h2> <em> Plaćanje članarine</em></h2>
+                    <p style="color:black;"> Izaberite po kom kriterijumu želite da pronađete klijenta. </p>
+                    <div class="main"> 
+                        <div class="input-group-append">
+                            <input type="text"  class="form-control" placeholder="broj članske karte, e-mail ili korisničko ime">
+                            <select class="mdb-select md-form">
+                                <option value="1" selected>Broj članske karte</option>
+                                <option value="2">e-mail</option>
+                                <option value="3">Korisničko ime</option>
+                              </select>
+                        </div>
+                    </div>
+                    <!-- Ovde najbolje da ide na pakete i da tu bira sta ce -->
                     <div class="main-button scroll-to-section">
-                        <a [routerLink]="['/login']">Postani član</a>
+                        <a [routerLink]="['/paketi']">Pretraži</a>
                     </div>
                 </div>
             </div>
