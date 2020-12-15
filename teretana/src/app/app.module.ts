@@ -20,7 +20,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { AdministracijaComponent } from './administrator/administracija/administracija.component';
-
+import { IgraonicaPonudeComponent } from './igraonica_ponude/igraonica_ponude.component';
 import { Paket3Component } from './paket_3/paket_3.component';
 import { Paket130Component } from './paket_1_30/paket_1_30.component';
 import { Paket230Component } from './paket_2_30/paket_2_30.component';
@@ -75,7 +75,8 @@ import { IzmenaTakmicenjaComponent } from './takmicenja/izmena-takmicenja/izmena
     ObavestenjeTakmicenjeComponent,
     ProgramiComponent,
     OtkazivanjeTakmicenjaComponent,
-    IzmenaTakmicenjaComponent
+    IzmenaTakmicenjaComponent,
+    IgraonicaPonudeComponent
   ],
   imports: [
     BrowserModule,

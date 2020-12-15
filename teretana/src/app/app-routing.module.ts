@@ -21,6 +21,7 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 
 import { ProgramiComponent } from './programi/programi.component';
+import { IgraonicaPonudeComponent } from './igraonica_ponude/igraonica_ponude.component'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,7 +40,7 @@ const routes: Routes = [
   { path: 'programi', component: ProgramiComponent },
   { path: 'otkazivanjeTakmicenja', component: OtkazivanjeTakmicenjaComponent}, 
   { path: 'izmenaTakmicenja/:takmicenjeId', component: IzmenaTakmicenjaComponent},
-
+  { path: 'igraonica_ponude', component: IgraonicaPonudeComponent },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];

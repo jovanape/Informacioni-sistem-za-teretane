@@ -55,7 +55,12 @@
               "src/app/assets/images/muscle.png",
               "src/app/assets/images/dumbbell_bw.png",
               "src/app/assets/images/dumbbell.png",
-              "src/app/assets/images/dve_strelice_na_dole.png"
+              "src/app/assets/images/dve_strelice_na_dole.png",
+              "src/app/assets/images/igraonica_pozadina.jpg",
+              "src/app/assets/images/gamepad_bw.png",
+              "src/app/assets/images/gamepad.png",
+              "src/app/assets/images/toys_bw.png",
+              "src/app/assets/images/toys.png"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
