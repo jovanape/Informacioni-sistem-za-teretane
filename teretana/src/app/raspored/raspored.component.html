@@ -18,15 +18,82 @@
                     <table>
                         <tbody>
                             <tr style="color: #ed563b; border: 1px solid #ed563b;">
-                                <td class="monday ts-item show" *ngIf="!jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;">Zakaži grupni trening</td>
-                                <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;">Otkaži grupni trening</td>
-                                <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;">Ažuriranje termina</td>
-                                <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;">Ažuriranje sale</td>
-                                <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;">Ažuriranje broja korisnika</td>
+                                <td class="monday ts-item show" *ngIf="!jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;" (click)="prikaziNoviTrening()">Zakaži grupni trening</td>
+                                <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;" (click)="prikaziBrisiTrening()">Otkaži grupni trening</td>
+                                <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;" (click)="prikaziMenjajTrening()">Ažuriranje termina</td>
+                                <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;" (click)="prikaziSala()">Ažuriranje sale</td>
+                                <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;" (click)="prikaziKorisnici()">Ažuriranje broja korisnika</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
+                <div style="margin-top: 10px;" *ngIf="jePrikaziNoviTrening()">
+                    <div class="row" >
+                        <div class="form-group col-lg-3">
+                            <label style="color: #ed563b;" for="dan">Dan</label>
+                            <input
+                            type="text"
+                            name="dan"
+                            id="dan"
+                            class="form-control"
+                            placeholder="Ponedeljak" 
+                            />
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label style="color: #ed563b;" for="pocetak">Početak</label>
+                            <input
+                            type="text"
+                            name="pocetak"
+                            id="pocetak"
+                            class="form-control"
+                            placeholder="10:00AM" 
+                            />
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label style="color: #ed563b;" for="kraj">Kraj</label>
+                            <input
+                            type="text"
+                            name="kraj"
+                            id="kraj"
+                            class="form-control"
+                            placeholder="3:00PM" 
+                            />
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label style="color: #ed563b;" for="korisnika">Broj Korisnika</label>
+                            <input
+                            type="text"
+                            name="korisnika"
+                            id="korisnika"
+                            class="form-control"
+                            placeholder="25" 
+                            />
+                        </div>
+                        
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label style="color: #ed563b;" for="sala">Izaberi salu</label>
+                            <input
+                            type="text"
+                            name="sala"
+                            id="sala"
+                            class="form-control"
+                            list="sale"
+                            />
+                            <datalist id="sale">
+                                <option *ngFor="let sala of listaSala" value="{{sala}}">
+                            </datalist>
+                        </div>
+
+                        <button class="btn col-lg-3" name="sacuvaj" id="sacuvaj" style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;" action="dodajTrening()">Sačuvaj</button>
+                    
+                    </div>
+
+                </div>
+
             </div>
 
             <div class="col-lg-12">

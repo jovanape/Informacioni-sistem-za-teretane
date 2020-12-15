@@ -7,12 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RasporedComponent implements OnInit {
   public danUnedelji:string;
+  public popup:string;
   public mapa:[string, [string, string]][];
   public listaTermina:string[];
+  public listaSala:string[];
   public selektovan:[string, [string, string]];
 
   constructor() {
     this.danUnedelji = "ponedeljak";
+    this.popup = "";
 
     this.mapa = [
       ["ponedeljak",["fitnes", "8:00AM - 9:30AM"] ],  //8, 10, 12, 4
@@ -35,6 +38,12 @@ export class RasporedComponent implements OnInit {
       ["petak",["cross-fit", "12:00AM - 2:30PM"] ]
 
     ]; 
+
+    this.listaSala = [
+        "Sala1",
+        "Sala2",
+        "Sala3"
+    ];
 
     this.selektovan = ["prazan", ["", ""]];
 
@@ -77,7 +86,7 @@ export class RasporedComponent implements OnInit {
   }
 
   selektujTermin(pozicija:number) {
-    let termin:string = this.listaTermina[pozicija];
+    let termin:string = this.listaTermina[pozicija].substr(0, 16);
     let vrsta:string = "";
     if(pozicija < 3) { vrsta = "fitnes";}
     if(pozicija < 3) { vrsta = "boks";}
@@ -88,7 +97,7 @@ export class RasporedComponent implements OnInit {
   }
 
   jeZakazanTermin() {
-    if(this.selektovan[1][1] !== "" ){
+    if(this.selektovan[1][1].trim() !== "" ){
       return true;
     } else {
       return false;
@@ -99,7 +108,7 @@ export class RasporedComponent implements OnInit {
     this.selektovan = ["", ["", ""]];
     this.listaTermina = [];
     for (let index = 0; index < 12; index++) {
-      this.listaTermina[index] = "";
+      this.listaTermina[index] = "                ";
     }
 
     for (let i = 0; i < this.mapa.length; i++) {
@@ -143,6 +152,60 @@ export class RasporedComponent implements OnInit {
     }
 
   }
+
+  prikaziNoviTrening() {
+    if(this.popup !== "novi") {
+      this.popup = "novi"
+    } else {
+      this.popup = "";
+    }
+  }
+  prikaziBrisiTrening() {
+    if(this.popup !== "brisi") {
+      this.popup = "brisi"
+    } else {
+      this.popup = "";
+    }
+  }
+  prikaziMenjajTrening() {
+    if(this.popup !== "menjaj") {
+      this.popup = "menjaj"
+    } else {
+      this.popup = "";
+    }
+  }
+  prikaziSala() {
+    if(this.popup !== "sala") {
+      this.popup = "sala"
+    } else {
+      this.popup = "";
+    }
+  }
+  prikaziKorisnici() {
+    if(this.popup !== "korisnik") {
+      this.popup = "korisnik"
+    } else {
+      this.popup = "";
+    }
+  }
+
+  jePrikaziNoviTrening() {
+    return this.popup === "novi";
+  }
+  jePrikaziBrisiTrening() {
+    return this.popup === "brisi";
+  }
+  jePrikaziMenjajTrening() {
+    return this.popup === "menjaj";
+  }
+  jePrikaziSala() {
+    return this.popup === "sala";
+  }
+  jePrikaziKorisnici() {
+    return this.popup === "korisnik";
+  }
+
+
 
   ngOnInit(): void {
   }
