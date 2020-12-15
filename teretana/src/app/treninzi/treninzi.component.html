@@ -1,17 +1,231 @@
-<!-- ***** Call to Action Start ***** -->
 <section class="section" id="treninzi">
     <div class="container">
         <div class="row">
-            <div class="col-lg-10 offset-lg-1">
-                <div class="cta-content">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading dark-bg">
                     <h2>Korisnikovi <em>Treninzi</em></h2>
-                    <p>Kupovinom Naše članarine, odmah postajete deo i Našeg Kluba, koji vam omogućava specijalne popuste kod naših partnera na veliki broj proizvoda i usluga za bolji, zdraviji i aktivniji način života</p>
-                    <div class="main-button scroll-to-section">
-                        <a [routerLink]="['/login']">Postani član</a>
-                    </div>
+                    <img src="line-dec.png" alt="">
+                    <p>‘If you think lifting is dangerous, try being weak. Being weak is dangerous.’
+
+                        — Bret Contreras, sports scientist</p>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-lg-10 offset-lg-1" style="margin-bottom: 30px;" *ngIf="nijeSelektovanTermin()">
+                <div class="schedule-table filtering">
+                    <table>
+                        <tbody>
+                            <tr style="color: #ed563b; border: 1px solid #ed563b;">
+                                <td class="monday ts-item show" *ngIf="!jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;" (click)="prikaziNoviTrening()">Zakaži grupni trening</td>
+                                <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;" (click)="brisiTrening()">Otkaži grupni trening</td>
+                                <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;" (click)="prikaziMenjajTrening()">Ažuriranje termina</td>
+                                <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;" (click)="prikaziSala()">Ažuriranje sale</td>
+                                <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;" (click)="prikaziKorisnici()">Ažuriranje broja korisnika</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 10px;" *ngIf="jePrikaziNoviTrening()">
+                    <div class="row" >
+                        <div class="form-group col-lg-3">
+                            <label style="color: #ed563b;" for="dan">Dan</label>
+                            <input
+                            type="text"
+                            name="dan"
+                            id="dan"
+                            class="form-control"
+                            placeholder="Ponedeljak" 
+                            />
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label style="color: #ed563b;" for="pocetak">Početak</label>
+                            <input
+                            type="text"
+                            name="pocetak"
+                            id="pocetak"
+                            class="form-control"
+                            placeholder="10:00AM" 
+                            />
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label style="color: #ed563b;" for="kraj">Kraj</label>
+                            <input
+                            type="text"
+                            name="kraj"
+                            id="kraj"
+                            class="form-control"
+                            placeholder="3:00PM" 
+                            />
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label style="color: #ed563b;" for="korisnika">Broj Korisnika</label>
+                            <input
+                            type="text"
+                            name="korisnika"
+                            id="korisnika"
+                            class="form-control"
+                            placeholder="25" 
+                            />
+                        </div>
+                        
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label style="color: #ed563b;" for="sala">Izaberi salu</label>
+                            <input
+                            type="text"
+                            name="sala"
+                            id="sala"
+                            class="form-control"
+                            list="sale"
+                            />
+                            <datalist id="sale">
+                                <option *ngFor="let sala of listaSala" value="{{sala}}">
+                            </datalist>
+                        </div>
+
+                        <button class="btn col-lg-3" name="sacuvaj" id="sacuvaj" style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;" action="dodajTrening()">Sačuvaj</button>
+                    
+                    </div>
+
+                </div>
+
+                <div style="margin-top: 10px;" *ngIf="jePrikaziMenjajTrening()">
+                    <div class="row" >
+                        <div class="form-group col-lg-3">
+                            <label style="color: #ed563b;" for="dan">Dan</label>
+                            <input
+                            type="text"
+                            name="dan"
+                            id="dan"
+                            class="form-control"
+                            placeholder="Ponedeljak" 
+                            />
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label style="color: #ed563b;" for="pocetak">Početak</label>
+                            <input
+                            type="text"
+                            name="pocetak"
+                            id="pocetak"
+                            class="form-control"
+                            placeholder="10:00AM" 
+                            />
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label style="color: #ed563b;" for="kraj">Kraj</label>
+                            <input
+                            type="text"
+                            name="kraj"
+                            id="kraj"
+                            class="form-control"
+                            placeholder="3:00PM" 
+                            />
+                        </div>
+
+                        <button class="btn col-lg-3" name="sacuvaj" id="sacuvaj" style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;" action="dodajTrening()">Sačuvaj</button>
+                        
+                    </div>
+
+                </div>
+
+                <div style="margin-top: 10px;" *ngIf="jePrikaziSala()">
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label style="color: #ed563b;" for="sala">Izaberi salu</label>
+                            <input
+                            type="text"
+                            name="sala"
+                            id="sala"
+                            class="form-control"
+                            list="sale"
+                            />
+                            <datalist id="sale">
+                                <option *ngFor="let sala of listaSala" value="{{sala}}">
+                            </datalist>
+                        </div>
+
+                        <button class="btn col-lg-3" name="sacuvaj" id="sacuvaj" style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;" action="dodajTrening()">Sačuvaj</button>
+                    
+                    </div>
+
+                </div>
+
+                <div style="margin-top: 10px;" *ngIf="jePrikaziKorisnici()">
+                    <div class="row" >
+
+                        <div class="form-group col-lg-3">
+                            <label style="color: #ed563b;" for="korisnika">Broj Korisnika</label>
+                            <input
+                            type="text"
+                            name="korisnika"
+                            id="korisnika"
+                            class="form-control"
+                            placeholder="25" 
+                            />
+                        </div>
+                        <button class="btn col-lg-3" name="sacuvaj" id="sacuvaj" style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;" action="dodajTrening()">Sačuvaj</button>
+                    
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-12">
+                <div class="filters">
+                    <ul class="schedule-filter">
+                        <li (click)="izaberiPonedeljak()">Ponedeljak</li>
+                        <li (click)="izaberiUtorak()">Utorak</li>
+                        <li (click)="izaberiSredu()">Sreda</li>
+                        <li (click)="izaberiCetvrtak()">Četvrtak</li>
+                        <li (click)="izaberiPetak()">Petak</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-10 offset-lg-1">
+                <div class="schedule-table filtering">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="day-time">Vrsta treninga</td>
+                                <td class="monday ts-item show">Prepodnevni termin</td>
+                                <td class="monday ts-item show">Popodnevni termin</td>
+                                <td class="monday ts-item show">predvecernji termin</td>
+                            </tr>
+                            <tr>
+                                <td class="day-time">Fitnes</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(0)">{{listaTermina[0]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(1)">{{listaTermina[1]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(2)">{{listaTermina[2]}}</td>
+                            </tr>
+                            <tr>
+                                <td class="day-time">Boks</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(3)">{{listaTermina[3]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(4)">{{listaTermina[4]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(5)">{{listaTermina[5]}}</td>
+                            </tr>
+                            <tr>
+                                <td class="monday day-time">Body Building</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(6)">{{listaTermina[6]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(7)">{{listaTermina[7]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(8)">{{listaTermina[8]}}</td>
+                            </tr>
+                            <tr>
+                                <td class="monday day-time">Yoga</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(9)">{{listaTermina[9]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(10)">{{listaTermina[10]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(11)">{{listaTermina[11]}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
     </div>
 </section>
-<!-- ***** Call to Action End ***** -->
