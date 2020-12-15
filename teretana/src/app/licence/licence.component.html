@@ -17,7 +17,7 @@
               <li><a href='#licence-tabs-1'><img src="tabs-first-icon.png" alt="">Personalni trener</a></li>
               <li><a href='#licence-tabs-2'><img src="tabs-first-icon.png" alt="">Trener grupnih programa</a></li>
               <li><a href='#licence-tabs-3'><img src="tabs-first-icon.png" alt="">Les Mills instruktor</a></li>
-              <li><a href='#licence-tabs-4'><img src="tabs-first-icon.png" alt="">Pilates instruktor</a></li>
+              <!-- <li><a href='#licence-tabs-4'><img src="tabs-first-icon.png" alt="">Pilates instruktor</a></li> -->
               <div class="main-rounded-button" *ngIf="jeUlogovanAdministrator()" (click)="addNewLicenceClicked()"><a>Dodaj novi program obuke</a></div>
             </ul>
             <div *ngIf="openNewLicenceForm"> 
@@ -56,23 +56,24 @@
             </div>
           </div>
           <div class="col-lg-8">
-            <section class='tabs-content'>
-              <article id='licence-tabs-1'>
-                <img src="licence-personal.jpg" alt="Personalni trener">
-                <h4>Personalni trener</h4>
-                <!-- Svi podaci treba da se čitaju iz baze -->
+            <section class='tabs-content' *ngFor="let program of programs">
+              <article id={{program.article_id}}>
+                <img src={{program.img}} alt="Personalni trener">
+                <h4>{{program.type}}</h4>
                 <label>Opis programa:</label>
-                <p>Ne samo da zanimanje personalni trener spada među novija, već se smatra i izuzetno perspektivnim, jer postoji velika potreba za osobama koje su kvalifikovane za njegovo obavljanje, ali je isto tako i izuzetno velika tražnja na tržištu rada. A kako se od svakog kandidata koji želi da aplicira na ovo radno mesto zahteva i sertifikat relevantne institucije, to svako ko želi da se bavi ovim poslom treba da završi specijalizovanu obuku i kurs za personalnog trenera.</p>
+                <p>{{program.description}}</p>
                 <label>Treneri koji vode program:</label>
-                <p>Petar Petrović, Marko Marković</p>
+                <p>{{program.trainers}}</p>
                 <label>Lokacija održavanja programa:</label>
-                <p>Ulica 123</p>
+                <p>{{program.location}}</p>
+                <label>Dokumenta koja je potrebno predati prilikom prijave:</label>
+                <p>{{program.requiredDocuments}}</p>
                 <label>Datum početka programa:</label>
-                <p>15.01.2021</p>
+                <p>{{program.courseStart}}</p>
                 <label>Datum kraja programa:</label>
-                <p>15.04.2021</p>
+                <p>{{program.courseEnd}}</p>
                 <label>Datum ispita:</label>
-                <p>25.04.2021</p>
+                <p>{{program.examDate}}</p>
                 <div class="main-button" *ngIf="jeUlogovanKlijent()" (click)="checkInClicked()">
                     <a>Prijavi se!</a>
                 </div>
@@ -90,7 +91,7 @@
                     <br>
                     <p>Šta ste sve trenirali?</p><input type="text" formControlName="sportInfo" class="form-control" />
                     <br>
-                    <p>Ukoliko ste osvojili nagrade na nekim takmičenjima, priložite skeniranu potvrdu:</p><input type="file" formControlName="competitionDoc" class="form-control" />
+                    <p>Priložite skeniranu potvrdu o učešću na nekom takmičenju ili potvrdu o osvajanju neke nagrade na takmičenju:</p><input type="file" formControlName="competitionDoc" class="form-control" />
                     <br>
                     <button type="submit" class="main-rounded-button btn"><a>Pošalji</a></button>
                   </form>
@@ -101,36 +102,7 @@
               <br>
               <br>
               <br>
-              <article id='licence-tabs-2'>
-                <img src="licence-group.jpg" alt="Trener grupnih programa">
-                <h4>Trener grupnih programa</h4>
-                <p>Integer dapibus, est vel dapibus mattis, sem mauris luctus leo, ac pulvinar quam tortor a velit. Praesent ultrices erat ante, in ultricies augue ultricies faucibus. Nam tellus nibh, ullamcorper at mattis non, rhoncus sed massa. Cras quis pulvinar eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                <div class="main-button" *ngIf="jeUlogovanKlijent()">
-                    <a href="#">Prijavi se!</a>
-                </div>
-              </article>
-              <br>
-              <br>
-              <br>
-              <article id='licence-tabs-3'>
-                <img src="licence-lesmills.jpg" alt="Les Mills instruktor">
-                <h4>Les Mills instruktor</h4>
-                <p>Fusce laoreet malesuada rhoncus. Donec ultricies diam tortor, id auctor neque posuere sit amet. Aliquam pharetra, augue vel cursus porta, nisi tortor vulputate sapien, id scelerisque felis magna id felis. Proin neque metus, pellentesque pharetra semper vel, accumsan a neque.</p>
-                <div class="main-button" *ngIf="jeUlogovanKlijent()">
-                    <a href="#">Prijavi se!</a>
-                </div>
-              </article>
-              <br>
-              <br>
-              <br>
-              <article id='licence-tabs-4'>
-                <img src="training-image-04.jpg" alt="Pilates instruktor">
-                <h4>Pilates instruktor</h4>
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ultrices elementum odio ac tempus. Etiam eleifend orci lectus, eget venenatis ipsum commodo et.</p>
-                <div class="main-button" *ngIf="jeUlogovanKlijent()">
-                    <a href="#">Prijavi se!</a>
-                </div>
-              </article>
+              
             </section>
           </div>
         </div>
