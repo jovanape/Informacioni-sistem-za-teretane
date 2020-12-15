@@ -47,10 +47,15 @@
               "src/app/assets/images/licence-personal.jpg",
               "src/app/assets/images/caret-right-fill.png",
               "src/app/assets/images/basic/02.png",
-              "src/app/assets/images/basic/02.png",
-              "src/app/assets/images/basic/02.png",
               "src/app/assets/images/advanced/01.png",
-              "src/app/assets/images/pro/03.png"
+              "src/app/assets/images/pro/03.png",
+              "src/app/assets/images/kettlebell_bw.png",
+              "src/app/assets/images/kettlebell.png",
+              "src/app/assets/images/muscle_bw.png",
+              "src/app/assets/images/muscle.png",
+              "src/app/assets/images/dumbbell_bw.png",
+              "src/app/assets/images/dumbbell.png",
+              "src/app/assets/images/dve_strelice_na_dole.png"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
