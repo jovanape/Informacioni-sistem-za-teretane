@@ -9,6 +9,7 @@ export class RasporedComponent implements OnInit {
   public danUnedelji:string;
   public popup:string;
   public mapa:[string, [string, string]][];
+  public obrisani: [string, [string, string]][];
   public listaTermina:string[];
   public listaSala:string[];
   public selektovan:[string, [string, string]];
@@ -46,6 +47,7 @@ export class RasporedComponent implements OnInit {
     ];
 
     this.selektovan = ["prazan", ["", ""]];
+    this.obrisani = [];
 
     this.listaTermina = [];
     for (let index = 0; index < 12; index++) {
@@ -81,6 +83,11 @@ export class RasporedComponent implements OnInit {
     this.popuniTabelu("petak");
   }
 
+  brisiTrening() {
+    this.obrisani.push(this.selektovan);
+    this.popuniTabelu(this.danUnedelji);
+  }
+
   nijeSelektovanTermin() {
     return!( this.selektovan[0] === "");
   }
@@ -89,9 +96,9 @@ export class RasporedComponent implements OnInit {
     let termin:string = this.listaTermina[pozicija].substr(0, 16);
     let vrsta:string = "";
     if(pozicija < 3) { vrsta = "fitnes";}
-    if(pozicija < 3) { vrsta = "boks";}
-    if(pozicija < 3) { vrsta = "cross-fit";}
-    if(pozicija < 3) { vrsta = "yoga";}
+    else if(pozicija < 6) { vrsta = "boks";}
+    else if(pozicija < 9) { vrsta = "cross-fit";}
+    else if(pozicija < 12) { vrsta = "yoga";}
     this.selektovan = [this.danUnedelji, [vrsta, termin]];
     console.log("Selektovan: " + this.selektovan[0] + ", " + this.selektovan[1][0] + ", " + this.selektovan[1][1]);
   }
@@ -112,8 +119,24 @@ export class RasporedComponent implements OnInit {
     }
 
     for (let i = 0; i < this.mapa.length; i++) {
-      console.log("update liste");
+      console.log("update liste, obrisani: " + this.obrisani.length);
       const entry = this.mapa[i];
+
+      let nadjen = false;
+
+      for (let i = 0; i < this.obrisani.length; i++) {
+        if(this.obrisani[i][0] === entry[0]
+            && this.obrisani[i][1][0] ===entry[1][0]
+            && this.obrisani[i][1][1] ===entry[1][1]) {
+              nadjen = true;
+              break;
+            }
+      }
+
+      if(nadjen === true){
+        continue;
+      }
+
       if(entry[0] === dan) {
         if(entry[1][1].startsWith("8")){
           if(entry[1][0] === "fitnes") {
@@ -160,13 +183,6 @@ export class RasporedComponent implements OnInit {
       this.popup = "";
     }
   }
-  prikaziBrisiTrening() {
-    if(this.popup !== "brisi") {
-      this.popup = "brisi"
-    } else {
-      this.popup = "";
-    }
-  }
   prikaziMenjajTrening() {
     if(this.popup !== "menjaj") {
       this.popup = "menjaj"
@@ -191,9 +207,6 @@ export class RasporedComponent implements OnInit {
 
   jePrikaziNoviTrening() {
     return this.popup === "novi";
-  }
-  jePrikaziBrisiTrening() {
-    return this.popup === "brisi";
   }
   jePrikaziMenjajTrening() {
     return this.popup === "menjaj";
