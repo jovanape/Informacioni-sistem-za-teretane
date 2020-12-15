@@ -18,6 +18,8 @@ import { PrijaviTakmicaraComponent } from './takmicenja/prijavi-takmicara/prijav
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 
+import { ProgramiComponent } from './programi/programi.component';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'paket_1', component: Paket1Component },
@@ -32,7 +34,7 @@ const routes: Routes = [
   { path: 'newCompetitor', component: PrijaviTakmicaraComponent},
   { path: 'participacija', component: ParticipacijaTakmicenjeComponent},
   { path: 'obavestenje', component: ObavestenjeTakmicenjeComponent},
-
+  { path: 'programi', component: ProgramiComponent },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];

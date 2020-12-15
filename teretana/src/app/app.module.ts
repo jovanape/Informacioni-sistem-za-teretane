@@ -38,7 +38,6 @@ import { EvidencijeComponent } from './tip_recepcioner/evidencije/evidencije.com
 import { ParticipacijaTakmicenjeComponent } from './takmicenja/participacija-takmicenje/participacija-takmicenje.component';
 import { ObavestenjeTakmicenjeComponent } from './takmicenja/obavestenje-takmicenje/obavestenje-takmicenje.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +70,8 @@ import { ObavestenjeTakmicenjeComponent } from './takmicenja/obavestenje-takmice
     TreninziComponent,
     EvidencijeComponent,
     ParticipacijaTakmicenjeComponent,
-    ObavestenjeTakmicenjeComponent
+    ObavestenjeTakmicenjeComponent,
+    ProgramiComponent
   ],
   imports: [
     BrowserModule,
