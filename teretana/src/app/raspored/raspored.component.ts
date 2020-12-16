@@ -12,6 +12,7 @@ export class RasporedComponent implements OnInit {
   public obrisani: [string, [string, string]][];
   public listaTermina:string[];
   public listaSala:string[];
+  public listaKorisnika:string[];
   public selektovan:[string, [string, string]];
 
   constructor() {
@@ -44,6 +45,14 @@ export class RasporedComponent implements OnInit {
         "Sala1",
         "Sala2",
         "Sala3"
+    ];
+
+    this.listaKorisnika = [
+      "Selena Vukadinovic",
+      "Tamara Ivanovic",
+      "Jana Jovicic",
+      "Jovana Pejkic",
+      "Katarina Djuric"
     ];
 
     this.selektovan = ["prazan", ["", ""]];
@@ -204,6 +213,13 @@ export class RasporedComponent implements OnInit {
       this.popup = "";
     }
   }
+  listajLjude() {
+    if(this.popup !== "ljudi") {
+      this.popup = "ljudi"
+    } else {
+      this.popup = "";
+    }
+  }
 
   jePrikaziNoviTrening() {
     return this.popup === "novi";
@@ -216,6 +232,9 @@ export class RasporedComponent implements OnInit {
   }
   jePrikaziKorisnici() {
     return this.popup === "korisnik";
+  }
+  jeListanjeLjudi() {
+    return this.popup === "ljudi";
   }
 
 

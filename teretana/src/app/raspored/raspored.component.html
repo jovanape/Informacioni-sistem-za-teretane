@@ -23,6 +23,7 @@
                                 <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;" (click)="prikaziMenjajTrening()">Ažuriranje termina</td>
                                 <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;" (click)="prikaziSala()">Ažuriranje sale</td>
                                 <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;" (click)="prikaziKorisnici()">Ažuriranje broja korisnika</td>
+                                <td class="monday ts-item show" *ngIf="jeZakazanTermin()" style="color: #ed563b; border: 1px solid #ed563b;" (click)="listajLjude()">Prikaži prijavljene korisnike</td>
                             </tr>
                         </tbody>
                     </table>
@@ -169,6 +170,23 @@
                             />
                         </div>
                         <button class="btn col-lg-3" name="sacuvaj" id="sacuvaj" style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;" action="dodajTrening()">Sačuvaj</button>
+                    
+                    </div>
+
+                </div>
+
+                <div style="margin-top: 10px;" *ngIf="jeListanjeLjudi()">
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label style="color: #ed563b;" for="sala">Svi ljudi:</label>
+
+                            <div style=" border: 1px solid white ; color: white; height: 30px; margin-top: 26px; padding-top: 3px;"
+                                *ngFor="let osoba of listaKorisnika; index as i;">
+                                {{i}}. {{osoba}}
+                            </div>
+                        </div>
+
+                        <button class="btn col-lg-3" name="sacuvaj" id="sacuvaj" style="background-color: #ed563b; color: white; height: 40px; margin-top: 40px; margin-left: 50px;">Preuzmi pdf</button>
                     
                     </div>
 
