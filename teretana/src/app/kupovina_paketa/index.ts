@@ -1,1 +1,1 @@
-export * from './paket_1.component';
+export * from './kupovina_paketa.component';
