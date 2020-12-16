@@ -65,7 +65,8 @@
               "src/app/assets/images/paket_decijix12_pozadina.jpg",
               "src/app/assets/images/ps_igraonica_pozadina_12.jpg",
               "src/app/assets/images/ps_igraonica_pozadina_30.jpg",
-              "src/app/assets/images/igraonica_30_pozadina.jpg"
+              "src/app/assets/images/igraonica_30_pozadina.jpg",
+              "src/app/assets/images/toys.png"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
