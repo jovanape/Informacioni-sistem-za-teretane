@@ -62,6 +62,9 @@ export class LicenceComponent implements OnInit {
   public openClientCheckInForm = false;
   public clientCheckInForm: FormGroup;
 
+  public openReceptionistCheckInForm = false;
+  public receptionistCheckInForm: FormGroup;
+
   constructor(private korisnikService: KorisnikService,
               private formBuilder: FormBuilder) {
     this.tipUlogovanog = korisnikService.tipUlogovanog;
@@ -85,7 +88,16 @@ export class LicenceComponent implements OnInit {
       surname: ['', [Validators.required]],
       membershipCardNum: ['', [Validators.required]],
       yearsInSport: ['', [Validators.required]],
-      competitionDoc: [''],
+      competitionDoc: ['', [Validators.required]],
+      sportInfo: ['', [Validators.required]]
+    });
+
+    this.receptionistCheckInForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      surname: ['', [Validators.required]],
+      membershipCardNum: ['', [Validators.required]],
+      yearsInSport: ['', [Validators.required]],
+      competitionDoc: ['', [Validators.required]],
       sportInfo: ['', [Validators.required]]
     });
   }
@@ -119,6 +131,10 @@ export class LicenceComponent implements OnInit {
 
   public checkInClicked(){
     this.openClientCheckInForm = true;
+  }
+
+  public checkInClicked2(){
+    this.openReceptionistCheckInForm = true;
   }
 
   public sendNewLicenceInfo(formData: any){
@@ -161,9 +177,31 @@ export class LicenceComponent implements OnInit {
     this.openClientCheckInForm = false;
   }
 
+  public sendClientInfo2(formData: any){
+
+    console.log(formData)
+
+    if(!this.receptionistCheckInForm.valid){
+      window.alert('Formular nije validan. Ispravite podatke.');
+      return;
+    }
+
+    /* Ovde se salju podaci */
+
+    window.alert('Klijent je uspešno prijavljen!');
+    
+    this.receptionistCheckInForm.reset();
+    this.openReceptionistCheckInForm = false;
+  }
+
   public clearCheckInForm(){
     this.clientCheckInForm.reset();
     this.openClientCheckInForm = false;
+  }
+
+  public clearCheckInForm2(){
+    this.receptionistCheckInForm.reset();
+    this.openReceptionistCheckInForm = false;
   }
   
 }

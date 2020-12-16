@@ -10,6 +10,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row" id="tabs">
           <div class="col-lg-4">
             <ul>
@@ -58,7 +59,7 @@
           <div class="col-lg-8">
             <section class='tabs-content' *ngFor="let program of programs">
               <article id={{program.article_id}}>
-                <img src={{program.img}} alt="Personalni trener">
+                <img src={{program.img}} alt="Slika">
                 <h4>{{program.type}}</h4>
                 <label>Opis programa:</label>
                 <p>{{program.description}}</p>
@@ -74,13 +75,14 @@
                 <p>{{program.courseEnd}}</p>
                 <label>Datum ispita:</label>
                 <p>{{program.examDate}}</p>
+                
                 <div class="main-button" *ngIf="jeUlogovanKlijent()" (click)="checkInClicked()">
                     <a>Prijavi se!</a>
                 </div>
                 <div *ngIf="openClientCheckInForm"> 
                   <br>
                   <br>
-                  <form [formGroup]="clientCheckInForm" (ngSubmit)="sendClientInfo(newLicenceForm.value)">
+                  <form [formGroup]="clientCheckInForm" (ngSubmit)="sendClientInfo(clientCheckInForm.value)">
                     <p>Ime:</p><input type="text" formControlName="name" class="form-control" />
                     <br>
                     <p>Prezime:</p><input type="text" formControlName="surname" class="form-control" />
@@ -98,6 +100,33 @@
                   <br>
                   <button class="main-rounded-button btn" (click)="clearCheckInForm()"><a>Odustani</a></button>
                 </div>
+
+
+                <div class="main-button" *ngIf="jeUlogovanRecepcioner()" (click)="checkInClicked2()">
+                  <a>Prijavi klijenta</a>
+                </div>
+                <div *ngIf="openReceptionistCheckInForm"> 
+                  <br>
+                  <br>
+                  <form [formGroup]="receptionistCheckInForm" (ngSubmit)="sendClientInfo2(receptionistCheckInForm.value)">
+                    <p>Ime:</p><input type="text" formControlName="name" class="form-control" />
+                    <br>
+                    <p>Prezime:</p><input type="text" formControlName="surname" class="form-control" />
+                    <br>
+                    <p>Broj članske karte:</p><input type="number" formControlName="membershipCardNum" class="form-control" />
+                    <br>
+                    <p>Koliko godina klijent trenira?</p><input type="number" formControlName="yearsInSport" class="form-control" />
+                    <br>
+                    <p>Šta je sve klijent trenirao?</p><input type="text" formControlName="sportInfo" class="form-control" />
+                    <br>
+                    <input type="checkbox" formControlName="competitionDoc" /> <p>Potvrda o učešću na nekom takmičenju ili potvrda o osvajanju neke nagrade na takmičenju je predata i ostavljena na recepciji.</p>
+                    <br>
+                    <button type="submit" class="main-rounded-button btn"><a>Pošalji</a></button>
+                  </form>
+                  <br>
+                  <button class="main-rounded-button btn" (click)="clearCheckInForm2()"><a>Odustani</a></button>
+                </div>
+
 
                 <div class="main-button" *ngIf="jeUlogovanAdministrator()" [routerLink]="['/rezultatiIspita', program.id]">
                   <a>Objavi rezultate ispita</a> 
