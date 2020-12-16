@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   }
 
   jeUlogovanAdministrator() {
-    console.log("je administrator: " + this.korisnikService.jeUlogovanAdministrator());
     return this.korisnikService.jeUlogovanAdministrator();
   }
   
