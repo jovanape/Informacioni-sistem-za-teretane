@@ -102,6 +102,10 @@
                 <div class="main-button" *ngIf="jeUlogovanAdministrator()" [routerLink]="['/rezultatiIspita', program.id]">
                   <a>Objavi rezultate ispita</a> 
                 </div>
+                <br>
+                <div class="main-button" *ngIf="jeUlogovanKlijent()" [routerLink]="['/rezultatiIspita', program.id]">
+                  <a>Rezultati ispita</a> 
+                </div>
 
               </article>
               <br>

@@ -17,21 +17,19 @@ export class RezultatiIspitaComponent implements OnInit {
   ];
 
   public rezultatiIspita = [
-    {type: 'Personalni trener', klijenti: [{ime: 'Ivana', prezime: 'Jovanović', brClanskeKarte: 1022, ocena: 4, izdataLicenca: 'nije izdata'}, {ime: 'Marina', prezime: 'Aleksic', brClanskeKarte: 3456, ocena: 7, licenca: 'izdata'}, {ime: 'Tijana', prezime: 'Jankovic', brClanskeKarte: 4545, ocena: 8, licenca: 'izdata'}]},
-    {type: 'Trener grupnih programa', klijenti: [{ime: 'Teodora', prezime: 'Đermanić', brClanskeKarte: 1223, ocena: 10, licenca: 'izdata'}, {ime: 'Marija', prezime: 'Ranković', brClanskeKarte: 1234, ocena: 8, licenca: 'izdata'}, {ime: 'Irena', prezime: 'Nedeljkovic', brClanskeKarte: 2245, ocena: 2, licenca: 'nije izdata'}]}, 
-    {type: 'Les Mills instruktor', klijenti: [{ime: 'Marija', prezime: 'Glišić', brClanskeKarte: 6745, ocena: 9, licenca: 'izdata'}, {ime: 'Nebojša', prezime: 'Jovanovic', brClanskeKarte: 1711, ocena: 5, licenca: 'nije izdata'}]}
+    {programId: '1', type: 'Personalni trener', klijenti: [{ime: 'Ivana', prezime: 'Jovanović', brClanskeKarte: 1022, ocena: 4, izdataLicenca: 'nije izdata'}, {ime: 'Marina', prezime: 'Aleksic', brClanskeKarte: 3456, ocena: 7, licenca: 'izdata'}, {ime: 'Tijana', prezime: 'Jankovic', brClanskeKarte: 4545, ocena: 8, licenca: 'izdata'}]},
+    {programId: '2', type: 'Trener grupnih programa', klijenti: [{ime: 'Teodora', prezime: 'Đermanić', brClanskeKarte: 1223, ocena: 10, licenca: 'izdata'}, {ime: 'Marija', prezime: 'Ranković', brClanskeKarte: 1234, ocena: 8, licenca: 'izdata'}, {ime: 'Irena', prezime: 'Nedeljkovic', brClanskeKarte: 2245, ocena: 2, licenca: 'nije izdata'}]}, 
+    {programId: '3', type: 'Les Mills instruktor', klijenti: [{ime: 'Marija', prezime: 'Glišić', brClanskeKarte: 6745, ocena: 9, licenca: 'izdata'}, {ime: 'Nebojša', prezime: 'Jovanovic', brClanskeKarte: 1711, ocena: 5, licenca: 'nije izdata'}]}
   ];
 
   public tipUlogovanog: string;
 
   public unosRezultataForm: FormGroup;
   public formInputInfos: any = [];
-  
-  //public brojKlijenataForm: FormGroup;
-  public brojKlijenata = 0;
+  public prijavljeniKlijentiZaPrikaz: any;
 
-  //public ispitId: string;
-  public prijavljeniKlijentiZaPrikaz : any;
+  public rezultatiZaPrikaz: any;
+  public rezultatiKlijenata: any;
   
   constructor(private korisnikService: KorisnikService,
               private formBuilder: FormBuilder,
@@ -39,25 +37,19 @@ export class RezultatiIspitaComponent implements OnInit {
               private router: Router) {
       this.tipUlogovanog = korisnikService.tipUlogovanog;
 
-      /*this.brojKlijenataForm = this.formBuilder.group({
-        broj: ['', [Validators.required]]
-      });*/
-
       this.unosRezultataForm = this.formBuilder.group({});
 
       this.activatedRoute.paramMap.subscribe((params) => {
         const ispitId = params.get('ispitId');
-        //console.log(ispitId);
+        console.log(ispitId);
         this.prijavljeniKlijentiZaPrikaz = this.prijavljeniKlijenti.find(klijent => klijent.programId === ispitId);
-        //console.log(this.prijavljeniKlijentiZaPrikaz);
       });
 
-      console.log(this.prijavljeniKlijentiZaPrikaz);
+      //console.log(this.prijavljeniKlijentiZaPrikaz);
 
-      var klijenti = this.prijavljeniKlijenti[0].klijenti
+      var klijenti = this.prijavljeniKlijentiZaPrikaz.klijenti;
       var brojKlijenata = klijenti.length;
-      //console.log(brojKlijenata);
-
+      
       interface LooseObject {
         [key: string]: any
       }
@@ -72,35 +64,21 @@ export class RezultatiIspitaComponent implements OnInit {
       console.log(formTemplate);
       console.log(this.formInputInfos);
 
-      this.unosRezultataForm = this.formBuilder.group(formTemplate);      
+      this.unosRezultataForm = this.formBuilder.group(formTemplate);  
+      
+      
+      this.activatedRoute.paramMap.subscribe((params) => {
+        const ispitId = params.get('ispitId');
+        //console.log(ispitId);
+        this.rezultatiZaPrikaz = this.rezultatiIspita.find(klijent => klijent.programId === ispitId);
+      });
+
+      this.rezultatiKlijenata = this.rezultatiZaPrikaz.klijenti;
   
     }
   
 
-  /*public azurirajBrojKlijenata(formData: any){
-    this.brojKlijenata = formData['broj'];
-    //console.log(this.brojKlijenata);
-
-    interface LooseObject {
-      [key: string]: any
-    }
-
-    var formTemplate : LooseObject = {};
-
-    for (let i = 0; i < this.brojKlijenata; i++) {
-      formTemplate["ime" + i] = ['', [Validators.required]]
-      formTemplate["prezime" + i] = ['', [Validators.required]]
-      formTemplate["brClanskeKarte" + i] = ['', [Validators.required]]
-      formTemplate["ocena" + i] = ['', [Validators.required]]
-      formTemplate["izdataLicenca" + i] = ['', [Validators.required]]
-      this.formControlNames.push({ime: "ime" + i}, {prezime: "prezime" + i}, {brClanskeKarte: "brClanskeKarte" + i}, {ocena: "ocena" + i}, {izdataLicenca: "izdataLicenca" + i});
-    }
-    console.log(formTemplate);
-
-    this.unosRezultataForm = this.formBuilder.group(formTemplate);
-  }*/
-
-
+  
   public posaljiRezultate(formData: any){
     
     if(!this.unosRezultataForm.valid){
