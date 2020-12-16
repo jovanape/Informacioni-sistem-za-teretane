@@ -61,7 +61,8 @@
               "src/app/assets/images/gamepad.png",
               "src/app/assets/images/toys_bw.png",
               "src/app/assets/images/toys.png",
-              "src/app/assets/images/kupovina_paketa_pozadina.jpg"
+              "src/app/assets/images/kupovina_paketa_pozadina.jpg",
+              "src/app/assets/images/gym-video.mp4"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

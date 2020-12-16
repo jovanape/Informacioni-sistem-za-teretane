@@ -12,8 +12,6 @@ export class TakmicenjaComponent implements OnInit {
   public prijavljen1: boolean = true;
   constructor(private korisnikService: KorisnikService) {
     this.tipUlogovanog = korisnikService.tipUlogovanog;
-    console.log(this.tipUlogovanog);
-    console.log(this.jeUlogovanAdministrator());
   }
 
 
