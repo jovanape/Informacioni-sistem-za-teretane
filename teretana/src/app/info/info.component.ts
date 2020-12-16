@@ -15,7 +15,6 @@ export class InfoComponent implements OnInit {
   }
 
   jeUlogovanAdministrator() {
-    console.log("je administrator: " + this.korisnikService.jeUlogovanAdministrator());
     return this.korisnikService.jeUlogovanAdministrator();
   }
 

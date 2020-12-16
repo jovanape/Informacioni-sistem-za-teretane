@@ -128,7 +128,6 @@ export class RasporedComponent implements OnInit {
     }
 
     for (let i = 0; i < this.mapa.length; i++) {
-      console.log("update liste, obrisani: " + this.obrisani.length);
       const entry = this.mapa[i];
 
       let nadjen = false;

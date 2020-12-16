@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pocetna.component.css']
 })
 export class PocetnaComponent implements OnInit {
-
-  public myLink = "/src/app/assets/images/gym-video.mp4";
   
   constructor() { }
 
