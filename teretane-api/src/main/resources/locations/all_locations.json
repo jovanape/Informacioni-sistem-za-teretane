@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Zevs",
+    "address": "Jurija Gagarina 100",
+    "city": "Beograd",
+    "workingHour": "24h",
+    "phoneNumber": 123
+  },
+  {
+    "id": 2,
+    "name": "Afrodita",
+    "address": "Ruska 13",
+    "city": "Beograd",
+    "workingHour": "24h",
+    "phoneNumber": 123
+  },
+  {
+    "id": 3,
+    "name": "Hera",
+    "address": "Vojvode Vlahovica 56",
+    "city": "Beograd",
+    "workingHour": "24h",
+    "phoneNumber": 123
+  },
+  {
+    "id": 4,
+    "name": "Posejdon",
+    "address": "Marijane Gregoran 32",
+    "city": "Beograd",
+    "workingHour": "24h",
+    "phoneNumber": 123
+  }
+]
