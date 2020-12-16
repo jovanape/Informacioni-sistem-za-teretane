@@ -11,6 +11,7 @@ export class TreninziComponent implements OnInit {
 
   public danUnedelji:string;
   public popup:string;
+  public indikatorGrupnog:string;
   public mapa:[string, [string, string]][];
   public obrisani: [string, [string, string]][];
   public listaTermina:string[];
@@ -22,6 +23,7 @@ export class TreninziComponent implements OnInit {
 
     this.danUnedelji = "ponedeljak";
     this.popup = "";
+    this.indikatorGrupnog = "";
 
     this.mapa = [
       ["ponedeljak",["fitnes", "8:00AM - 9:30AM"] ],  //8, 10, 12, 4
@@ -46,11 +48,11 @@ export class TreninziComponent implements OnInit {
     ]; 
 
     this.listaKorisnika = [
-      "Selena Vukadinovic",
-      "Tamara Ivanovic",
-      "Jana Jovicic",
-      "Jovana Pejkic",
-      "Katarina Djuric"
+      "SelenaVukadinovic",
+      "TamaraIvanovic",
+      "JanaJovicic",
+      "JovanaPejkic",
+      "KatarinaDjuric"
     ];
 
     this.selektovan = ["prazan", ["", ""]];
@@ -128,6 +130,7 @@ export class TreninziComponent implements OnInit {
     }
 
     for (let i = 0; i < this.mapa.length; i++) {
+      console.log("update liste, obrisani: " + this.obrisani.length);
       const entry = this.mapa[i];
 
       let nadjen = false;
@@ -234,6 +237,29 @@ export class TreninziComponent implements OnInit {
 
   jeUlogovanRecepcioner() {
     return this.korisnikService.jeUlogovanRecepcioner();
+  }
+
+  izaberiGrupniTrening() {
+    if(this.indikatorGrupnog !== "grupni") {
+      this.indikatorGrupnog = "grupni";
+    }
+    
+  }
+  izaberiPersonalniTrening() {
+    if(this.indikatorGrupnog !== "personalni") {
+      this.indikatorGrupnog = "personalni";
+    }
+  }
+
+  jeGrupniTrening() {
+    return this.indikatorGrupnog === "grupni";
+  }
+  jePersonalniTrening() {
+    return this.indikatorGrupnog === "personalni";
+
+  }
+  jeIzabranIndikatorTreninga() {
+    return this.indikatorGrupnog !== "";
   }
 
   ngOnInit(): void {
