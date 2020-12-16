@@ -9,8 +9,21 @@ import { KorisnikService } from '../services/korisnik.service';
 export class IgraonicaComponent implements OnInit {
   public tipUlogovanog:string;
 
+  //Za recepcionera
+  
+  public pretraga: boolean = false;
+  public datum: Date = new Date();
+  public pronadjen: boolean = false;
+  public nePostoji: boolean = false;
+  public listaIgraonica!: Igraonica[];
+
+
   constructor(private korisnikService: KorisnikService) {
     this.tipUlogovanog = korisnikService.tipUlogovanog;
+    this.listaIgraonica = [
+      {paket: 'Mini do 3 godine', preostaloTermina: 5},
+      {paket: 'Srednji junior', preostaloTermina: 2}
+    ];
   }
 
   jeUlogovan() {
@@ -37,7 +50,17 @@ export class IgraonicaComponent implements OnInit {
     return !this.jeUlogovanKlijent() && !this.jeUlogovanRecepcioner();
   }
 
+  pretrazi(){
+    this.pretraga = true;
+
+  }
+
   ngOnInit(): void {
   }
 
 }
+
+class Igraonica {  
+  paket!: string;  
+  preostaloTermina!: number;  
+}  

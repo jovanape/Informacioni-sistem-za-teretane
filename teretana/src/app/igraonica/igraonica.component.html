@@ -21,14 +21,44 @@
 <section class="section" id="igraonica-recepcioner" *ngIf="jeUlogovanRecepcioner()">
     <div class="container">
         <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading dark-bg">
+                    <h2><em>evidencija dolazaka</em></h2>
+                    <img src="line-dec.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-lg-10 offset-lg-1">
-                <div class="cta-content">
-                    <h2>Decja <em>Igraonica recepcioner</em></h2>
-                    <p>Kupovinom Naše članarine, odmah postajete deo i Našeg Kluba, koji vam omogućava specijalne popuste kod naših partnera na veliki broj proizvoda i usluga za bolji, zdraviji i aktivniji način života</p>
-                    <div class="main-button scroll-to-section">
-                        <a [routerLink]="['/login']">Postani član</a>
+                <div class="main"> 
+                    <div class="input-group-append">
+                        <input type="text"  class="form-control" placeholder="Broj članske karte. ">
+                        <button class="btn btn-secondary" type="button" (click)="pretrazi()">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </div>
                 </div>
+                
+                <div *ngIf="pretraga">
+                    <div *ngIf="nePostoji"> 
+                        <p style="color:black;"> Nije pronađen članski broj.  </p>
+                    </div>
+                    <div *ngIf="pronadjen; else nijePronadjen">
+                        <p style="color:black;"> Zakazani treninzi za dan: {{datum |  date:"dd.MM.yyyy"}} </p>
+                        <ul>
+                            <li> 18:00 Yoga <input type="checkbox" name="yoga"> </li>
+                        </ul>
+                    </div>
+                    <ng-template #nijePronadjen>
+                        <!-- Za primer GUI-a ovde cemo prikazati neki dummmy termin-->
+                        <div class="row" *ngFor="let igraonica of listaIgraonica; index as i">
+                            <p class="btn col-lg-8" style="background-color: rgb(201, 198, 198); color: #ed563b; height: 40px; margin-left: 26px; margin-top: 10px;">{{i+1}}. {{igraonica.paket}} -> Preostalo termina: {{igraonica.preostaloTermina}}</p>
+                            <button class="btn col-lg-3" style="background-color: #ed563b; color: white; height: 40px; margin-left: 26px; margin-top: 10px;" >Potvrdi dolazak</button>
+                        </div>
+                    </ng-template>
+                </div>
+
+
             </div>
         </div>
     </div>
