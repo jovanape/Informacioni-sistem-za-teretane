@@ -12,7 +12,6 @@ export class TreninziComponent implements OnInit {
   public mapa:[string, [string, string]][];
   public obrisani: [string, [string, string]][];
   public listaTermina:string[];
-  public listaSala:string[];
   public selektovan:[string, [string, string]];
 
   constructor() {
@@ -40,12 +39,6 @@ export class TreninziComponent implements OnInit {
       ["petak",["cross-fit", "12:00AM - 2:30PM"] ]
 
     ]; 
-
-    this.listaSala = [
-        "Sala1",
-        "Sala2",
-        "Sala3"
-    ];
 
     this.selektovan = ["prazan", ["", ""]];
     this.obrisani = [];
@@ -89,8 +82,14 @@ export class TreninziComponent implements OnInit {
     this.popuniTabelu(this.danUnedelji);
   }
 
-  nijeSelektovanTermin() {
-    return!( this.selektovan[0] === "");
+  dodajTrening(dan:string, vrsta:string, termin:string) {
+    this.selektovan = [dan, [vrsta, termin]];
+    this.mapa.push(this.selektovan);
+    this.popuniTabelu(this.danUnedelji);
+  }
+
+  jeSelektovanTermin() {
+    return (this.selektovan[0] !== "" && this.selektovan[1][1] !== "");
   }
 
   selektujTermin(pozicija:number) {
@@ -102,14 +101,6 @@ export class TreninziComponent implements OnInit {
     else if(pozicija < 12) { vrsta = "yoga";}
     this.selektovan = [this.danUnedelji, [vrsta, termin]];
     console.log("Selektovan: " + this.selektovan[0] + ", " + this.selektovan[1][0] + ", " + this.selektovan[1][1]);
-  }
-
-  jeZakazanTermin() {
-    if(this.selektovan[1][1].trim() !== "" ){
-      return true;
-    } else {
-      return false;
-    }
   }
 
   popuniTabelu(dan:string) {
@@ -176,7 +167,6 @@ export class TreninziComponent implements OnInit {
     }
 
   }
-
   
   prikaziNoviTrening() {
     if(this.popup !== "novi") {
@@ -185,39 +175,9 @@ export class TreninziComponent implements OnInit {
       this.popup = "";
     }
   }
-  prikaziMenjajTrening() {
-    if(this.popup !== "menjaj") {
-      this.popup = "menjaj"
-    } else {
-      this.popup = "";
-    }
-  }
-  prikaziSala() {
-    if(this.popup !== "sala") {
-      this.popup = "sala"
-    } else {
-      this.popup = "";
-    }
-  }
-  prikaziKorisnici() {
-    if(this.popup !== "korisnik") {
-      this.popup = "korisnik"
-    } else {
-      this.popup = "";
-    }
-  }
 
   jePrikaziNoviTrening() {
     return this.popup === "novi";
-  }
-  jePrikaziMenjajTrening() {
-    return this.popup === "menjaj";
-  }
-  jePrikaziSala() {
-    return this.popup === "sala";
-  }
-  jePrikaziKorisnici() {
-    return this.popup === "korisnik";
   }
 
   ngOnInit(): void {
