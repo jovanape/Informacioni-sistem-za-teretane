@@ -11,6 +11,10 @@ import { Paket230Component } from './paket_2_30/paket_2_30.component';
 import { Paket330Component } from './paket_3_30/paket_3_30.component';
 import { KupovinaPaketaComponent } from './kupovina_paketa/kupovina_paketa.component';
 
+import { PaketDeciji12TerminaComponent } from './igraonica_paketi/paket_deciji_12_termina/paket_deciji_12_termina.component';
+import { PaketPS12TerminaComponent } from './igraonica_paketi/paket_PS_12_termina/paket_PS_12_termina.component';
+import { PaketPS30TerminaComponent } from './igraonica_paketi/paket_PS_30_termina/paket_PS_30_termina.component';
+import { PaketDeciji30TerminaComponent } from './igraonica_paketi/paket_deciji_30_termina/paket_deciji_30_termina.component';
 import { IzmenaTakmicenjaComponent } from './takmicenja/izmena-takmicenja/izmena-takmicenja.component';
 import { KreiranjeTakmicenjaComponent } from './takmicenja/kreiranje-takmicenja/kreiranje-takmicenja.component';
 import { ObavestenjeTakmicenjeComponent } from './takmicenja/obavestenje-takmicenje/obavestenje-takmicenje.component';
@@ -34,15 +38,19 @@ const routes: Routes = [
   { path: 'paket_2_30', component: Paket230Component },
   { path: 'paket_3_30', component: Paket330Component },
   { path: 'kupovina_paketa', component: KupovinaPaketaComponent },
-  { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent},
-  { path: 'newCompetition', component: KreiranjeTakmicenjaComponent},
-  { path: 'newCompetitor', component: PrijaviTakmicaraComponent},
-  { path: 'participacija', component: ParticipacijaTakmicenjeComponent},
-  { path: 'obavestenje', component: ObavestenjeTakmicenjeComponent},
+  { path: 'paket_deciji_12_termina', component: PaketDeciji12TerminaComponent },
+  { path: 'paket_PS_12_termina', component: PaketPS12TerminaComponent },
+  { path: 'paket_PS_30_termina', component: PaketPS30TerminaComponent },
+  { path: 'paket_deciji_30_termina', component: PaketDeciji30TerminaComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'newCompetition', component: KreiranjeTakmicenjaComponent },
+  { path: 'newCompetitor', component: PrijaviTakmicaraComponent },
+  { path: 'participacija', component: ParticipacijaTakmicenjeComponent },
+  { path: 'obavestenje', component: ObavestenjeTakmicenjeComponent },
   { path: 'programi', component: ProgramiComponent },
-  { path: 'otkazivanjeTakmicenja', component: OtkazivanjeTakmicenjaComponent}, 
-  { path: 'izmenaTakmicenja/:takmicenjeId', component: IzmenaTakmicenjaComponent},
+  { path: 'otkazivanjeTakmicenja', component: OtkazivanjeTakmicenjaComponent }, 
+  { path: 'izmenaTakmicenja/:takmicenjeId', component: IzmenaTakmicenjaComponent },
   { path: 'igraonica_ponude', component: IgraonicaPonudeComponent },
   { path: 'rezultatiIspita/:ispitId', component: RezultatiIspitaComponent },
 

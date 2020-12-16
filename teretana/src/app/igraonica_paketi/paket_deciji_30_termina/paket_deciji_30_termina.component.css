@@ -1,0 +1,49 @@
+@import "../../assets/css/font-awesome.css";
+@import "../../assets/css/templatemo-training-studio.css";
+@import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+
+#spoljasnji {
+  display: flex;
+  padding-top: 7%;
+}
+
+.opis {
+  align-items: center;
+  width: 50%;
+}
+
+#opis_cena {
+  padding: 80px;
+  text-align: justify;
+  line-height: 100%;
+}
+
+#cena {
+  font-size: 200%;
+  font-weight: 900;
+}
+
+#btn_kupi {
+  padding: 5%;
+  width: 50%;
+  border: 0 solid;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#btn_kupi:hover {
+  padding: 5%;
+  width: 50%;
+  border: 0 solid;
+  background-color: tomato;
+}
+
+#btn_kupi:click {
+  padding: 5%;
+  width: 50%;
+  border: 0 solid;
+  color: tomato;
+  font-weight: 800;
+}
