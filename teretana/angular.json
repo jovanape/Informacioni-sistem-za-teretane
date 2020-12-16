@@ -60,7 +60,8 @@
               "src/app/assets/images/gamepad_bw.png",
               "src/app/assets/images/gamepad.png",
               "src/app/assets/images/toys_bw.png",
-              "src/app/assets/images/toys.png"
+              "src/app/assets/images/toys.png",
+              "src/app/assets/images/kupovina_paketa_pozadina.jpg"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

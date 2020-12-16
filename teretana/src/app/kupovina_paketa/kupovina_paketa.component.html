@@ -1,0 +1,65 @@
+<div id="spoljasnji">
+<form action="index.html" method="post">
+
+  <h1>Kupovina paketa</h1>
+  
+  <fieldset>
+    <legend><span class="number">1</span>Osnovne informacije</legend> <!-- TODO: dodati nekako da se same popune info koje vec postoje u sistemu! -->
+    <label for="name">Ime i prezime:</label>                                   <!-- Kao sto su to ime, prezime, ... -->
+    <input type="text" id="name" name="user_name">
+    
+    <label for="mail">Email:</label>
+    <input type="email" id="mail" name="user_email">
+    
+    <label for="password">Broj telefona:</label>
+    <input type="password" id="password" name="user_password">
+    
+    <label for="job">Lokacija Vaše teretane:</label>
+  <select id="job" name="user_job">
+    <optgroup label="Beograd">
+      <option value="frontend_developer">Lokacija 1</option>
+      <option value="php_developor">Lokacija 2</option>
+      <option value="python_developer">Lokacija 3</option>
+      <option value="rails_developer">Lokacija 4</option>
+      <option value="web_designer">Lokacija 5</option>
+      <option value="WordPress_developer">Lokacija 6</option>
+    </optgroup>
+    <optgroup label="Novi Sad">
+      <option value="lokacija_7">Lokacija 7</option>
+      <option value="lokacija_8">Lokacija 8</option>
+      <option value="lokacija_9">Lokacija 9</option>
+    </optgroup>
+    <optgroup label="Kragujevac">
+      <option value="business_owner">Lokacija 10</option>
+      <option value="freelancer">Lokacija 11</option>
+    </optgroup>
+    <optgroup label="Drugo">
+      <option value="secretary">Lokacija 12</option>
+      <option value="maintenance">Lokacija 13</option>
+    </optgroup>
+  </select>
+
+  </fieldset>
+  
+  <!-- <fieldset> -->
+    <legend><span class="number">2</span>Odabir usluga</legend>
+    <!--<label for="bio">Biografija</label>
+    <textarea id="bio" name="user_bio"></textarea>-->
+  <!-- </fieldset> -->
+  <fieldset>
+    <label style = "line-height:230%;">Vrsta programa</label>
+    <input type="radio" id="samostalni" value="samostalni_trening" name="program"><label for="samostalni_trening" class="light">Samostalni trening + grupni fitnes</label><br>
+    <input type="radio" id="individualni" value="individualni_trening" name="program"><label for="individualni_trening" class="light">Individualni trening + grupni fitnes</label>
+    <!--
+    <label>Interests:</label>
+    <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light" for="development">Development</label><br>
+    <input type="checkbox" id="design" value="interest_design" name="user_interest"><label class="light" for="design">Design</label><br>
+    <input type="checkbox" id="business" value="interest_business" name="user_interest"><label class="light" for="business">Business</label>
+  -->
+    <label style = "line-height:230%;">Usluge igraonice</label>
+    <input type="radio" id="igraonica_d" value="igraonica_da" name="igraonica"><label for="igraonica_da" class="light">Da</label><br>
+    <input type="radio" id="igraonica_n" value="igraonica_ne" name="igraonica"><label for="igraonica_ne" class="light">Ne</label>
+  </fieldset>
+  <button class="btn btn-primary btn-block btn_clr" type="submit">Nastavi kupovinu</button>
+</form>
+</div>

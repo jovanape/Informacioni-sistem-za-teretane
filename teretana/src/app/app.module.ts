@@ -25,6 +25,7 @@ import { Paket3Component } from './paket_3/paket_3.component';
 import { Paket130Component } from './paket_1_30/paket_1_30.component';
 import { Paket230Component } from './paket_2_30/paket_2_30.component';
 import { Paket330Component } from './paket_3_30/paket_3_30.component';
+import { KupovinaPaketaComponent } from './kupovina_paketa/kupovina_paketa.component';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { KreiranjeTakmicenjaComponent } from './takmicenja/kreiranje-takmicenja/kreiranje-takmicenja.component';
@@ -60,6 +61,7 @@ import { RezultatiIspitaComponent } from './licence/rezultati-ispita/rezultati-i
     Paket130Component,
     Paket230Component,
     Paket330Component,
+    KupovinaPaketaComponent,
     LicenceComponent,
     LoginComponent,
     RegisterComponent,
