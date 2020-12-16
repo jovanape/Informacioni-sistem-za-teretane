@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KorisnikService } from '../services/korisnik.service';
 
 @Component({
   selector: 'app-treninzi',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./treninzi.component.css']
 })
 export class TreninziComponent implements OnInit {
+  public tipUlogovanog:string;
 
   public danUnedelji:string;
   public popup:string;
@@ -14,7 +16,9 @@ export class TreninziComponent implements OnInit {
   public listaTermina:string[];
   public selektovan:[string, [string, string]];
 
-  constructor() {
+  constructor(private korisnikService: KorisnikService) {
+    this.tipUlogovanog = korisnikService.tipUlogovanog;
+
     this.danUnedelji = "ponedeljak";
     this.popup = "";
 
@@ -88,8 +92,12 @@ export class TreninziComponent implements OnInit {
     this.popuniTabelu(this.danUnedelji);
   }
 
-  jeSelektovanTermin() {
-    return (this.selektovan[0] !== "" && this.selektovan[1][1] !== "");
+  jeSelektovanTerminKlijent() {
+    return (this.selektovan[0] !== "" && this.selektovan[1][1] !== "") && !this.jeUlogovanRecepcioner();
+  }
+
+  jeSelektovanTerminRecepcioner() {
+    return (this.selektovan[0] !== "" && this.selektovan[1][1] !== "") && this.jeUlogovanRecepcioner();
   }
 
   selektujTermin(pozicija:number) {
@@ -178,6 +186,11 @@ export class TreninziComponent implements OnInit {
 
   jePrikaziNoviTrening() {
     return this.popup === "novi";
+  }
+
+
+  jeUlogovanRecepcioner() {
+    return this.korisnikService.jeUlogovanRecepcioner();
   }
 
   ngOnInit(): void {

@@ -64,10 +64,29 @@
             </div>
 
             <div class="col-lg-10 offset-lg-1">
-                <button class="btn col-lg-3" name="zakazi" id="zakazi" style="border-color: white ; color: white; height: 40px; margin-top: 26px; margin-right: 26px;" action="dodajTrening()" (click)="prikaziNoviTrening()">Zakaži trening</button>
-                <button class="btn col-lg-3" name="zakazi" id="otkazi" style="border-color: white ; color: white; height: 40px; margin-top: 26px;" *ngIf="jeSelektovanTermin()" (click)="brisiTrening()">Otkaži trening</button>
-            </div>
+                <!-- Deo za klijenta BEGIN-->
+                <button class="btn col-lg-3" name="zakazi" id="zakazi" 
+                        style="border-color: white ; color: white; height: 40px; margin-top: 26px; margin-right: 26px;" 
+                        *ngIf="!jeUlogovanRecepcioner()" (click)="prikaziNoviTrening()">Zakaži trening</button>
+                <button class="btn col-lg-3" name="zakazi" id="otkazi" 
+                        style="border-color: white ; color: white; height: 40px; margin-top: 26px;" 
+                        *ngIf="jeSelektovanTerminKlijent()" (click)="brisiTrening()">Otkaži trening</button>
+                <!-- Deo za klijenta END-->
 
+                <!-- Deo za recepcionara BEGIN-->
+                <button class="btn col-lg-3" name="zakazi" id="zakazi" 
+                        style="border-color: white ; color: white; height: 40px; margin-top: 26px; margin-right: 35px; margin-inline-start: 35px;" 
+                        *ngIf="jeUlogovanRecepcioner()" (click)="prikaziNoviTrening()">Prijavi korisnika na trening</button>                
+                <button class="btn col-lg-4" name="zakazi" id="zakazi" 
+                        style="border-color: white ; color: white; height: 40px; margin-top: 26px;" 
+                        *ngIf="jeUlogovanRecepcioner()" (click)="prikaziNoviTrening()">Prijavi korisnika na probni trening</button>
+                <button class="btn col-lg-3" name="zakazi" id="zakazi" 
+                        style="border-color: white ; color: white; height: 40px; margin-top: 26px;margin-left: 35px; margin-inline-end: 35px;" 
+                        *ngIf="jeUlogovanRecepcioner()" (click)="prikaziNoviTrening()">Otkaži prijavu na trening</button>
+
+                <!-- Deo za recepcionara END-->
+            </div>
+            <!-- Deo za klijenta BEGIN -->
             <div class="col-lg-10 offset-lg-1" style="margin-top: 10px;" *ngIf="jePrikaziNoviTrening()">
                 <div class="row">
                     <div class="form-group col-lg-6">
@@ -89,6 +108,12 @@
                 </div>
 
             </div>
+
+            <!-- Deo za klijenta END -->
+
+            <!-- Deo za recepcionara BEGIN -->
+            
+            <!-- Deo za recepcionara END -->
 
 
         </div>
