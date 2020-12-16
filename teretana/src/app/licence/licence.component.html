@@ -98,6 +98,11 @@
                   <br>
                   <button class="main-rounded-button btn" (click)="clearCheckInForm()"><a>Odustani</a></button>
                 </div>
+
+                <div class="main-button" *ngIf="jeUlogovanAdministrator()" [routerLink]="['/rezultatiIspita', program.id]">
+                  <a>Objavi rezultate ispita</a> 
+                </div>
+
               </article>
               <br>
               <br>
