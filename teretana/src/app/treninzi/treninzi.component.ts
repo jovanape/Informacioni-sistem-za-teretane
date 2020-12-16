@@ -14,6 +14,7 @@ export class TreninziComponent implements OnInit {
   public mapa:[string, [string, string]][];
   public obrisani: [string, [string, string]][];
   public listaTermina:string[];
+  public listaKorisnika:string[];
   public selektovan:[string, [string, string]];
 
   constructor(private korisnikService: KorisnikService) {
@@ -43,6 +44,14 @@ export class TreninziComponent implements OnInit {
       ["petak",["cross-fit", "12:00AM - 2:30PM"] ]
 
     ]; 
+
+    this.listaKorisnika = [
+      "Selena Vukadinovic",
+      "Tamara Ivanovic",
+      "Jana Jovicic",
+      "Jovana Pejkic",
+      "Katarina Djuric"
+    ];
 
     this.selektovan = ["prazan", ["", ""]];
     this.obrisani = [];
@@ -184,10 +193,45 @@ export class TreninziComponent implements OnInit {
     }
   }
 
+  prikaziPrijavaKorisnika() {
+    if(this.popup !== "prijava") {
+      this.popup = "prijava"
+    } else {
+      this.popup = "";
+    }
+  }
+
+  prikaziProbniTrening() {
+    if(this.popup !== "probni") {
+      this.popup = "probni"
+    } else {
+      this.popup = "";
+    }
+  }
+
+  prikaziBrisanjePrijave() {
+    if(this.popup !== "brisi") {
+      this.popup = "brisi"
+    } else {
+      this.popup = "";
+    }
+  }
+
   jePrikaziNoviTrening() {
     return this.popup === "novi";
   }
 
+  jePrikaziPrijavaKorisnika() {
+    return this.popup === "prijava";
+  }
+
+  jePrikaziProbniTrening() {
+    return this.popup === "probni";
+  }
+
+  jePrikaziBrisanjePrijave() {
+    return this.popup === "brisi";
+  }
 
   jeUlogovanRecepcioner() {
     return this.korisnikService.jeUlogovanRecepcioner();
