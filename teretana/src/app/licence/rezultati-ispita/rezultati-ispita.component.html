@@ -1,0 +1,35 @@
+<section class="section" id="licence">
+    <div class="container">
+        <br><br><br><br><br><br>
+
+        <div *ngIf="jeUlogovanAdministrator()">
+        
+            <form [formGroup]="unosRezultataForm" (ngSubmit)="posaljiRezultate(unosRezultataForm.value)">
+                <label>Unesite potrebne informacije za svakog prijavljenog klijenta:</label>
+                <br>
+                    <div *ngFor="let info of formInputInfos">
+                        <label>
+                        Ime i prezime: {{info.ime}} {{info.prezime}} <br> Broj članske karte: {{info.brClanskeKarte}}
+                        <br>
+                        Ocena: <input type="text" formControlName={{info.ocena}} class="form-control"> 
+                        Licenca:<input type="text" formControlName={{info.izdataLicenca}} class="form-control" placeholder="izdata/nije izdata">
+                        <br>
+                        </label>
+                    </div>
+                
+                <button type="submit" class="main-rounded-button btn btn-primary"><a>Pošalji</a></button>
+            </form>
+        </div>
+
+
+        <div *ngIf="jeUlogovanKlijent()">
+            <h4>Rezultati ispita</h4>
+            <br>
+            <div *ngFor="let r of rezultatiKlijenata">
+                <label>Ime i prezime: {{r.ime}} {{r.prezime}},  Broj članske karte: {{r.brClanskeKarte}},  Ocena: {{r.ocena}}, Licenca:  {{r.licenca}}</label>
+                <br>
+            </div> 
+        </div>
+
+    </div>
+</section>

@@ -22,6 +22,7 @@ import { RegisterComponent } from './user/register/register.component';
 
 import { ProgramiComponent } from './programi/programi.component';
 import { IgraonicaPonudeComponent } from './igraonica_ponude/igraonica_ponude.component'
+import { RezultatiIspitaComponent } from './licence/rezultati-ispita/rezultati-ispita.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -41,12 +42,14 @@ const routes: Routes = [
   { path: 'otkazivanjeTakmicenja', component: OtkazivanjeTakmicenjaComponent}, 
   { path: 'izmenaTakmicenja/:takmicenjeId', component: IzmenaTakmicenjaComponent},
   { path: 'igraonica_ponude', component: IgraonicaPonudeComponent },
+  { path: 'rezultatiIspita/:ispitId', component: RezultatiIspitaComponent },
+
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), RouterModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
