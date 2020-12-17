@@ -17,7 +17,7 @@ export class RezultatiIspitaComponent implements OnInit {
   ];
 
   public rezultatiIspita = [
-    {programId: '1', type: 'Personalni trener', klijenti: [{ime: 'Ivana', prezime: 'Jovanović', brClanskeKarte: 1022, ocena: 4, izdataLicenca: 'nije izdata'}, {ime: 'Marina', prezime: 'Aleksic', brClanskeKarte: 3456, ocena: 7, licenca: 'izdata'}, {ime: 'Tijana', prezime: 'Jankovic', brClanskeKarte: 4545, ocena: 8, licenca: 'izdata'}]},
+    {programId: '1', type: 'Personalni trener', klijenti: [{ime: 'Ivana', prezime: 'Jovanović', brClanskeKarte: 1022, ocena: 4, licenca: 'nije izdata'}, {ime: 'Marina', prezime: 'Aleksic', brClanskeKarte: 3456, ocena: 7, licenca: 'izdata'}, {ime: 'Tijana', prezime: 'Jankovic', brClanskeKarte: 4545, ocena: 8, licenca: 'izdata'}]},
     {programId: '2', type: 'Trener grupnih programa', klijenti: [{ime: 'Teodora', prezime: 'Đermanić', brClanskeKarte: 1223, ocena: 10, licenca: 'izdata'}, {ime: 'Marija', prezime: 'Ranković', brClanskeKarte: 1234, ocena: 8, licenca: 'izdata'}, {ime: 'Irena', prezime: 'Nedeljkovic', brClanskeKarte: 2245, ocena: 2, licenca: 'nije izdata'}]}, 
     {programId: '3', type: 'Les Mills instruktor', klijenti: [{ime: 'Marija', prezime: 'Glišić', brClanskeKarte: 6745, ocena: 9, licenca: 'izdata'}, {ime: 'Nebojša', prezime: 'Jovanovic', brClanskeKarte: 1711, ocena: 5, licenca: 'nije izdata'}]}
   ];
