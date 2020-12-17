@@ -30,7 +30,7 @@ import { PaketDeciji12TerminaComponent } from './igraonica_paketi/paket_deciji_1
 import { PaketPS12TerminaComponent } from './igraonica_paketi/paket_PS_12_termina/paket_PS_12_termina.component';
 import { PaketPS30TerminaComponent } from './igraonica_paketi/paket_PS_30_termina/paket_PS_30_termina.component';
 import { PaketDeciji30TerminaComponent } from './igraonica_paketi/paket_deciji_30_termina/paket_deciji_30_termina.component';
-
+import { FormaPlacanjeComponent } from './forma_za_placanje/forma_za_placanje.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { KreiranjeTakmicenjaComponent } from './takmicenja/kreiranje-takmicenja/kreiranje-takmicenja.component';
 import { PrijaviTakmicaraComponent } from './takmicenja/prijavi-takmicara/prijavi-takmicara.component';
@@ -70,6 +70,7 @@ import { RezultatiIspitaComponent } from './licence/rezultati-ispita/rezultati-i
     PaketPS12TerminaComponent,
     PaketPS30TerminaComponent,
     PaketDeciji30TerminaComponent,
+    FormaPlacanjeComponent,
     LicenceComponent,
     LoginComponent,
     RegisterComponent,

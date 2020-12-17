@@ -10,6 +10,7 @@ import { Paket130Component } from './paket_1_30/paket_1_30.component';
 import { Paket230Component } from './paket_2_30/paket_2_30.component';
 import { Paket330Component } from './paket_3_30/paket_3_30.component';
 import { KupovinaPaketaComponent } from './kupovina_paketa/kupovina_paketa.component';
+import { FormaPlacanjeComponent } from './forma_za_placanje/forma_za_placanje.component';
 
 import { PaketDeciji12TerminaComponent } from './igraonica_paketi/paket_deciji_12_termina/paket_deciji_12_termina.component';
 import { PaketPS12TerminaComponent } from './igraonica_paketi/paket_PS_12_termina/paket_PS_12_termina.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'paket_2_30', component: Paket230Component },
   { path: 'paket_3_30', component: Paket330Component },
   { path: 'kupovina_paketa', component: KupovinaPaketaComponent },
+  { path: 'forma_za_placanje', component: FormaPlacanjeComponent },
   { path: 'paket_deciji_12_termina', component: PaketDeciji12TerminaComponent },
   { path: 'paket_PS_12_termina', component: PaketPS12TerminaComponent },
   { path: 'paket_PS_30_termina', component: PaketPS30TerminaComponent },
