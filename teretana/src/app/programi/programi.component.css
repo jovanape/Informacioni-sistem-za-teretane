@@ -8,10 +8,41 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .feature-item {
-    background-color: rgba(255, 99, 71, 0.342);
     width: 80%;
+}
+
+/*
+.feature-item:hover {
+    background-color: white;
+}
+*/
+
+img {
+    width: 20%;
+}
+
+.section-heading {
+    width: 100%;
+}
+
+#naslov {
+    font-size: 200%;
+    color: rgb(61, 61, 61);
+    font-weight: 400;
+    line-height: normal;
+}
+
+#glavni_naslov > em {
+    color: red;
+}
+
+span {
+    font-weight: 800;
 }

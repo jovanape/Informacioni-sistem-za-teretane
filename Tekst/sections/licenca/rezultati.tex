@@ -5,7 +5,7 @@
 
 \begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
 \hline
-    Kratak opis & Administrator unosi rezultate ispita i spisak dobijenih licenci. Sistem ažurira stranice svih kandidata tako što u delu koji je posvećen obukama unosi rezultate ispita kao i to da li su dobili licencu ili ne. \\ 
+    Kratak opis & Administrator unosi rezultate ispita i spisak dobijenih licenci. Sistem ažurira stranicu na kojoj će biti prikazani rezultati datog programa kako bi klijenti mogli da provere da li dobili licencu. \\ 
 \hline    
     Učesnici &
     \begin{enumerate}
@@ -22,15 +22,16 @@
 \hline  
     Postuslovi & 
     \begin{enumerate}
-        \item Svaki klijent je dobio informaciju o svojim rezultatima ispita i informaciju o tome da li je dobio licencu.
+        \item Rezultati ispita su uneti i svaki klijent može da ih vidi na stranici posvećenoj rezultatima.
     \end{enumerate} \\
 \hline
     Osnovni tok & 
     \begin{enumerate}
-        \item Administrator u sistem unosi sledeće informacije: ime i prezime svakog člana koji je pohađao obuku, broj njihove članske karte, rezultate ispita i informaciju o tome da li su dobili licencu.
-        \item Sistem ažurira stranice tih članova tako što u delu koji je posvećen obukama unosi rezultate ispita i informaciju o tome da li su dobili licencu.
-        \item Ako je klijent dobio licencu, sistem ga obaveštava da je može podići u teretani u kojoj je održana obuka.
-        \item Sistem obaveštava administratora da su svi klijenti koji su učestvovali u obuci informisani o rezultatima.
+        \item Sistem prikazuje formular za unos rezultata:
+        Formular sadrži spisak svih prijavljenih klijenata (ime, prerezime, broj članske karte) na dati program obuke i za svakog od njih polja za unos ocene i informacije o tome da li dobija licencu ili ne.
+        \item Administrator za svakog klijenta unosi ocenu sa ispita i informaciju o tome da li će mu biti izdata licenca.
+        \item Sistem ažurira stranicu posvećenu ispitima datog programa obuke.
+        \item Sistem obaveštava administratora da su rezultati uspešno uneti.
     \end{enumerate}\\
 \hline
     Alternativni tokovi & / \\

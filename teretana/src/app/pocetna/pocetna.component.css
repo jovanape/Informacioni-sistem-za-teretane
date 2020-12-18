@@ -1,3 +1,12 @@
 @import "../assets/css/font-awesome.css";
 @import "../assets/css/templatemo-training-studio.css";
 @import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+
+#top {
+    padding: 0px 0px 140px 0px;
+    background-image: url(../assets/images/pozadina_gif1.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

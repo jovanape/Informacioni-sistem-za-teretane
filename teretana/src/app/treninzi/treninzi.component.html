@@ -1,17 +1,306 @@
-<!-- ***** Call to Action Start ***** -->
 <section class="section" id="treninzi">
     <div class="container">
         <div class="row">
-            <div class="col-lg-10 offset-lg-1">
-                <div class="cta-content">
-                    <h2>Korisnikovi <em>Treninzi</em></h2>
-                    <p>Kupovinom Naše članarine, odmah postajete deo i Našeg Kluba, koji vam omogućava specijalne popuste kod naših partnera na veliki broj proizvoda i usluga za bolji, zdraviji i aktivniji način života</p>
-                    <div class="main-button scroll-to-section">
-                        <a [routerLink]="['/login']">Postani član</a>
-                    </div>
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading dark-bg">
+                    <h2>raspored <em> treninga</em></h2>
+                    <img src="line-dec.png" alt="">
+                    <p>‘If you think lifting is dangerous, try being weak. Being weak is dangerous.’
+
+                        — Bret Contreras, sports scientist</p>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="filters">
+                    <ul class="schedule-filter">
+                        <li (click)="izaberiPonedeljak()">Ponedeljak</li>
+                        <li (click)="izaberiUtorak()">Utorak</li>
+                        <li (click)="izaberiSredu()">Sreda</li>
+                        <li (click)="izaberiCetvrtak()">Četvrtak</li>
+                        <li (click)="izaberiPetak()">Petak</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-10 offset-lg-1">
+                <div class="schedule-table filtering">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="day-time">Vrsta treninga</td>
+                                <td class="monday ts-item show">Prepodnevni termin</td>
+                                <td class="monday ts-item show">Popodnevni termin</td>
+                                <td class="monday ts-item show">predvecernji termin</td>
+                            </tr>
+                            <tr>
+                                <td class="day-time">Fitnes</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(0)">{{listaTermina[0]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(1)">{{listaTermina[1]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(2)">{{listaTermina[2]}}</td>
+                            </tr>
+                            <tr>
+                                <td class="day-time">Boks</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(3)">{{listaTermina[3]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(4)">{{listaTermina[4]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(5)">{{listaTermina[5]}}</td>
+                            </tr>
+                            <tr>
+                                <td class="monday day-time">Body Building</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(6)">{{listaTermina[6]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(7)">{{listaTermina[7]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(8)">{{listaTermina[8]}}</td>
+                            </tr>
+                            <tr>
+                                <td class="monday day-time">Yoga</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(9)">{{listaTermina[9]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(10)">{{listaTermina[10]}}</td>
+                                <td class="monday ts-item show" (click)="selektujTermin(11)">{{listaTermina[11]}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="col-lg-10 offset-lg-1">
+                <!-- Deo za klijenta BEGIN-->
+                <button class="btn col-lg-3" name="zakazi" id="zakazi" 
+                        style="border-color: white ; color: white; height: 40px; margin-top: 26px; margin-right: 26px;" 
+                        *ngIf="!jeUlogovanRecepcioner()" (click)="prikaziNoviTrening()">Zakaži trening</button>
+                <button class="btn col-lg-3" name="zakazi" id="otkazi" 
+                        style="border-color: white ; color: white; height: 40px; margin-top: 26px;" 
+                        *ngIf="jeSelektovanTerminKlijent()" (click)="brisiTrening()">Otkaži trening</button>
+                <!-- Deo za klijenta END-->
+
+                <!-- Deo za recepcionara BEGIN-->
+                <button class="btn col-lg-3" name="zakazi" id="zakazi" 
+                        style="border-color: white ; color: white; height: 40px; margin-top: 26px; margin-right: 35px; margin-inline-start: 35px;" 
+                        *ngIf="jeUlogovanRecepcioner()" (click)="prikaziPrijavaKorisnika()">Prijavi korisnika na trening</button>                
+                <button class="btn col-lg-4" name="zakazi" id="zakazi" 
+                        style="border-color: white ; color: white; height: 40px; margin-top: 26px;" 
+                        *ngIf="jeUlogovanRecepcioner()" (click)="prikaziProbniTrening()">Prijavi korisnika na probni trening</button>
+                <button class="btn col-lg-3" name="zakazi" id="zakazi" 
+                        style="border-color: white ; color: white; height: 40px; margin-top: 26px;margin-left: 35px; margin-inline-end: 35px;" 
+                        *ngIf="jeUlogovanRecepcioner()" (click)="prikaziBrisanjePrijave()">Otkaži prijavu na trening</button>
+
+                <!-- Deo za recepcionara END-->
+            </div>
+            <!-- Deo za klijenta BEGIN -->
+            <div class="col-lg-10 offset-lg-1" style="margin-top: 10px;" *ngIf="jePrikaziNoviTrening()">
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label style="color: #ed563b;" for="sala">Izaberi neki od treninga</label>
+                        <input
+                        type="text"
+                        name="sala"
+                        id="sala"
+                        class="form-control"
+                        list="sale"
+                        />
+                        <datalist id="sale">
+                            <option *ngFor="let trening of mapa" value="{{trening[0]}}, {{trening[1][1]}} -> {{trening[1][0]}}">
+                        </datalist>
+                    </div>
+
+                    <button class="btn col-lg-3" name="sacuvaj" id="sacuvaj" style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;" >Sačuvaj</button>
+                
+                </div>
+
+            </div>
+
+            <!-- Deo za klijenta END -->
+
+            <!-- Deo za recepcionara BEGIN -->
+            <div class="col-lg-10 offset-lg-1" style="margin-top: 20px;" *ngIf="jePrikaziPrijavaKorisnika()">
+
+                <div clas="row">
+                    <div class="form-check form-check-inline" style="margin-inline-start: 35px;">
+                        <input class="form-check-input" type="radio" name="indikator-grupe" id="grupni" value="grupni" (click)="izaberiGrupniTrening()">
+                        <label class="form-check-label" style="color: #ed563b;" for="grupni">Grupni trening</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="indikator-grupe" id="personalni" value="personalni" (click)="izaberiPersonalniTrening()">
+                        <label class="form-check-label" style="color: #ed563b;" for="personalni">Personalni trening</label>
+                    </div>
+
+                </div>
+
+                <div class="row" *ngIf="jeGrupniTrening()">
+                    <div class="form-group col-lg-6" style="margin-inline-start: 35px;">
+                        <label style="color: #ed563b;" for="termini">Ponuđeni termini rupnih treninga</label>
+                        <input
+                        type="text"
+                        name="termini"
+                        id="termini"
+                        class="form-control"
+                        list="sale"
+                        />
+                        <datalist id="sale">
+                            <option *ngFor="let trening of mapa" value="{{trening[0]}}, {{trening[1][1]}} -> {{trening[1][0]}}">
+                        </datalist>
+                    </div>
+
+                    <div class="form-group col-lg-2">
+                        <label style="color: #ed563b;" for="popunjenost">Popunjenost:</label>
+                        <input
+                        type="text"
+                        name="popunjenost"
+                        id="popunjenost"
+                        class="form-control"
+                        value="25/30"
+                        />
+                    </div>
+                    
+                </div>
+
+                <div class="row" *ngIf="jePersonalniTrening()">
+                    <div class="form-group col-lg-6" style="margin-inline-start: 35px;">
+                        <label style="color: #ed563b;" for="personalni">Ponuđeni termini personalnih treninga</label>
+                        <input
+                        type="text"
+                        name="personalni"
+                        id="personalni"
+                        class="form-control"
+                        list="personal"
+                        />
+                        <datalist id="personal">
+                            <option *ngFor="let trening of mapa" value="{{trening[0]}}, {{trening[1][1]}} -> {{trening[1][0]}}">
+                        </datalist>
+                    </div>
+                    
+                </div>
+
+                <div class="row" *ngIf="jeIzabranIndikatorTreninga()">
+                    <div class="form-group col-lg-5"  style="margin-inline-start: 35px;">
+                        <label style="color: #ed563b;" for="korisnik">Pronađi korisnika</label>
+                        <input
+                        type="text"
+                        name="korisnik"
+                        id="korisnik"
+                        class="form-control"
+                        list="korisnici"
+                        />
+                        <datalist id="korisnici">
+                            <option *ngFor="let osoba of listaKorisnika; index as i;" value="{{i+1}}. {{osoba}}">
+                        </datalist>
+                    </div>
+                    <button class="btn col-lg-3" 
+                            name="sacuvaj" id="sacuvaj" 
+                            style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;" 
+                            *ngIf="!jePrikaziProbniTrening()" 
+                            (click)="prikaziPrijavaKorisnika()">Zakaži trening</button>
+                
+                </div>
+
+            </div>
+
+            <div class="col-lg-10 offset-lg-1" style="margin-top: 20px;" *ngIf="jePrikaziProbniTrening()">
+                <div class="row">
+                    <div class="form-group col-lg-6" style="margin-inline-start: 35px;">
+                        <label style="color: #ed563b;" for="termini">Ponuđeni termini grupnih treninga</label>
+                        <input
+                        type="text"
+                        name="termini"
+                        id="termini"
+                        class="form-control"
+                        list="sale"
+                        />
+                        <datalist id="sale">
+                            <option *ngFor="let trening of mapa" value="{{trening[0]}}, {{trening[1][1]}} -> {{trening[1][0]}}">
+                        </datalist>
+                    </div>
+
+                    <div class="form-group col-lg-2">
+                        <label style="color: #ed563b;" for="popunjenost">Popunjenost:</label>
+                        <input
+                        type="text"
+                        name="popunjenost"
+                        id="popunjenost"
+                        class="form-control"
+                        value="25/30"
+                        />
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-lg-5"  style="margin-inline-start: 35px;">
+                        <label style="color: #ed563b;" for="korisnik">Pronađi korisnika</label>
+                        <input
+                        type="text"
+                        name="korisnik"
+                        id="korisnik"
+                        class="form-control"
+                        list="korisnici"
+                        />
+                        <datalist id="korisnici">
+                            <option *ngFor="let osoba of listaKorisnika; index as i;" value="{{i+1}}. {{osoba}}">
+                        </datalist>
+                    </div>
+
+                    <button class="btn col-lg-3" 
+                            style="background-color: #ed563b; color: white; height: 40px; margin-right: 20px; margin-top: 26px;" 
+                            >Zakaži probni trening</button>
+
+                </div>
+            </div>
+
+            <div class="col-lg-10 offset-lg-1" style="margin-top: 20px;" *ngIf="jePrikaziBrisanjePrijave()">
+                <div class="row">
+                    <div class="form-group col-lg-6" style="margin-inline-start: 35px;">
+                        <label style="color: #ed563b;" for="termini">Ponuđeni termini grupnih treninga</label>
+                        <input
+                        type="text"
+                        name="termini"
+                        id="termini"
+                        class="form-control"
+                        list="sale"
+                        />
+                        <datalist id="sale">
+                            <option *ngFor="let trening of mapa" value="{{trening[0]}}, {{trening[1][1]}} -> {{trening[1][0]}}">
+                        </datalist>
+                    </div>
+
+                    <div class="form-group col-lg-2">
+                        <label style="color: #ed563b;" for="popunjenost">Popunjenost:</label>
+                        <input
+                        type="text"
+                        name="popunjenost"
+                        id="popunjenost"
+                        class="form-control"
+                        value="25/30"
+                        />
+                    </div>
+                    
+                </div>
+
+                <div class="row"    >
+                    <div class="form-group col-lg-5"  style="margin-inline-start: 35px;">
+                        <label style="color: #ed563b;" for="korisnik">Izaberi korisnika koji je prijavljen na trening</label>
+                        <input
+                        type="text"
+                        name="korisnik"
+                        id="korisnik"
+                        class="form-control"
+                        list="korisnici"
+                        />
+                        <datalist id="korisnici">
+                            <option *ngFor="let osoba of listaKorisnika; index as i;" value="{{i+1}}. {{osoba}}">
+                        </datalist>
+                    </div>
+
+                    <button class="btn col-lg-3" 
+                            style="background-color: #ed563b; color: white; height: 40px; margin-right: 20px; margin-top: 26px;" 
+                            >Otkaži zakazani trening</button>
+
+                </div>
+            </div>
+
+
+
+            <!-- Deo za recepcionara END -->
+
+        </div>
     </div>
 </section>
-<!-- ***** Call to Action End ***** -->

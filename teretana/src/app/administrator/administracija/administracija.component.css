@@ -2,6 +2,14 @@
 @import "../../assets/css/templatemo-training-studio.css";
 @import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
+#administracija {
+  padding: 0px 0px 140px 0px;
+  background-image: url(../../assets/images/pozadina_admin.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .podnaslov {
     text-align: center;
     margin-bottom: 15px;

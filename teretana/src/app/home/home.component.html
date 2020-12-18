@@ -3,40 +3,43 @@
 <div *ngIf="!jeUlogovan()">
     <app-programi></app-programi>
     <app-promo-deo></app-promo-deo>
-    <app-info></app-info>
-
+    <app-igraonica_ponude></app-igraonica_ponude>
 </div>
 
 
 <div *ngIf="jeUlogovanAdministrator()">
     <app-administracija></app-administracija>
     <app-licence></app-licence>
+    <app-igraonica_ponude></app-igraonica_ponude>
 </div>
 
 <div *ngIf="jeUlogovanKlijent()">
     <app-programi></app-programi>
     <app-treninzi></app-treninzi>
     <app-licence></app-licence>
+    <app-igraonica_ponude></app-igraonica_ponude>
 </div>
 
 <div *ngIf="jeUlogovanTrener()" >
     <app-raspored></app-raspored>
+    <app-igraonica_ponude></app-igraonica_ponude> <!-- da li treneru treba igraonica?-->
 </div>
 
 <div *ngIf="jeUlogovanRecepcioner()">
     <app-treninzi></app-treninzi>
     <app-licence></app-licence>
     <app-evidencije></app-evidencije>
+    <app-igraonica></app-igraonica>
 
 </div>
 
 <!-- Svi vide neku verziju ovoga -->
 <app-takmicenja></app-takmicenja>
-<app-igraonica></app-igraonica>
 
-<!-- Jovana: sledeca linija koda je prebacena ovde
-    kako bih mogla da nastavim da radim na ovom delu.
-    Zakomentarisati po potrebi. -->
+<!-- Ne brisati ovaj komentar. -->
 <app-programi></app-programi>
+<app-igraonica_ponude></app-igraonica_ponude>
 
-
+<div *ngIf="!jeUlogovan()">
+    <app-info></app-info>
+</div>

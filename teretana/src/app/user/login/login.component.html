@@ -2,7 +2,7 @@
     <form class="my-2 col-lg-10 offset-lg-2">
       <div class="row center">
         <form >
-          <h3>Login:</h3>
+          <h3>Prijavi se:</h3>
           <div class="form-group">
             <label for="email">Korisničko ime</label>
             <input
@@ -22,12 +22,16 @@
             />
           </div>
   
-            <button class="btn btn-primary btn-block" type="submit">Uloguj se</button>
-            <hr/>
+            <button class="btn btn-primary btn-block" 
+                    style="background-color: #ed563b; border-color: #ee4f32; color: white; height: 40px; margin-top: 40px;" 
+                    type="submit">Uloguj se</button>
+            <hr style="background-color: #ed563b;"/>
           <div class="form-group">
             <label for="register"> Nemate nalog? </label>
             
-            <button name ="register" class="btn btn-primary btn-block" [routerLink]="['/register']">Registrujte se ovde!</button>
+            <button name ="register" class="btn btn-primary btn-block" 
+                    style="background-color: #ed563b;  border-color: #ee4f32; color: white; height: 40px; margin-top: 10px;"
+                    [routerLink]="['/register']">Registrujte se ovde!</button>
           </div>
   
         </form>

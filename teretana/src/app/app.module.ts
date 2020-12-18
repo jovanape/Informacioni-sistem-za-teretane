@@ -20,12 +20,17 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { AdministracijaComponent } from './administrator/administracija/administracija.component';
-
+import { IgraonicaPonudeComponent } from './igraonica_ponude/igraonica_ponude.component';
 import { Paket3Component } from './paket_3/paket_3.component';
 import { Paket130Component } from './paket_1_30/paket_1_30.component';
 import { Paket230Component } from './paket_2_30/paket_2_30.component';
 import { Paket330Component } from './paket_3_30/paket_3_30.component';
-
+import { KupovinaPaketaComponent } from './kupovina_paketa/kupovina_paketa.component';
+import { PaketDeciji12TerminaComponent } from './igraonica_paketi/paket_deciji_12_termina/paket_deciji_12_termina.component';
+import { PaketPS12TerminaComponent } from './igraonica_paketi/paket_PS_12_termina/paket_PS_12_termina.component';
+import { PaketPS30TerminaComponent } from './igraonica_paketi/paket_PS_30_termina/paket_PS_30_termina.component';
+import { PaketDeciji30TerminaComponent } from './igraonica_paketi/paket_deciji_30_termina/paket_deciji_30_termina.component';
+import { FormaPlacanjeComponent } from './forma_za_placanje/forma_za_placanje.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { KreiranjeTakmicenjaComponent } from './takmicenja/kreiranje-takmicenja/kreiranje-takmicenja.component';
 import { PrijaviTakmicaraComponent } from './takmicenja/prijavi-takmicara/prijavi-takmicara.component';
@@ -60,6 +65,12 @@ import { RezultatiIspitaComponent } from './licence/rezultati-ispita/rezultati-i
     Paket130Component,
     Paket230Component,
     Paket330Component,
+    KupovinaPaketaComponent,
+    PaketDeciji12TerminaComponent,
+    PaketPS12TerminaComponent,
+    PaketPS30TerminaComponent,
+    PaketDeciji30TerminaComponent,
+    FormaPlacanjeComponent,
     LicenceComponent,
     LoginComponent,
     RegisterComponent,
@@ -77,6 +88,7 @@ import { RezultatiIspitaComponent } from './licence/rezultati-ispita/rezultati-i
     ProgramiComponent,
     OtkazivanjeTakmicenjaComponent,
     IzmenaTakmicenjaComponent,
+    IgraonicaPonudeComponent,
     RezultatiIspitaComponent
   ],
   imports: [
