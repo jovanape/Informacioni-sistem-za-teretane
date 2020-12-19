@@ -112,6 +112,16 @@
                 <div style="margin-top: 10px;" *ngIf="jePrikaziNoviPersonalniTrening()">
                     <div class="row" >
                         <div class="form-group col-lg-3">
+                            <label style="color: #ed563b;" for="dan">Lokacija</label>
+                            <input
+                            type="text"
+                            name="dan"
+                            id="dan"
+                            class="form-control"
+                            placeholder="Teretana1" 
+                            />
+                        </div>
+                        <div class="form-group col-lg-3">
                             <label style="color: #ed563b;" for="dan">Dan</label>
                             <input
                             type="text"
@@ -257,12 +267,6 @@
                                 Na trening je prijavljen {{klijentPrijavljenNaPersonalni}}.
                             </div>
 
-                            <!-- <label style="color: #ed563b;" for="sala"></label>
-
-                            <div style=" border: 1px solid white ; color: white; height: 30px; margin-top: 26px; padding-top: 3px;"
-                                *ngFor="let osoba of listaKorisnika; index as i;">
-                                {{i}}. {{osoba}}
-                            </div> -->
                         </div>
 
                     </div>
