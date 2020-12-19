@@ -25,6 +25,11 @@
     <app-igraonica_ponude></app-igraonica_ponude> <!-- da li treneru treba igraonica?-->
 </div>
 
+<div *ngIf="jeUlogovanPersonalniTrener()" >
+    <app-raspored></app-raspored>
+    <app-igraonica_ponude></app-igraonica_ponude> <!-- da li treneru treba igraonica?-->
+</div>
+
 <div *ngIf="jeUlogovanRecepcioner()">
     <app-treninzi></app-treninzi>
     <app-licence></app-licence>

@@ -34,6 +34,10 @@ export class HomeComponent implements OnInit {
     return this.korisnikService.jeUlogovanTrener();
   }
 
+  jeUlogovanPersonalniTrener() {
+    return this.korisnikService.jeUlogovanPersonalniTrener();
+  }
+
   ngOnInit(): void {
   }
 

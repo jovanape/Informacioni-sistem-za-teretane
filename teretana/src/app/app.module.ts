@@ -37,7 +37,6 @@ import { PrijaviTakmicaraComponent } from './takmicenja/prijavi-takmicara/prijav
 import { EvidencijaDolazakaComponent } from './tip_recepcioner/evidencija-dolazaka/evidencija-dolazaka.component';
 import { PlacanjeClanarineComponent } from './tip_recepcioner/placanje-clanarine/placanje-clanarine.component';
 import { IgraonicaComponent } from './igraonica/igraonica.component';
-import { LicencaComponent } from './licenca/licenca.component';
 import { TreninziComponent } from './treninzi/treninzi.component';
 import { EvidencijeComponent } from './tip_recepcioner/evidencije/evidencije.component';
 import { ParticipacijaTakmicenjeComponent } from './takmicenja/participacija-takmicenje/participacija-takmicenje.component';
@@ -80,7 +79,6 @@ import { RezultatiIspitaComponent } from './licence/rezultati-ispita/rezultati-i
     EvidencijaDolazakaComponent,
     PlacanjeClanarineComponent,
     IgraonicaComponent,
-    LicencaComponent,
     TreninziComponent,
     EvidencijeComponent,
     ParticipacijaTakmicenjeComponent,

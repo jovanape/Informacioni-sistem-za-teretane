@@ -29,8 +29,13 @@ export class NavigationComponent implements OnInit {
     return this.korisnikService.jeUlogovanRecepcioner();
   }
 
+  /* Odnosi se na grupnog trenera */
   jeUlogovanTrener() {
     return this.korisnikService.jeUlogovanTrener();
+  }
+
+  jeUlogovanPersonalniTrener() {
+    return this.korisnikService.jeUlogovanPersonalniTrener();
   }
 
   ngOnInit(): void {

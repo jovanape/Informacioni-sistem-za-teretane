@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KorisnikService } from '../services/korisnik.service';
 
 @Component({
   selector: 'app-raspored',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./raspored.component.css']
 })
 export class RasporedComponent implements OnInit {
+  public tipUlogovanog:string;
+
   public danUnedelji:string;
   public popup:string;
   public mapa:[string, [string, string]][];
@@ -15,7 +18,12 @@ export class RasporedComponent implements OnInit {
   public listaKorisnika:string[];
   public selektovan:[string, [string, string]];
 
-  constructor() {
+  public klijentPrijavljenNaPersonalni:string = "Petar Petrović";
+  //public klijentPrijavljenNaPersonalni:string = ""; /* oznacava da je termin slobodan */
+
+  constructor(private korisnikService: KorisnikService) {
+    this.tipUlogovanog = korisnikService.tipUlogovanog;
+    
     this.danUnedelji = "ponedeljak";
     this.popup = "";
 
@@ -191,6 +199,14 @@ export class RasporedComponent implements OnInit {
       this.popup = "";
     }
   }
+  prikaziNoviPersonalniTrening() {
+    if(this.popup !== "noviPersonalni") {
+      this.popup = "noviPersonalni"
+    } else {
+      this.popup = "";
+    }
+  }
+
   prikaziMenjajTrening() {
     if(this.popup !== "menjaj") {
       this.popup = "menjaj"
@@ -220,8 +236,19 @@ export class RasporedComponent implements OnInit {
     }
   }
 
+  prikaziPrijavljenogKorisnika(){
+    if(this.popup !== "prijavljeniKorsinik") {
+      this.popup = "prijavljeniKorsinik"
+    } else {
+      this.popup = "";
+    }
+  }
+
   jePrikaziNoviTrening() {
     return this.popup === "novi";
+  }
+  jePrikaziNoviPersonalniTrening() {
+    return this.popup === "noviPersonalni";
   }
   jePrikaziMenjajTrening() {
     return this.popup === "menjaj";
@@ -235,8 +262,25 @@ export class RasporedComponent implements OnInit {
   jeListanjeLjudi() {
     return this.popup === "ljudi";
   }
+  jePrikazivanjePrijavljenogKorisnika() {
+    return this.popup === "prijavljeniKorsinik";
+  }
 
+  jeSlobodanPersonalniTermin(){
+    return this.klijentPrijavljenNaPersonalni === "";
+  }
+  jePopunjenPersonalniTermin(){
+    return this.klijentPrijavljenNaPersonalni !== "";
+  }
 
+  /* Odnosi se na grupnog trenera */
+  jeUlogovanTrener() {
+    return this.korisnikService.jeUlogovanTrener();
+  }
+
+  jeUlogovanPersonalniTrener() {
+    return this.korisnikService.jeUlogovanPersonalniTrener();
+  }
 
   ngOnInit(): void {
   }
