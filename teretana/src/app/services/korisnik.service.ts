@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class KorisnikService {
-  private tip_ulogovanog:string = "personalni_trener"; //administrator recepcioner klijent trener personalni_trener
+  private tip_ulogovanog:string = "recepcioner"; //administrator recepcioner klijent trener personalni_trener
  
   public get tipUlogovanog() : string {
     return this.tip_ulogovanog;

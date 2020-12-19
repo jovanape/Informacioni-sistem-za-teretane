@@ -128,7 +128,7 @@
 
                 <div class="row" *ngIf="jeGrupniTrening()">
                     <div class="form-group col-lg-6" style="margin-inline-start: 35px;">
-                        <label style="color: #ed563b;" for="termini">Ponuđeni termini rupnih treninga</label>
+                        <label style="color: #ed563b;" for="termini">Ponuđeni termini grupnih treninga</label>
                         <input
                         type="text"
                         name="termini"
@@ -165,7 +165,7 @@
                         list="personal"
                         />
                         <datalist id="personal">
-                            <option *ngFor="let trening of personalniMapa" value="{{trening[0]}}, {{trening[1]}}, {{trening[2]}}">
+                            <option *ngFor="let trening of personalniMapa" value="{{trening[0]}}, {{trening[1]}}, {{trening[2][1]}} -> {{trening[2][0]}}">
                         </datalist>
                     </div>
                     

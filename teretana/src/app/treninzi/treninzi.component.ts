@@ -13,7 +13,7 @@ export class TreninziComponent implements OnInit {
   public popup:string;
   public indikatorGrupnog:string;
   public mapa:[string, [string, string]][];
-  public personalniMapa:[string, string, string][];
+  public personalniMapa:[string, string, [string, string]][];
   public obrisani: [string, [string, string]][];
   public listaTermina:string[];
   public listaKorisnika:string[];
@@ -49,22 +49,22 @@ export class TreninziComponent implements OnInit {
     ]; 
 
     this.personalniMapa = [
-      ["Teodora Đermanić", "ponedeljak", "8:00AM - 9:30AM" ],  //8, 10, 12, 4
-      ["Teodora Đermanić", "ponedeljak", "10:00AM - 11:30AM" ],
-      ["Teodora Đermanić", "utorak","4:00PM - 6:30PM" ],
-      ["Teodora Đermanić", "sreda","4:00PM - 6:30PM" ],
-      ["Teodora Đermanić", "cetvrtak","10:00AM - 11:30AM" ],
-      ["Teodora Đermanić", "petak","10:00AM - 11:30AM" ],
+      ["Teodora Đermanić", "ponedeljak", ["fitnes", "8:00AM - 9:30AM"] ],  //8, 10, 12, 4
+      ["Teodora Đermanić", "ponedeljak", ["fitnes", "10:00AM - 11:30AM"] ],
+      ["Teodora Đermanić", "utorak",["yoga", "4:00PM - 6:30PM"] ],
+      ["Teodora Đermanić", "sreda",["body building", "4:00PM - 6:30PM"] ],
+      ["Teodora Đermanić", "cetvrtak",["fitnes", "10:00AM - 11:30AM"] ],
+      ["Teodora Đermanić", "petak",["fitnes", "10:00AM - 11:30AM"] ],
 
-      ["Marija Ranković", "ponedeljak","4:00PM - 6:30PM" ],
-      ["Marija Ranković", "utorak","10:00AM - 11:30AM" ],
-      ["Marija Ranković", "sreda","10:00AM - 11:30AM" ],
-      ["Marija Ranković", "petak","8:00AM - 9:30AM" ],
+      ["Marija Ranković", "ponedeljak",["boks", "4:00PM - 6:30PM"] ],
+      ["Marija Ranković", "utorak",["yoga", "10:00AM - 11:30AM"] ],
+      ["Marija Ranković", "sreda",["fitnes", "10:00AM - 11:30AM"] ],
+      ["Marija Ranković", "petak",["yoga", "8:00AM - 9:30AM"] ],
 
-      ["Marko Marković", "utorak","8:00AM - 9:30AM" ],
-      ["Marko Marković", "cetvrtak", "12:00AM - 2:30PM" ],
-      ["Marko Marković", "cetvrtak","8:00AM - 9:30AM" ],  
-      ["Marko Marković", "petak","12:00AM - 2:30PM" ]
+      ["Marko Marković", "utorak",["boks", "8:00AM - 9:30AM"] ],
+      ["Marko Marković", "cetvrtak", ["body building", "12:00AM - 2:30PM"]  ],
+      ["Marko Marković", "cetvrtak",["body building", "8:00AM - 9:30AM"] ],  
+      ["Marko Marković", "petak",["boks", "12:00AM - 2:30PM"] ]
 
     ];
 
