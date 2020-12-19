@@ -13,6 +13,7 @@ export class TreninziComponent implements OnInit {
   public popup:string;
   public indikatorGrupnog:string;
   public mapa:[string, [string, string]][];
+  public personalniMapa:[string, string, string][];
   public obrisani: [string, [string, string]][];
   public listaTermina:string[];
   public listaKorisnika:string[];
@@ -46,6 +47,26 @@ export class TreninziComponent implements OnInit {
       ["petak",["cross-fit", "12:00AM - 2:30PM"] ]
 
     ]; 
+
+    this.personalniMapa = [
+      ["Teodora Đermanić", "ponedeljak", "8:00AM - 9:30AM" ],  //8, 10, 12, 4
+      ["Teodora Đermanić", "ponedeljak", "10:00AM - 11:30AM" ],
+      ["Teodora Đermanić", "utorak","4:00PM - 6:30PM" ],
+      ["Teodora Đermanić", "sreda","4:00PM - 6:30PM" ],
+      ["Teodora Đermanić", "cetvrtak","10:00AM - 11:30AM" ],
+      ["Teodora Đermanić", "petak","10:00AM - 11:30AM" ],
+
+      ["Marija Ranković", "ponedeljak","4:00PM - 6:30PM" ],
+      ["Marija Ranković", "utorak","10:00AM - 11:30AM" ],
+      ["Marija Ranković", "sreda","10:00AM - 11:30AM" ],
+      ["Marija Ranković", "petak","8:00AM - 9:30AM" ],
+
+      ["Marko Marković", "utorak","8:00AM - 9:30AM" ],
+      ["Marko Marković", "cetvrtak", "12:00AM - 2:30PM" ],
+      ["Marko Marković", "cetvrtak","8:00AM - 9:30AM" ],  
+      ["Marko Marković", "petak","12:00AM - 2:30PM" ]
+
+    ];
 
     this.listaKorisnika = [
       "SelenaVukadinovic",
