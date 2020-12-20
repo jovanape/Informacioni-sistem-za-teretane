@@ -7,4 +7,6 @@ import java.util.List;
 public interface LocationRepository {
 
     List<Hall> findAllPerLocationId(Integer locationId);
+
+    Hall findHallPerId(Integer hallId);
 }

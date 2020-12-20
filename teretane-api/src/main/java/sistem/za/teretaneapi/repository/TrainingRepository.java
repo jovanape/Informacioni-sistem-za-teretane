@@ -1,7 +1,10 @@
 package sistem.za.teretaneapi.repository;
 
-import org.springframework.stereotype.Repository;
+import sistem.za.teretaneapi.model.ScheduledGroupTrainingResponse;
 
-@Repository
-public class TrainingRepository {
+import java.util.List;
+
+public interface TrainingRepository {
+
+    List<ScheduledGroupTrainingResponse> findAllScheduledGroupTrainingsPerTrainer(Integer trainerId);
 }

@@ -31,6 +31,7 @@ public class LocationRepositoryImpl implements LocationRepository {
             });
 
     private Map<Integer, Location> mapOfLocations = new HashMap<>();
+    private Map<Integer, Hall> mapOfHalls = new HashMap<>();
     private Map<Integer, List<Hall>> mapOfHallsPerLocation = new HashMap<>();
 
     public List<Location> findAllLocations() {
@@ -40,6 +41,11 @@ public class LocationRepositoryImpl implements LocationRepository {
     @Override
     public List<Hall> findAllPerLocationId(Integer locationId) {
         return mapOfHallsPerLocation.get(locationId);
+    }
+
+    @Override
+    public Hall findHallPerId(Integer hallId) {
+        return mapOfHalls.get(hallId);
     }
 
 
@@ -52,6 +58,9 @@ public class LocationRepositoryImpl implements LocationRepository {
 
         List<Hall> hallsFromFile =
                 HALL_READER.readValue(ResourceUtil.getResource(ALL_HALLS));
+
+        mapOfHalls = hallsFromFile.stream()
+                .collect(Collectors.toMap(Hall::getId, Function.identity()));
 
         mapOfHallsPerLocation = hallsFromFile.stream()
                 .collect(Collectors.groupingBy(Hall::getLocationId, Collectors.toList()));

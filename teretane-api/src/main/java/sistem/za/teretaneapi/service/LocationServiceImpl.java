@@ -23,5 +23,9 @@ public class LocationServiceImpl implements LocationService {
         return locationRepository.findAllPerLocationId(locationId);
     }
 
+    public Hall getHallById(Integer hallId) {
+        return locationRepository.findHallPerId(hallId);
+    }
+
 
 }

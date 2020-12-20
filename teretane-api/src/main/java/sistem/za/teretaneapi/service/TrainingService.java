@@ -1,7 +1,10 @@
 package sistem.za.teretaneapi.service;
 
+import sistem.za.teretaneapi.model.ScheduledGroupTrainingResponse;
+
+import java.util.List;
+
 public interface TrainingService {
-    public String getGroupTrainings();
-    public String getPersonalTrainings(String trainer);
+    List<ScheduledGroupTrainingResponse> getGroupTrainingsPerTrainer(Integer trainerId);
 
 }

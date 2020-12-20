@@ -11,4 +11,6 @@ public interface LocationService {
 
     List<Hall> getAllHallsPerLocation(Integer locationId);
 
+    Hall getHallById(Integer hallId);
+
 }
