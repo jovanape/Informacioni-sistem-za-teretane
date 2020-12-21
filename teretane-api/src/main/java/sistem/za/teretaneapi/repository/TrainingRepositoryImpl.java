@@ -12,9 +12,12 @@ import sistem.za.teretaneapi.model.GroupTraining;
 import sistem.za.teretaneapi.model.ScheduledGroupTraining;
 import sistem.za.teretaneapi.model.ScheduledGroupTrainingAndHall;
 import sistem.za.teretaneapi.model.ScheduledGroupTrainingResponse;
+import sistem.za.teretaneapi.model.ScheduledGroupTrainingUpdateBody;
+import sistem.za.teretaneapi.model.UpdateGroupTrainingResponseBody;
 import sistem.za.teretaneapi.service.LocationService;
 import sistem.za.teretaneapi.service.ResourceUtil;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -40,6 +43,55 @@ public class TrainingRepositoryImpl implements TrainingRepository {
     public List<ScheduledGroupTrainingResponse> findAllScheduledGroupTrainingsPerTrainer(Integer trainerId) {
         return mapOfGroupTrainings.get(trainerId).stream()
                 .map(this::getScheduledGroupTrainingAndHall).collect(Collectors.toList()).get(0);
+    }
+
+    @Override
+    public UpdateGroupTrainingResponseBody updateScheduledTrainingPerTrainerId(
+            Integer trainerId,
+            Integer groupTrainingId,
+            ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody) {
+        if (scheduledGroupTrainingUpdateBody.getTrainingCapacity() != null)
+            updateCapacityOfGroupTraining(trainerId, groupTrainingId, scheduledGroupTrainingUpdateBody);
+
+        if (scheduledGroupTrainingUpdateBody.getStartTime() != null && scheduledGroupTrainingUpdateBody.getEndTime() != null)
+            updateDateTimeOfGroupTraining(groupTrainingId,
+                    scheduledGroupTrainingUpdateBody.getStartTime(),
+                    scheduledGroupTrainingUpdateBody.getEndTime());
+
+        if (scheduledGroupTrainingUpdateBody.getHallId() != null)
+            updateHallIdOfGroupTraining(groupTrainingId, scheduledGroupTrainingUpdateBody.getHallId());
+
+        return UpdateGroupTrainingResponseBody.builder().message("Training updated!").trainerId(trainerId).build();
+    }
+
+    private void updateCapacityOfGroupTraining(
+            Integer trainerId,
+            Integer groupTrainingId,
+            ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody
+    ) {
+        mapOfGroupTrainings.get(trainerId).stream()
+                .filter(groupTraining -> groupTraining.getId().equals(groupTrainingId))
+                .findAny()
+                .ifPresent(training -> training.setCapacity(scheduledGroupTrainingUpdateBody.getTrainingCapacity()));
+    }
+
+    private void updateDateTimeOfGroupTraining(
+            Integer groupTrainingId,
+            Timestamp startTime,
+            Timestamp endTime
+    ) {
+        mapOfScheduledGroupTrainings.get(groupTrainingId).stream()
+                .findFirst()
+                .ifPresent(training -> {
+                    training.setStartTime(startTime);
+                    training.setEndTime(endTime);
+                });
+    }
+
+    private void updateHallIdOfGroupTraining(Integer groupTrainingId, Integer hallId) {
+        mapOfScheduledGroupTrainings.get(groupTrainingId).stream()
+                .findFirst()
+                .ifPresent(training -> training.setHallId(hallId));
     }
 
     private List<ScheduledGroupTrainingResponse> getScheduledGroupTrainingAndHall(GroupTraining training) {
@@ -69,9 +121,9 @@ public class TrainingRepositoryImpl implements TrainingRepository {
                 .collect(Collectors.groupingBy(ScheduledGroupTraining::getGroupId, Collectors.toList()));
 
 
-        List<GroupTraining> hallsFromFile =
+        List<GroupTraining> allGroupTrainingsFromFile =
                 GROUP_TRAININGS_READER.readValue(ResourceUtil.getResource(ALL_GROUP_TRAININGS));
-        mapOfGroupTrainings = hallsFromFile.stream()
+        mapOfGroupTrainings = allGroupTrainingsFromFile.stream()
                 .collect(Collectors.groupingBy(GroupTraining::getGroupTrainerId, Collectors.toList()));
     }
 

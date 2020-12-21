@@ -3,6 +3,8 @@ package sistem.za.teretaneapi.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import sistem.za.teretaneapi.model.ScheduledGroupTrainingResponse;
+import sistem.za.teretaneapi.model.ScheduledGroupTrainingUpdateBody;
+import sistem.za.teretaneapi.model.UpdateGroupTrainingResponseBody;
 import sistem.za.teretaneapi.repository.TrainingRepositoryImpl;
 
 import java.util.List;
@@ -16,6 +18,17 @@ public class TrainingServiceImpl implements TrainingService {
     @Override
     public List<ScheduledGroupTrainingResponse> getGroupTrainingsPerTrainer(Integer trainerId) {
         return trainingRepository.findAllScheduledGroupTrainingsPerTrainer(trainerId);
+    }
+
+    @Override
+    public UpdateGroupTrainingResponseBody updateScheduleGroupTraining(
+            Integer trainerId,
+            Integer groupTrainingId,
+            ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody) {
+        return trainingRepository.updateScheduledTrainingPerTrainerId(
+                trainerId,
+                groupTrainingId,
+                scheduledGroupTrainingUpdateBody);
     }
 
 }
