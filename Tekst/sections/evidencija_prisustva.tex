@@ -15,8 +15,7 @@
 \hline
    Preduslovi & \begin{enumerate}
        \item Sistem je u funkciji.
-       \item Klijent ima uplaćenu odgovarajuću članarinu.
-       \item Klijent ima zakazan trening.
+       \item Recepcionar je ulogovan na sistem.
    \end{enumerate}\\
 \hline  
     Postuslovi & \begin{enumerate}
@@ -27,7 +26,7 @@
     Osnovni tok & \begin{enumerate}
         \item Klijent dolazi na recepciju i predaje svoju člansku kartu.
         \item Recepcionar unosi broj članske karte u deo sistema za evidenciju dolazaka.
-        \item Sistem izlistava zakazane i uplaćene treninge klijenta.
+        \item Sistem izlistava zakazane i uplaćene treninge klijenta za taj dan.
         \item Recepcionar obeležava trening na koji je klijent došao. Pritiska dugme „Potvrdi dolazak“.
         \item Sistem čuva izmenu. Obaveštava da je sačuvana izmena.
         \item Recepcionar obaveštava klijenta da je evidentiran dolazak.
@@ -37,7 +36,7 @@
     Alternativni tokovi & \begin{itemize}
         \item[A1] Klijent nije poneo člansku kartu: Recepcionar pita klijenta za korisničko ime ili e-mail. Klijent saopštava korisničko ime ili e-mail. Slučaj se nastavlja na koraku 3.
         \item[A3.1] Klijent nema uplaćen trening: Recepcionar saopštava klijentu da nema uplaćen trening. Prelazi se na slučaj upotrebe \textit{Plaćanje članarine uživo}.
-        \item[A3.2] Klijent nema zakazan trening: Recepcionar saopštava klijentu da nema zakazan trening. Ukoliko klijent želi prelazi se na slučaj upotrebe \textit{Plaćanje članarine uživo.} 
+        \item[A3.2] Klijent nema zakazan trening: Recepcionar saopštava klijentu da nema zakazan trening. Ukoliko klijent želi prelazi se na slučaj upotrebe \textit{Uživo prijavljivanje na grupni trening.} 
         \item[A5] Pad sistema: Recepcionar zapisuje dolazak na papir da bi ga naknadno uneo. Slučaj se nastavlja na koraku 7.
     \end{itemize}\\
 \hline
