@@ -31,4 +31,15 @@ public class TrainingServiceImpl implements TrainingService {
                 scheduledGroupTrainingUpdateBody);
     }
 
+    @Override
+    public UpdateGroupTrainingResponseBody scheduleGroupTraining(
+            Integer trainerId,
+            Integer groupTrainingId,
+            ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody) {
+        return trainingRepository.scheduledTrainingPerTrainerId(
+                trainerId,
+                groupTrainingId,
+                scheduledGroupTrainingUpdateBody);
+    }
+
 }

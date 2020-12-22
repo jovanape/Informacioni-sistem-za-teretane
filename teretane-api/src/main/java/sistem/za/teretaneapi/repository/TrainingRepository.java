@@ -14,4 +14,9 @@ public interface TrainingRepository {
             Integer trainerId,
             Integer groupTrainingId,
             ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody);
+
+    UpdateGroupTrainingResponseBody scheduledTrainingPerTrainerId(
+            Integer trainerId,
+            Integer groupTrainingId,
+            ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody);
 }

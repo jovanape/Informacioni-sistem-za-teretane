@@ -64,6 +64,28 @@ public class TrainingRepositoryImpl implements TrainingRepository {
         return UpdateGroupTrainingResponseBody.builder().message("Training updated!").trainerId(trainerId).build();
     }
 
+    @Override
+    public UpdateGroupTrainingResponseBody scheduledTrainingPerTrainerId(
+            Integer trainerId,
+            Integer groupTrainingId,
+            ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody) {
+
+        List<ScheduledGroupTraining> scheduledGroupTrainings = mapOfScheduledGroupTrainings.get(groupTrainingId);
+        Integer id = scheduledGroupTrainings.get(scheduledGroupTrainings.size() - 1).getId();
+        scheduledGroupTrainings.add(ScheduledGroupTraining.builder()
+                .id(id + 1)
+                .startTime(scheduledGroupTrainingUpdateBody.getStartTime())
+                .endTime(scheduledGroupTrainingUpdateBody.getEndTime())
+                .hallId(scheduledGroupTrainingUpdateBody.getHallId())
+                .groupId(groupTrainingId)
+                .build());
+
+        mapOfScheduledGroupTrainings.put(groupTrainingId,
+                scheduledGroupTrainings);
+
+        return UpdateGroupTrainingResponseBody.builder().message("Scheduled Training").build();
+    }
+
     private void updateCapacityOfGroupTraining(
             Integer trainerId,
             Integer groupTrainingId,

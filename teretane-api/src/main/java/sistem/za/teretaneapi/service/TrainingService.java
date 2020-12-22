@@ -14,4 +14,9 @@ public interface TrainingService {
             Integer groupTrainingId,
             ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody);
 
+    UpdateGroupTrainingResponseBody scheduleGroupTraining(
+            Integer trainerId,
+            Integer groupTrainingId,
+            ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody);
+
 }

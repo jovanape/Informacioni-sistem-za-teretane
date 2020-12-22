@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import sistem.za.teretaneapi.model.ScheduledGroupTrainingResponse;
 import sistem.za.teretaneapi.model.ScheduledGroupTrainingUpdateBody;
@@ -44,7 +43,18 @@ public class TrainingController {
                         scheduledGroupTrainingUpdateBody));
     }
 
-
+    @PostMapping(path = "group-trainings/schedule/{trainerId}/{groupTrainingId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UpdateGroupTrainingResponseBody> scheduleGroupTraining(
+            @PathVariable(name = "trainerId") Integer trainerId,
+            @PathVariable(name = "groupTrainingId") Integer groupTrainingId,
+            @RequestBody ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody
+    ) {
+        return ResponseEntity.status(HttpStatus.OK).body(
+                trainingService.scheduleGroupTraining(
+                        trainerId,
+                        groupTrainingId,
+                        scheduledGroupTrainingUpdateBody));
+    }
 
 
 }
