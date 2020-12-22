@@ -11,20 +11,20 @@
     "hallId": 1,
     "startTime": "2020-01-01T20:00:00.000Z",
     "endTime": "2020-01-01T21:00:00.000Z",
-    "groupId": 1
+    "groupId": 2
   },
   {
     "id": 3,
     "hallId": 1,
     "startTime": "2020-01-01T20:00:00.000Z",
     "endTime": "2020-01-01T21:00:00.000Z",
-    "groupId": 1
+    "groupId": 3
   },
   {
     "id": 4,
     "hallId": 2,
     "startTime": "2020-01-01T20:00:00.000Z",
     "endTime": "2020-01-01T21:00:00.000Z",
-    "groupId": 1
+    "groupId": 4
   }
 ]
