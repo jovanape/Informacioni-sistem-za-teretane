@@ -1,0 +1,32 @@
+[
+  {
+    "clientId": 1,
+    "name": "Pera",
+    "lastName": "Peric",
+    "userName": "Perica",
+    "password": "Pass",
+    "phoneNumber": "23131",
+    "email": "pera@peric.com",
+    "birthDate": "30.10.2000"
+  },
+  {
+    "clientId": 2,
+    "name": "Mirko",
+    "lastName": "Krstic",
+    "userName": "Miki",
+    "password": "Pass",
+    "phoneNumber": "23131",
+    "email": "miki@miki.com",
+    "birthDate": "30.10.2000"
+  },
+  {
+    "clientId": 3,
+    "name": "Milica",
+    "lastName": "Mirkovic",
+    "userName": "Mici",
+    "password": "Pass",
+    "phoneNumber": "23131",
+    "email": "mici@mici.com",
+    "birthDate": "30.10.2000"
+  }
+]

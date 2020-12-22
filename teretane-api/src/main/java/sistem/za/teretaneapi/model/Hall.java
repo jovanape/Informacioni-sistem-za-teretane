@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-//@Entity(name = "sala")
+//@Table(name = "sala")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
