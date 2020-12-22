@@ -18,5 +18,4 @@ public interface TrainingService {
             Integer trainerId,
             Integer groupTrainingId,
             ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody);
-
 }

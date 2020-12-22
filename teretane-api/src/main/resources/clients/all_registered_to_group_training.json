@@ -1,0 +1,14 @@
+[
+  {
+    "groupTrainingId": 1,
+    "clientId": 1
+  },
+  {
+    "groupTrainingId": 1,
+    "clientId": 2
+  },
+  {
+    "groupTrainingId": 1,
+    "clientId": 3
+  }
+]

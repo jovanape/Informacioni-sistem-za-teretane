@@ -14,7 +14,7 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-//@Entity(name = "Lokacije")
+//@Table(name = "Lokacije")
 public class Location {
 
     @Column(name = "id_lokacije")
