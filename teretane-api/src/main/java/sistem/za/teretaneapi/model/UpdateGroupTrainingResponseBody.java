@@ -15,4 +15,8 @@ public class UpdateGroupTrainingResponseBody {
 
     @JsonProperty("trainerId")
     private Integer trainerId;
+
+
+    @JsonProperty("groupTrainingId")
+    private Integer groupTrainingId;
 }

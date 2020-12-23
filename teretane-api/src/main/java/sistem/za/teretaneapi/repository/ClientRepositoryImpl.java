@@ -36,6 +36,10 @@ public class ClientRepositoryImpl implements ClientRepository {
                 .collect(Collectors.toList());
     }
 
+    public void removeClientsRegisteredToGroupTraining(Integer groupTrainingId) {
+        mapOfRegisteredToGroupTraining.remove(groupTrainingId);
+    }
+
     @EventListener(ApplicationReadyEvent.class)
     public void readLocationFromResources() throws JsonProcessingException {
 

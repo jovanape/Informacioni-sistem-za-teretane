@@ -42,4 +42,12 @@ public class TrainingServiceImpl implements TrainingService {
                 scheduledGroupTrainingUpdateBody);
     }
 
+    @Override
+    public UpdateGroupTrainingResponseBody removeScheduledTraining(
+            Integer trainerId,
+            Integer groupTrainingId,
+            ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody) {
+        return trainingRepository.removeScheduledTraining(trainerId, groupTrainingId, scheduledGroupTrainingUpdateBody);
+    }
+
 }

@@ -33,6 +33,22 @@ public class TrainingController {
     }
 
 
+    @GetMapping(path = "group-trainings/{groupTrainingId}/all-registered-clients")
+    public ResponseEntity<List<Client>> getAllRegisteredClientsForGroupTraining(
+            @PathVariable(name = "groupTrainingId") Integer groupTrainingId) {
+        return ResponseEntity.ok(clientService.getAllRegisteredClientsForGroupTraining(groupTrainingId));
+    }
+
+    @PostMapping(path = "group-trainings/remove/{trainerId}/{groupTrainingId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UpdateGroupTrainingResponseBody> removeGroupTraining(
+            @PathVariable(name = "trainerId") Integer trainerId,
+            @PathVariable(name = "groupTrainingId") Integer groupTrainingId,
+            @RequestBody ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody
+    ) {
+        return ResponseEntity.status(HttpStatus.OK).body(
+                trainingService.removeScheduledTraining(trainerId, groupTrainingId, scheduledGroupTrainingUpdateBody));
+    }
+
     @PostMapping(path = "group-trainings/update/{trainerId}/{groupTrainingId}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UpdateGroupTrainingResponseBody> updateScheduleGroupTraining(
             @PathVariable(name = "trainerId") Integer trainerId,
@@ -58,12 +74,4 @@ public class TrainingController {
                         groupTrainingId,
                         scheduledGroupTrainingUpdateBody));
     }
-
-    @GetMapping(path = "group-trainings/{groupTrainingId}/all-registered-clients")
-    public ResponseEntity<List<Client>> getAllRegisteredClientsForGroupTraining(
-            @PathVariable(name = "groupTrainingId") Integer groupTrainingId) {
-        return ResponseEntity.ok(clientService.getAllRegisteredClientsForGroupTraining(groupTrainingId));
-    }
-
-
 }

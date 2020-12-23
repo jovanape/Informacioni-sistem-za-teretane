@@ -18,6 +18,7 @@ import sistem.za.teretaneapi.service.LocationService;
 import sistem.za.teretaneapi.service.ResourceUtil;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -34,6 +35,7 @@ public class TrainingRepositoryImpl implements TrainingRepository {
     private static final ObjectReader GROUP_TRAININGS_READER = new ObjectMapper()
             .readerFor(new TypeReference<List<GroupTraining>>() {
             });
+    private final ClientRepositoryImpl clientRepository;
     private final LocationService locationService;
     private Map<Integer, List<ScheduledGroupTraining>> mapOfScheduledGroupTrainings;
     private Map<Integer, List<GroupTraining>> mapOfGroupTrainings;
@@ -41,8 +43,15 @@ public class TrainingRepositoryImpl implements TrainingRepository {
 
     @Override
     public List<ScheduledGroupTrainingResponse> findAllScheduledGroupTrainingsPerTrainer(Integer trainerId) {
-        return mapOfGroupTrainings.get(trainerId).stream()
-                .map(this::getScheduledGroupTrainingAndHall).collect(Collectors.toList()).get(0);
+
+        List<GroupTraining> groupTrainings = mapOfGroupTrainings.get(trainerId);
+        List<ScheduledGroupTrainingResponse> scheduledGroupTrainingResponses = new ArrayList<>();
+        if (groupTrainings != null) {
+            scheduledGroupTrainingResponses = groupTrainings.stream()
+                    .map(this::getScheduledGroupTrainingAndHall)
+                    .collect(Collectors.toList()).get(0);
+        }
+        return scheduledGroupTrainingResponses;
     }
 
     @Override
@@ -61,7 +70,11 @@ public class TrainingRepositoryImpl implements TrainingRepository {
         if (scheduledGroupTrainingUpdateBody.getHallId() != null)
             updateHallIdOfGroupTraining(groupTrainingId, scheduledGroupTrainingUpdateBody.getHallId());
 
-        return UpdateGroupTrainingResponseBody.builder().message("Training updated!").trainerId(trainerId).build();
+        return UpdateGroupTrainingResponseBody.builder()
+                .message("Training updated!")
+                .trainerId(trainerId)
+                .groupTrainingId(groupTrainingId)
+                .build();
     }
 
     @Override
@@ -70,20 +83,54 @@ public class TrainingRepositoryImpl implements TrainingRepository {
             Integer groupTrainingId,
             ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody) {
 
-        List<ScheduledGroupTraining> scheduledGroupTrainings = mapOfScheduledGroupTrainings.get(groupTrainingId);
-        Integer id = scheduledGroupTrainings.get(scheduledGroupTrainings.size() - 1).getId();
-        scheduledGroupTrainings.add(ScheduledGroupTraining.builder()
-                .id(id + 1)
-                .startTime(scheduledGroupTrainingUpdateBody.getStartTime())
-                .endTime(scheduledGroupTrainingUpdateBody.getEndTime())
-                .hallId(scheduledGroupTrainingUpdateBody.getHallId())
-                .groupId(groupTrainingId)
-                .build());
+        populateMapOfScheduledGroupTrainings(groupTrainingId, scheduledGroupTrainingUpdateBody);
+        populateMapOfGroupTrainings(groupTrainingId, trainerId, scheduledGroupTrainingUpdateBody);
+        return UpdateGroupTrainingResponseBody.builder()
+                .message("Scheduled Training")
+                .trainerId(trainerId)
+                .groupTrainingId(groupTrainingId)
+                .build();
+    }
 
-        mapOfScheduledGroupTrainings.put(groupTrainingId,
-                scheduledGroupTrainings);
+    @Override
+    public UpdateGroupTrainingResponseBody removeScheduledTraining(
+            Integer trainerId,
+            Integer groupTrainingId,
+            ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody) {
 
-        return UpdateGroupTrainingResponseBody.builder().message("Scheduled Training").build();
+        removeFromMapOfGroupTrainings(trainerId, scheduledGroupTrainingUpdateBody);
+        removeFromMapOfScheduledGroupTrainings(groupTrainingId, scheduledGroupTrainingUpdateBody);
+        clientRepository.removeClientsRegisteredToGroupTraining(groupTrainingId);
+        return UpdateGroupTrainingResponseBody.builder()
+                .message("Training successfully removed")
+                .trainerId(trainerId)
+                .groupTrainingId(groupTrainingId)
+                .build();
+    }
+
+    private void removeFromMapOfScheduledGroupTrainings(Integer trainerId, ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody) {
+        List<ScheduledGroupTraining> scheduledGroupTrainings = mapOfScheduledGroupTrainings.get(trainerId);
+        if (scheduledGroupTrainings != null) {
+            scheduledGroupTrainings.stream().filter(scheduleTraining ->
+                    !scheduleTraining.getHallId().equals(scheduledGroupTrainingUpdateBody.getHallId())
+                            && scheduleTraining.getEndTime().equals(scheduledGroupTrainingUpdateBody.getEndTime())
+                            && scheduleTraining.getStartTime().equals(scheduledGroupTrainingUpdateBody.getStartTime()))
+                    .collect(Collectors.toList());
+        }
+        mapOfScheduledGroupTrainings.put(trainerId, scheduledGroupTrainings);
+    }
+
+    private void removeFromMapOfGroupTrainings(
+            Integer groupTrainingId,
+            ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody) {
+        List<GroupTraining> groupTrainings = mapOfGroupTrainings.get(groupTrainingId);
+        if (groupTrainings != null) {
+            groupTrainings.stream().filter(groupTraining ->
+                    !groupTraining.getCapacity().equals(scheduledGroupTrainingUpdateBody.getTrainingCapacity()) &&
+                            !groupTraining.getGroupTrainerId().equals(groupTrainingId))
+                    .collect(Collectors.toList());
+        }
+        mapOfGroupTrainings.put(groupTrainingId, groupTrainings);
     }
 
     private void updateCapacityOfGroupTraining(
@@ -95,6 +142,39 @@ public class TrainingRepositoryImpl implements TrainingRepository {
                 .filter(groupTraining -> groupTraining.getId().equals(groupTrainingId))
                 .findAny()
                 .ifPresent(training -> training.setCapacity(scheduledGroupTrainingUpdateBody.getTrainingCapacity()));
+    }
+
+    private void populateMapOfGroupTrainings(
+            Integer groupTrainingId,
+            Integer trainerId,
+            ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody) {
+        List<GroupTraining> groupTrainings = new ArrayList<>();
+        groupTrainings.add(GroupTraining.builder()
+                .groupTrainerId(groupTrainingId)
+                .capacity(scheduledGroupTrainingUpdateBody.getTrainingCapacity())
+                .id(mapOfGroupTrainings.values().size() + 1)
+                .build());
+        mapOfGroupTrainings.put(trainerId, groupTrainings);
+    }
+
+    private void populateMapOfScheduledGroupTrainings(Integer groupTrainingId,
+                                                      ScheduledGroupTrainingUpdateBody scheduledGroupTrainingUpdateBody) {
+
+        List<ScheduledGroupTraining> scheduledGroupTrainings = mapOfScheduledGroupTrainings.get(groupTrainingId);
+        int id = scheduledGroupTrainings == null
+                ? mapOfScheduledGroupTrainings.values().size() + 1
+                : scheduledGroupTrainings.get(scheduledGroupTrainings.size() - 1).getId();
+        if (scheduledGroupTrainings == null) scheduledGroupTrainings = new ArrayList<>();
+        scheduledGroupTrainings.add(ScheduledGroupTraining.builder()
+                .id(id + 1)
+                .startTime(scheduledGroupTrainingUpdateBody.getStartTime())
+                .endTime(scheduledGroupTrainingUpdateBody.getEndTime())
+                .hallId(scheduledGroupTrainingUpdateBody.getHallId())
+                .groupId(groupTrainingId)
+                .build());
+
+        mapOfScheduledGroupTrainings.put(groupTrainingId,
+                scheduledGroupTrainings);
     }
 
     private void updateDateTimeOfGroupTraining(
