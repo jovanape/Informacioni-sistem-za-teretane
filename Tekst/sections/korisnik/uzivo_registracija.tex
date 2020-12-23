@@ -6,12 +6,11 @@
 %\begin{tabularx}{\textwidth}{|1|X|}
 \begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
 \hline
-    Kratak opis &  Neregistrovani korisnik postaje član teretane tako što uz pomoć recepcionara popunjava formular sa ličnim podacima. Podaci se validiraju i korisnik dobija povratnu informaciju o uspehu registracije.\\ 
+    Kratak opis &  Recepcionar popunjava formular za registraciju novog korisnika na osnovu podataka koje dobija od korisnika koji je došao na recepciju.\\ 
 \hline    
-    Učesnici & \begin{enumerate}
-        \item Neregistrovani korisnik – Želi da postane član teretane kako bi mogao da koristi njegove usluge.
-        \item Recepcionar – Želi da efikasno izvši registraciju novog korisnika na sistem.
-     \end{enumerate}\\
+    Učesnici & 
+         Recepcionar – Želi da efikasno izvši registraciju novog korisnika na sistem.
+    \\
 \hline
    Preduslovi & \begin{enumerate}
        \item Sistem je u funkciji.
@@ -24,18 +23,14 @@
     \end{enumerate}\\
 \hline
     Osnovni tok & \begin{enumerate}
-        \item Korisnik dolazi na recepciju teretane i izjašnjava se da želi da postane član.
         \item Recepcionar u sistemu bira opciju za registraciju novog člana.
-        \item Recepcionar pita korisnika za osnovne podatke i unosi ih u formular.
-        \item Recepcionar nakon što su popunjena sva polja pritiska dugme „Registruj korisnika“.
-        \item Sistem vrši proveru podataka.
-        \item Sistem šalje korisniku e-mail sa podacima.
+        \item Recepcionar u formular unosi osnovne podatke koje mu korisnik saopšti i pritiska dugme „Registruj korisnika“.
+        \item Sistem vrši proveru podataka i šalje korisniku e-mail sa podacima.
         \item Sistem obaveštava recepcionara da je nalog aktiviran.
-        \item Recepcionar obaveštava korisnika da je nalog uspešno kreiran i predaje mu člansku kartu.
     \end{enumerate}\\
 \hline
     Alternativni tokovi & \begin{itemize}
-        \item[A5] Neuspešna provera podataka: Recepcionar obaveštava korisnika koje polje nije ispravno. Nastavlja se na koraku 3.
+        \item[A3] Neuspešna provera podataka: Recepcionar ponovo uzima podatke od korisnika za neispravna polje. Slučaj se nastavlja na koraku 2.
     \end{itemize}\\
 \hline
     Podtokovi & /\\
@@ -49,16 +44,16 @@
 \hline
 %\end{tabularx}
 %\end{center}    
-\caption{Registracija uživo za registrovanog korisnika} % needs to go inside longtable environment
+\caption{Registracija uživo za neregistrovanog korisnika} % needs to go inside longtable environment
 %\label{tab:myfirstlongtable}
 \end{longtable}
 
 
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[scale=0.55]{sections/images/Dijagram_aktivnsti_registracije_uzivo.jpg}
-\end{center}
-\caption{Dijagram aktivnosti registracije uživo}
-\label{fig:kontekst}
-\end{figure}
+%\begin{figure}[!ht]
+%\begin{center}
+%\includegraphics[scale=0.55]{sections/images/Dijagram_aktivnsti_registracije_uzivo.jpg}
+%\end{center}
+%\caption{Dijagram aktivnosti registracije uživo}
+%\label{fig:kontekst}
+%\end{figure}
 \end{document}
