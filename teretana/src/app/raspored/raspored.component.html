@@ -199,25 +199,31 @@
                 </div>
 
                 <div style="margin-top: 10px;" *ngIf="jePrikaziSala()">
-                    <div class="row">
-                        <div class="form-group col-lg-6">
-                            <label style="color: #ed563b;" for="sala">Izaberi salu</label>
+                    <form [formGroup]="azurirajSaluForma"  (ngSubmit)="azuriranjeSale()">
+                        <div calss="row">
+                            <div class="form-group col-lg-6">
+                            <label style="color: #ed563b;" for="izaberiSalu">Izaberi salu</label>
                             <input
                             type="text"
-                            name="sala"
-                            id="sala"
+                            name="izaberiSalu"
+                            id="izaberiSalu"
                             class="form-control"
                             list="sale"
+                            #sala
                             />
                             <datalist id="sale">
                                 <option *ngFor="let sala of listaSala" value="{{sala}}">
                             </datalist>
+                            <button
+                                class="btn col-lg-3"
+                                type="submit"
+                                style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;"
+                                >
+                                Sačuvaj
+                            </button>
+                            </div>
                         </div>
-
-                        <button class="btn col-lg-3" name="sacuvaj" id="sacuvaj" style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;" action="dodajTrening()">Sačuvaj</button>
-                    
-                    </div>
-
+                    </form>
                 </div>
 
                 <div style="margin-top: 10px;" *ngIf="jePrikaziKorisnici()">

@@ -1,40 +1,59 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Korisnici } from '../model/korisnici.model';
+import { Lokacija } from '../model/lokacija.model';
+import { TrenerovTrening } from '../model/trenerov.trening.model';
+import { Sala } from '../model/sala.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TreningService {
-
-  private groupTrainingsUrl : string = "http://localhost:8081/training/group-trainings/";
+  
+  private groupTrainingsUrl : string = "http://localhost:8081/group-trainings/";
   private locationUrl: string = "http://localhost:8081/location/";
 
   constructor(private http:HttpClient) { }
 
-  //TODO: model i to []
-  public getTrainingsForTrainer(trainerId:string) : Observable<any>{
-   return this.http.get<any>(this.groupTrainingsUrl + trainerId);
+  //vrati raspored treninga
+  //Ne radi: CORS policy
+  public getTrainingsForTrainer(trainerId:number) : Observable<TrenerovTrening[]>{
+   return this.http.get<TrenerovTrening[]>(this.groupTrainingsUrl + trainerId);
   };
 
-  //TODO: model + testirati da li id kao string ili kao integer
+  //TODO: testirati 
   //"group-trainings/schedule/{trainerId}/{groupTrainingId}"
 
-  public addNewTraining(trainerId: string, trainingId: string, data:any){
-    return this.http.post<any>(this.groupTrainingsUrl + "schedule/" + trainerId + "/" + trainingId, data);
+  public addNewTraining(trainerId: number, trainingId: number, data:TrenerovTrening){
+    return this.http.post<TrenerovTrening>(this.groupTrainingsUrl + "schedule/" + trainerId + "/" + trainingId, data);
   }
 
   //Ako sam dobro skapirala i update je post metod, dole su verzije sa patch i to za svaku stavku ponaosob
   //"group-trainings/update/{trainerId}/{groupTrainingId}"
-  public updateTraining(trainerId:string, trainingId:string, data:any){
-    return this.http.post<any>(this.groupTrainingsUrl + "update/" + trainerId + "/" + trainingId, data);
+  public updateTraining(trainerId:number, trainingId:number, data:TrenerovTrening){
+    return this.http.post<TrenerovTrening>(this.groupTrainingsUrl + "update/" + trainerId + "/" + trainingId, data);
   }
 
+  public deleteTraining(trainerId:number, trainingId:number, data:TrenerovTrening){
+    return this.http.post<TrenerovTrening>(this.groupTrainingsUrl + "remove/" + trainerId + "/" + trainingId, data);
+  }
 
   //model i to []
-  getRegistratedToTraining(trainingId: string):Observable<any>{
-    return this.http.get<any>(this.groupTrainingsUrl + trainingId + "/all-registrated-clients");
+  getRegistratedToTraining(trainingId: number):Observable<Korisnici[]>{
+    return this.http.get<Korisnici[]>(this.groupTrainingsUrl + trainingId + "/all-registrated-clients");
   }
+
+  getLocations():Observable<Lokacija[]>{
+    return this.http.get<Lokacija[]>(this.locationUrl);
+  }
+
+  getSala(locationId: number): Observable<Sala[]>{
+    return this.http.get<Sala[]>(this.locationUrl + locationId);
+  }
+
+  
+
 }
 
 
