@@ -173,41 +173,54 @@
                 </div>
 
                 <div style="margin-top: 10px;" *ngIf="jePrikaziMenjajTrening()">
-                    <div class="row" >
-                        <div class="form-group col-lg-3">
-                            <label style="color: #ed563b;" for="dan">Dan</label>
-                            <input
-                            type="text"
-                            name="dan"
-                            id="dan"
-                            class="form-control"
-                            placeholder="Ponedeljak" 
-                            />
-                        </div>
-                        <div class="form-group col-lg-3">
-                            <label style="color: #ed563b;" for="pocetak">Početak</label>
-                            <input
-                            type="text"
-                            name="pocetak"
-                            id="pocetak"
-                            class="form-control"
-                            placeholder="10:00AM" 
-                            />
-                        </div>
-                        <div class="form-group col-lg-3">
-                            <label style="color: #ed563b;" for="kraj">Kraj</label>
-                            <input
-                            type="text"
-                            name="kraj"
-                            id="kraj"
-                            class="form-control"
-                            placeholder="3:00PM" 
-                            />
+
+
+                    <form [formGroup]="azurirajVremeForma"  (ngSubmit)="azuriranjeVremenaTreninga()">
+                        <div class="row" >
+                            <div class="form-group col-lg-3">
+                                <label style="color: #ed563b;" for="azurirajDan">Dan</label>
+                                <input
+                                type="text"
+                                name="azurirajDan"
+                                id="azurirajDan"
+                                class="form-control"
+                                placeholder="ponedeljak" 
+                                />
+                            </div>
+
+                            <div class="form-group col-lg-3">
+                                <label style="color: #ed563b;" for="azurirajPocetak">Početak</label>
+                                <input
+                                type="text"
+                                name="azurirajPocetak"
+                                id="azurirajPocetak"
+                                class="form-control"
+                                placeholder="10:00AM" 
+                                />
+                            </div>
+
+                            <div class="form-group col-lg-3">
+                                <label style="color: #ed563b;" for="azurirajKraj">Kraj</label>
+                                <input
+                                type="text"
+                                name="azurirajKraj"
+                                id="azurirajKraj"
+                                class="form-control"
+                                placeholder="12:00AM" 
+                                />
+                            </div>
+
+                            <button
+                                class="btn col-lg-3"
+                                type="submit"
+                                style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;"
+                                >
+                                Sačuvaj
+                            </button>
+
                         </div>
 
-                        <button class="btn col-lg-3" name="sacuvaj" id="sacuvaj" style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;" action="dodajTrening()">Sačuvaj</button>
-                        
-                    </div>
+                    </form>
 
                 </div>
 

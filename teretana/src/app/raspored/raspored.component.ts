@@ -35,6 +35,7 @@ export class RasporedComponent implements OnInit {
   public azurirajSaluForma: FormGroup;
   public azurirajBrojKorisnikaForma: FormGroup;
   public noviTreningForma: FormGroup;
+  public azurirajVremeForma: FormGroup;
 
   public klijentPrijavljenNaPersonalni:string = "Petar Petrović";
   //public klijentPrijavljenNaPersonalni:string = ""; /* oznacava da je termin slobodan */
@@ -56,6 +57,12 @@ export class RasporedComponent implements OnInit {
         zavrsetakTreninga: ['', [Validators.required]],
         noviBrojKorisnika: ['', [Validators.required]],
         novaSala: ['', [Validators.required]]
+      });
+
+      this.azurirajVremeForma = this.formBuilder.group({
+        azurirajDan: ['', [Validators.required]],
+        azurirajPocetak: ['', [Validators.required]],
+        azurirajKraj: ['', [Validators.required]]
       });
 
       this.rasporedTrenera = [];
@@ -559,6 +566,33 @@ export class RasporedComponent implements OnInit {
     
     this.popuniTabelu(this.danUnedelji);
   }
+
+  azuriranjeVremenaTreninga() {
+    this.azurirajVremeForma = this.formBuilder.group({
+      azurirajDan: ['', [Validators.required]],
+      azurirajPocetak: ['', [Validators.required]],
+      azurirajKraj: ['', [Validators.required]]
+    });
+
+    if (!this.azurirajVremeForma.valid) {
+      return;
+    }
+
+    const data = this.azurirajVremeForma.value;
+    const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
+
+    //treba komplikovanije cuvanje , da ukljucuje i dan, osim vremena
+    this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.startTime = data.azurirajPocetak;
+    this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.endTime = data.azurirajKraj;
+
+    
+    this.treningService
+      .updateTraining(idZaposlenog, this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.id, this.selektovaniTrening);
+    
+    this.popuniTabelu(this.danUnedelji);
+
+  }
+  
 
   zakaziTrening() {
     if (!this.noviTreningForma.valid) {
