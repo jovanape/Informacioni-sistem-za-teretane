@@ -44,68 +44,81 @@
                 </div>
 
                 <div style="margin-top: 10px;" *ngIf="jePrikaziNoviTrening()">
-                    <div class="row" >
-                        <div class="form-group col-lg-3">
-                            <label style="color: #ed563b;" for="dan">Dan</label>
-                            <input
-                            type="text"
-                            name="dan"
-                            id="dan"
-                            class="form-control"
-                            placeholder="Ponedeljak" 
-                            />
-                        </div>
-                        <div class="form-group col-lg-3">
-                            <label style="color: #ed563b;" for="pocetak">Početak</label>
-                            <input
-                            type="text"
-                            name="pocetak"
-                            id="pocetak"
-                            class="form-control"
-                            placeholder="10:00AM" 
-                            />
-                        </div>
-                        <div class="form-group col-lg-3">
-                            <label style="color: #ed563b;" for="kraj">Kraj</label>
-                            <input
-                            type="text"
-                            name="kraj"
-                            id="kraj"
-                            class="form-control"
-                            placeholder="3:00PM" 
-                            />
-                        </div>
-                        <div class="form-group col-lg-3">
-                            <label style="color: #ed563b;" for="korisnika">Broj Korisnika</label>
-                            <input
-                            type="text"
-                            name="korisnika"
-                            id="korisnika"
-                            class="form-control"
-                            placeholder="25" 
-                            />
-                        </div>
-                        
-                    </div>
 
-                    <div class="row">
-                        <div class="form-group col-lg-6">
-                            <label style="color: #ed563b;" for="sala">Izaberi salu</label>
-                            <input
-                            type="text"
-                            name="sala"
-                            id="sala"
-                            class="form-control"
-                            list="sale"
-                            />
-                            <datalist id="sale">
-                                <option *ngFor="let sala of listaSala" value="{{sala}}">
-                            </datalist>
+                    <form [formGroup]="noviTreningForma"  (ngSubmit)="zakaziTrening()">
+                        <div class="row" >
+                            <div class="form-group col-lg-3">
+                                <label style="color: #ed563b;" for="noviDan">Dan</label>
+                                <input
+                                type="text"
+                                name="noviDan"
+                                id="noviDan"
+                                class="form-control"
+                                placeholder="ponedeljak" 
+                                />
+                            </div>
+
+                            <div class="form-group col-lg-3">
+                                <label style="color: #ed563b;" for="pocetakTreninga">Početak</label>
+                                <input
+                                type="text"
+                                name="pocetakTreninga"
+                                id="pocetakTreninga"
+                                class="form-control"
+                                placeholder="10:00AM" 
+                                />
+                            </div>
+
+                            <div class="form-group col-lg-3">
+                                <label style="color: #ed563b;" for="zavrsetakTreninga">Kraj</label>
+                                <input
+                                type="text"
+                                name="zavrsetakTreninga"
+                                id="zavrsetakTreninga"
+                                class="form-control"
+                                placeholder="12:00AM" 
+                                />
+                            </div>
+
+                            <div class="form-group col-lg-3">
+                                <label style="color: #ed563b;" for="noviBrojKorisnika">Broj Korisnika</label>
+                                <input
+                                type="text"
+                                name="noviBrojKorisnika"
+                                id="noviBrojKorisnika"
+                                class="form-control"
+                                placeholder="25" 
+                                />
+                            </div>
+
                         </div>
 
-                        <button class="btn col-lg-3" name="sacuvaj" id="sacuvaj" style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;" action="dodajTrening()">Sačuvaj</button>
-                    
-                    </div>
+                        <div class="row" >
+                            <div class="form-group col-lg-6">
+                                <label style="color: #ed563b;" for="novaSala">Izaberi Salu</label>
+                                <input
+                                type="text"
+                                name="novaSala"
+                                id="novaSala"
+                                class="form-control"
+                                placeholder="sala 1"
+                                list="sale1"
+                                />
+                                <datalist id="sale1">
+                                    <option *ngFor="let sala of listaSala" value="{{sala}}">
+                                </datalist>
+                            </div>
+
+                            <button
+                                class="btn col-lg-3"
+                                type="submit"
+                                style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;"
+                                >
+                                Sačuvaj
+                            </button>
+                        </div>
+
+                    </form>
 
                 </div>
 
@@ -200,7 +213,7 @@
 
                 <div style="margin-top: 10px;" *ngIf="jePrikaziSala()">
                     <form [formGroup]="azurirajSaluForma"  (ngSubmit)="azuriranjeSale()">
-                        <div calss="row">
+                        <div class="row">
                             <div class="form-group col-lg-6">
                             <label style="color: #ed563b;" for="izaberiSalu">Izaberi salu</label>
                             <input
@@ -227,22 +240,30 @@
                 </div>
 
                 <div style="margin-top: 10px;" *ngIf="jePrikaziKorisnici()">
-                    <div class="row" >
+                    <form [formGroup]="azurirajBrojKorisnikaForma"  (ngSubmit)="azuriranjeKorisnika()">
+                        <div class="row" >
+                            <div class="form-group col-lg-3">
+                                <label style="color: #ed563b;" for="brojKorisnika">Broj Korisnika</label>
+                                <input
+                                type="text"
+                                name="brojKorisnika"
+                                id="brojKorisnika"
+                                class="form-control"
+                                placeholder="25" 
+                                />
+                            </div>
 
-                        <div class="form-group col-lg-3">
-                            <label style="color: #ed563b;" for="korisnika">Broj Korisnika</label>
-                            <input
-                            type="text"
-                            name="korisnika"
-                            id="korisnika"
-                            class="form-control"
-                            placeholder="25" 
-                            />
+                            <button
+                                class="btn col-lg-3"
+                                type="submit"
+                                style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;"
+                                >
+                                Sačuvaj
+                            </button>
                         </div>
-                        <button class="btn col-lg-3" name="sacuvaj" id="sacuvaj" style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;" action="dodajTrening()">Sačuvaj</button>
-                    
-                    </div>
 
+                    </form>
+                    
                 </div>
 
                 <div style="margin-top: 10px;" *ngIf="jeListanjeLjudi()">
@@ -252,7 +273,7 @@
 
                             <div style=" border: 1px solid white ; color: white; height: 30px; margin-top: 26px; padding-top: 3px;"
                                 *ngFor="let osoba of listaKorisnika; index as i;">
-                                {{i}}. {{osoba}}
+                                {{i+1}}. {{osoba}}
                             </div>
                         </div>
 

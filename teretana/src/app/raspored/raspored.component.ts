@@ -33,6 +33,8 @@ export class RasporedComponent implements OnInit {
   public selektovaniTrening!: TrenerovTrening;
 
   public azurirajSaluForma: FormGroup;
+  public azurirajBrojKorisnikaForma: FormGroup;
+  public noviTreningForma: FormGroup;
 
   public klijentPrijavljenNaPersonalni:string = "Petar Petrović";
   //public klijentPrijavljenNaPersonalni:string = ""; /* oznacava da je termin slobodan */
@@ -43,6 +45,17 @@ export class RasporedComponent implements OnInit {
 
       this.azurirajSaluForma = this.formBuilder.group({
         izaberiSalu: ['', [Validators.required]]
+      });
+      this.azurirajBrojKorisnikaForma = this.formBuilder.group({
+        brojKorisnika: ['', [Validators.required]]
+      });
+
+      this.noviTreningForma = this.formBuilder.group({
+        noviDan: ['', [Validators.required]],
+        pocetakTreninga: ['', [Validators.required]],
+        zavrsetakTreninga: ['', [Validators.required]],
+        noviBrojKorisnika: ['', [Validators.required]],
+        novaSala: ['', [Validators.required]]
       });
 
       this.rasporedTrenera = [];
@@ -135,7 +148,7 @@ export class RasporedComponent implements OnInit {
     this.obrisani.push(this.selektovan);
 
     //nadji trening u listi koji odgovara selektovanom
-    //this.obrisiTrening(selektovaniTrening);
+    //this.obrisiTrening();
     
     this.popuniTabelu(this.danUnedelji);
   }
@@ -361,40 +374,11 @@ export class RasporedComponent implements OnInit {
     this.popuniTabelu("ponedeljak");
   }
 
-  zakaziTrening() {
+  obrisiTrening() {
     const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
-    var zakazano:ZakazaniTrening = new ZakazaniTrening(
-      new Trening(10, 10, "2020-01-01T20:00:00.000+00:00", "2020-01-01T22:00:00.000+00:00", 1),
-      new Sala(10, "Zeneva", 1, 10)
-    );
-    var noviTrening: TrenerovTrening = new TrenerovTrening(
-      20,
-      zakazano
-    );
-
-    this.treningService.addNewTraining(idZaposlenog, 10, noviTrening)
-      .subscribe(abl=>{
-        //resetovanje forme
-      });
-      // .subscribe((rez:Feedback) =>{
-      //   window.alert(rez.message);
-      //   console.log(noviTrening);
-      // });
-  }
-
-  azurirajTrening(trening: TrenerovTrening) {
-    const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
-    this.treningService.updateTraining(idZaposlenog, 10, trening)
+    this.treningService.deleteTraining(idZaposlenog, 10, this.selektovaniTrening)
       .subscribe(abl =>{
-        //resetuj formu
-      });
-  }
-
-  obrisiTrening(trening: TrenerovTrening) {
-    const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
-    this.treningService.deleteTraining(idZaposlenog, 10, trening)
-      .subscribe(abl =>{
-        //resetuj formu
+        this.rasporedTrenera.splice( this.rasporedTrenera.indexOf(this.selektovaniTrening), 1 );
       });
   }
 
@@ -480,7 +464,7 @@ export class RasporedComponent implements OnInit {
   listajLjude() {
     if(this.popup !== "ljudi") {
       this.popup = "ljudi";
-      //this.inicijalizacijaListeKorisnika();
+      this.inicijalizacijaListeKorisnika();
     } else {
       this.popup = "";
     }
@@ -540,8 +524,6 @@ export class RasporedComponent implements OnInit {
     const data = this.azurirajSaluForma.value;
     let tekst:number = Number(data.izaberiSalu.substr(0,1));
 
-    //Kako sad od ove sale da dobijem sve?
-    let lokacija = this.selektovaniTrening.scheduledGroupTraining.hall.locationId;
     let selektovanaSala: SalaInfo | undefined = this.listaSala1.find(salai=> salai.idSale === tekst);
     if(selektovanaSala === undefined){
       //treba sira pretraga da se vrsi, mada nije hitno
@@ -555,9 +537,57 @@ export class RasporedComponent implements OnInit {
     
     const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
 
-      this.treningService
-        .updateTraining(idZaposlenog, this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.id, this.selektovaniTrening);
+    this.treningService
+      .updateTraining(idZaposlenog, this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.id, this.selektovaniTrening);
+    
+      this.popuniTabelu(this.danUnedelji);
+  }
 
+  azuriranjeKorisnika() {
+    if (!this.azurirajBrojKorisnikaForma.valid) {
+      return;
+    }
+
+    const data = this.azurirajBrojKorisnikaForma.value;
+    let noviBroj:number = Number(data.brojKorisnika);
+
+    this.selektovaniTrening.capacity = noviBroj;
+    const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
+
+    this.treningService
+      .updateTraining(idZaposlenog, this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.id, this.selektovaniTrening);
+    
+    this.popuniTabelu(this.danUnedelji);
+  }
+
+  zakaziTrening() {
+    if (!this.noviTreningForma.valid) {
+      return;
+    }
+
+    const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
+    const data = this.noviTreningForma.value;
+    let tekst:number = Number(data.novaSala.substr(0,1));
+
+    //Ovako jer je dosadan kompajler, inace nikad nije undefined
+    let sel: SalaInfo | undefined = this.listaSala1.find(salai=> salai.idSale === tekst);
+    let selektovanaSala: SalaInfo = sel !== undefined ? sel : new SalaInfo(0, "", "", "", "", 0, 0, "", 0);
+    
+    //TODO napravi lepo datume
+    var zakazano:ZakazaniTrening = new ZakazaniTrening(
+      new Trening(10, selektovanaSala.idSale, data.pocetakTreninga, data.zavrsetakTreninga, 1),
+      new Sala(selektovanaSala.idSale, selektovanaSala.nameSale, 1, selektovanaSala.capacitySale)
+    );
+    var noviTrening: TrenerovTrening = new TrenerovTrening(
+      selektovanaSala.capacitySale,
+      zakazano
+    );
+
+    this.treningService.addNewTraining(idZaposlenog, 10, noviTrening)
+    .subscribe(abl=>{
+      this.rasporedTrenera.push(noviTrening);
+      this.popuniTabelu(this.danUnedelji);
+    });
   }
 
   ngOnInit(): void {
