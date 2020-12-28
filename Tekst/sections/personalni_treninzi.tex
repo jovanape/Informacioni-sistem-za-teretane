@@ -91,6 +91,7 @@
 \caption{Brisanje slobodnog termina iz rasporeda}
 \end{longtable}
 
+
 \subsubsection{Slučaj upotrebe: Online zakazivanje prisustva personalnom treningu}
 
 \begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
@@ -106,6 +107,7 @@
    \begin{enumerate}
     \item Klijent ima pristup internetu
     \item Klijent je registrovan
+    \item Klijent je prijavljen na sistem
    \end{enumerate} \\
 \hline  
     Postuslovi & 
@@ -116,20 +118,22 @@
 \hline
     Osnovni tok &
     \begin{enumerate}
-   \item Klijent se prijavljuje na sistem
-    \item Klijent odlazi na stranicu personalnog trenera kod koga želi da trenira
-    \item Klijent bira jedan od ponuđenih slobodnih termina iz rasporeda tog trenera tako što klikne na opciju 'Zakaži' koja se nalazi pored svakog slobodnog termina
-    \item Sistem ažurira lične rasporede personalnog trenera (tako što unosi ime i prezime klijenta) i klijenta (tako što unosi dan i sat treninga i ime i prezime trenera)
-    \item Sistem obaveštava klijenta da je uspešno zakazano prisustvo treningu
-    \item Sistem obaveštava personalnog trenera da je zakazano prisustvo jednom njegovom treningu
+    \item Klijent odlazi na stranicu na kojoj je spisak svih personalnih trenera.
+    \item Odatle, klijent pristupa stranici personalnog trenera kod koga želi da trenira.
+    \item Klijent pristupa rasporedu treninga tog trenera i informiše se o slobodnim terminima. 
+    
+    %\textit{Koraci 1 i 2 se ponavljaju sve dok klijent ne pronađe slobodan termin koji mu odgovara.}
+    \item Klijent bira jedan od ponuđenih slobodnih termina iz rasporeda tako što klikne na opciju 'Zakaži' koja se nalazi pored svakog slobodnog termina.
+    \item Sistem paralelno ažurira lične rasporede personalnog trenera (tako što unosi ime i prezime klijenta) i klijenta (tako što u odgovarajuće polje unosi naziv treninga i ime i prezime trenera).
+    \item Sistem obaveštava klijenta da je uspešno zakazano prisustvo treningu.
+    \item Sistem obaveštava personalnog trenera da je zakazano prisustvo jednom njegovom treningu.
    \end{enumerate} \\
 \hline
     Alternativni tokovi & 
     \begin{itemize}
-    \item[A1] Neispravni podaci u prijavi. Ukoliko klijent prilikom prijave na sistem u koraku 1 unese pogrešne podatke, sistem ga obaveštava o tome. Slučaj upotrebe se nastavlja u koraku 1.
-    \item[A3.1] Nema slobodnih termina. Ukoliko u koraku 3. nema slobodnih termina u rasporedu treninga odabranog trenera, klijent može da bira drugog trenera. Slučaj upotrebe se vraća na korak 2.
-    \item[A3.2] Klijentu ne odgovaraju slobodni termini. Ukoliko u koraku 3. ima slobodnih termina u rasporedu treninga odabranog trenera, ali klijentu ne odgovara nijedan, klijent bira drugog trenera. Slučaj upotrebe se vraća na korak 2.
-    \item[A3.3] Klijentu ne odgovara nijedan slobodan termin nijednog personalnog trenera. Ukoliko ponavljanjem koraka 2. i 3. klijent ne pronađe termin koji mu odgovara, onda neće zakazati prisustvo nijednom treningu te nedelje. Slučaj upotrebe se završava.
+    \item[A3.1] Nema slobodnih termina. Ukoliko u koraku 3 nema slobodnih termina u rasporedu treninga odabranog trenera, klijent može da bira drugog trenera. Slučaj upotrebe se vraća na korak 1.
+    \item[A3.2] Klijentu ne odgovaraju slobodni termini. Ukoliko u koraku 3 ima slobodnih termina u rasporedu treninga odabranog trenera, ali klijentu ne odgovara nijedan, klijent bira drugog trenera. Slučaj upotrebe se vraća na korak 1.
+    \item[A3.3] Klijentu ne odgovara nijedan slobodan termin nijednog personalnog trenera. Ukoliko ponavljanjem koraka  1-3 klijent ne pronađe termin koji mu odgovara, onda neće zakazati prisustvo nijednom personalnom treningu te nedelje. Slučaj upotrebe se završava.
    \end{itemize} \\
 \hline
     Podtokovi & /\\
@@ -145,7 +149,7 @@
 \newpage
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[scale=0.38]{sections/images/dijagram-aktivnosti-personalni-online-zakazivanje-prisustva.png}
+\includegraphics[scale=0.38]{sections/images/dijagram-aktivnosti-personalni-online-zakazivanje-prisustva.jpg}
 \end{center}
 \caption{Dijagram aktivnosti online zakazivanja prisustva personalnom treningu}
 \label{fig:kontekst}
@@ -167,24 +171,24 @@
 \hline
    Preduslovi & 
    \begin{enumerate}
-    \item Klijent ima pristup internetu
-    \item Klijent je registrovan
-    \item Klijent ima prijavljeno prisustvo bar jednom personalnom treningu
+    \item Klijent ima pristup internetu.
+    \item Klijent je registrovan.
+    \item Klijent je prijavljen na sistem.
+    \item Klijent ima prijavljeno prisustvo bar jednom personalnom treningu.
    \end{enumerate}\\
 \hline  
     Postuslovi & 
     \begin{enumerate}
-    \item Izmenjen je lični raspored personalnog trenera
-    \item Izmenjen je lični raspored klijenta
+    \item Izmenjen je lični raspored personalnog trenera.
+    \item Izmenjen je lični raspored klijenta.
    \end{enumerate} \\
 \hline
     Osnovni tok & 
     \begin{enumerate}
-    \item Klijent se prijavljuje na sistem
-    \item Klijent odlazi na stranicu koja sadrži njegov lični raspored
-    \item Klijent bira opciju 'Otkaži' pored onog treninga kom više ne želi da prisustvuje
-    \item Sistem paralelno ažurira lični raspored klijenta (tako što iz njega uklanja taj trening) i lični raspored personalnog trenera koji drži taj trening (tako što uklanja ime i prezime korisnika čime dati termin postaje slobodan)
-    \item Sistem obaveštava klijenta da je uspešno otkazano prisustvo treningu
+    \item Klijent odlazi na stranicu koja sadrži njegov lični raspored.
+    \item Klijent bira opciju 'Otkaži' pored onog treninga kom više ne želi da prisustvuje.
+    \item Sistem paralelno ažurira lični raspored klijenta (tako što iz njega uklanja taj trening) i lični raspored personalnog trenera koji drži taj trening (tako što uklanja ime i prezime korisnika čime dati termin postaje slobodan).
+    \item Sistem obaveštava klijenta da je uspešno otkazano prisustvo treningu.
    \end{enumerate}\\
 \hline
     Alternativni tokovi & /\\
@@ -221,33 +225,34 @@
 \hline  
     Postuslovi & \begin{enumerate}
     \item Klijent je dobio potvrdu da je njegov trening zakazan.
-    \item Izmenjen je lični raspored personalnog trenera
-    \item Izmenjen je lični raspored klijenta
+    \item Izmenjen je lični raspored personalnog trenera.
+    \item Izmenjen je lični raspored klijenta.
    \end{enumerate} \\
 \hline
     Osnovni tok & 
     \begin{enumerate}
-    \item Klijent dolazi na recepciju sportskog centra.
-    \item Recepcionar traži od korisnika da mu da člansku kartu, username ili ime i prezime
-    \item Klijent daje recepcionaru svoju člansku kartu, username ili ime i prezime
-    \item Recepcioner bira opciju zakazivanja personalnog treninga
-    \item Recepcioner pronalazi klijenta na osnovu nekog od datih podataka
-    \item Klijent bira trenera na čiji trening želi da se prijavi
-    \item Recepcioner proverava raspored tog trenera i govori klijentu slobodne termine
-    \item Klijent bira termin koji mu odgovara
-    \item Recepcioner vrši odabir tog termina u sistemu
-    \item Recepcioner bira opciju ``Zakaži trening``
-    \item Sistem paralelno ažurira lične rasporede klijenta i trenera
-    \item Sistem obaveštava recepcionera da je zakazano prisustvo treningu
-    \item Recepcioner obaveštava klijenta da je zakazano prisustvo treningu
-    \item Sistem obaveštava trenera da je zakazano prisustvo jednom njegovom treningu
+    \item Klijent dolazi na recepciju sportskog centra sa ciljem da zakaže prisustvo personalnom treningu.
+    \item Recepcionar traži od korisnika da mu da člansku kartu, username ili ime i prezime.
+    \item Klijent daje recepcionaru svoju člansku kartu, username ili ime i prezime.
+    %\item Recepcioner bira opciju zakazivanja personalnog treninga.
+    \item Recepcioner pristupa delu sistema preko kog može da zakaže prisustvo treningu.
+    \item Recepcioner pronalazi klijenta na osnovu nekog od datih podataka.
+    \item Klijent bira trenera na čiji trening želi da se prijavi.
+    \item Recepcioner proverava raspored tog trenera i govori klijentu slobodne termine.
+    \item Klijent bira termin koji mu odgovara.
+    \item Recepcioner vrši odabir tog termina u sistemu.
+    \item Recepcioner bira opciju ``Zakaži trening``.
+    \item Sistem paralelno ažurira lične rasporede klijenta i trenera.
+    \item Sistem obaveštava recepcionera da je zakazano prisustvo treningu.
+    \item Recepcioner obaveštava klijenta da je zakazano prisustvo treningu.
+    \item Sistem obaveštava trenera da je zakazano prisustvo jednom njegovom treningu.
    \end{enumerate}\\
 \hline
     Alternativni tokovi & 
     \begin{itemize}
-    \item[A7.1] Nema slobodnih termina. Ukoliko u koraku 6. nema slobodnih termina u rasporedu treninga odabranog trenera, recepcioner obaveštava korisnika o tome i govori mu da izabere drugog trenera. Slučaj upotrebe se vraća na korak 5.
-    \item[A7.2] Klijentu ne odgovaraju slobodni termini. Ukoliko u koraku 6. ima slobodnih termina u rasporedu treninga odabranog trenera, ali klijentu ne odgovara nijedan, klijent govori recepcioneru da mu ne odgovara nijedan ponuđeni termin i da želi da izabere drugog trenera. Slučaj upotrebe se vraća na korak 5.
-    \item[A7.3] Klijentu ne odgovara nijedan slobodan termin nijednog personalnog trenera. Ukoliko ponavljanjem koraka 6. i 7. klijent ne pronađe termin koji mu odgovara, onda neće zakazati prisustvo nijednom treningu te nedelje. Slučaj upotrebe se završava.
+    \item[A7.1] Nema slobodnih termina. Ukoliko u koraku 6 nema slobodnih termina u rasporedu treninga odabranog trenera, recepcioner obaveštava korisnika o tome i govori mu da izabere drugog trenera. Slučaj upotrebe se vraća na korak 5.
+    \item[A7.2] Klijentu ne odgovaraju slobodni termini. Ukoliko u koraku 6 ima slobodnih termina u rasporedu treninga odabranog trenera, ali klijentu ne odgovara nijedan, klijent govori recepcioneru da mu ne odgovara nijedan ponuđeni termin i da želi da izabere drugog trenera. Slučaj upotrebe se vraća na korak 5.
+    \item[A7.3] Klijentu ne odgovara nijedan slobodan termin nijednog personalnog trenera. Ukoliko ponavljanjem koraka 6 i 7 klijent ne pronađe termin koji mu odgovara, onda neće zakazati prisustvo nijednom treningu te nedelje. Slučaj upotrebe se završava.
    \end{itemize}\\
 \hline
     Podtokovi & /\\
@@ -262,7 +267,7 @@
 \newpage
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[scale=0.40]{sections/images/dijagram_sekvenci_personalni_uzivo_zakazivanje_prisustva.png}
+\includegraphics[scale=0.40]{sections/images/dijagram_sekvenci_personalni_uzivo_zakazivanje_prisustva.jpg}
 \end{center}
 \caption{Dijagram sekvenci za uživo zakazivanje prisustva personalnom treningu}
 \label{fig:kontekst}
