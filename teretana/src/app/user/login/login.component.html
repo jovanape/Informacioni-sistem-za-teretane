@@ -10,6 +10,7 @@
               name="email"
               id="email"
               class="form-control"
+              (keyup)="postaviUsername($event)"
             />
           </div>
           <div class="form-group">
@@ -19,11 +20,14 @@
               name="password"
               id="password"
               class="form-control"
+              (keyup)="proveriLozinku($event)"
             />
           </div>
   
             <button class="btn btn-primary btn-block" 
                     style="background-color: #ed563b; border-color: #ee4f32; color: white; height: 40px; margin-top: 40px;" 
+                    [routerLink]="['']"
+                    [disabled]="!jeValjanaLozinka"
                     type="submit">Uloguj se</button>
             <hr style="background-color: #ed563b;"/>
           <div class="form-group">

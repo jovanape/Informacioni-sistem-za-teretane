@@ -12,7 +12,7 @@ import { Sala } from '../model/sala.model';
 export class TreningService {
   
   private groupTrainingsUrl : string = "http://localhost:8081/group-trainings/";
-  private locationUrl: string = "http://localhost:8081/location/";
+  private locationUrl: string = "http://localhost:8081/location";
 
   constructor(private http:HttpClient) { }
 
@@ -41,7 +41,7 @@ export class TreningService {
 
   //model i to []
   getRegistratedToTraining(trainingId: number):Observable<Korisnici[]>{
-    return this.http.get<Korisnici[]>(this.groupTrainingsUrl + trainingId + "/all-registrated-clients");
+    return this.http.get<Korisnici[]>(this.groupTrainingsUrl + trainingId + "/all-registered-clients");
   }
 
   getLocations():Observable<Lokacija[]>{
@@ -49,7 +49,7 @@ export class TreningService {
   }
 
   getSala(locationId: number): Observable<Sala[]>{
-    return this.http.get<Sala[]>(this.locationUrl + locationId);
+    return this.http.get<Sala[]>(this.locationUrl + "/" + locationId);
   }
 
   

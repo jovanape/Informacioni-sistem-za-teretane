@@ -66,11 +66,9 @@ export class RasporedComponent implements OnInit {
       });
 
       this.rasporedTrenera = [];
-      this.listaSala1 = [];
       this.selektovaniTrening = new TrenerovTrening(0, new ZakazaniTrening(new Trening(0,0,"", "", 0), new Sala(0,"", 0,0)));
-      //this.prikaziRasporedTrenera();
-      this.inicijalizacijaSala();
-      //this.saleToString();
+      this.prikaziRasporedTrenera();
+
 
     this.tipUlogovanog = korisnikService.tipUlogovanog;
     
@@ -99,19 +97,20 @@ export class RasporedComponent implements OnInit {
 
     ]; 
 
+    this.listaSala1 = [];
     this.listaSala = [
-        "Sala1",
-        "Sala2",
-        "Sala3"
+      "Teretana Zevs : Sala Sava, Adresa: Jurija Gagarina 100, radno vreme: 24h",
+      "Teretana Zevs : Sala Dunav, Adresa: Jurija Gagarina 100, radno vreme: 24h",
+      "Teretana Zevs : Sala Tisa, Adresa: Jurija Gagarina 100, radno vreme: 24h",
+      "Teretana Zevs : Sala Morava, Adresa: Jurija Gagarina 100, radno vreme: 24h",
+      "Teretana Zevs : Sala Jasenica, Adresa: Jurija Gagarina 100, radno vreme: 24h"
     ];
+    this.inicijalizacijaSala();
+    this.saleToString();
 
-    this.listaKorisnika = [
-      "Selena Vukadinovic",
-      "Tamara Ivanovic",
-      "Jana Jovicic",
-      "Jovana Pejkic",
-      "Katarina Djuric"
-    ];
+    this.listaKorisnika = [];
+    this.inicijalizacijaListeKorisnika();
+
 
     this.selektovan = ["prazan", ["", ""]];
     this.obrisani = [];
@@ -125,40 +124,31 @@ export class RasporedComponent implements OnInit {
     
    }
 
+  // ------------------------------------ Dan u nedelji BEGIN ------------------------------------
 
   izaberiPonedeljak() {
     this.danUnedelji = "ponedeljak";
     this.popuniTabelu("ponedeljak");
   }
-
   izaberiUtorak() {
     this.danUnedelji = "utorak";
     this.popuniTabelu("utorak");
   }
-
   izaberiSredu() {
     this.danUnedelji = "sreda";
     this.popuniTabelu("sreda");
   }
-
   izaberiCetvrtak() {
     this.danUnedelji = "cetvrtak";
     this.popuniTabelu("cetvrtak");
   }
-
   izaberiPetak() {
     this.danUnedelji = "petak";
     this.popuniTabelu("petak");
   }
 
-  brisiTrening() {
-    this.obrisani.push(this.selektovan);
-
-    //nadji trening u listi koji odgovara selektovanom
-    //this.obrisiTrening();
-    
-    this.popuniTabelu(this.danUnedelji);
-  }
+  // ------------------------------------ Dan u nedelji END ------------------------------------
+  // ------------------------------------ Selektovani trening BEGIN ------------------------------------
 
   nijeSelektovanTermin() {
     return!( this.selektovan[0] === "");
@@ -186,6 +176,7 @@ export class RasporedComponent implements OnInit {
       return false;
     }
   }
+   // ------------------------------------ Selektovani trening END ------------------------------------
 
   popuniTabelu(dan:string) {
     this.selektovan = ["", ["", ""]];
@@ -195,7 +186,7 @@ export class RasporedComponent implements OnInit {
       this.listaTermina[index] = "                ";
     }
 
-    //ova for petlja da se obrise
+    //Unosimo podatke iz mape
     for (let i = 0; i < this.mapa.length; i++) {
       const entry = this.mapa[i];
 
@@ -251,84 +242,86 @@ export class RasporedComponent implements OnInit {
       
     }
 
-    //ova for petlja da se prikaze
-    // for(let i = 0; i < this.rasporedTrenera.length; i++) {
-    //   const entry = this.rasporedTrenera[i]; 
+    //Unosimo iz baze trenera
+    console.log("rasporedTrenera.length: " + this.rasporedTrenera.length);
+    for(let i = 0; i < this.rasporedTrenera.length; i++) {
+      const entry = this.rasporedTrenera[i]; 
 
-    //   //alternativa za datum je [ npm install moment ] i [ import * as moment from 'moment';]
-    //   var datumPocetka = new Date(entry.scheduledGroupTraining.scheduledGroupTraining.startTime);  
-    //   var datumKraja = new Date(entry.scheduledGroupTraining.scheduledGroupTraining.endTime);
-    //   var danNedelje = this.vratiDanUNedelji(datumPocetka.getDay());
-    //   var trajanje:string = datumPocetka.getHours() + ":" + datumPocetka.getMinutes() + " - " + datumKraja.getHours() + ":" + datumKraja.getMinutes();
-    //   var tipTreninga: number = entry.scheduledGroupTraining.scheduledGroupTraining.id;
+      //alternativa za datum je [ npm install moment ] i [ import * as moment from 'moment';]
+      var datumPocetka = new Date(entry.scheduledGroupTraining.scheduledGroupTraining.startTime);  
+      var datumKraja = new Date(entry.scheduledGroupTraining.scheduledGroupTraining.endTime);
+      var danNedelje = this.vratiDanUNedelji(datumPocetka.getDay());
+      var trajanje:string = datumPocetka.getHours() + ":" + datumPocetka.getMinutes() + " - " + datumKraja.getHours() + ":" + datumKraja.getMinutes();
+      var tipTreninga: number = entry.scheduledGroupTraining.scheduledGroupTraining.id;
+      console.log("Datumi: danNedelje: " + danNedelje + ", trajanje: " + trajanje );
 
-    //   if(dan === danNedelje) {
-    //     var indeks:number = 4;
-    //     if(datumPocetka.getHours() < 11){
-    //       switch(tipTreninga) { 
-    //         case 1: {     //fitnes
-    //           indeks = 0;
-    //           break; 
-    //         }
-    //         case 2: {     // boks
-    //           indeks = 3;
-    //           break; 
-    //         }
-    //         case 3: {     //cross-fit
-    //           indeks = 6;
-    //           break; 
-    //         }
-    //         case 4: {     // yoga
-    //           indeks = 9;
-    //           break; 
-    //         }
-    //       }
-    //     } else if(datumPocetka.getHours() < 3){
-    //       switch(tipTreninga) { 
-    //         case 1: {     //fitnes
-    //           indeks = 1;
-    //           break; 
-    //         }
-    //         case 2: {     // boks
-    //           indeks = 4;
-    //           break; 
-    //         }
-    //         case 3: {     //cross-fit
-    //           indeks = 7;
-    //           break; 
-    //         }
-    //         case 4: {     // yoga
-    //           indeks = 10;
-    //           break; 
-    //         }
-    //       }
-    //     } else {    //popodnevni termin
-    //       switch(tipTreninga) { 
-    //         case 1: {     //fitnes
-    //           indeks = 2;
-    //           break; 
-    //         }
-    //         case 2: {     // boks
-    //           indeks = 5;
-    //           break; 
-    //         }
-    //         case 3: {     //cross-fit
-    //           indeks = 8;
-    //           break; 
-    //         }
-    //         case 4: {     // yoga
-    //           indeks = 11;
-    //           break; 
-    //         }
-    //       }
-    //     }
+     if(dan === danNedelje) {
+        var indeks:number = 4;
+        if(datumPocetka.getHours() < 11){
+          switch(tipTreninga) { 
+            case 1: {     //fitnes
+              indeks = 0;
+              break; 
+            }
+            case 2: {     // boks
+              indeks = 3;
+              break; 
+            }
+            case 3: {     //cross-fit
+              indeks = 6;
+              break; 
+            }
+            default: {     // yoga
+              indeks = 9;
+              break; 
+            }
+          }
+        } else if(datumPocetka.getHours() < 3){
+          switch(tipTreninga) { 
+            case 1: {     //fitnes
+              indeks = 1;
+              break; 
+            }
+            case 2: {     // boks
+              indeks = 4;
+              break; 
+            }
+            case 3: {     //cross-fit
+              indeks = 7;
+              break; 
+            }
+            default: {     // yoga
+              indeks = 10;
+              break; 
+            }
+          }
+        } else {    //popodnevni termin
+          switch(tipTreninga) { 
+            case 1: {     //fitnes
+              indeks = 2;
+              break; 
+            }
+            case 2: {     // boks
+              indeks = 5;
+              break; 
+            }
+            case 3: {     //cross-fit
+              indeks = 8;
+              break; 
+            }
+            default: {     // yoga
+              indeks = 11;
+              break; 
+            }
+          }
+        }
 
-    //     this.listaTermina[indeks] = trajanje;
-    //   }
-    // }
-
-
+        this.listaTermina[indeks] = trajanje;
+    
+      }
+    }
   }
+
   vratiDanUNedelji(dan: number): string {
     var danUnedelji: string = "nedelja";
     switch(dan) { 
@@ -364,6 +357,8 @@ export class RasporedComponent implements OnInit {
    return danUnedelji;
 
   }
+  
+  // ------------------------------------ Treninzi baza BEGIN ------------------------------------
 
   prikaziRasporedTrenera() {
     const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
@@ -378,10 +373,52 @@ export class RasporedComponent implements OnInit {
         }
       });
 
-    this.popuniTabelu("ponedeljak");
+    //this.popuniTabelu("ponedeljak");
   }
 
-  obrisiTrening() {
+  zakaziTrening() {
+    if (!this.noviTreningForma.valid) {
+      return;
+    }
+
+    const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
+    const data = this.noviTreningForma.value;
+    let tekst:number = Number(data.novaSala.substr(0,1));
+
+    //Ovako jer je dosadan kompajler, inace nikad nije undefined
+    let sel: SalaInfo | undefined = this.listaSala1.find(salai=> salai.idSale === tekst);
+    let selektovanaSala: SalaInfo = sel !== undefined ? sel : new SalaInfo(0, "", "", "", "", 0, 0, "", 0);
+    
+    //TODO napravi lepo datume
+    var zakazano:ZakazaniTrening = new ZakazaniTrening(
+      new Trening(10, selektovanaSala.idSale, data.pocetakTreninga, data.zavrsetakTreninga, 1),
+      new Sala(selektovanaSala.idSale, selektovanaSala.nameSale, 1, selektovanaSala.capacitySale)
+    );
+    var noviTrening: TrenerovTrening = new TrenerovTrening(
+      selektovanaSala.capacitySale,
+      zakazano
+    );
+
+    this.treningService.addNewTraining(idZaposlenog, 10, noviTrening)
+    .subscribe(abl=>{
+      this.rasporedTrenera.push(noviTrening);
+      this.popuniTabelu(this.danUnedelji);
+    });
+  }
+
+  // TODO napravi da se poziva samo jedan od ova dva, zavisno koji je selektovan
+  brisiTrening() {
+    this.obrisani.push(this.selektovan);
+
+    //nadji trening u listi koji odgovara selektovanom
+    if(this.selektovaniTrening.capacity !== 0) {
+      this.obrisiTreningIzBaze();
+      this.rasporedTrenera.splice(this.rasporedTrenera.indexOf(this.selektovaniTrening), 1);
+    }
+    
+    this.popuniTabelu(this.danUnedelji);
+  }
+  obrisiTreningIzBaze() {
     const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
     this.treningService.deleteTraining(idZaposlenog, 10, this.selektovaniTrening)
       .subscribe(abl =>{
@@ -389,48 +426,64 @@ export class RasporedComponent implements OnInit {
       });
   }
 
+  // ------------------------------------ Treninzi baza END ------------------------------------
+  // ------------------------------------ Inicijalizacije listi BEGIN ------------------------------------
+
   inicijalizacijaListeKorisnika() {
-    var sub2 = this.treningService.getRegistratedToTraining(this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.id)
+    var sub2 = this.treningService.getRegistratedToTraining(1) //this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.id
       .subscribe((korisnici:Korisnici[]) => {
         for(const korisnik of korisnici) {
           const niska = korisnik.name + " " + korisnik.lastName;
           this.listaKorisnika.push(niska);
         }
-        
       });
 
   }
 
   inicijalizacijaSala() {
+
+    // 1) pokupimo sve lokacije
+    let lokac: Lokacija[] = [];
     var sub = this.treningService.getLocations()
       .subscribe((lokacije:Lokacija[]) =>{
         for(const lok of lokacije) {
-          var sub1 = this.treningService.getSala(lok.id)
-            .subscribe((sale: Sala[]) =>{
-              for(const sala of sale) {
-                this.listaSala1.push( new SalaInfo(
-                    lok.id,
-                    lok.name,
-                    lok.address,
-                    lok.city,
-                    lok.workingHour,
-                    lok.phoneNumber,
-                    sala.id,
-                    sala.name,
-                    sala.capacity
-                ));
-              }
-            });
+          lokac.push(lok);
+        }
+    });
+
+    console.log("Inicijalizacija sala, lokac.length: " + lokac.length);
+
+    // 2) izlistamo sve sale na lokacijama
+    for(const lok of lokac) {
+      let sub1 = this.treningService.getSala(lok.id)
+      .subscribe((sale: Sala[]) =>{
+        for(const sala of sale) {
+          this.listaSala1.push( new SalaInfo(
+              lok.id,
+              lok.name,
+              lok.address,
+              lok.city,
+              lok.workingHour,
+              lok.phoneNumber,
+              sala.id,
+              sala.name,
+              sala.capacity
+          ));
+          console.log("Jos jedan da se doda u listu");
         }
       });
+    }
   }
 
   saleToString() {
     for(const sala of this.listaSala1) {
-      var niska:string =sala.idSale + ") " + sala.nameSale + " - " + sala.name + ", " + sala.address + ": " + sala.workingHour;
+      let niska:string = sala.idSale + ") " + sala.nameSale + " - " + sala.name + ", " + sala.address + ": " + sala.workingHour;
       this.listaSala.push(niska);
     }
   }
+
+  // ------------------------------------ Inicijalizacije listi END ------------------------------------
+  // ------------------------------------ Filtriranje popup-ova BEGIN ------------------------------------
 
   prikaziNoviTrening() {
     if(this.popup !== "novi") {
@@ -471,7 +524,6 @@ export class RasporedComponent implements OnInit {
   listajLjude() {
     if(this.popup !== "ljudi") {
       this.popup = "ljudi";
-      this.inicijalizacijaListeKorisnika();
     } else {
       this.popup = "";
     }
@@ -484,6 +536,9 @@ export class RasporedComponent implements OnInit {
       this.popup = "";
     }
   }
+
+  // ------------------------------------ Filtriranje popup-ova END ------------------------------------
+  // ------------------------------------ PROVEREEEE BEGIN ------------------------------------
 
   jePrikaziNoviTrening() {
     return this.popup === "novi";
@@ -518,10 +573,13 @@ export class RasporedComponent implements OnInit {
   jeUlogovanTrener() {
     return this.korisnikService.jeUlogovanTrener();
   }
-
   jeUlogovanPersonalniTrener() {
     return this.korisnikService.jeUlogovanPersonalniTrener();
   }
+
+  // ------------------------------------ PROVEREEEE END ------------------------------------
+  // ------------------------------------ Update BEGIN ------------------------------------
+
 
   public azuriranjeSale(): void {
     if (!this.azurirajSaluForma.valid) {
@@ -592,37 +650,8 @@ export class RasporedComponent implements OnInit {
     this.popuniTabelu(this.danUnedelji);
 
   }
-  
+  // ------------------------------------ Update END ------------------------------------
 
-  zakaziTrening() {
-    if (!this.noviTreningForma.valid) {
-      return;
-    }
-
-    const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
-    const data = this.noviTreningForma.value;
-    let tekst:number = Number(data.novaSala.substr(0,1));
-
-    //Ovako jer je dosadan kompajler, inace nikad nije undefined
-    let sel: SalaInfo | undefined = this.listaSala1.find(salai=> salai.idSale === tekst);
-    let selektovanaSala: SalaInfo = sel !== undefined ? sel : new SalaInfo(0, "", "", "", "", 0, 0, "", 0);
-    
-    //TODO napravi lepo datume
-    var zakazano:ZakazaniTrening = new ZakazaniTrening(
-      new Trening(10, selektovanaSala.idSale, data.pocetakTreninga, data.zavrsetakTreninga, 1),
-      new Sala(selektovanaSala.idSale, selektovanaSala.nameSale, 1, selektovanaSala.capacitySale)
-    );
-    var noviTrening: TrenerovTrening = new TrenerovTrening(
-      selektovanaSala.capacitySale,
-      zakazano
-    );
-
-    this.treningService.addNewTraining(idZaposlenog, 10, noviTrening)
-    .subscribe(abl=>{
-      this.rasporedTrenera.push(noviTrening);
-      this.popuniTabelu(this.danUnedelji);
-    });
-  }
 
   ngOnInit(): void {
   }
