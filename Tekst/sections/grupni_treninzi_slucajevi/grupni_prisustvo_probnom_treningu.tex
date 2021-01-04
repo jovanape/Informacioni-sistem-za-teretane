@@ -8,49 +8,49 @@
 \hline    
     Učesnici &
     \begin{enumerate}
-        \item Klijent - želi da zakaže prisustvo grupnom treningu
         \item Recepcioner - prijavljuje klijenta za željeni grupni trening 
     \end{enumerate}\\
 \hline
    Preduslovi & 
    \begin{enumerate}
-        \item Sistem je u funkciji
-        \item Klijent razgovara uživo da recepcionarom
+        \item Sistem je u funkciji.
+        \item Recepcioner je ulogovan u sistem.
+        \item Klijent razgovara uživo da recepcionarom.
     \end{enumerate}\\
 \hline  
     Postuslovi &
     \begin{enumerate}
-        \item Ažuriran je spisak osoba koje su iskoristile probni trening klijenta. Unosi se ime i prezime osobe, tip treninga kojim je prisustvovao.
-        \item Ažurirano je stanje prijavljenih kandidata za dati grupni trening
+        \item Ažuriran je spisak osoba koje su iskoristile probni trening. klijenta. Unosi se ime i prezime osobe, tip treninga kojim je prisustvovao.
+        \item Ažurirano je stanje prijavljenih kandidata za dati grupni trening.
     \end{enumerate}\\
 \hline
     Osnovni tok & 
     \begin{enumerate}
-        \item Krijent dolazi na recepciju sportskog centra
+        \item Krijent dolazi na recepciju sportskog centra.
         \item Klijent objašnjava recepcioneru da želi probni trening nekog grupnog treninga. 
-        \item Recepcioner se povezuje na deo sistema preko kojeg je u mogućnosti da ažurira spisak ljudi koji su iskoristili probni trening
-        \item Recepcioner zahteva od klijenta ličnu kartu sa kojih preuzima potrebne informacije
-        \item Klijent daje recepcioneru ličnu kartu
-        \item Recepcioner unosi informacije o klijentu
+        \item Recepcioner se povezuje na deo sistema preko kojeg je u mogućnosti da ažurira spisak ljudi koji su iskoristili probni trening.
+        \item Recepcioner zahteva od klijenta ličnu kartu sa kojih preuzima potrebne informacije.
+        \item Klijent daje recepcioneru ličnu kartu.
+        \item Recepcioner unosi informacije o klijentu.
         \item Na osnovu ponuđenih termina grupnih treninga, klijent bira trening.
-        \item Recepcionar unosi informacije u sistem
+        \item Recepcionar unosi informacije u sistem.
         \item Sistem paralelno izvršava:
             \begin{enumerate}
                 \item Sistem ažurira tabelu sa probnim treninzima
                 \item Smanjuje se broj slobodnih mesta za dati trening (od maksimalnog kapaciteta za zadati grupni trening). 
             \end{enumerate}
         \item Sistem obaveštava recepcionera da je zakazano prisustvo treningu
-        \item Recepcioner obaveštava klijenta da je zakazano prisustvo treningu
+        \item Recepcioner obaveštava klijenta da je zakazano prisustvo. treningu
     \end{enumerate}\\
 \hline
     Alternativni tokovi & 
        \begin{enumerate}
-        \item Kapacitet grupnog treninga je popunjen u trenutku prijave
+        \item Kapacitet grupnog treninga je popunjen u trenutku prijave:
             \begin{enumerate}
                 \item Recepcioner obaveštava klijenta da je kapacitet grupnog treninga popunjen.
                 \item Klijent zajedno sa recepcionerom provera da li postoji grupni trening za koje postoji slobodno mesto, a da odgovara klijentu. Slučaj upotrebe se vraća na korak 7.
             \end{enumerate}
-        \item Klijentu ne odgovara ni jedan termin grupnog treninga za koji nije popunjen kapacitet. Klijent se neće prijavljivati ni na jedan grupni trening, slučaj upotrebe se završava
+        \item Klijentu ne odgovara ni jedan termin grupnog treninga za koji nije popunjen kapacitet. Klijent se neće prijavljivati ni na jedan grupni trening, slučaj upotrebe se završava.
         
     \end{enumerate}\\
 \hline

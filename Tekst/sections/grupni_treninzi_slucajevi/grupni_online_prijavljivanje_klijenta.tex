@@ -13,39 +13,42 @@
 \hline
    Preduslovi & 
    \begin{enumerate}
-        \item Klijent ima pristup internetu
-        \item Klijent ima svoj nalog na sistemu
+        \item Klijent ima pristup internetu.
+        \item Klijent ima svoj nalog na sistemu.
     \end{enumerate}\\
 \hline  
     Postuslovi &
     \begin{enumerate}
-        \item Izmenjen je lični raspored klijent
-        \item Ažurirano je stanje prijavljenih kandidata za dati grupni trening
+        \item Izmenjen je lični raspored klijent.
+        \item Ažurirano je stanje prijavljenih kandidata za dati grupni trening.
     \end{enumerate}\\
 \hline
     Osnovni tok & 
     \begin{enumerate}
-        \item Krijent se prijavljuje na sistem
-        \item Klijent odabira lokaciju teretane.
-        \item Klijent pristupa rasporedu grupni treninga za datu lokaciju.
+        \item Krijent se prijavljuje na sistem.
+        \item Klijent pristupa svom rasporedu grupnih treninga predstavljenu u tabelarnom modu.
+        \item Klijent ima ponuđenu opciju `Zakaži trening`.
+        \item Klijent ima ponuđenu padajuću listu sa grupnim treninzima.
         \item Na osnovu ponuđenih termina grupnih treninga, klijent bira trening.
-        \item Sistem ažurira podatke o prijavljanim treninzima datog klijenta
+        \item Klijent ima ponuđenu opciju `Sačuvaj`.
+        \item Klijent odabira ponuđenu opciju `Sačuvaj`.
+        \item Sistem ažurira podatke o prijavljanim treninzima datog klijenta.
         \item Smanjuje se broj slobodnih mesta za dati trening (od maksimalnog kapaciteta za zadati grupni trening).
     \end{enumerate}\\
 \hline
     Alternativni tokovi & 
        \begin{enumerate}
-        \item Neispravni podaci u prijavi. Ukoliko klijent prilikom prijave na sistem, u koraku 1, unese pogrešne podatke
+        \item Neispravni podaci u prijavi. Ukoliko klijent prilikom prijave na sistem, u koraku 1, unese pogrešne podatke:
             \begin{enumerate}
                 \item Klijent dobija poruku da je prijavljivanje neuspešno.
-                \item Klijent se preusmerava na korak 1 osnovnog toka
+                \item Klijent se preusmerava na korak 1 osnovnog toka.
             \end{enumerate}    
-        \item Kapacitet grupnog treninga je popunjen u trenutku prijave
+        \item Kapacitet grupnog treninga je popunjen u trenutku prijave:
             \begin{enumerate}
-                \item Klijent dobija poruku da je kapacitet grupnog treninga popunjen
-                \item Klijent se preusmerava na korak 4 osnovnog toka
+                \item Klijent dobija poruku da je kapacitet grupnog treninga popunjen.
+                \item Klijent se preusmerava na korak 4 osnovnog toka.
             \end{enumerate}
-        \item Klijentu ne odgovara ni jedan termin grupnog treninga za koji nije popunjen kapacitet. Klijent se neće prijavljivati ni na jedan grupni trening, slučaj upotrebe se završava
+        \item Klijentu ne odgovara ni jedan termin grupnog treninga za koji nije popunjen kapacitet. Klijent se neće prijavljivati ni na jedan grupni trening, slučaj upotrebe se završava.
         
     \end{enumerate}\\
 \hline
