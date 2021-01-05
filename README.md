@@ -6,7 +6,7 @@ Informacioni sistem za teretatnu je kreiran sa ciljem da olakša vođenje eviden
 
 [Link ka Overleaf projektu.](https://www.overleaf.com/project/5facfb727bd15b8fa1daf003)
 
-[Video koji demonstrira rad aplikacije.](https://youtu.be/y2RbeN3g6Ok)
+[Video koji demonstrira rad aplikacije.](https://youtu.be/SbIg4ylzBz8)
 
 ## Autori:
 
