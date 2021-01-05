@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { TreneriComponent } from './treneri/treneri.component';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -27,6 +29,8 @@ import { Paket130Component } from './paket_1_30/paket_1_30.component';
 import { Paket230Component } from './paket_2_30/paket_2_30.component';
 import { Paket330Component } from './paket_3_30/paket_3_30.component';
 import { KupovinaPaketaComponent } from './kupovina_paketa/kupovina_paketa.component';
+import { KupovinaPaketaIgraoniceComponent } from './kupovina_paketa_igraonice/kupovina_paketa_igraonice.component';
+
 import { PaketDeciji12TerminaComponent } from './igraonica_paketi/paket_deciji_12_termina/paket_deciji_12_termina.component';
 import { PaketPS12TerminaComponent } from './igraonica_paketi/paket_PS_12_termina/paket_PS_12_termina.component';
 import { PaketPS30TerminaComponent } from './igraonica_paketi/paket_PS_30_termina/paket_PS_30_termina.component';
@@ -65,6 +69,7 @@ import { RezultatiIspitaComponent } from './licence/rezultati-ispita/rezultati-i
     Paket130Component,
     Paket230Component,
     Paket330Component,
+    TreneriComponent,
     KupovinaPaketaComponent,
     PaketDeciji12TerminaComponent,
     PaketPS12TerminaComponent,
@@ -88,7 +93,8 @@ import { RezultatiIspitaComponent } from './licence/rezultati-ispita/rezultati-i
     OtkazivanjeTakmicenjaComponent,
     IzmenaTakmicenjaComponent,
     IgraonicaPonudeComponent,
-    RezultatiIspitaComponent
+    RezultatiIspitaComponent,
+    KupovinaPaketaIgraoniceComponent
   ],
   imports: [
     BrowserModule,

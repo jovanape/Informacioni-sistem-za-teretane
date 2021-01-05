@@ -1,0 +1,48 @@
+<div id="spoljasnji">
+<form action="index.html" method="post">
+
+  <h1>Kupovina paketa</h1>
+  
+  <fieldset>
+    <legend>Osnovne informacije</legend>
+    <label for="name">Ime i prezime:</label>
+    <input type="text" id="name" name="user_name">
+    
+    <label for="mail">Email:</label>
+    <input type="email" id="mail" name="user_email">
+    
+    <label for="password">Broj telefona:</label>
+    <input type="password" id="password" name="user_password">
+    
+    <label for="password">Broj dece:</label>
+    <input type="password" id="password" name="user_password">
+
+    <label for="job">Lokacija Vaše teretane:</label>
+  <select id="job" name="user_job">
+    <optgroup label="Beograd">
+      <option value="lokacija1">Lokacija 1</option>
+      <option value="lokacija2">Lokacija 2</option>
+      <option value="lokacija3">Lokacija 3</option>
+      <option value="lokacija4">Lokacija 4</option>
+      <option value="lokacija5">Lokacija 5</option>
+      <option value="lokacija6">Lokacija 6</option>
+    </optgroup>
+    <optgroup label="Novi Sad">
+      <option value="lokacija_7">Lokacija 7</option>
+      <option value="lokacija_8">Lokacija 8</option>
+      <option value="lokacija_9">Lokacija 9</option>
+    </optgroup>
+    <optgroup label="Kragujevac">
+      <option value="lokacija10">Lokacija 10</option>
+      <option value="lokacija11">Lokacija 11</option>
+    </optgroup>
+    <optgroup label="Drugo">
+      <option value="lokacija12">Lokacija 12</option>
+      <option value="lokacija13">Lokacija 13</option>
+    </optgroup>
+  </select>
+  </fieldset>
+    <button [routerLink]="['/forma_za_placanje']" class="btn btn-primary btn-block btn_clr" type="submit">Nastavi kupovinu</button>
+    <button [routerLink]="['/pocetna']" class="btn btn-primary btn-block btn_clr" type="submit">Odustani</button>
+</form>
+</div>

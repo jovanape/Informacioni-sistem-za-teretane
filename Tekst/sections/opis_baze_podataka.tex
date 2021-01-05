@@ -38,6 +38,7 @@ Pomoću agregiranog entiteta \textit{Dolasci} vodi se evidencija o dolasku klije
 \subsubsection{Entitet Lokacija}
 
 \textit{Lokacija} predstavlja lokaciju i osnovne podatke o konkretnoj teretani iz lanca, kao što su naziv, adresa, grad, radno vreme i broj telefona.
+Entite \textit{Lokacija} sa entitetom \textit{Sala} ima One to Many relaciju predstavljena stranim ključem id\_sale. 
 
 
 \subsubsection{Entitet Paketi}
@@ -61,9 +62,6 @@ U bazi, unutar entiteta Igraonica, čuvaju se vrednosti sledećih atributa: id, 
 Entitet Igraonica\_ponude je sličan entitetu Paketi, s tim što se ovde, na osnovu podataka iz ovog entiteta, formiraju ponude za igraonicu. Svaka ponuda ima svoj jedinstveni broj, odnosno identifikator, period važenja i broj termina koji ulazi u cenu te ponude. Atributi ovog entiteta su: id, naziv, broj\_termina, period i cena. Ovaj entitet je povezan sa entitetom Uplate. Naime, kada korisnik odabere ponudu za igraonicu i uspešno izvrši plaćanje, to se beleži u entitetu Uplate, u kome se beleže i sva druga plaćanja.
 
 
-
-
-
 \subsubsection{Entitet Trening}
 
 Entitet \textit{Trening} pomoću spoljašnjih ključeva id\_vrste\_treninga i id\_lokacije čuva informacije o vrsti treninga i lokaciji na kojoj se trening održava. \textit{Trening} se specijalizuje u entitete \textit{Personalni trening} i \textit{Grupni trening}.
@@ -71,14 +69,19 @@ Entitet \textit{Trening} pomoću spoljašnjih ključeva id\_vrste\_treninga i id
 
 \subsubsection{Entitet Sala}
 
-\textit{Sala} predstavlja salu koja je odredjena lokacijom teretane i maksimalnim kapacitetom (maksimalan broj ljudi koji mogu trenirati u sali.
-
+\textit{Sala} predstavlja salu koja je odredjena lokacijom teretane i maksimalnim kapacitetom (maksimalan broj ljudi koji mogu trenirati u sali. Izmedju entiteta  \textit{Zakazan Grupni Trening} i sale postoji relacija Many to One. Prema tome postoji strani ključ id\_sale koji označava da povezuje salu sa grupnim treninzima koji se u njoj odvijaju. 
 
 \subsubsection{Entitet Grupni trening}
+\textit{Grupni trening} je vrsta entita \textit{Trening} koji održava \textit{Trener} grupi \textit{Klijenata}. Opisuje ga id\_treninga, id\_trenera i maksimalni kapacitet grupnog treninga.
 
-\textit{Grupni trening} je vrsta entita \textit{Trening} koji održava \textit{Trener} grupi \textit{Klijenata}. Opisuje ga id treninga, id trenera i maksimalni kapacitet grupnog treninga. Dok entitet \textit{Zakazani grupni}, kao i kod \textit{Treninga} ima informacije o vremenu, lokaciji i id grupnog treninga.
-Entite \textit{Prijavljeni grupni} čuva informacije o kandidatima i njihovim prijavljenim grupni treninzima.
-Entitet \textit{Probni trening} opisuje korisnike grupnih treninga koji prvi put prisustvuju i nisu registrovani korisnici. Zbog daljih provera, čuva se: JMBG, ime i prezime korisnika.
+\subsubsection{Entitet Zakazani grupni} je entitet koji će sadržati informacije o svim zakazanimm grupnim treninzima. Kao i kod \textit{Treninga} ima informacije o vremenu (početku i kraju treninga), id\_sale i id\_grupnog. Između entiteta \textit{Grupni trening} i \textit{Zakazani Grupni Treninga} postoji relacija One to Many predstavljena spoljnim ključem id\_grupnog.
+
+\subsubsection{Entitet Prijavljeni grupni} 
+Entit \textit{Prijavljeni grupni} čuva informacije o kandidatima i njihovim prijavljenim grupni treninzima. Između entiteta \textit{Grupni trening} i \textit{Prijavljeni grupni} postoji relacija One to Many predstavljena spoljnim ključem id\_grupnog. Dok između entiteta \textit{Klijent} i \textit{Prijavljeni grupni} postoji relacija One to Many predstavljena spoljnim ključem id\_klijenta.
+
+
+\subsubsection{Entitet Probni trening} 
+Entitet \textit{Probni trening} opisuje korisnike grupnih treninga koji prvi put prisustvuju i nisu registrovani korisnici. Zbog daljih provera, čuva se: JMBG, ime i prezime korisnika. Između entiteta \textit{Grupni trening} i \textit{Probni grupni} postoji relacija One to Many predstavljena spoljnim ključem id\_grupnog.
 
 \subsubsection{Entitet Personalni trening}
 

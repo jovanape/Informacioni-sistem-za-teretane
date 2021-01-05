@@ -3,7 +3,8 @@
 @import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 .section {
-    background-image: url('../assets/images/programi_pozadina.jpg');
+    /*background-image: url('../assets/images/programi_pozadina.jpg');*/
+    background-color: white;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
