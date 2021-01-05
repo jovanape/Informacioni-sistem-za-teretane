@@ -4,7 +4,7 @@
   <h1>Kupovina paketa</h1>
   
   <fieldset>
-    <legend><span class="number">1</span>Osnovne informacije</legend>
+    <legend>Osnovne informacije</legend>
     <label for="name">Ime i prezime:</label>
     <input type="text" id="name" name="user_name">
     
@@ -14,6 +14,9 @@
     <label for="password">Broj telefona:</label>
     <input type="password" id="password" name="user_password">
     
+    <label for="password">Broj dece:</label>
+    <input type="password" id="password" name="user_password">
+
     <label for="job">Lokacija Vaše teretane:</label>
   <select id="job" name="user_job">
     <optgroup label="Beograd">
@@ -38,30 +41,8 @@
       <option value="maintenance">Lokacija 13</option>
     </optgroup>
   </select>
-
-  </fieldset>
-  
-  <!-- <fieldset> -->
-    <legend><span class="number">2</span>Odabir usluga</legend>
-    <!--<label for="bio">Biografija</label>
-    <textarea id="bio" name="user_bio"></textarea>-->
-  <!-- </fieldset> -->
-  <fieldset>
-    <label style = "line-height:230%;">Vrsta programa</label>
-    <input type="radio" id="samostalni" value="samostalni_trening" name="program"><label for="samostalni_trening" class="light">Samostalni trening + grupni fitnes</label><br>
-    <input type="radio" id="individualni" value="individualni_trening" name="program"><label for="individualni_trening" class="light">Individualni trening + grupni fitnes</label>
-    <!--
-    <label>Interests:</label>
-    <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light" for="development">Development</label><br>
-    <input type="checkbox" id="design" value="interest_design" name="user_interest"><label class="light" for="design">Design</label><br>
-    <input type="checkbox" id="business" value="interest_business" name="user_interest"><label class="light" for="business">Business</label>
-  -->
-    <label style = "line-height:230%;">Usluge igraonice</label>
-    <input type="radio" id="igraonica_d" value="igraonica_da" name="igraonica"><label for="igraonica_da" class="light">Da</label><br>
-    <input type="radio" id="igraonica_n" value="igraonica_ne" name="igraonica"><label for="igraonica_ne" class="light">Ne</label>
   </fieldset>
     <button [routerLink]="['/forma_za_placanje']" class="btn btn-primary btn-block btn_clr" type="submit">Nastavi kupovinu</button>
     <button [routerLink]="['/pocetna']" class="btn btn-primary btn-block btn_clr" type="submit">Odustani</button>
-
 </form>
 </div>

@@ -10,8 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class KupovinaPaketaComponent implements OnInit {
 
     constructor() { }
-  
+
+    
+
     ngOnInit(): void {
     }
   
   }
+
