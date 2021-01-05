@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { TreneriComponent } from './treneri/treneri.component';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -67,6 +69,7 @@ import { RezultatiIspitaComponent } from './licence/rezultati-ispita/rezultati-i
     Paket130Component,
     Paket230Component,
     Paket330Component,
+    TreneriComponent,
     KupovinaPaketaComponent,
     PaketDeciji12TerminaComponent,
     PaketPS12TerminaComponent,
