@@ -3,6 +3,7 @@
 <div *ngIf="!jeUlogovan()">
     <app-programi></app-programi>
     <app-promo-deo></app-promo-deo>
+    <app-treneri></app-treneri>
     <app-igraonica_ponude></app-igraonica_ponude>
 </div>
 
@@ -16,6 +17,7 @@
 <div *ngIf="jeUlogovanKlijent()">
     <app-programi></app-programi>
     <app-treninzi></app-treninzi>
+    <app-treneri></app-treneri>
     <app-licence></app-licence>
     <app-igraonica_ponude></app-igraonica_ponude>
 </div>
@@ -40,11 +42,6 @@
 
 <!-- Svi vide neku verziju ovoga -->
 <app-takmicenja></app-takmicenja>
-
-<!-- Ne brisati ovaj komentar. -->
-<app-programi></app-programi>
-<app-treneri></app-treneri>
-<app-igraonica_ponude></app-igraonica_ponude>
 
 <div *ngIf="!jeUlogovan()">
     <app-info></app-info>
