@@ -22,6 +22,7 @@
    \begin{enumerate}
         \item Personalni trener ima pristup internetu
         \item Personalni trener ima svoj nalog na sistemu
+        \item Personalni trener je prijavljen na sistem
     \end{enumerate}\\
 \hline  
     Postuslovi &
@@ -31,7 +32,6 @@
 \hline
     Osnovni tok & 
     \begin{enumerate}
-        \item Personalni trener se prijavljuje na sistem
         \item Personalni trener odlazi na svoju stranicu na sistemu.
         \item Personalni trener pristupa delu stranice u kom se nalazi njegov raspored treninga.
         \item Personalni trener dodaje novu stavku u svoj raspored tako što unosi dan, sat početka i sat završetka treninga, kao i lokaciju na kojoj se trening održava.
@@ -63,6 +63,7 @@
    Preduslovi & \begin{enumerate}
     \item Personalni trener ima pristup internetu
     \item Personalni trener ima svoj nalog na sistemu
+    \item Personalni trener je prijavljen na sistem
     \item Personalni trener ima slobodne termine u svom rasporedu
     \end{enumerate} \\
 \hline  
@@ -73,7 +74,6 @@
 \hline
     Osnovni tok & 
     \begin{enumerate}
-    \item Personalni trener se prijavljuje na sistem
     \item Personalni trener odlazi na svoju stranicu na sistemu
     \item Personalni trener pristupa delu stranice u kom se nalazi njegov raspored treninga
     \item Personalni trener briše slobodan termin tako što bira opciju 'Ukloni' koja se nalazi pored datog slobodnog termina
@@ -250,8 +250,8 @@
 \hline
     Alternativni tokovi & 
     \begin{itemize}
-    \item[A7.1] Nema slobodnih termina. Ukoliko u koraku 6 nema slobodnih termina u rasporedu treninga odabranog trenera, recepcioner obaveštava korisnika o tome i govori mu da izabere drugog trenera. Slučaj upotrebe se vraća na korak 5.
-    \item[A7.2] Klijentu ne odgovaraju slobodni termini. Ukoliko u koraku 6 ima slobodnih termina u rasporedu treninga odabranog trenera, ali klijentu ne odgovara nijedan, klijent govori recepcioneru da mu ne odgovara nijedan ponuđeni termin i da želi da izabere drugog trenera. Slučaj upotrebe se vraća na korak 5.
+    \item[A7.1] Nema slobodnih termina. Ukoliko u koraku 7 nema slobodnih termina u rasporedu treninga odabranog trenera, recepcioner obaveštava korisnika o tome i govori mu da izabere drugog trenera. Slučaj upotrebe se vraća na korak 6.
+    \item[A7.2] Klijentu ne odgovaraju slobodni termini. Ukoliko u koraku 7 ima slobodnih termina u rasporedu treninga odabranog trenera, ali klijentu ne odgovara nijedan, klijent govori recepcioneru da mu ne odgovara nijedan ponuđeni termin i da želi da izabere drugog trenera. Slučaj upotrebe se vraća na korak 6.
     \item[A7.3] Klijentu ne odgovara nijedan slobodan termin nijednog personalnog trenera. Ukoliko ponavljanjem koraka 6 i 7 klijent ne pronađe termin koji mu odgovara, onda neće zakazati prisustvo nijednom treningu te nedelje. Slučaj upotrebe se završava.
    \end{itemize}\\
 \hline
