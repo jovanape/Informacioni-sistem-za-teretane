@@ -25,25 +25,29 @@
 \hline
     Osnovni tok & 
     \begin{enumerate}
-        \item Grupni trener se prijavljuje na sistem
+        \item Grupni trener se prijavljuje na sistem.
         \item Grupni trener odlazi na svoju stranicu na sistemu.
-        \item Grupni trener pristupa delu stranice u kome se nalazi spisak njegov grupnih raspored treninga.
-        \item Grupni trener iz spiska bira trening koji želi da ažurira.
-        \item Grupni trener ažurira salu grupnog treninga.
+        \item Grupni trener pristupa delu stranice u kom se nalazi tabela sa rasporedom njegov grupnih treninga.
+        \item Grupni trener označava zakazan grupni trening koji želi da ažurira.
+        \item Grupni trener ažurira vreme grupnog treninga.
+        \item Grupnom treneru se pojavljuju opcije `Otkaži Grupni Trening`, `Ažuriranje termina`, `Ažuriranje sale`,`Ažuriranje broja korisnika`, `Prikaži Prijavljene Korisnike`.
+        \item Grupni treneru klikne na opciju `Ažuriranje sale`. 
+        \item Grupni trener ažurira salu grupnog treninga tako što iz padajuće liste izabere jednu od ponuđenih sala za datu lokaciju.
+        \item Grupni trener bira opciju `Sačuvaj`.
         \item Sistem čuva informaciju o izboru, ažurira lični raspored grupnog trenera i označava da je druga sala rezervisana, rezervacija prethodne sale se briše iz sistema.
     \end{enumerate}\\
 \hline
     Alternativni tokovi & 
        \begin{enumerate}
-        \item Nova sala je nedostupna u datom vremenskom slotu. 
+        \item Nova sala je nedostupna u datom vremenskom slotu: 
             \begin{enumerate}
-                \item Grupni trener dobija obavestenje da njegovo ažuriranje termina treninga nije uspešno
-                \item Grupni trener se preusmerava na korak 3 osnovnog toka
+                \item Grupni trener dobija obavestenje da njegovo ažuriranje termina treninga nije uspešno.
+                \item Grupni trener se preusmerava na korak 3 osnovnog toka.
             \end{enumerate}
-        \item Maksimalni kapacitet nove sale je manji od željenog za dati grupni trening
+        \item Maksimalni kapacitet nove sale je manji od željenog za dati grupni trening:
             \begin{enumerate}
-                \item Grupni trener dobija obavestenje da njegovo ažuriranje termina treninga nije uspešno
-                \item Grupni trener se preusmerava na korak 3 osnovnog toka
+                \item Grupni trener dobija obavestenje da njegovo ažuriranje termina treninga nije uspešno.
+                \item Grupni trener se preusmerava na korak 3 osnovnog toka.
             \end{enumerate}
     \end{enumerate}\\
 \hline
