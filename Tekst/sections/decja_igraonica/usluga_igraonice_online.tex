@@ -5,18 +5,17 @@
 
 \begin{longtable}{| p{.20\textwidth} | p{.80\textwidth} |} 
 \hline
-    Kratak opis & Klijent online bira igraonicu čije će usluge moći da koristi. Klijent bira vrstu igraonice, broj termina, kao i druge opcije, ukoliko ima dece i želi da ona (ono) borave (boravi) u igraonici za vreme njegovog treninga. \\ 
+    Kratak opis & Klijent online bira igraonicu čije će usluge moći da koristi. Klijent bira vrstu igraonice, broj termina, kao i druge opcije, ukoliko ima dece i želi da ona/ono borave/boravi u igraonici za vreme njegovog treninga. \\ 
 \hline    
     Učesnici &
     \begin{itemize}
-        \item Klijent koji želi da 
- odabere igraonicu.
+        \item Klijent koji želi da odabere igraonicu.
     \end{itemize}\\
 \hline
    Preduslovi &
    \begin{itemize}
         \item Sistem je u funkciji.
-        \item Korisnik je registrovan u sistemu (korisnik je klijent).
+        \item Korisnik je registrovan u sistemu (korisnik je klijent) i prijavljen je na sistem.
     \end{itemize}\\
 \hline  
     Postuslovi & 
@@ -26,16 +25,16 @@
 \hline
     Osnovni tok & 
     \begin{enumerate}
-        \item Klijent se prijavljuje na sistem.
         \item Klijent odlazi na stranicu posvećenu igraonicama za decu.
-        \item Klijent bira vrstu igraonice čije usluge želi da koristi (u skladu sa lokacijom igraonice odnosno teretane).
+        \item Klijent bira vrstu igraonice čije usluge želi da koristi.
+        % u skladu sa lokacijom bira igraonicu, cita se lokacija iz baze
         \item Klijent čita detaljne informacije o izabranoj igraonici kao i o tome koji uslovi moraju biti ispoštovani da bi se usluga te igraonice koristila.
         \item Klijent bira opciju za kupovinu termina za datu igraonicu.
         \item Sistem prikazuje formular koji klijent treba da popuni.
-        \item Klijent popunjava formular tako što unosi broj dece, broj termina i ostale tražene podatke.
+        \item Klijent popunjava formular tako što unosi broj dece i ostale tražene podatke.
         \item Klijent potvrđuje unete podatke i nastavlja proces.
         \item Sistem proverava da li su uneti podaci ispravni, računa ukupnu cenu na osnovu unetih podataka i ispisuje je klijentu.
-        \item Klijent potvrđuje cenu i bira opciju da nastavi dalje. 
+        \item Klijent potvrđuje da nastavlja dalje. 
         \item Sistem čuva izmene. Klijent je uspešno odabrao igraonicu. % sledi naplaćivanje.
         
         %\item Klijent izvršava plaćanje klikom na dugme za potvrdu plaćanja.
@@ -64,7 +63,7 @@
 \hline
     Dodatne informacije &
     \begin{enumerate}
-        \item Informacije koje klijent unosi u formular su ime, prezime, username, tip igraonice, broj termina, broj dece.
+        \item Informacije koje klijent unosi u formular su ime i prezime, e-mail, broj telefona, broj dece, lokaciju teretane.
         % broj članske karte,
         % Da li ima potrebe da unosi username s obzirom da je ulogovan?
         % , broj platne kartice korisnika, datum isteka platne kartice i CVV kod platne kartice.
