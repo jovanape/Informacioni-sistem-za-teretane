@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Feedback } from '../model/feedback.model';
@@ -36,6 +37,19 @@ export class RasporedComponent implements OnInit {
   public azurirajBrojKorisnikaForma: FormGroup;
   public noviTreningForma: FormGroup;
   public azurirajVremeForma: FormGroup;
+
+  public pomBrKorisnika:number = 0;
+  public pomBrSale:string = "";
+  public pomTreningDan:string = "";
+  public pomTreningPocetak:string = "";
+  public pomTreningKraj:string = "";
+  
+  public pomNoviDan:string = "";  
+  public pomNoviPocetak:string = "";  
+  public pomNoviKraj:string = "";  
+  public pomNoviBrKorisnika:string = "";  
+  public pomNoviSala:string = "";
+
 
   public klijentPrijavljenNaPersonalni:string = "Petar Petrović";
   //public klijentPrijavljenNaPersonalni:string = ""; /* oznacava da je termin slobodan */
@@ -99,11 +113,11 @@ export class RasporedComponent implements OnInit {
 
     this.listaSala1 = [];
     this.listaSala = [
-      "Teretana Zevs : Sala Sava, Adresa: Jurija Gagarina 100, radno vreme: 24h",
-      "Teretana Zevs : Sala Dunav, Adresa: Jurija Gagarina 100, radno vreme: 24h",
-      "Teretana Zevs : Sala Tisa, Adresa: Jurija Gagarina 100, radno vreme: 24h",
-      "Teretana Zevs : Sala Morava, Adresa: Jurija Gagarina 100, radno vreme: 24h",
-      "Teretana Zevs : Sala Jasenica, Adresa: Jurija Gagarina 100, radno vreme: 24h"
+      "1) Teretana Zevs : Sala Sava, Adresa: Jurija Gagarina 100, radno vreme: 24h",
+      "2) Teretana Zevs : Sala Dunav, Adresa: Jurija Gagarina 100, radno vreme: 24h",
+      "3) Teretana Zevs : Sala Tisa, Adresa: Jurija Gagarina 100, radno vreme: 24h",
+      "4) Teretana Zevs : Sala Morava, Adresa: Jurija Gagarina 100, radno vreme: 24h",
+      "5) Teretana Zevs : Sala Jasenica, Adresa: Jurija Gagarina 100, radno vreme: 24h"
     ];
     this.inicijalizacijaSala();
     this.saleToString();
@@ -243,7 +257,6 @@ export class RasporedComponent implements OnInit {
     }
 
     //Unosimo iz baze trenera
-    console.log("rasporedTrenera.length: " + this.rasporedTrenera.length);
     for(let i = 0; i < this.rasporedTrenera.length; i++) {
       const entry = this.rasporedTrenera[i]; 
 
@@ -377,33 +390,32 @@ export class RasporedComponent implements OnInit {
   }
 
   zakaziTrening() {
-    if (!this.noviTreningForma.valid) {
-      return;
-    }
 
     const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
-    const data = this.noviTreningForma.value;
-    let tekst:number = Number(data.novaSala.substr(0,1));
+    //const data = this.noviTreningForma.value;
+    let idSale:number = Number(this.pomNoviSala.substr(0,1));
 
     //Ovako jer je dosadan kompajler, inace nikad nije undefined
-    let sel: SalaInfo | undefined = this.listaSala1.find(salai=> salai.idSale === tekst);
+    let sel: SalaInfo | undefined = this.listaSala1.find(salai=> salai.idSale === idSale);
     let selektovanaSala: SalaInfo = sel !== undefined ? sel : new SalaInfo(0, "", "", "", "", 0, 0, "", 0);
     
     //TODO napravi lepo datume
     var zakazano:ZakazaniTrening = new ZakazaniTrening(
-      new Trening(10, selektovanaSala.idSale, data.pocetakTreninga, data.zavrsetakTreninga, 1),
-      new Sala(selektovanaSala.idSale, selektovanaSala.nameSale, 1, selektovanaSala.capacitySale)
+      new Trening(10, selektovanaSala.idSale, this.pomNoviPocetak, this.pomNoviKraj, 1),
+      new Sala(selektovanaSala.idSale, selektovanaSala.nameSale, selektovanaSala.idLokacije, selektovanaSala.capacitySale)
     );
     var noviTrening: TrenerovTrening = new TrenerovTrening(
       selektovanaSala.capacitySale,
       zakazano
     );
 
-    this.treningService.addNewTraining(idZaposlenog, 10, noviTrening)
-    .subscribe(abl=>{
-      this.rasporedTrenera.push(noviTrening);
-      this.popuniTabelu(this.danUnedelji);
-    });
+    this.treningService.addNewTraining(idZaposlenog, 10, noviTrening);
+
+    console.log("dodajemo novi termin u mapu");
+    let term:string = this.pomNoviPocetak + " - "+ this.pomNoviKraj;
+    console.log(this.selektovan[1][0]);
+    this.mapa.push([this.pomNoviDan, [this.selektovan[1][0], term]]);
+    this.popuniTabelu(this.danUnedelji);
   }
 
   // TODO napravi da se poziva samo jedan od ova dva, zavisno koji je selektovan
@@ -430,7 +442,7 @@ export class RasporedComponent implements OnInit {
   // ------------------------------------ Inicijalizacije listi BEGIN ------------------------------------
 
   inicijalizacijaListeKorisnika() {
-    var sub2 = this.treningService.getRegistratedToTraining(1) //this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.id
+    var sub2 = this.treningService.getRegistratedToTraining(this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.id + 1)
       .subscribe((korisnici:Korisnici[]) => {
         for(const korisnik of korisnici) {
           const niska = korisnik.name + " " + korisnik.lastName;
@@ -450,8 +462,6 @@ export class RasporedComponent implements OnInit {
           lokac.push(lok);
         }
     });
-
-    console.log("Inicijalizacija sala, lokac.length: " + lokac.length);
 
     // 2) izlistamo sve sale na lokacijama
     for(const lok of lokac) {
@@ -582,47 +592,51 @@ export class RasporedComponent implements OnInit {
 
 
   public azuriranjeSale(): void {
-    if (!this.azurirajSaluForma.valid) {
-      return;
-    }
+    console.log("Usli u azuriranje korisnika");
+    console.log(this.pomBrSale);
 
-    const data = this.azurirajSaluForma.value;
-    let tekst:number = Number(data.izaberiSalu.substr(0,1));
+    //const data = this.azurirajSaluForma.value;
+    let tekst:number = Number(this.pomBrSale.substr(0,1));
 
     let selektovanaSala: SalaInfo | undefined = this.listaSala1.find(salai=> salai.idSale === tekst);
-    if(selektovanaSala === undefined){
-      //treba sira pretraga da se vrsi, mada nije hitno
-      //ovde se azurira i id lokacije
-    } else {
+    if(selektovanaSala !== undefined && tekst !== NaN){
       this.selektovaniTrening.capacity = selektovanaSala.capacitySale;
       this.selektovaniTrening.scheduledGroupTraining.hall.capacity = selektovanaSala.capacitySale;
       this.selektovaniTrening.scheduledGroupTraining.hall.id = selektovanaSala.idSale;
+      this.selektovaniTrening.scheduledGroupTraining.hall.locationId = selektovanaSala.idLokacije;
       this.selektovaniTrening.scheduledGroupTraining.hall.name = selektovanaSala.nameSale;
+      this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.hallId = selektovanaSala.idSale;
     }
     
     const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
 
     this.treningService
-      .updateTraining(idZaposlenog, this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.id, this.selektovaniTrening);
+      .updateTraining(idZaposlenog, this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.id + 1, this.selektovaniTrening);
     
       this.popuniTabelu(this.danUnedelji);
   }
 
   azuriranjeKorisnika() {
-    if (!this.azurirajBrojKorisnikaForma.valid) {
+    console.log("Usli u azuriranje korisnika");
+    console.log(this.pomBrKorisnika);
+
+    //const data = this.azurirajBrojKorisnikaForma.value;
+    let noviBroj:number = Number(this.pomBrKorisnika);
+
+    if(isNaN(noviBroj)){
       return;
     }
 
-    const data = this.azurirajBrojKorisnikaForma.value;
-    let noviBroj:number = Number(data.brojKorisnika);
-
-    this.selektovaniTrening.capacity = noviBroj;
-    const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
-
-    this.treningService
-      .updateTraining(idZaposlenog, this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.id, this.selektovaniTrening);
+    if(this.selektovaniTrening.capacity !== 0) {
+      this.rasporedTrenera[this.rasporedTrenera.indexOf(this.selektovaniTrening)].capacity = noviBroj;
+      this.selektovaniTrening.capacity = noviBroj;
+      const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
+  
+      this.treningService
+        .updateTraining(idZaposlenog, this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.id + 1, this.selektovaniTrening);
     
-    this.popuniTabelu(this.danUnedelji);
+        this.popuniTabelu(this.danUnedelji);
+    }
   }
 
   azuriranjeVremenaTreninga() {
@@ -631,25 +645,90 @@ export class RasporedComponent implements OnInit {
       azurirajPocetak: ['', [Validators.required]],
       azurirajKraj: ['', [Validators.required]]
     });
-
-    if (!this.azurirajVremeForma.valid) {
-      return;
-    }
-
-    const data = this.azurirajVremeForma.value;
+    console.log("Usli u azuriranje korisnika");
+    console.log(this.pomTreningDan);
+    console.log(this.pomTreningPocetak);
+    console.log(this.pomTreningKraj);
     const idZaposlenog:number = this.korisnikService.vratiIdZaposlenog();
 
-    //treba komplikovanije cuvanje , da ukljucuje i dan, osim vremena
-    this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.startTime = data.azurirajPocetak;
-    this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.endTime = data.azurirajKraj;
+    let t:string = this.pomTreningPocetak + "-"+ this.pomTreningKraj;
 
+    if(this.selektovaniTrening.capacity !== 0) {
+      this.rasporedTrenera.splice( this.rasporedTrenera.indexOf(this.selektovaniTrening) , 1);
+
+      this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.startTime = this.pomTreningPocetak;
+      this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.endTime = this.pomTreningKraj;
+
+      this.treningService
+      .updateTraining(idZaposlenog, this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.id + 1, this.selektovaniTrening);
     
-    this.treningService
-      .updateTraining(idZaposlenog, this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.id, this.selektovaniTrening);
+      this.mapa.push([this.pomTreningDan,[(this.selektovaniTrening.scheduledGroupTraining.scheduledGroupTraining.groupId+1).toString(), t] ]);
     
+    } else {
+      this.obrisani.push(this.selektovan);
+      this.mapa.push([this.pomTreningDan,[this.selektovan[1][0], t] ]);
+    }
+
+
+
     this.popuniTabelu(this.danUnedelji);
 
   }
+
+  azurirajBrKorisnika(event:Event) {
+    this.pomBrKorisnika = Number( (<HTMLInputElement>event.target).value);
+  }
+  //"Teretana Zevs : Sala Jasenica, Adresa: Jurija Gagarina 100, radno vreme: 24h"
+  azurirajIzabranuSalu(event:Event) {
+    this.pomBrSale = (<HTMLInputElement>event.target).value;
+  }
+
+  azurirajTreningDan(event:Event) {
+    this.pomTreningDan = (<HTMLInputElement>event.target).value;
+  }
+  azurirajTreningPocetak(event:Event) {
+    this.pomTreningPocetak = (<HTMLInputElement>event.target).value;
+  }
+  azurirajTreningKraj(event:Event) {
+    this.pomTreningKraj = (<HTMLInputElement>event.target).value;
+  }
+
+  azurirajNoviDan(event:Event) {
+    this.pomNoviDan = (<HTMLInputElement>event.target).value;
+  }
+  azurirajNoviPocetak(event:Event) {
+    this.pomNoviPocetak = (<HTMLInputElement>event.target).value;
+  }
+  azurirajNoviKraj(event:Event) {
+    this.pomNoviKraj = (<HTMLInputElement>event.target).value;
+  }
+  azurirajNoviBrKorisnika(event:Event) {
+    this.pomNoviBrKorisnika = (<HTMLInputElement>event.target).value;
+  }
+  azurirajNoviSala(event:Event) {
+    this.pomNoviSala = (<HTMLInputElement>event.target).value;
+  }
+
+  
+  odrediDan(dan:string): number {
+    if(dan.toLowerCase().startsWith("po")) {
+      return 1;
+    } else if(dan.toLowerCase().startsWith("u")) {
+      return 2;
+    } else if(dan.toLowerCase().startsWith("sr")) {
+      return 3;
+    } else if(dan.toLowerCase().startsWith("c") || dan.toLowerCase().startsWith("č")) {
+      return 4;
+    } else if(dan.toLowerCase().startsWith("pe")) {
+      return 5;
+    } else if(dan.toLowerCase().startsWith("su")) {
+      return 6;
+    } else {
+      return 0;
+    }
+  }
+
+
   // ------------------------------------ Update END ------------------------------------
 
 

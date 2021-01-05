@@ -42,7 +42,6 @@ export class KorisnikService {
 
   public postaviUsername(username: string) {
     this.username = username;
-    console.log("Postavljen username na: " + this.username);
   }
 
   public proveriLozinku(pass: string): boolean {

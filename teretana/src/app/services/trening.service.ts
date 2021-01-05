@@ -26,16 +26,19 @@ export class TreningService {
   //"group-trainings/schedule/{trainerId}/{groupTrainingId}"
 
   public addNewTraining(trainerId: number, trainingId: number, data:TrenerovTrening){
+    console.log("saljemo zahtev: " + this.groupTrainingsUrl + "schedule/" + trainerId + "/" + trainingId);
     return this.http.post<TrenerovTrening>(this.groupTrainingsUrl + "schedule/" + trainerId + "/" + trainingId, data);
   }
 
   //Ako sam dobro skapirala i update je post metod, dole su verzije sa patch i to za svaku stavku ponaosob
   //"group-trainings/update/{trainerId}/{groupTrainingId}"
   public updateTraining(trainerId:number, trainingId:number, data:TrenerovTrening){
+    console.log("saljemo zahtev: " + this.groupTrainingsUrl + "update/" + trainerId + "/" + trainingId);
     return this.http.post<TrenerovTrening>(this.groupTrainingsUrl + "update/" + trainerId + "/" + trainingId, data);
   }
 
   public deleteTraining(trainerId:number, trainingId:number, data:TrenerovTrening){
+    console.log("saljemo zahtev: " + this.groupTrainingsUrl + "remove/" + trainerId + "/" + trainingId);
     return this.http.post<TrenerovTrening>(this.groupTrainingsUrl + "remove/" + trainerId + "/" + trainingId, data);
   }
 

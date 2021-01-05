@@ -55,6 +55,7 @@
                                 id="noviDan"
                                 class="form-control"
                                 placeholder="ponedeljak" 
+                                (keyup)="azurirajNoviDan($event)"
                                 />
                             </div>
 
@@ -65,7 +66,8 @@
                                 name="pocetakTreninga"
                                 id="pocetakTreninga"
                                 class="form-control"
-                                placeholder="10:00AM" 
+                                placeholder="10:00AM"
+                                (keyup)="azurirajNoviPocetak($event)" 
                                 />
                             </div>
 
@@ -77,6 +79,7 @@
                                 id="zavrsetakTreninga"
                                 class="form-control"
                                 placeholder="12:00AM" 
+                                (keyup)="azurirajNoviKraj($event)"
                                 />
                             </div>
 
@@ -88,6 +91,7 @@
                                 id="noviBrojKorisnika"
                                 class="form-control"
                                 placeholder="25" 
+                                (keyup)="azurirajNoviBrKorisnika($event)"
                                 />
                             </div>
 
@@ -103,6 +107,7 @@
                                 class="form-control"
                                 placeholder="sala 1"
                                 list="sale1"
+                                (keyup)="azurirajNoviSala($event)"
                                 />
                                 <datalist id="sale1">
                                     <option *ngFor="let sala of listaSala" value="{{sala}}">
@@ -113,6 +118,7 @@
                                 class="btn col-lg-3"
                                 type="submit"
                                 style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;"
+                                (action)="zakaziTrening()"
                                 >
                                 Sačuvaj
                             </button>
@@ -187,6 +193,7 @@
                                 id="azurirajDan"
                                 class="form-control"
                                 placeholder="ponedeljak" 
+                                (keyup)="azurirajTreningDan($event)"
                                 />
                             </div>
 
@@ -198,6 +205,7 @@
                                 id="azurirajPocetak"
                                 class="form-control"
                                 placeholder="10:00AM" 
+                                (keyup)="azurirajTreningPocetak($event)"
                                 />
                             </div>
 
@@ -209,6 +217,7 @@
                                 id="azurirajKraj"
                                 class="form-control"
                                 placeholder="12:00AM" 
+                                (keyup)="azurirajTreningKraj($event)"
                                 />
                             </div>
 
@@ -216,6 +225,7 @@
                                 class="btn col-lg-3"
                                 type="submit"
                                 style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;"
+                                (action)="azuriranjeVremenaTreninga()"
                                 >
                                 Sačuvaj
                             </button>
@@ -237,6 +247,7 @@
                             id="izaberiSalu"
                             class="form-control"
                             list="sale"
+                            (keyup)="azurirajIzabranuSalu($event)"
                             #sala
                             />
                             <datalist id="sale">
@@ -246,6 +257,7 @@
                                 class="btn col-lg-3"
                                 type="submit"
                                 style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;"
+                                (action)="azuriranjeSale()"
                                 >
                                 Sačuvaj
                             </button>
@@ -265,6 +277,7 @@
                                 id="brojKorisnika"
                                 class="form-control"
                                 placeholder="25" 
+                                (keyup)="azurirajBrKorisnika($event)"
                                 />
                             </div>
 
@@ -272,6 +285,7 @@
                                 class="btn col-lg-3"
                                 type="submit"
                                 style="background-color: #ed563b; color: white; height: 40px; margin-top: 26px;"
+                                (action)="azuriranjeKorisnika()"
                                 >
                                 Sačuvaj
                             </button>
